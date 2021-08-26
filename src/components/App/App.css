@@ -1,1 +1,32 @@
+.app {
+  max-width: 1920px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  margin: 0 auto;
+  background-color: #F0F0F0;
+}
 
+.app__container {
+  max-width: 1500px;
+  width: calc(1260 / 1440 * 100%);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1366px) {
+  .app__container {
+    width: calc(1240 / 1280 * 100%);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .app__container {
+    width: calc(942 / 1024 * 100%);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .app__container {
+    width: calc(300 / 320 * 100%);
+  }
+}
