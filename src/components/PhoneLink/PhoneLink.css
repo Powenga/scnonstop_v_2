@@ -20,8 +20,7 @@
 }
 
 .phone-link:active {
-  transform: translateY(4px);
-  border-bottom: 1px solid #fbc928;
+  transform: translateY(-4px);
 }
 
 .phone-link::after {
