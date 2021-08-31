@@ -1,0 +1,58 @@
+.appliances {
+  padding: 32px 0 64px;
+}
+
+.appliances__container {
+  margin: 64px auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: calc(10 / 12 * 100% - 2 / 12 * 32px);
+}
+
+.appliances__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-basis: 25%;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .appliances {
+    padding: 27px 0 54px;
+  }
+  .appliances__container {
+    margin-top: 54px;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  .appliances {
+    padding: 26px 0 52px;
+  }
+  .appliances__container {
+    width: 100%;
+    margin-top: 52px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .appliances__item {
+    flex-basis: 50%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .appliances__container {
+    margin-top: 40px;
+  }
+  .appliances__item {
+    flex-basis: 100%;
+    margin-bottom: 40px;
+  }
+}

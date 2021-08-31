@@ -1,0 +1,64 @@
+.app-card {
+  cursor: pointer;
+}
+
+.app-card:hover .app-card__image {
+  transform: translateY(-15px);
+}
+
+.app-card__container {
+  margin: 0;
+  padding: 0;
+  max-width: 225px;
+}
+
+.app-card__image {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 150px;
+  height: 316px;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s ease;
+}
+
+.app-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  line-height: 32px;
+  font-weight: 300;
+  text-align: center;
+  color: #27306B;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .app-card__title {
+    font-size: 26px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  .app-card__title {
+    font-size: 25px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .app-card__title {
+    font-size: 24px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .app-card__image {
+    height: auto;
+  }
+}
