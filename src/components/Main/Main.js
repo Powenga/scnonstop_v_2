@@ -3,6 +3,7 @@ import promoImgPath from '../../images/promo-img.jpg';
 import './Main.css';
 import Appliances from '../Appliances/Appliances';
 import News from '../News/News';
+import Scheme from '../Scheme/Scheme';
 
 function Main({ containerClasses, children }) {
   return (
@@ -32,6 +33,16 @@ function Main({ containerClasses, children }) {
             </p>
           </div>
         </News>
+      </section>
+      <section className="main__section main__section_type_schema">
+        <Scheme classes="app__container">
+          <div className="main__section-title-container">
+            <h2 className="main__section-title main__section-title_theme_dark">КАК МЫ РАБОТАЕМ</h2>
+            <p className="main__section-subtitle main__section-subtitle_theme_dark">
+              Познакомтесь со схемой работы
+            </p>
+          </div>
+        </Scheme>
       </section>
     </main>
   );
