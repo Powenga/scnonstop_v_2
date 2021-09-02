@@ -7,9 +7,7 @@ function CardContainer({ classes, itemClasses,  Component, cards, onCardClick })
         <li className={`card-container__item ${itemClasses && itemClasses}`}>
         <Component
           key={index}
-          imagePath={card.src}
-          value={card.value}
-          title={card.title}
+          card={card}
           onClick={onCardClick}
         />
         </li>

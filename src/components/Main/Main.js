@@ -2,6 +2,7 @@ import Promo from '../Promo/Promo';
 import promoImgPath from '../../images/promo-img.jpg';
 import './Main.css';
 import Appliances from '../Appliances/Appliances';
+import News from '../News/News';
 
 function Main({ containerClasses, children }) {
   return (
@@ -21,6 +22,16 @@ function Main({ containerClasses, children }) {
             <p className="main__section-subtitle">Начните с выбора техники</p>
           </div>
         </Appliances>
+      </section>
+      <section className="main__section main__section_type_news">
+        <News classes="app__container">
+          <div className="main__section-title-container">
+            <h2 className="main__section-title">НОВОСТИ И АКЦИИ</h2>
+            <p className="main__section-subtitle">
+              Узнайте о наших специальных предложениях
+            </p>
+          </div>
+        </News>
       </section>
     </main>
   );
