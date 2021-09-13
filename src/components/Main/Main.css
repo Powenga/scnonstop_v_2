@@ -23,6 +23,12 @@
     70% top / auto no-repeat url(../../images/scheme-bckg-img.png), #2F2F2F;
 }
 
+.main__section_type_price {
+  background-color: #fff;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+
 .main__section-title-container {
   display: flex;
   flex-direction: column;

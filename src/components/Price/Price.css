@@ -1,0 +1,227 @@
+.price {
+  padding: 32px 0 64px;
+}
+
+.price__menu {
+  padding: 0;
+  margin: 64px auto 32px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 840px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.price__menu::-webkit-scrollbar {
+  display: none;
+}
+
+.price__menu-item {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #27306B;
+  margin-right: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.price__menu-item:hover {
+  opacity: .8;
+}
+
+.price__menu-item_active {
+  font-weight: 400;
+}
+
+.price__menu-item:last-child {
+  margin-right: 0;
+}
+
+.price__container {
+  box-sizing: border-box;
+  list-style: none;
+  border-radius: 5px;
+  border: 1px solid #e1e1e1;
+  margin: 0 auto 64px;
+  padding: 32px 32px 64px;
+  width: calc(6 / 12 * 100% - 6 / 12 * 32px);
+}
+
+.price__text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #000;
+  margin: 0 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.price__price {
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.price__content {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+}
+
+.price__content_type_accent {
+  font-size: 30px;
+  color: #27306B;
+}
+
+.price__button-wrap {
+  margin: 32px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 610px;
+}
+
+.price__button {
+  flex-basis: 48%;
+}
+
+@media screen and (max-width: 1440px) {
+  .price {
+    padding: 27px 0 54px;
+  }
+  .price__menu {
+    margin: 54px auto 27px;
+  }
+  .price__menu-item {
+    font-size: 22px;
+    line-height: 27px;
+    margin-right: 27px;
+  }
+  .price__container {
+    margin-bottom: 54px;
+    padding: 27px 27px 54px;
+    width: calc(6 / 12 * 100% - 6 / 12 * 27px);
+  }
+  .price__text {
+    font-size: 22px;
+    line-height: 22px;
+    margin: 0 0 27px;
+  }
+  .price__content {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .price__content_type_accent {
+    font-size: 26px;
+  }
+  .price__button-wrap {
+    margin-top: 27px;
+    max-width: 515px;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  .price {
+    padding: 26px 0 52px;
+  }
+  .price__menu {
+    margin: 52px auto 26px;
+  }
+  .price__menu-item {
+    line-height: 26px;
+    margin-right: 26px;
+  }
+  .price__container {
+    margin-bottom: 52px;
+    padding: 26px 26px 52px;
+    width: calc(8 / 12 * 100% - 4 / 12 * 26px);
+  }
+  .price__text {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0 0 26px;
+  }
+  .price__content {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .price__content_type_accent {
+    font-size: 24px;
+  }
+  .price__button-wrap {
+    margin-top: 26px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .price__menu {
+    justify-content: flex-start;
+  }
+  .price__container {
+    width: 100%;
+  }
+  .price__button-wrap {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .price__content {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .price__content_type_accent {
+    font-size: 20px;
+  }
+  .price__button-wrap {
+    flex-direction: column;
+    max-width: calc(4 / 6 * 100% - 2 / 6 * 20px);
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .price {
+    padding: 20px 0 40px;
+  }
+  .price__menu {
+    margin: 40px auto 20px;
+  }
+  .price__menu-item {
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 20px;
+  }
+  .price__container {
+    margin-bottom: 40px;
+    padding: 20px 20px 40px;
+  }
+  .price__text {
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0 0 20px;
+  }
+  .price__content {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .price__content_type_accent {
+    font-size: 20px;
+  }
+  .price__button-wrap {
+    margin-top: 20px;
+    max-width: 100%;
+  }
+}
