@@ -3,7 +3,6 @@ import dwPath from '../images/dw-crop.jpeg';
 import refPath from '../images/ref.jpeg';
 import boilPath from '../images/boil.jpeg';
 
-
 export { priceList } from './data/price-list';
 export { newsCards } from './data/news';
 export { schemeCards } from './data/scheme';

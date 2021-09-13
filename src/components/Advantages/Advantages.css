@@ -1,0 +1,61 @@
+.advantages {
+  padding: 32px 0 64px;
+}
+
+.advantages__container {
+  margin: 64px auto 32px;
+  display: flex;
+  width: calc(10 / 12 * 100% - 2 /12 * 32px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 17%));
+  grid-auto-rows: 1fr;
+  justify-content: center;
+  gap: 32px
+}
+
+.advantages__img {
+  width: 294px;
+  height: 30px;
+  margin: 0 auto;
+  background: center / contain no-repeat url(../../images/advantages/stars.png);
+}
+
+
+@media screen and (max-width: 1440px) {
+  .advantages {
+    padding: 27px 0 54px;
+  }
+  .advantages__container {
+    width: 100%;
+    gap: 27px
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .advantages__container {
+    grid-template-columns: repeat(3, minmax(180px, 20%));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .advantages {
+    padding: 26px 0 52px;
+  }
+  .advantages__container {
+    grid-template-columns: repeat(2, minmax(180px, 20%));
+    gap: 26px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .advantages {
+    padding: 20px 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .advantages__container {
+    grid-template-columns: repeat(1, minmax(180px, 20%));
+    gap: 20px;
+  }
+}

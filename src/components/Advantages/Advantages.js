@@ -1,19 +1,20 @@
-import { schemeCards } from '../../utils/constants';
+import { advantages } from '../../utils/constants';
+import AdvantageCard from '../AdvantageCard/AdvantageCard';
 import CardContainer from '../CardContainer/CardContainer';
-import SchemeCard from '../SchemeCard/SchemeCard';
 import './Advantages.css';
 
-export default function Scheme({ classes, onCardClick, children }) {
+export default function Advantages({ classes, onCardClick, children }) {
   return (
-    <div className={`scheme ${classes ? classes : ''}`}>
+    <div className={`advantages ${classes ? classes : ''}`}>
       {children}
       <CardContainer
-        classes="scheme__container"
-        Component={SchemeCard}
-        cards={schemeCards}
+        classes="advantages__container"
+        Component={AdvantageCard}
+        cards={advantages}
         onCardClick={onCardClick}
-        itemClasses="scheme__item"
+        itemClasses="advantages__item"
       />
+      <div className="advantages__img"></div>
     </div>
   );
 }

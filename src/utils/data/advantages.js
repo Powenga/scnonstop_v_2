@@ -26,7 +26,7 @@ export const advantages = [
     content: '',
   },
   {
-    title: 'Опытыные мастера',
+    title: 'Опытные мастера',
     src: specialistsPath,
     content: '',
   },

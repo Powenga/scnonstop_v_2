@@ -1,6 +1,6 @@
 import './CardContainer.css';
 
-function CardContainer({ classes, itemClasses,  Component, cards, onCardClick }) {
+function CardContainer({ classes, itemClasses,  Component, cards, onCardClick, children }) {
   return (
     <ul className={`card-container ${classes && classes}`}>
       {cards.map((card, index) => (

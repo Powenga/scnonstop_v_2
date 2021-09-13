@@ -29,6 +29,11 @@
   border-bottom: 1px solid #e1e1e1;
 }
 
+.main__section_type_advantages {
+  background: 100% 100% / auto no-repeat url(../../images/advantages/adv-ref.png),
+    0 100% / auto no-repeat url(../../images/advantages/adv-bckg.png), #2F2F2F;
+}
+
 .main__section-title-container {
   display: flex;
   flex-direction: column;
@@ -139,6 +144,10 @@
     font-size: 18px;
     line-height: 26px;
   }
+  .main__section_type_advantages {
+    background: right -50px top 100% / auto no-repeat url(../../images/advantages/adv-ref.png),
+      0 0 / auto no-repeat url(../../images/advantages/adv-bckg.png), #2F2F2F;
+  }
 }
 
 @media screen and (max-width: 730px) {
@@ -183,5 +192,9 @@
   .main__section_type_schema {
     background: right -50px bottom -10px / auto no-repeat url(../../images/scheme-wm.png),
       left -20px top / auto no-repeat url(../../images/scheme-bckg-img.png), #2F2F2F;
+  }
+  .main__section_type_advantages {
+    background: right -120px top 100% / auto no-repeat url(../../images/advantages/adv-ref.png),
+      0 0 / auto no-repeat url(../../images/advantages/adv-bckg.png), #2F2F2F;
   }
 }

@@ -5,6 +5,7 @@ import Appliances from '../Appliances/Appliances';
 import News from '../News/News';
 import Scheme from '../Scheme/Scheme';
 import Price from '../Price/Price';
+import Advantages from '../Advantages/Advantages';
 
 function Main({ containerClasses, children }) {
   return (
@@ -57,8 +58,8 @@ function Main({ containerClasses, children }) {
           </div>
         </Price>
       </section>
-      <section className="main__section main__section_type_schema">
-        <Scheme classes="app__container">
+      <section className="main__section main__section_type_advantages">
+        <Advantages classes="app__container">
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               наши преимущества
@@ -67,7 +68,7 @@ function Main({ containerClasses, children }) {
               Оцените плюсы работы с нами
             </p>
           </div>
-        </Scheme>
+        </Advantages>
       </section>
     </main>
   );
