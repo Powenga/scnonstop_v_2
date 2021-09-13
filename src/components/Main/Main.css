@@ -45,6 +45,7 @@
   font-weight: 300;
   font-size: 40px;
   line-height: 64px;
+  text-transform: uppercase;
 }
 
 .main__section-title_theme_dark {
