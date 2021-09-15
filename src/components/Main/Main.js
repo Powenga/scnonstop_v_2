@@ -6,6 +6,7 @@ import News from '../News/News';
 import Scheme from '../Scheme/Scheme';
 import Price from '../Price/Price';
 import Advantages from '../Advantages/Advantages';
+import OrderForm from '../OrderForm/OrderForm';
 
 function Main({ containerClasses, children }) {
   return (
@@ -69,6 +70,15 @@ function Main({ containerClasses, children }) {
             </p>
           </div>
         </Advantages>
+      </section>
+      <section className="main__section main__section_type_order-form">
+        <OrderForm classes="app__container">
+        <div className="main__section-title-container">
+            <h2 className="main__section-title">
+              ОФОРМЛЕНИЕ ЗАЯВКИ
+            </h2>
+          </div>
+        </OrderForm>
       </section>
     </main>
   );
