@@ -1,0 +1,97 @@
+.spec-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spec-card__figure {
+  margin: 0 0 16px;
+
+}
+
+.spec-card__image {
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 32px;
+}
+
+.spec-card__figcaption {
+  text-align: center;
+  font-family: 'Oswald' ,sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #ffe88e;
+}
+
+.spec-card__about {
+  text-align: center;
+  margin: 0;
+  font-family: 'Oswald' ,sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #fff;
+}
+
+@media screen and (max-width: 1440px) {
+  .spec-card__figure {
+    margin-bottom: 14px;
+  }
+  .spec-card__image {
+    margin-bottom: 27px;
+  }
+  .spec-card__figcaption {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .spec-card__about {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .spec-card__figure {
+    margin-bottom: 13px;
+  }
+  .spec-card__image {
+    width: 156px;
+    height: 156px;
+    margin-bottom: 26px;
+  }
+  .spec-card__figcaption {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .spec-card__about {
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .spec-card__figure {
+    margin-bottom: 10px;
+  }
+  .spec-card__image {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+  .spec-card__figcaption {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .spec-card__about {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

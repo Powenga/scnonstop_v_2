@@ -14,7 +14,7 @@ function Promo({ classes, children }) {
           стиральных машин, холодильников, посудомоечных машин
           и&nbsp;водонагревателей с&nbsp;выездом к&nbsp;заказчику.
         </p>
-        <Button classes="promo__more button_type_promo" type="button">
+        <Button classes="promo__more button_style_dark" type="button">
           ПОДРОБНЕЕ
         </Button>
       </div>

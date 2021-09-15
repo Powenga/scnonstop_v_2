@@ -7,6 +7,7 @@ import Scheme from '../Scheme/Scheme';
 import Price from '../Price/Price';
 import Advantages from '../Advantages/Advantages';
 import OrderForm from '../OrderForm/OrderForm';
+import Specs from '../Specs/Specs';
 
 function Main({ containerClasses, children }) {
   return (
@@ -73,12 +74,22 @@ function Main({ containerClasses, children }) {
       </section>
       <section className="main__section main__section_type_order-form">
         <OrderForm classes="app__container">
-        <div className="main__section-title-container">
-            <h2 className="main__section-title">
-              ОФОРМЛЕНИЕ ЗАЯВКИ
-            </h2>
+          <div className="main__section-title-container">
+            <h2 className="main__section-title">ОФОРМЛЕНИЕ ЗАЯВКИ</h2>
           </div>
         </OrderForm>
+      </section>
+      <section className="main__section main__section_type_specs">
+        <Specs classes="app__container">
+          <div className="main__section-title-container">
+            <h2 className="main__section-title main__section-title_theme_dark">
+              наши мастера
+            </h2>
+            <p className="main__section-subtitle main__section-subtitle_theme_dark">
+              Познакомтесь на нашими специалистами
+            </p>
+          </div>
+        </Specs>
       </section>
     </main>
   );

@@ -34,6 +34,11 @@
     0 100% / auto no-repeat url(../../images/advantages/adv-bckg.png), #2F2F2F;
 }
 
+.main__section_type_specs {
+  background: bottom 0 right 10% / auto no-repeat url(../../images/specialists/specs-wm.png),
+    top 0 right 0 / auto no-repeat url(../../images/specialists/specs-background.png), #2F2F2F;
+}
+
 .main__section-title-container {
   display: flex;
   flex-direction: column;
@@ -133,6 +138,10 @@
     object-fit: cover;
     object-position: top center;
   }
+  .main__section_type_specs {
+    background: bottom -60px right -5% / auto no-repeat url(../../images/specialists/specs-wm.png),
+      top 0 right 100% / auto no-repeat url(../../images/specialists/specs-background.png), #2F2F2F;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -196,5 +205,9 @@
   .main__section_type_advantages {
     background: right -120px top 100% / auto no-repeat url(../../images/advantages/adv-ref.png),
       0 0 / auto no-repeat url(../../images/advantages/adv-bckg.png), #2F2F2F;
+  }
+  .main__section_type_specs {
+    background: bottom -60px left 5% / auto no-repeat url(../../images/specialists/specs-wm.png),
+      top -200px right 100% / auto no-repeat url(../../images/specialists/specs-background.png), #2F2F2F;
   }
 }
