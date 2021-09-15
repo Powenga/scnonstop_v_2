@@ -8,6 +8,7 @@ import Price from '../Price/Price';
 import Advantages from '../Advantages/Advantages';
 import OrderForm from '../OrderForm/OrderForm';
 import Specs from '../Specs/Specs';
+import Brands from '../Brands/Brands';
 
 function Main({ containerClasses, children }) {
   return (
@@ -90,6 +91,13 @@ function Main({ containerClasses, children }) {
             </p>
           </div>
         </Specs>
+      </section>
+      <section className="main__section main__section_type_brands">
+        <Brands classes="app__container">
+          <div className="main__section-title-container">
+            <h2 className="main__section-title">марки техники</h2>
+          </div>
+        </Brands>
       </section>
     </main>
   );
