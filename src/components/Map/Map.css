@@ -1,0 +1,43 @@
+.map__container {
+  margin: 32px 0;
+}
+
+.map__info {
+  margin: 0;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #27306b;
+}
+
+@media screen and (max-width: 1440px) {
+  .map__container {
+    margin: 27px 0;
+  }
+  .map__info {
+    font-size: 24px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .map__container {
+    margin: 26px 0;
+  }
+  .map__info {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .map__container {
+    margin: 20px 0;
+  }
+  .map__info {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
