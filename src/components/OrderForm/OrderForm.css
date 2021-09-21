@@ -104,7 +104,7 @@
   flex-basis: 30%;
 }
 
-.order-form__pos-right {
+.order-form__wrap_pos_right {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

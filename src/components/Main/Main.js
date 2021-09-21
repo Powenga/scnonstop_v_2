@@ -10,9 +10,9 @@ import OrderForm from '../OrderForm/OrderForm';
 import Specs from '../Specs/Specs';
 import Brands from '../Brands/Brands';
 import Map from '../Map/Map';
+import CallBackForm from '../CallbackForm/CallBackForm';
 
 function Main({ containerClasses, children }) {
-
   return (
     <main className="main">
       <section className="main__section main__section_type_promo">
@@ -107,6 +107,13 @@ function Main({ containerClasses, children }) {
             <h2 className="main__section-title">карта обслуживания</h2>
           </div>
         </Map>
+      </section>
+      <section className="main__section main__section_type_callback">
+        <CallBackForm classes="app__container">
+          <div className="main__section-title-container">
+            <h2 className="main__section-title">ОСТАЛИСЬ ВОПРОСЫ?</h2>
+          </div>
+        </CallBackForm>
       </section>
     </main>
   );

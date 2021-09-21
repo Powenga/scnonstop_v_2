@@ -48,7 +48,7 @@ export default function OrderForm({ classes, children }) {
                 <div className="order-form__stage"></div>
               </div>
             </div>
-            <div className="order-form__button-wrap order-form__pos-right">
+            <div className="order-form__button-wrap order-form__wrap_pos_right">
               <Button type="button" classes="order-form__button">
                 ДАЛЕЕ
               </Button>
