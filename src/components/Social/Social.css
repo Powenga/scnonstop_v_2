@@ -20,8 +20,8 @@
   display: inline-block;
   max-width: 60px;
   max-height: 60px;
-  min-width: 46px;
-  min-height: 46px;
+  min-width: 44px;
+  min-height: 44px;
   height: calc(52 / 1440 * 100vw);
   width: calc(52 / 1440 * 100vw);
   background-repeat: no-repeat;
@@ -53,17 +53,17 @@
 }
 
 .social__button {
-  margin-right: 30px;
   border: none;
   background-color: #fff;
   width: 50px;
   height: 46px;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  opacity: .6;
 }
 
 .social__button:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {
@@ -89,15 +89,3 @@
   }
 }
 
-@media screen and (max-width: 964px) {
-  .social__button {
-    margin-right: 7px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .social__button {
-    margin-right: 0px;
-    margin-left: 32px;
-  }
-}

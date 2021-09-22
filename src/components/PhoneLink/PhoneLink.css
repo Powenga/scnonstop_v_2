@@ -67,14 +67,7 @@
   animation: phone-rotate 0.7s;
 }
 
-/*
-.phone-link_type_header-link {
-  padding-left: 16%;
-  width: 80%;
-  min-height: 56px;
-} */
-
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1440px) {
   .phone-link {
     font-size: 26px;
     line-height: 27px;
@@ -82,12 +75,6 @@
   }
   .phone-link::before {
     top: 4px;
-  }
-}
-
-@media screen and (max-width: 1230px) {
-  .phone-link {
-    width: 100%;
   }
 }
 

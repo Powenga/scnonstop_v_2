@@ -2,7 +2,7 @@
   background-color: #fbc928;
   border: 4px solid #f2bc05;
   border-radius: 7px;
-  padding-top: 5px;
+  padding: 5px 0 0;
   font-size: 30px;
   line-height: 32px;
   color: #27306b;
@@ -84,7 +84,7 @@
   transform: translate(0);
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1440px){
   .button {
     font-size: 26px;
     line-height: 27px;
@@ -94,28 +94,6 @@
     font-size: inherit;
     min-height: auto;
     line-height: inherit;
-  }
-}
-
-@media screen and (max-width: 1366px){
-  .button {
-    font-size: 26px;
-    line-height: 27px;
-    min-height: 48px;
-  }
-  .button_type_text {
-    font-size: inherit;
-    min-height: auto;
-    line-height: inherit;
-  }
-}
-
-@media screen and (max-width: 1230px){
-  .button {
-    width: 100%;
-  }
-  .button_type_text {
-    width: auto;
   }
 }
 

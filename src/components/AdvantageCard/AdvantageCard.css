@@ -48,7 +48,7 @@
   color: #27306B;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1440px) {
   .advantage-card {
     padding: 27px;
   }

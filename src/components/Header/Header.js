@@ -76,10 +76,10 @@ function Header({ onRequestClick, containerClasses, refForm }) {
         </Social>
         <p className="header__schedule">работаем каждый день с&nbsp;9:00 до&nbsp;22:00</p>
         <div className="header__contacts">
-          <Button type="button" classes="button_type_order">
+          <Button type="button" classes="header__order-button">
           оформить заявку
           </Button>
-          <PhoneLink href="tel:+79508022222" classes="phone-link_type_header-link">
+          <PhoneLink href="tel:+79508022222" classes="header__phone-button">
             позвонить
           </PhoneLink>
         </div>
