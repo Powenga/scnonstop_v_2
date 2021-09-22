@@ -30,7 +30,7 @@
   }
 }
 
-@media screen and (max-width: 964px) {
+@media screen and (max-width: 1024px) {
   .appliances {
     padding: 26px 0 52px;
   }
@@ -40,10 +40,10 @@
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 768px) {
   .appliances__item {
     flex-basis: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
   }
 }
 
