@@ -187,7 +187,16 @@
   }
   .price__button-wrap {
     flex-direction: column;
+    align-items: center;
     max-width: calc(4 / 6 * 100% - 2 / 6 * 20px);
+  }
+  .price__button {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+  .price__button:last-child {
+    margin-bottom: 0px;
   }
 }
 
