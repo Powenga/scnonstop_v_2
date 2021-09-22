@@ -1,9 +1,19 @@
 .social {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.social_tablet_menu {
+  justify-content: space-between;
+}
+
+.social__button {
+  display: none;
 }
 
 .social__icon {
@@ -34,10 +44,6 @@
   opacity: 1;
 }
 
-.social_tablet_visible {
-  display: none;
-}
-
 .social__container {
   position: absolute;
   visibility: hidden;
@@ -49,26 +55,37 @@
 .social__button {
   margin-right: 30px;
   border: none;
-  background-color: transparent;
+  background-color: #fff;
   width: 50px;
   height: 46px;
   cursor: pointer;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .social__button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1024px) {
-  .social_desktop_visible {
-    display: none;
+  .social_tablet_menu{
+    display: block;
+    overflow: hidden;
+    width: 50px;
+    height: 46px;
   }
-  .social_tablet_visible {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
+  .social_tablet_menu .social__button {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+  .social_tablet_menu .social__icon {
+    visibility: hidden;
+  }
+  .social__icon:hover {
+    transform: translateY(0);
+    opacity: 0.2;
   }
 }
 
@@ -82,14 +99,5 @@
   .social__button {
     margin-right: 0px;
     margin-left: 32px;
-  }
-  .social_tablet_visible {
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .social_tablet_visible {
-    justify-content: flex-start;
   }
 }

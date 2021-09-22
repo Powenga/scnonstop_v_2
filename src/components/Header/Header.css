@@ -42,7 +42,6 @@
 }
 
 .header__social {
-  width: 100%;
   max-width: 351px;
   grid-column: col-start 7 / span 3;
   align-self: start;

@@ -32,7 +32,7 @@ function Header({ onRequestClick, containerClasses, refForm }) {
             frameBorder="0"
           ></iframe>
         </div>
-        <Social classes="header__social">
+        <Social classes="header__social social_tablet_menu">
           <a
             href="https://www.facebook.com/scnonstop48"
             target="_blank"

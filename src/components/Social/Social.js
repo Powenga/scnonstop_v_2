@@ -2,14 +2,11 @@ import React from 'react';
 import './Social.css';
 
 function Social({ classes, children }) {
-  function handleClick(evt) {}
+  function handleClick(evt) { }
 
   return (
     <>
-      <div className={`social social_desktop_visible ${classes && classes}`}>
-        {children}
-      </div>
-      <div className={`social social_tablet_visible ${classes && classes}`}>
+      <div className={`social ${classes && classes}`}>
         <button
           type="button"
           className="social__button"
@@ -31,7 +28,7 @@ function Social({ classes, children }) {
             </g>
           </svg>
         </button>
-        <div className="social__container">{children}</div>
+        {children}
       </div>
     </>
   );
