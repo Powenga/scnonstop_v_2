@@ -21,22 +21,24 @@ export default function OrderForm({ classes, children }) {
           </p>
           <fieldset className="order-form__fieldset">
             <legend className="order-form__legend">Выберите тип техники:</legend>
-            {appliancesCards.map((elem) => (
-              <label className="order-form__label">
-                <input
-                  name="app-type"
-                  type="radio"
-                  value={elem.value}
-                  className="order-form__input"
-                />
-                <img
-                  src={elem.formSrc}
-                  alt={elem.title}
-                  className="order-form__input-image"
-                />
-                <p className="order-form__input-title">{elem.title}</p>
-              </label>
-            ))}
+            <div className="order-form__appliances-wrap">
+              {appliancesCards.map((elem) => (
+                <label className="order-form__label">
+                  <input
+                    name="app-type"
+                    type="radio"
+                    value={elem.value}
+                    className="order-form__input"
+                  />
+                  <img
+                    src={elem.formSrc}
+                    alt={elem.title}
+                    className="order-form__input-image"
+                  />
+                  <p className="order-form__input-title">{elem.title}</p>
+                </label>
+              ))}
+            </div>
           </fieldset>
           <div className="order-form__menu-wrap">
             <div className="order-form__button-wrap"></div>
