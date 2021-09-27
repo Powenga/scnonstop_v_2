@@ -114,7 +114,7 @@
   }
   .promo__more {
     margin-left: 0;
-    min-width: calc(3 / 6 * 100% - 3 / 6 * 26px);
+    width: calc(3 / 6 * 100% - 3 / 6 * 26px);
   }
   .promo__img-wrap {
     display: none;
@@ -138,7 +138,7 @@
     margin-bottom: 52px;
   }
   .promo__more {
-    min-width: 50%;
+    width: 50%;
   }
 }
 
@@ -147,7 +147,7 @@
     width: 100%;
   }
   .promo__more {
-    min-width: 25%;
+    width: 168px;
   }
 }
 
@@ -166,6 +166,6 @@
     margin-bottom: 40px;
   }
   .promo__more {
-    min-width: 60%;
+    width: 180px;
   }
 }
