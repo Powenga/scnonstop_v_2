@@ -28,17 +28,17 @@
   height: 58px;
   background-color: #27306b;
   border-radius: 5px;
-  opacity: 0.3;
   cursor: pointer;
-  transition: opacity 0.3s ease-out;
+  transition: transform .2s ease;
   grid-column: col-start 5 / span 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .header__ya-rating-container:hover {
-  opacity: 1;
+  transform: translateY(-5px);
 }
 
 .header__social {
