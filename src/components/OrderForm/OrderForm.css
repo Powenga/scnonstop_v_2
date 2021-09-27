@@ -41,7 +41,7 @@
   display: grid;
   padding: 32px 16px 64px;
   gap: 32px 10px;
-  grid-template-columns: repeat(auto-fit, 160px);
+  grid-template-columns: repeat(auto-fit, 120px);
   justify-content: space-around;
   flex-grow: 1;
 }
@@ -81,7 +81,7 @@
 .order-form__input-image {
   display: block;
   margin: 0 auto;
-  min-height: 150px;
+  min-height: 100px;
   opacity: .5;
   transition: .3s ease;
 }
@@ -89,7 +89,7 @@
 .order-form__input-title {
   margin: 0;
   font-family: 'Oswald' ,sans-serif;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 32px;
   font-weight: 300;
   color: #2f2f2f;
@@ -174,7 +174,6 @@
   .order-form__appliances-wrap{
     padding: 27px 14px 54px;
     gap: 27px 5px;
-    grid-template-columns: repeat(auto-fit, 140px);
   }
 
   .order-form__legend {
@@ -182,10 +181,10 @@
     line-height: 27px;
   }
   .order-form__input-image {
-    min-height: 140px;
+    min-height: 110px;
   }
   .order-form__input-title {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 27px;
   }
 }
@@ -225,10 +224,9 @@
     line-height: 26px;
   }
   .order-form__input-image {
-    min-height: 130px;
+    min-height: 100px;
   }
   .order-form__input-title {
-    font-size: 20px;
     line-height: 26px;
   }
 }
@@ -255,7 +253,7 @@
     line-height: 20px;
   }
   .order-form__input-image {
-    min-height: 100px;
+    min-height: 90px;
     margin-bottom: 5px;
   }
   .order-form__input-title {
