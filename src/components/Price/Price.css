@@ -97,7 +97,7 @@
   flex-basis: 48%;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .price {
     padding: 27px 0 54px;
   }

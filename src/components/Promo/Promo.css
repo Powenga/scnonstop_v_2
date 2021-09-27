@@ -52,7 +52,7 @@
   width: calc(2 / 6 * 100% - 4 / 6 * 32px);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .promo__text-wrap {
     width: calc(50% - .5 * 27px);
     padding: 108px 0;

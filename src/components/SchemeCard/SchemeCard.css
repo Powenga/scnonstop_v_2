@@ -43,7 +43,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .scheme-card__text-wrap {
     padding: 27px;
     margin-bottom: 27px;

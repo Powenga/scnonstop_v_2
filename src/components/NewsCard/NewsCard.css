@@ -73,7 +73,7 @@
   opacity: 0.9;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .news-card {
     padding: 27px;
   }

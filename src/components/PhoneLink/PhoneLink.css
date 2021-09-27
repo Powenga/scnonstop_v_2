@@ -67,7 +67,7 @@
   animation: phone-rotate 0.7s;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .phone-link {
     font-size: 26px;
     line-height: 27px;

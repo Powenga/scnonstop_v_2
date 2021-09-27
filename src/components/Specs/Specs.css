@@ -20,7 +20,7 @@
   width: calc( 2 / 12 * 100% - 10 / 12 * 32px);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .specs {
     padding: 27px 0 54px;
   }

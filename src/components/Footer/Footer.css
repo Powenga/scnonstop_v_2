@@ -196,7 +196,7 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .footer {
     padding: calc(2 * 27px) 0 calc(5 * 27px);
   }

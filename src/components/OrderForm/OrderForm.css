@@ -155,7 +155,7 @@
 }
 
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .order-form__wrap {
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
     padding: 27px 27px 54px;

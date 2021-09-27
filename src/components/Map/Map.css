@@ -12,7 +12,7 @@
   color: #27306b;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .map__container {
     margin: 27px 0;
   }

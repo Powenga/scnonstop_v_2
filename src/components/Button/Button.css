@@ -84,7 +84,7 @@
   transform: translate(0);
 }
 
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1600px){
   .button {
     font-size: 26px;
     line-height: 27px;
