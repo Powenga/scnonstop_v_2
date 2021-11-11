@@ -14,6 +14,8 @@ export { schemeCards } from './data/scheme';
 export { advantages } from './data/advantages';
 export { specs } from './data/specialists';
 
+export const { REACT_APP_API_URL = 'https://scnonstop.ru/api' } = process.env;
+console.log(REACT_APP_API_URL);
 export const appliancesCards = [
   {
     title: 'Cтиральные машины',
