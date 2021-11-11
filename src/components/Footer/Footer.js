@@ -1,19 +1,19 @@
 import './Footer.css';
 
+import { Link } from 'react-router-dom';
 import Social from '../Social/Social';
 import fbPath from '../../images/social-icon-fb-w.svg';
 import vkPath from '../../images/social-icon-vk-w.svg';
 import insPath from '../../images/social-icon-inst-w.svg';
 import ytPath from '../../images/social-icon-yt-w.svg';
 import odPath from '../../images/social-icon-od-w.svg';
-import { Link } from 'react-router-dom';
 
 export default function Footer({ containerClasses }) {
   return (
     <footer className="footer">
       <div
         className={`footer__container ${
-          containerClasses ? containerClasses : ''
+          containerClasses || ''
         }`}
       >
         <ul className="footer__appliances-container">
@@ -117,7 +117,11 @@ export default function Footer({ containerClasses }) {
           </div>
         </div>
         <p className="footer__copyright">
-          &copy; {new Date().getFullYear()} Сервисный центр NON-STOP
+          &copy;
+          {' '}
+          {new Date().getFullYear()}
+          {' '}
+          Сервисный центр NON-STOP
         </p>
       </div>
     </footer>

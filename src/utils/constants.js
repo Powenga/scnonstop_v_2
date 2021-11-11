@@ -8,7 +8,6 @@ import formDwPath from '../images/form-dw.svg';
 import formRefPath from '../images/form-ref.svg';
 import formBoilPath from '../images/form-boil.svg';
 
-
 export { priceList } from './data/price-list';
 export { newsCards } from './data/news';
 export { schemeCards } from './data/scheme';
@@ -41,5 +40,3 @@ export const appliancesCards = [
     formSrc: formBoilPath,
   },
 ];
-
-

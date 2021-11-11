@@ -5,14 +5,14 @@ import './Appliances.css';
 
 function Appliances({ classes, onCardClick, children }) {
   return (
-    <div className={`appliances ${classes && classes }`}>
+    <div className={`appliances ${classes && classes}`}>
       {children}
       <CardContainer
-        classes='appliances__container'
+        classes="appliances__container"
         Component={ApplianceCard}
         cards={appliancesCards}
         onCardClick={onCardClick}
-        itemClasses='appliances__item'
+        itemClasses="appliances__item"
       />
     </div>
   );

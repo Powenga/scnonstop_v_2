@@ -6,8 +6,7 @@ export default function Map({ classes, children }) {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src =
-      'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A33c502b48dd06ce3a0b1c8f51f3b7cdc3abebba80a2fec1cd1728e79e24abcef&amp;width=100%25&amp;height=550&amp;lang=ru_RU&amp;scroll=false';
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A33c502b48dd06ce3a0b1c8f51f3b7cdc3abebba80a2fec1cd1728e79e24abcef&amp;width=100%25&amp;height=550&amp;lang=ru_RU&amp;scroll=false';
     script.async = true;
 
     const scriptReff = scriptContainer.current;
@@ -20,9 +19,9 @@ export default function Map({ classes, children }) {
   }, []);
 
   return (
-    <div className={`map ${classes ? classes : ''}`}>
+    <div className={`map ${classes || ''}`}>
       {children}
-      <div className="map__container" ref={scriptContainer}></div>
+      <div className="map__container" ref={scriptContainer} />
       <p className="map__info">
         Если вы воспользуетесь нашими услугами по ремонту, сумма диагностики
         будет вычтена из финальной стоимости

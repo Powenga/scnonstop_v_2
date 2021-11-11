@@ -6,8 +6,7 @@ function NewsCard({ classes, card }) {
       <div
         className="news-card__img-wrap"
         style={{ backgroundImage: `url(${card.src}` }}
-      >
-      </div>
+      />
       <h3 title={card.title} className="news-card__title">
         {card.title}
       </h3>

@@ -1,7 +1,7 @@
 import './CallbackForm.css';
+import { useState } from 'react';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
-import { useState } from 'react';
 
 export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({});
@@ -17,7 +17,7 @@ export default function CallBackForm({ classes, children }) {
   }
 
   return (
-    <div className={`callback-form ${classes ? classes : ''}`}>
+    <div className={`callback-form ${classes || ''}`}>
       <div className="callback-form__wrap">
         {children}
         <Form
@@ -71,16 +71,19 @@ export default function CallBackForm({ classes, children }) {
                 value={values.policy}
                 className="callback-form__checkbox"
               />
-              <span className="callback-form__checkbox-pseudo"></span>
+              <span className="callback-form__checkbox-pseudo" />
               <span className="callback-form__policy-info">
-                Я согласен с{' '}
+                Я согласен с
+                {' '}
                 <Button
                   classes="button_type_text callback-form__policy"
                   type="button"
                 >
                   Политикой конфиденциальности
-                </Button>{' '}
-                и{' '}
+                </Button>
+                {' '}
+                и
+                {' '}
                 <Button
                   classes="button_type_text callback-form__policy"
                   type="button"

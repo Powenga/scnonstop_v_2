@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -10,7 +11,7 @@ function App() {
       <div className="app">
         <Header containerClasses="app__container" />
         <Main containerClasses="app__container" />
-        <Footer containerClasses="app__container"/>
+        <Footer containerClasses="app__container" />
       </div>
     </BrowserRouter>
   );

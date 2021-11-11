@@ -35,4 +35,4 @@ export const specs = [
     about: 'Участвовала в Олимпиаде',
     src: ludmilaImagePath,
   },
-]
+];

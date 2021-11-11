@@ -38,7 +38,7 @@ export const priceList = [
         problem: 'Посторонний запах',
         price: 'от 500 р.',
       },
-    ]
+    ],
   },
   {
     title: 'Холодильники',
@@ -71,7 +71,7 @@ export const priceList = [
         problem: 'Проблема холодильников',
         price: 'от 5000 р.',
       },
-    ]
+    ],
   },
   {
     title: 'Посудомоечные машины',
@@ -128,7 +128,7 @@ export const priceList = [
         problem: 'Проблема посудомоек',
         price: 'от 5000 р.',
       },
-    ]
+    ],
   },
   {
     title: 'Водонагреватели',
@@ -161,6 +161,6 @@ export const priceList = [
         problem: 'Проблема водонагревателей',
         price: 'от 5000 р.',
       },
-    ]
+    ],
   },
 ];

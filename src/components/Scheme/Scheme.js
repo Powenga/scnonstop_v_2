@@ -5,7 +5,7 @@ import './Scheme.css';
 
 export default function Scheme({ classes, onCardClick, children }) {
   return (
-    <div className={`scheme ${classes ? classes : ''}`}>
+    <div className={`scheme ${classes || ''}`}>
       {children}
       <CardContainer
         classes="scheme__container"

@@ -1,4 +1,6 @@
-export default function Form({ name, classes, onSubmit, children }) {
+export default function Form({
+  name, classes, onSubmit, children,
+}) {
   return (
     <form
       name={name}

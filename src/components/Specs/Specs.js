@@ -15,7 +15,7 @@ export default function Specs({ classes, onCardClick, children }) {
         onCardClick={onCardClick}
         itemClasses="specs__item"
       />
-      <Button type="button" classes="specs__more-button button_style_dark" >ПОКАЗАТЬ ЕЩЁ</Button>
+      <Button type="button" classes="specs__more-button button_style_dark">ПОКАЗАТЬ ЕЩЁ</Button>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 
 function Promo({ classes, children }) {
   return (
-    <div className={`promo ${classes ? classes : ''}`}>
+    <div className={`promo ${classes || ''}`}>
       <div className="promo__text-wrap">
         <h1 className="promo__title">
           ДИАГНОСТИКА И&nbsp;РЕМОНТ БЫТОВОЙ ТЕХНИКИ НА&nbsp;ДОМУ

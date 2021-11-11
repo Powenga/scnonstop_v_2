@@ -5,7 +5,7 @@ import './Advantages.css';
 
 export default function Advantages({ classes, onCardClick, children }) {
   return (
-    <div className={`advantages ${classes ? classes : ''}`}>
+    <div className={`advantages ${classes || ''}`}>
       {children}
       <CardContainer
         classes="advantages__container"
@@ -14,7 +14,7 @@ export default function Advantages({ classes, onCardClick, children }) {
         onCardClick={onCardClick}
         itemClasses="advantages__item"
       />
-      <div className="advantages__img"></div>
+      <div className="advantages__img" />
     </div>
   );
 }

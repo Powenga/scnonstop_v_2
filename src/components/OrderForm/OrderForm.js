@@ -41,13 +41,13 @@ export default function OrderForm({ classes, children }) {
             </div>
           </fieldset>
           <div className="order-form__menu-wrap">
-            <div className="order-form__button-wrap"></div>
+            <div className="order-form__button-wrap" />
             <div className="order-form__stages">
               <div className="order-form__stages-wrap">
-                <div className="order-form__stage"></div>
-                <div className="order-form__stage"></div>
-                <div className="order-form__stage"></div>
-                <div className="order-form__stage"></div>
+                <div className="order-form__stage" />
+                <div className="order-form__stage" />
+                <div className="order-form__stage" />
+                <div className="order-form__stage" />
               </div>
             </div>
             <div className="order-form__button-wrap order-form__wrap_pos_right">

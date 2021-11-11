@@ -1,6 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Promo from '../Promo/Promo';
 import promoImgPath from '../../images/promo-img.jpg';
-import './Main.css';
 import Appliances from '../Appliances/Appliances';
 import News from '../News/News';
 import Scheme from '../Scheme/Scheme';
@@ -11,12 +12,13 @@ import Specs from '../Specs/Specs';
 import Brands from '../Brands/Brands';
 import Map from '../Map/Map';
 import CallBackForm from '../CallbackForm/CallBackForm';
+import './Main.css';
 
-function Main({ containerClasses, children }) {
+function Main({ containerClasses }) {
   return (
     <main className="main">
       <section className="main__section main__section_type_promo">
-        <Promo classes="app__container" />
+        <Promo classes={containerClasses} />
         <img
           className="main__section-img"
           src={promoImgPath}
@@ -24,7 +26,7 @@ function Main({ containerClasses, children }) {
         />
       </section>
       <section className="main__section main__section_type_appliances">
-        <Appliances classes="app__container">
+        <Appliances classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ЧТО МЫ РЕМОНТИРУЕМ</h2>
             <p className="main__section-subtitle">Начните с выбора техники</p>
@@ -32,7 +34,7 @@ function Main({ containerClasses, children }) {
         </Appliances>
       </section>
       <section className="main__section main__section_type_news">
-        <News classes="app__container">
+        <News classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">НОВОСТИ И АКЦИИ</h2>
             <p className="main__section-subtitle">
@@ -42,7 +44,7 @@ function Main({ containerClasses, children }) {
         </News>
       </section>
       <section className="main__section main__section_type_schema">
-        <Scheme classes="app__container">
+        <Scheme classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               КАК МЫ РАБОТАЕМ
@@ -54,7 +56,7 @@ function Main({ containerClasses, children }) {
         </Scheme>
       </section>
       <section className="main__section main__section_type_price">
-        <Price classes="app__container">
+        <Price classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">Стоимость ремонта</h2>
             <p className="main__section-subtitle">
@@ -64,7 +66,7 @@ function Main({ containerClasses, children }) {
         </Price>
       </section>
       <section className="main__section main__section_type_advantages">
-        <Advantages classes="app__container">
+        <Advantages classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               наши преимущества
@@ -76,14 +78,14 @@ function Main({ containerClasses, children }) {
         </Advantages>
       </section>
       <section className="main__section main__section_type_order-form">
-        <OrderForm classes="app__container">
+        <OrderForm classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОФОРМЛЕНИЕ ЗАЯВКИ</h2>
           </div>
         </OrderForm>
       </section>
       <section className="main__section main__section_type_specs">
-        <Specs classes="app__container">
+        <Specs classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               наши мастера
@@ -95,7 +97,7 @@ function Main({ containerClasses, children }) {
         </Specs>
       </section>
       <section className="main__section main__section_type_brands">
-        <Brands classes="app__container">
+        <Brands classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">марки техники</h2>
           </div>
@@ -109,7 +111,7 @@ function Main({ containerClasses, children }) {
         </Map>
       </section>
       <section className="main__section main__section_type_callback">
-        <CallBackForm classes="app__container">
+        <CallBackForm classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОСТАЛИСЬ ВОПРОСЫ?</h2>
           </div>
@@ -120,3 +122,7 @@ function Main({ containerClasses, children }) {
 }
 
 export default Main;
+
+Main.propTypes = {
+  containerClasses: PropTypes.string.isRequired,
+};

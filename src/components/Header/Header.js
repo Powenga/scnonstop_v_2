@@ -19,7 +19,7 @@ function Header({ onRequestClick, containerClasses, refForm }) {
     <header className="header">
       <div
         className={`header__container ${
-          containerClasses ? containerClasses : ''
+          containerClasses || ''
         }`}
       >
         <Logo classes="header__logo" />
@@ -30,7 +30,7 @@ function Header({ onRequestClick, containerClasses, refForm }) {
             width="150"
             height="50"
             frameBorder="0"
-          ></iframe>
+          />
         </div>
         <Social classes="header__social social_tablet_menu">
           <a
@@ -77,7 +77,7 @@ function Header({ onRequestClick, containerClasses, refForm }) {
         <p className="header__schedule">работаем каждый день с&nbsp;9:00 до&nbsp;22:00</p>
         <div className="header__contacts">
           <Button type="button" classes="header__order-button">
-          оформить заявку
+            оформить заявку
           </Button>
           <PhoneLink href="tel:+79508022222" classes="header__phone-button">
             позвонить

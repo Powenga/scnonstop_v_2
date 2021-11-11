@@ -9,7 +9,7 @@ function Price({ classes, children }) {
   const [appType, setAppType] = useState(priceList[0]);
 
   function handleClick(event) {
-    setAppType(priceList.find(item => item.title === event.target.textContent));
+    setAppType(priceList.find((item) => item.title === event.target.textContent));
   }
 
   useEffect(() => {
@@ -47,22 +47,22 @@ function Price({ classes, children }) {
         ))}
       </ul>
       <ul className="price__container">
-        {appType.content.map((item, index) =>
-          (<li className="price__item">
+        {appType.content.map((item, index) => (
+          <li className="price__item">
             <p className="price__text">
               {item.problem}
               <span className="price__price">{item.price}</span>
             </p>
-          </li>)
-        )}
+          </li>
+        ))}
       </ul>
       <p className="price__content">Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?</p>
       <p className="price__content price__content_type_accent">Позвоните нам или закажите обратный&nbsp;звонок!</p>
       <div className="price__button-wrap">
-        <Button type='button' classes="price__button">заказать звонок</Button>
+        <Button type="button" classes="price__button">заказать звонок</Button>
         <PhoneLink href="tel:+79508022222" classes="price__button">
-            позвонить
-          </PhoneLink>
+          позвонить
+        </PhoneLink>
       </div>
     </div>
   );
