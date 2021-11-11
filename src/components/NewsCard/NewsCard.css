@@ -40,7 +40,7 @@
   line-height: 32px;
   font-weight: 300;
   color: #27306b;
-  margin: auto 0 32px;
+  margin: 0 0 32px;
 }
 
 .news-card__content {
@@ -49,7 +49,7 @@
   line-height: 32px;
   font-weight: 300;
   color: #121212;
-  margin: 0;
+  margin: 0 0 auto;
 }
 
 .news-card::before {
@@ -85,7 +85,7 @@
   .news-card__date {
     font-size: 12px;
     line-height: 27px;
-    margin: auto 0 27px;
+    margin: 0 0 27px;
   }
   .news-card__content {
     font-size: 18px;
@@ -106,7 +106,7 @@
   .news-card__date {
     font-size: 12px;
     line-height: 26px;
-    margin: auto 0 26px;
+    margin: 0 0 26px;
   }
 
   .news-card__content {
@@ -128,7 +128,7 @@
   .news-card__date {
     font-size: 12px;
     line-height: 20px;
-    margin: auto 0 20px;
+    margin: 0 0 20px;
   }
 
   .news-card__content {

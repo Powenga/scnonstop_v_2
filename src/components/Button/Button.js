@@ -1,10 +1,11 @@
 import './Button.css';
 
 function Button({
-  onClick, type, classes, text, children,
+  onButtonClick, type, classes, text, children,
 }) {
-  function handleClick(evt) {
 
+  function handleClick(evt) {
+    onButtonClick(evt);
   }
 
   return (
