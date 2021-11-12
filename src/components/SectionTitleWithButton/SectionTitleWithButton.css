@@ -12,6 +12,12 @@
   border-radius: 50%;
   border: none;
   background: center / contain url('../../images/add-button.svg');
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.section-title-with-button__button:hover {
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 1280px) {
