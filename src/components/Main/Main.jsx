@@ -34,14 +34,7 @@ function Main({ containerClasses }) {
         </Appliances>
       </section>
       <section className="main__section main__section_type_news">
-        <News classes={containerClasses}>
-          <div className="main__section-title-container">
-            <h2 className="main__section-title">НОВОСТИ И АКЦИИ</h2>
-            <p className="main__section-subtitle">
-              Узнайте о наших специальных предложениях
-            </p>
-          </div>
-        </News>
+        <News classes={containerClasses} />
       </section>
       <section className="main__section main__section_type_schema">
         <Scheme classes={containerClasses}>

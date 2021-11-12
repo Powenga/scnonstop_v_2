@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs } from '../../utils/constants';
 import './News.css';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 function News({ classes, onCardClick, children }) {
   const [newsList, setNewsList] = useState([]);
@@ -107,6 +108,10 @@ function News({ classes, onCardClick, children }) {
 
   return (
     <div className={`news ${classes && classes}`}>
+      <SectionTitle
+        title="Новости и акции"
+        subtitle="Узнайте о наших специальных предложениях"
+      />
       {children}
       <CardContainer
         classes="news__container"
