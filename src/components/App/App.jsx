@@ -23,14 +23,14 @@ function App() {
           ...state,
           email,
           id,
-          admin: role === 'owner',
+          isAdmin: role === 'owner',
         }));
       })
       .catch(() => {
         setUser({
           email: '',
           id: '',
-          admin: false,
+          isAdmin: true,
         });
       });
   }, []);

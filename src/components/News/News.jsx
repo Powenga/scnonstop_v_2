@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs } from '../../utils/constants';
 import './News.css';
-import SectionTitle from '../SectionTitle/SectionTitle';
+import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 
 function News({ classes, onCardClick, children }) {
   const [newsList, setNewsList] = useState([]);
@@ -108,7 +108,7 @@ function News({ classes, onCardClick, children }) {
 
   return (
     <div className={`news ${classes && classes}`}>
-      <SectionTitle
+      <SectionTitleWithButton
         title="Новости и акции"
         subtitle="Узнайте о наших специальных предложениях"
       />
