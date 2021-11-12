@@ -78,22 +78,9 @@ function News({ classes, onCardClick, children }) {
   }, [viewportWidth]);
 
   useEffect(() => {
-    const initList = [...newsList];
-    const list = [];
-    let number = 0;
-    for (let i = 0; i < newsGrid.rows; i += 1) {
-      const row = { index: i, list: [] };
-      for (let n = 0; n < newsGrid.newsPerRows; n += 1) {
-        const elem = initList.splice(0, 1)[0];
-        if (elem) {
-          row.list.push(elem);
-          number += 1;
-        }
-      }
-      list.push(row);
-    }
+    const list = newsList.slice(0, newsGrid.rows * newsGrid.newsPerRows);
     setRenderedNewsList(list);
-    setNumberOfRenderedNews(number);
+    setNumberOfRenderedNews(list.length);
   }, [newsList, newsGrid]);
 
   useEffect(() => {
@@ -109,9 +96,9 @@ function News({ classes, onCardClick, children }) {
             fullContent: news.content,
           };
         });
-        setNewsList(formattedNews.sort(
-          (a, b) => new Date(a.date) - new Date(b.date),
-        ));
+        setNewsList(
+          formattedNews.sort((a, b) => new Date(a.date) - new Date(b.date)),
+        );
       })
       .catch(() => {
         setNewsList([]);
@@ -121,17 +108,13 @@ function News({ classes, onCardClick, children }) {
   return (
     <div className={`news ${classes && classes}`}>
       {children}
-      {renderedNewsList.map((row) => (
-        <CardContainer
-          key={row.index}
-          classes="news__container"
-          Component={NewsCard}
-          cards={row.list}
-          onCardClick={onCardClick}
-          itemClasses="news__item"
-        />
-      ))}
-
+      <CardContainer
+        classes="news__container"
+        Component={NewsCard}
+        cards={renderedNewsList}
+        onCardClick={onCardClick}
+        itemClasses="news__item"
+      />
       {numberOfRenderedNews < newsList.length && (
         <Button
           classes="news__more"
