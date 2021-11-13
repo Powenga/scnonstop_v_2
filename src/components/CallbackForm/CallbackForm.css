@@ -27,11 +27,11 @@
   align-items: stretch;
 }
 
-.callback-form__label {
+/* .callback-form__label {
   position: relative;
   margin-bottom: 32px;
   cursor: pointer;
-}
+} */
 
 .callback-form__label_type_policy {
   display: flex;
@@ -41,7 +41,7 @@
   margin-bottom: 64px;
 }
 
-.callback-form__input {
+/* .callback-form__input {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -52,11 +52,11 @@
   line-height: 32px;
   color: #27306b;
   padding: 12px 16px 10px;
-}
+} */
 
-.callback-form__input:focus {
+/* .callback-form__input:focus {
   outline: none;
-}
+} */
 
 .callback-form__input:focus + .callback-form__input-placeholder {
   transform: translate(0, -110%) scale(0.5);

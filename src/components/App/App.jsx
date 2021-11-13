@@ -11,6 +11,7 @@ import Modal from '../Modal/Modal';
 import { MODAL_TYPES_NEWS } from '../../utils/constants';
 
 function App() {
+  const [test, setTest] = useState(false)
   const [user, setUser] = useState({
     email: '',
     id: '',
@@ -59,7 +60,8 @@ function App() {
   return (
     <BrowserRouter>
       <ModalContext.Provider value={modalState}>
-        <div className="app">
+        <div className="app" onClick={() => {setTest(test => !test)}}>
+          {test && (<p>Тест</p>)}
           <Header containerClasses="app__container" />
           <UserContext.Provider value={user}>
             <Main containerClasses="app__container" />

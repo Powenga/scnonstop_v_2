@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import './CallbackForm.css';
+import Input from '../Form/Input';
 
 export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({});
@@ -32,40 +33,20 @@ export default function CallBackForm({ classes, children }) {
             съемку с более узким углом обзора, чем угол зрения человеческого
             глаза.
           </p>
-          <label htmlFor="userName" className="callback-form__label">
-            <input
-              id="userName"
-              name="userName"
-              type="text"
-              value={values.userName}
-              className="callback-form__input"
-              onChange={handleChange}
-            />
-            <span
-              className={`callback-form__input-placeholder ${
-                values.userName ? 'callback-form__input-placeholder_fill' : ''
-              }`}
-            >
-              Ваше имя
-            </span>
-          </label>
-          <label htmlFor="userPhone" className="callback-form__label">
-            <input
-              id="userPhone"
-              name="userPhone"
-              type="text"
-              value={values.userPhone}
-              className="callback-form__input"
-              onChange={handleChange}
-            />
-            <span
-              className={`callback-form__input-placeholder ${
-                values.userPhone ? 'callback-form__input-placeholder_fill' : ''
-              }`}
-            >
-              Телефон для связи
-            </span>
-          </label>
+          <Input
+            id="userName"
+            name="userName"
+            placeholder="Ваше имя"
+            value={' '}
+            handleChange={handleChange}
+          />
+          <Input
+            id="userPhone"
+            name="userPhone"
+            placeholder="Телефон для связи"
+            value={' '}
+            handleChange={handleChange}
+          />
           <div className="callback-form__policy-wrap">
             <label htmlFor="policy" className="callback-form__label callback-form__label_type_policy">
               <input
