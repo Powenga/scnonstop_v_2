@@ -8,20 +8,21 @@ export default function Input({
   placeholder,
   value,
   handleChange,
+  classes,
 }) {
   return (
-    <label htmlFor={id} className={styles.input}>
+    <label htmlFor={id} className={`${styles.label} ${classes}`}>
       <input
         id={id}
         name={name}
         type="text"
         value={value}
-        className={styles['input__input-element']}
+        className={styles.input}
         onChange={handleChange}
       />
       <span
-        className={`${styles.input__placeholder} ${
-          value ? styles.stylesinput__placeholder_fill : ''
+        className={`${styles.placeholder} ${
+          value ? styles.placeholder_fill : ''
         }`}
       >
         {placeholder}
@@ -36,9 +37,11 @@ Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
+  classes: PropTypes.string,
 };
 
 Input.defaultProps = {
   id: '',
   value: null,
+  classes: '',
 };

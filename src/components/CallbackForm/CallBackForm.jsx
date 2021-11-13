@@ -37,7 +37,8 @@ export default function CallBackForm({ classes, children }) {
             id="userName"
             name="userName"
             placeholder="Ваше имя"
-            value={' '}
+            value={null}
+            classes="callback-form__label"
             handleChange={handleChange}
           />
           <Input
@@ -45,6 +46,7 @@ export default function CallBackForm({ classes, children }) {
             name="userPhone"
             placeholder="Телефон для связи"
             value={' '}
+            classes="callback-form__label"
             handleChange={handleChange}
           />
           <div className="callback-form__policy-wrap">
