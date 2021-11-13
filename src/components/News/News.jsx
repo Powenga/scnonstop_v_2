@@ -130,7 +130,7 @@ function News({ classes, onCardClick, children }) {
         </Button>
       )}
       {numberOfRenderedNews <= 0 && (
-        <p className="new__empty-message">
+        <p className="news__empty-message">
           Новостей пока нет... Но скоро появятся :&#41;
         </p>
       )}
