@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
 import NewsCard from '../NewsCard/NewsCard';
 import Button from '../Button/Button';
-import mainApi from '../../utils/main-api';
-import { newsRenderPrefs } from '../../utils/constants';
-import './News.css';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
+import mainApi from '../../utils/main-api';
+import { newsRenderPrefs, MODAL_TYPES_NEWS } from '../../utils/constants';
+import './News.css';
 
 function News({ classes, onCardClick, children }) {
   const [newsList, setNewsList] = useState([]);
@@ -111,6 +111,7 @@ function News({ classes, onCardClick, children }) {
       <SectionTitleWithButton
         title="Новости и акции"
         subtitle="Узнайте о наших специальных предложениях"
+        modalType={MODAL_TYPES_NEWS}
       />
       {children}
       <CardContainer

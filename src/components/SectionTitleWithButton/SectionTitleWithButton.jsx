@@ -2,12 +2,22 @@ import React, { useContext } from 'react';
 import { useEffect, useState } from 'react/cjs/react.development';
 import PropTypes from 'prop-types';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import userContext from '../../context/user-context';
+import UserContext from '../../context/user-context';
+import ModalContext from '../../context/modal-context';
 import './SectionTitleWithButton.css';
 
-export default function SectionTitleWithButton({ title, subtitle }) {
+export default function SectionTitleWithButton({ title, subtitle, modalType }) {
   const [shouldShowButton, setShouldShowButton] = useState(false);
-  const user = useContext(userContext);
+  const user = useContext(UserContext);
+  const [, setModal] = useContext(ModalContext);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setModal({
+      isOpen: true,
+      modalType,
+    });
+  };
 
   useEffect(() => {
     setShouldShowButton(user.isAdmin);
@@ -21,6 +31,7 @@ export default function SectionTitleWithButton({ title, subtitle }) {
           type="button"
           className="section-title-with-button__button"
           aria-label="Добавить"
+          onClick={handleClick}
         />
       )}
     </div>
@@ -30,4 +41,5 @@ export default function SectionTitleWithButton({ title, subtitle }) {
 SectionTitleWithButton.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  modalType: PropTypes.string.isRequired,
 };

@@ -1,13 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { ESC_KEY, MODAL_ROOT_SELECTOR } from '../../utils/constants';
-import styles from './Modal.module.css';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
+import ModalContext from '../../context/modal-context';
+import styles from './Modal.module.css';
+import { ESC_KEY, MODAL_ROOT_SELECTOR } from '../../utils/constants';
 
 const modalRoot = document.querySelector(MODAL_ROOT_SELECTOR);
 
-export default function Modal({ closeModal, children }) {
+export default function Modal({ children }) {
+  const [, setModal] = useContext(ModalContext);
+  const closeModal = useCallback(() => {
+    setModal({
+      isOpen: false,
+      modalType: '',
+    });
+  }, []);
+
   useEffect(() => {
     function handleEscPress(event) {
       if (event.key === ESC_KEY) {
@@ -28,7 +37,7 @@ export default function Modal({ closeModal, children }) {
           type="button"
           aria-label="Закрыть"
           className={styles.closeButton}
-          onClick={() => closeModal()}
+          onClick={closeModal}
         />
         {children}
       </div>

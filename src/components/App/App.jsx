@@ -5,8 +5,10 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import auth from '../../utils/auth';
 import UserContext from '../../context/user-context';
+import ModalContext from '../../context/modal-context';
 import './App.css';
 import Modal from '../Modal/Modal';
+import { MODAL_TYPES_NEWS } from '../../utils/constants';
 
 function App() {
   const [user, setUser] = useState({
@@ -15,10 +17,21 @@ function App() {
     isAdmin: false,
   });
 
-  const [shouldShowModal, setShouldShowModal] = useState(true);
+  const modalState = useState({ isOpen: false, modalType: '' });
+  const [modal] = modalState;
 
-  function closeModal() {
-    setShouldShowModal(false);
+  function renderModal() {
+    if (!modal.isOpen) {
+      return '';
+    }
+    if (modal.modalType === MODAL_TYPES_NEWS) {
+      return (
+        <Modal>Новости</Modal>
+      );
+    }
+    return (
+      <Modal>Специалисты</Modal>
+    );
   }
 
   useEffect(() => {
@@ -37,6 +50,7 @@ function App() {
         setUser({
           email: '',
           id: '',
+          // TODO: change dev var
           isAdmin: true,
         });
       });
@@ -44,16 +58,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app">
-        <Header containerClasses="app__container" />
-        <UserContext.Provider value={user}>
-          <Main containerClasses="app__container" />
-        </UserContext.Provider>
-        <Footer containerClasses="app__container" />
-        {shouldShowModal && (
-          <Modal closeModal={() => closeModal()} />
-        )}
-      </div>
+      <ModalContext.Provider value={modalState}>
+        <div className="app">
+          <Header containerClasses="app__container" />
+          <UserContext.Provider value={user}>
+            <Main containerClasses="app__container" />
+          </UserContext.Provider>
+          <Footer containerClasses="app__container" />
+          {renderModal()}
+        </div>
+      </ModalContext.Provider>
     </BrowserRouter>
   );
 }
