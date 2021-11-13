@@ -59,3 +59,6 @@ export const newsRenderPrefs = {
     numberPerRow: 1,
   },
 };
+
+export const MODAL_ROOT_SELECTOR = '#modal';
+export const ESC_KEY = 'Escape';

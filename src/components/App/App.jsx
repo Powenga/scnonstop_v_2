@@ -6,6 +6,7 @@ import Main from '../Main/Main';
 import auth from '../../utils/auth';
 import UserContext from '../../context/user-context';
 import './App.css';
+import Modal from '../Modal/Modal';
 
 function App() {
   const [user, setUser] = useState({
@@ -13,6 +14,12 @@ function App() {
     id: '',
     isAdmin: false,
   });
+
+  const [shouldShowModal, setShouldShowModal] = useState(true);
+
+  function closeModal() {
+    setShouldShowModal(false);
+  }
 
   useEffect(() => {
     auth
@@ -43,6 +50,9 @@ function App() {
           <Main containerClasses="app__container" />
         </UserContext.Provider>
         <Footer containerClasses="app__container" />
+        {shouldShowModal && (
+          <Modal closeModal={() => closeModal()} />
+        )}
       </div>
     </BrowserRouter>
   );
