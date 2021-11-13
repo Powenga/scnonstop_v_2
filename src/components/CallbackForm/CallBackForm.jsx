@@ -1,15 +1,16 @@
-import './CallbackForm.css';
-import { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
+import './CallbackForm.css';
 
 export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({});
 
-  function onSubmit(event) {
+  const onSubmit = useCallback((event) => {
     event.preventDefault();
     alert('Форма отправлена!');
-  }
+  }, []);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -31,8 +32,9 @@ export default function CallBackForm({ classes, children }) {
             съемку с более узким углом обзора, чем угол зрения человеческого
             глаза.
           </p>
-          <label className="callback-form__label">
+          <label htmlFor="userName" className="callback-form__label">
             <input
+              id="userName"
               name="userName"
               type="text"
               value={values.userName}
@@ -47,8 +49,9 @@ export default function CallBackForm({ classes, children }) {
               Ваше имя
             </span>
           </label>
-          <label className="callback-form__label">
+          <label htmlFor="userPhone" className="callback-form__label">
             <input
+              id="userPhone"
               name="userPhone"
               type="text"
               value={values.userPhone}
@@ -64,8 +67,9 @@ export default function CallBackForm({ classes, children }) {
             </span>
           </label>
           <div className="callback-form__policy-wrap">
-            <label className="callback-form__label callback-form__label_type_policy">
+            <label htmlFor="policy" className="callback-form__label callback-form__label_type_policy">
               <input
+                id="policy"
                 name="policy"
                 type="checkbox"
                 value={values.policy}
@@ -101,3 +105,12 @@ export default function CallBackForm({ classes, children }) {
     </div>
   );
 }
+
+CallBackForm.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
+
+CallBackForm.defaultProps = {
+  classes: '',
+};
