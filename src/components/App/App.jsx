@@ -9,9 +9,9 @@ import ModalContext from '../../context/modal-context';
 import './App.css';
 import Modal from '../Modal/Modal';
 import { MODAL_TYPES_NEWS } from '../../utils/constants';
+import AddNewsModalContent from '../Modal/AddNewsModalContent';
 
 function App() {
-  const [test, setTest] = useState(false)
   const [user, setUser] = useState({
     email: '',
     id: '',
@@ -27,7 +27,9 @@ function App() {
     }
     if (modal.modalType === MODAL_TYPES_NEWS) {
       return (
-        <Modal>Новости</Modal>
+        <Modal>
+          <AddNewsModalContent />
+        </Modal>
       );
     }
     return (
@@ -60,8 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <ModalContext.Provider value={modalState}>
-        <div className="app" onClick={() => {setTest(test => !test)}}>
-          {test && (<p>Тест</p>)}
+        <div className="app" >
           <Header containerClasses="app__container" />
           <UserContext.Provider value={user}>
             <Main containerClasses="app__container" />

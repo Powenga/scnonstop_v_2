@@ -6,17 +6,25 @@ import './CallbackForm.css';
 import Input from '../Form/Input';
 
 export default function CallBackForm({ classes, children }) {
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({
+    userName: '',
+    userPhone: '',
+  });
 
   const onSubmit = useCallback((event) => {
     event.preventDefault();
     alert('Форма отправлена!');
   }, []);
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
-  }
+  const handleChange = useCallback((event) => {
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
+    setValues((state) => ({
+      ...state,
+      [name]: value,
+    }));
+  }, []);
 
   return (
     <div className={`callback-form ${classes || ''}`}>
@@ -34,20 +42,22 @@ export default function CallBackForm({ classes, children }) {
             глаза.
           </p>
           <Input
-            id="userName"
+            id="callbackUserName"
             name="userName"
             placeholder="Ваше имя"
-            value={null}
+            value={values.userName}
             classes="callback-form__label"
-            handleChange={handleChange}
+            onChange={handleChange}
+            maxLength={60}
           />
           <Input
-            id="userPhone"
+            id="callbackUserPhone"
             name="userPhone"
             placeholder="Телефон для связи"
-            value={' '}
+            value={values.userPhone}
             classes="callback-form__label"
-            handleChange={handleChange}
+            onChange={handleChange}
+            maxLength={60}
           />
           <div className="callback-form__policy-wrap">
             <label htmlFor="policy" className="callback-form__label callback-form__label_type_policy">
