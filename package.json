@@ -19,7 +19,7 @@
     "deploy": "npm run build && scp -r ./build/* scnonstop_beta@scnonstop.beget.tech:/home/s/scnonstop/scnonstop.beget.tech/public_html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint --ext .js,.jsx ./src"
+    "lint": "npx eslint --ext .js --ext .jsx ./src"
   },
   "eslintConfig": {
     "extends": [

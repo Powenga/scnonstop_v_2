@@ -22,6 +22,24 @@ class Api {
     }).then(this.constructor._onError);
   }
 
+  saveNews(data, formData) {
+    return fetch(`${this._baseUrl}/news`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(data),
+      credentials: 'include',
+    })
+      .then(this.constructor._onError)
+      .then(({ id }) => fetch(`${this._baseUrl}/news/${id}/image`, {
+        method: 'PATCH',
+        body: formData,
+        credentials: 'include',
+      }))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   editProfile(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',

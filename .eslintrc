@@ -3,7 +3,8 @@
   "globals": {
     "document": "readonly",
     "fetch": "readonly",
-    "window": "readonly"
+    "window": "readonly",
+    "FormData": "readonly"
   },
   "rules": {
     "no-underscore-dangle": [
