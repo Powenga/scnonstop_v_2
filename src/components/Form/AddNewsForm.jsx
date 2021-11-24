@@ -4,6 +4,7 @@ import Input from './Input';
 import TextArea from './TextArea';
 import api from '../../utils/main-api';
 import styles from './AddNewsForm.module.css';
+import Button from '../Button/Button';
 
 const formData = new FormData();
 
@@ -64,7 +65,7 @@ export default function AddNewsForm() {
         onChange={handleChange}
         maxLength={750}
       />
-      <button type="submit">Отправить</button>
+      <Button type="submit" classes={styles.submitButton}>Отправить</Button>
     </Form>
   );
 }
