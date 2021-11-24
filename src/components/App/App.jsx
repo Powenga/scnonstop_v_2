@@ -9,7 +9,7 @@ import ModalContext from '../../context/modal-context';
 import './App.css';
 import Modal from '../Modal/Modal';
 import { MODAL_TYPES_NEWS } from '../../utils/constants';
-import AddNewsModalContent from '../Modal/AddNewsModalContent';
+import AddNewsForm from '../Form/AddNewsForm';
 
 function App() {
   const [user, setUser] = useState({
@@ -28,7 +28,7 @@ function App() {
     if (modal.modalType === MODAL_TYPES_NEWS) {
       return (
         <Modal>
-          <AddNewsModalContent />
+          <AddNewsForm />
         </Modal>
       );
     }
@@ -62,7 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <ModalContext.Provider value={modalState}>
-        <div className="app" >
+        <div className="app">
           <Header containerClasses="app__container" />
           <UserContext.Provider value={user}>
             <Main containerClasses="app__container" />

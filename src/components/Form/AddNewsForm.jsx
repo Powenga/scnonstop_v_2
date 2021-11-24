@@ -1,14 +1,13 @@
 import React, { useCallback, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import Form from '../Form/Form';
-import Input from '../Form/Input';
-import TextArea from '../Form/TextArea';
+import Form from './Form';
+import Input from './Input';
+import TextArea from './TextArea';
 import api from '../../utils/main-api';
-import styles from './AddNewsModalContent.module.css';
+import styles from './AddNewsForm.module.css';
 
 const formData = new FormData();
 
-export default function AddNewsModalContent() {
+export default function AddNewsForm() {
   const [values, setValues] = useState({
     title: '',
     date: '',

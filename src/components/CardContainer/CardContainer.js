@@ -8,7 +8,7 @@ function CardContainer({
       {cards.map((card, index) => (
         <li className={`card-container__item ${itemClasses && itemClasses}`}>
           <Component
-            key={index}
+            key={card.id}
             card={card}
             onClick={onCardClick}
           />

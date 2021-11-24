@@ -91,10 +91,13 @@ function News({ classes, onCardClick, children }) {
         const formattedNews = data.map((news) => {
           const d = new Date(news.date);
           const day = d.getDate();
+          const month = d.getMonth() + 1;
           return {
             ...news,
             date: d,
-            formattedDate: `${day < 9 ? '0' : ''}${day}.${d.getMonth() + 1}.${d.getFullYear()}`,
+            formattedDate: `${day < 9 ? '0' : ''}${day}.${
+              month < 9 ? '0' : ''
+            }${month}.${d.getFullYear()}`,
             content: `${news.content.substr(0, 150).trim()}...`,
             fullContent: news.content,
           };
@@ -141,10 +144,10 @@ function News({ classes, onCardClick, children }) {
   );
 }
 
-export default News;
-
 News.propTypes = {
   classes: PropTypes.string.isRequired,
   onCardClick: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
 };
+
+export default News;
