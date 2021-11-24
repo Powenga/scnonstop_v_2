@@ -34,7 +34,8 @@ class Api {
         method: 'PATCH',
         body: formData,
         credentials: 'include',
-      }));
+      }))
+      .then(this.constructor._onError);
   }
 
   editProfile(data) {

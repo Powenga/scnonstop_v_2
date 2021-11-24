@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 export default function Button({
-  onButtonClick, type, classes, children,
+  onButtonClick, type, classes, children, disabled,
 }) {
   function handleClick(evt) {
     onButtonClick(evt);
@@ -11,9 +11,10 @@ export default function Button({
 
   return (
     <button
+      disabled={disabled}
       onClick={handleClick}
       type={type !== undefined ? 'submit' : 'button'}
-      className={`button ${classes && classes}`}
+      className={`button ${classes && classes} ${disabled && 'button_disabled'}`}
     >
       {children}
     </button>
@@ -25,6 +26,7 @@ Button.propTypes = {
   type: PropTypes.string,
   classes: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -32,4 +34,5 @@ Button.defaultProps = {
   type: '',
   classes: '',
   children: '',
+  disabled: false,
 };

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-export default function Form({
-  name, classes, onSubmit, children, errorMessage,
-}) {
-  return (
+const Form = forwardRef(
+  ({
+    name,
+    classes,
+    onSubmit,
+    children,
+    errorMessage,
+  }, ref) => (
     <form
+      ref={ref}
       name={name}
       className={`${styles.form} ${classes}`}
       noValidate
@@ -15,8 +20,8 @@ export default function Form({
       {children}
       {errorMessage && <span className={styles.error}>{errorMessage}</span>}
     </form>
-  );
-}
+  ),
+);
 
 Form.propTypes = {
   name: PropTypes.func.isRequired,
@@ -29,3 +34,5 @@ Form.propTypes = {
 Form.defaultProps = {
   errorMessage: '',
 };
+
+export default Form;

@@ -12,6 +12,7 @@ import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const formData = new FormData();
 
@@ -23,11 +24,20 @@ export default function AddNewsForm() {
     content: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
+  const [isValid, setIsValid] = useState(false);
   const [isLoadig, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
+  const formRef = useRef(null);
 
   const handleChange = useCallback((event) => {
+    if (formRef.current) {
+      formRef.current.checkValidity();
+      setIsValid(formRef.current.checkValidity());
+    }
     const { target } = event;
+    if (target.type === 'file') {
+      return;
+    }
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
     setValues((state) => ({
@@ -40,7 +50,8 @@ export default function AddNewsForm() {
     setIsLoading(true);
     formData.append('news-image', fileInputRef.current.files[0]);
     event.preventDefault();
-    api.saveNews(values, formData)
+    api
+      .saveNews(values, formData)
       .then(() => {
         setModalState({
           isOpen: false,
@@ -57,13 +68,24 @@ export default function AddNewsForm() {
 
   return (
     <Form
+      ref={formRef}
       name="addNewsForm"
       classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
-      <h2 className={styles.title}>Добавление новости</h2>
-      <input type="file" name="news-image" ref={fileInputRef} className={styles.input} />
+      <SectionTitle
+        title="Добавление новости"
+        subtitle="Введите данные для добавления новости"
+      />
+      <input
+        type="file"
+        name="news-image"
+        ref={fileInputRef}
+        required
+        className={`${styles.input} ${styles.input_pos_first}`}
+        onChange={handleChange}
+      />
       <Input
         id="titleNewsId"
         name="title"
@@ -92,7 +114,13 @@ export default function AddNewsForm() {
         onChange={handleChange}
         maxLength={750}
       />
-      <Button type="submit" classes={styles.submitButton}>Отправить</Button>
+      <Button
+        type="submit"
+        classes={styles.submitButton}
+        disabled={!isValid}
+      >
+        Отправить
+      </Button>
       {isLoadig && <Preloader />}
     </Form>
   );

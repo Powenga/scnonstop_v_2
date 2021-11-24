@@ -2,6 +2,10 @@
   margin-bottom: 32px;
 }
 
+.input_pos_first {
+  margin-top: 32px;
+}
+
 .submitButton {
   width: 100%;
 }
