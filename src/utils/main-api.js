@@ -34,10 +34,7 @@ class Api {
         method: 'PATCH',
         body: formData,
         credentials: 'include',
-      }))
-      .catch((err) => {
-        console.log(err);
-      });
+      }));
   }
 
   editProfile(data) {

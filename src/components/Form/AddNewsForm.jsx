@@ -1,20 +1,29 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useRef,
+  useState,
+} from 'react';
 import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
 import api from '../../utils/main-api';
 import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
+import Preloader from '../Preloader/Preloader';
+import modalContext from '../../context/modal-context';
 
 const formData = new FormData();
 
 export default function AddNewsForm() {
+  const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     title: '',
     date: '',
     content: '',
   });
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isLoadig, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
 
   const handleChange = useCallback((event) => {
@@ -28,13 +37,31 @@ export default function AddNewsForm() {
   }, []);
 
   const handleSubmit = (event) => {
+    setIsLoading(true);
     formData.append('news-image', fileInputRef.current.files[0]);
     event.preventDefault();
-    api.saveNews(values, formData);
+    api.saveNews(values, formData)
+      .then(() => {
+        setModalState({
+          isOpen: false,
+          modalType: null,
+        });
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
-    <Form name="addNewsForm" classes={styles.form} onSubmit={handleSubmit}>
+    <Form
+      name="addNewsForm"
+      classes={styles.form}
+      onSubmit={handleSubmit}
+      errorMessage={errorMessage}
+    >
       <h2 className={styles.title}>Добавление новости</h2>
       <input type="file" name="news-image" ref={fileInputRef} className={styles.input} />
       <Input
@@ -66,6 +93,7 @@ export default function AddNewsForm() {
         maxLength={750}
       />
       <Button type="submit" classes={styles.submitButton}>Отправить</Button>
+      {isLoadig && <Preloader />}
     </Form>
   );
 }

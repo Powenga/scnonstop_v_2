@@ -1,0 +1,15 @@
+.form {
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #cd1616;
+}

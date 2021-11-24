@@ -10,6 +10,7 @@ import './App.css';
 import Modal from '../Modal/Modal';
 import { MODAL_TYPES_NEWS } from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
   const [user, setUser] = useState({

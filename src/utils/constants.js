@@ -64,3 +64,4 @@ export const MODAL_ROOT_SELECTOR = '#modal';
 export const ESC_KEY = 'Escape';
 export const MODAL_TYPES_NEWS = 'MODAL_TYPES_NEWS';
 export const MODAL_TYPES_SPECS = 'MODAL_TYPES_SPECS';
+export const MODAL_TYPES_PRELOADER = 'MODAL_TYPES_PRELOADER';
