@@ -43,7 +43,7 @@ export default function Input({
       />
       <span
         className={`${styles.placeholder} ${
-          value ? styles.placeholder_fill : ''
+          isFocused || value ? styles.placeholder_fill : ''
         }`}
       >
         {placeholder}
