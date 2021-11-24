@@ -90,15 +90,17 @@ function News({ classes, onCardClick, children }) {
       .then((data) => {
         const formattedNews = data.map((news) => {
           const d = new Date(news.date);
+          const day = d.getDate();
           return {
             ...news,
-            date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-            content: `${news.content.substr(0, 150)}...`,
+            date: d,
+            formattedDate: `${day < 9 ? '0' : ''}${day}.${d.getMonth() + 1}.${d.getFullYear()}`,
+            content: `${news.content.substr(0, 150).trim()}...`,
             fullContent: news.content,
           };
         });
         setNewsList(
-          formattedNews.sort((a, b) => new Date(a.date) - new Date(b.date)),
+          formattedNews.sort((a, b) => new Date(b.date) - new Date(a.date)),
         );
       })
       .catch(() => {

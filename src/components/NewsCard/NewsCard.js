@@ -10,7 +10,7 @@ function NewsCard({ classes, card }) {
       <h3 title={card.title} className="news-card__title">
         {card.title}
       </h3>
-      <p className="news-card__date">{card.date}</p>
+      <p className="news-card__date">{card.formattedDate}</p>
       <p className="news-card__content">{card.content}</p>
     </div>
   );
