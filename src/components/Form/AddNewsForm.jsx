@@ -13,6 +13,7 @@ import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import FileInput from './FileInput';
 
 const formData = new FormData();
 
@@ -78,12 +79,11 @@ export default function AddNewsForm() {
         title="Добавление новости"
         subtitle="Введите данные для добавления новости"
       />
-      <input
-        type="file"
+      <FileInput
         name="news-image"
         ref={fileInputRef}
         required
-        className={`${styles.input} ${styles.input_pos_first}`}
+        classes={`${styles.input} ${styles.input_pos_first}`}
         onChange={handleChange}
       />
       <Input
@@ -96,13 +96,14 @@ export default function AddNewsForm() {
         maxLength={60}
       />
       <Input
-        id="dateNewsId"
+        id="titleNewsId"
+        type="date"
         name="date"
         placeholder="Дата размещения"
         value={values.date}
         classes={styles.input}
         onChange={handleChange}
-        maxLength={10}
+        maxLength={60}
       />
       <TextArea
         id="contentNewsId"

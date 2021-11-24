@@ -11,8 +11,14 @@ export default function Input({
   classes,
   minLength,
   maxLength,
+  type,
 }) {
   const [error, setError] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+
+  function toggleFocus() {
+    setIsFocused(!isFocused);
+  }
 
   function handleChange(event) {
     const { validationMessage } = event.target;
@@ -25,12 +31,14 @@ export default function Input({
       <input
         id={id}
         name={name}
-        type="text"
+        type={type || 'text'}
         value={value}
-        className={styles.input}
+        className={`${styles.input} ${!isFocused && !value && styles.input_value_hide}`}
         onChange={handleChange}
         minLength={minLength}
         maxLength={maxLength}
+        onFocus={toggleFocus}
+        onBlur={toggleFocus}
         required
       />
       <span
@@ -56,10 +64,12 @@ Input.propTypes = {
   classes: PropTypes.string,
   minLength: PropTypes.number,
   maxLength: PropTypes.number.isRequired,
+  type: PropTypes.string,
 };
 
 Input.defaultProps = {
   id: '',
   classes: '',
   minLength: 1,
+  type: 'text',
 };
