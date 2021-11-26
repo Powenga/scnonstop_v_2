@@ -27,6 +27,7 @@ export default function AddNewsForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [isLoadig, setIsLoading] = useState(false);
+  const [fileName, setFileName] = useState('');
   const fileInputRef = useRef(null);
   const formRef = useRef(null);
 
@@ -37,6 +38,13 @@ export default function AddNewsForm() {
     }
     const { target } = event;
     if (target.type === 'file') {
+      if (fileInputRef.current) {
+        setFileName(
+          fileInputRef.current.files[0]
+            ? fileInputRef.current.files[0].name
+            : '',
+        );
+      }
       return;
     }
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -80,6 +88,8 @@ export default function AddNewsForm() {
         subtitle="Введите данные для добавления новости"
       />
       <FileInput
+        id="fileNewsId"
+        fileName={fileName}
         name="news-image"
         ref={fileInputRef}
         required
@@ -96,7 +106,7 @@ export default function AddNewsForm() {
         maxLength={60}
       />
       <Input
-        id="titleNewsId"
+        id="dateNewsId"
         type="date"
         name="date"
         placeholder="Дата размещения"

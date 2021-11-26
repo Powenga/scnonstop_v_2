@@ -1,0 +1,41 @@
+.label {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.pseudo {
+  display: inline-block;
+  width: 42px;
+  height: 56px;
+  margin-right: 12px;
+  background: center / contain no-repeat url(../../images/add-file.svg);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.pseudo:hover {
+  opacity: 1;
+}
+
+.fileName {
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #121212;
+  vertical-align: 50%;
+  white-space: nowrap;
+}
