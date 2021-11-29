@@ -4,7 +4,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import mainApi from '../../utils/main-api';
-import { newsRenderPrefs, MODAL_TYPES_NEWS } from '../../utils/constants';
+import { newsRenderPrefs, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
 import NewsCardWithOption from '../NewsCardWithOptions/NewsCardWithIptions';
 import './News.css';
 
@@ -118,7 +118,7 @@ export default function News({
       <SectionTitleWithButton
         title="Новости и акции"
         subtitle="Узнайте о наших специальных предложениях"
-        modalType={MODAL_TYPES_NEWS}
+        modalType={MODAL_TYPES_ADD_NEWS}
       />
       <CardContainer
         classes="news__container"

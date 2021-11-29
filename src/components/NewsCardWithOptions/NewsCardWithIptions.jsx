@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import NewsCard from '../NewsCard/NewsCard';
 import UserContext from '../../context/user-context';
 import NewsHandlerContext from '../../context/news-handlers-context';
+import { newsPropTypes } from '../../utils/prop-types';
 import styles from './NewsCardWithOption.module.css';
 
 export default function NewsCardWithOption({ ...props }) {
@@ -54,8 +55,12 @@ export default function NewsCardWithOption({ ...props }) {
 }
 
 NewsCardWithOption.propTypes = {
-  card: PropTypes.string.isRequired,
+  card: newsPropTypes,
   onClick: PropTypes.func.isRequired,
   handleDeleteNewsClick: PropTypes.func.isRequired,
   handleEditNewsClick: PropTypes.func.isRequired,
+};
+
+NewsCardWithOption.defaultProps = {
+  card: {},
 };

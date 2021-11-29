@@ -1,8 +1,10 @@
+import React from 'react';
+import { newsPropTypes } from '../../utils/prop-types';
 import './NewsCard.css';
 
-function NewsCard({ classes, card }) {
+export default function NewsCard({ card }) {
   return (
-    <div className={`news-card ${classes && classes}`}>
+    <div className="news-card">
       <div
         className="news-card__img-wrap"
         style={{ backgroundImage: `url(${card.link}` }}
@@ -16,4 +18,10 @@ function NewsCard({ classes, card }) {
   );
 }
 
-export default NewsCard;
+NewsCard.propTypes = {
+  card: newsPropTypes,
+};
+
+NewsCard.defaultProps = {
+  card: {},
+};

@@ -9,7 +9,7 @@ import UserContext from '../../context/user-context';
 import NewsHandlerContext from '../../context/news-handlers-context';
 import ModalContext from '../../context/modal-context';
 import Modal from '../Modal/Modal';
-import { MODAL_TYPES_CONFIRM, MODAL_TYPES_EDIT_NEWS, MODAL_TYPES_NEWS } from '../../utils/constants';
+import { MODAL_TYPES_CONFIRM, MODAL_TYPES_EDIT_NEWS, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
 import EditNewsForm from '../Form/EditNewsForm';
 import ModalConfirm from '../Modal/ModalConfirm';
@@ -33,7 +33,7 @@ function App() {
     if (!modal.isOpen) {
       return '';
     }
-    if (modal.modalType === MODAL_TYPES_NEWS) {
+    if (modal.modalType === MODAL_TYPES_ADD_NEWS) {
       return (
         <Modal>
           <AddNewsForm />
@@ -58,6 +58,13 @@ function App() {
         </Modal>
       );
     }
+    if (modal.modalType === MODAL_TYPES_SHOW_NEWS) {
+      return (
+        <Modal>
+
+        </Modal>
+      );
+    }
     return <Modal>Специалисты</Modal>;
   }
 
@@ -71,9 +78,13 @@ function App() {
     setEditedNews(news);
   }, []);
 
-  const handleDeleteNews = (id) => {
+  const handleDeleteNews = useCallback((id) => {
     return api.deleteNews(id);
-  };
+  }, [])
+
+  const handleClickNews = useCallback((id) => {
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_NEWS });
+  }, [])
 
   useEffect(() => {
     auth
