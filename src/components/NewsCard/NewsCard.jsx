@@ -8,7 +8,7 @@ export default function NewsCard({ card, handleClickNews }) {
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
-    handleClickNews();
+    handleClickNews(card);
   }, [handleClickNews]);
 
   const handleEnter = useCallback((event) => {

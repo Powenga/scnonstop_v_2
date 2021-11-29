@@ -20,6 +20,7 @@ import EditNewsForm from '../Form/EditNewsForm';
 import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
 import Preloader from '../Preloader/Preloader';
+import NewsContent from '../Modal/NewsContent';
 
 function App() {
   const [user, setUser] = useState({
@@ -65,7 +66,7 @@ function App() {
     if (modal.modalType === MODAL_TYPES_SHOW_NEWS) {
       return (
         <Modal>
-
+          <NewsContent news={currentNews}/>
         </Modal>
       );
     }

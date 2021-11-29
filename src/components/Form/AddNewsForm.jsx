@@ -117,7 +117,7 @@ export default function AddNewsForm() {
         id="contentNewsId"
         name="content"
         value={values.content}
-        rows={5}
+        rows={4}
         placeholder="Текст новости"
         classes={styles.input}
         onChange={handleChange}
