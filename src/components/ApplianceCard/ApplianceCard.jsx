@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cardProptypes from '../../utils/prop-types';
+import { appliancePropTypes } from '../../utils/prop-types';
 import './ApplianceCard.css';
 
 function ApplianceCard({
@@ -23,7 +23,7 @@ function ApplianceCard({
 export default ApplianceCard;
 
 ApplianceCard.propTypes = {
-  card: cardProptypes.isRequired,
+  card: appliancePropTypes.isRequired,
   classes: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

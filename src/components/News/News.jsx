@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
-import NewsCard from '../NewsCard/NewsCard';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs, MODAL_TYPES_NEWS } from '../../utils/constants';
+import NewsCardWithOption from '../NewsCardWithOptions/NewsCardWithIptions';
 import './News.css';
 
-function News({ classes, onCardClick, children }) {
+export default function News({
+  classes,
+  onCardClick,
+  handleDeleteNewsClick,
+  children,
+}) {
   const [newsList, setNewsList] = useState([]);
   const [renderedNewsList, setRenderedNewsList] = useState([]);
   const [numberOfRenderedNews, setNumberOfRenderedNews] = useState(0);
@@ -121,9 +126,10 @@ function News({ classes, onCardClick, children }) {
       {children}
       <CardContainer
         classes="news__container"
-        Component={NewsCard}
+        Component={NewsCardWithOption}
         cards={renderedNewsList}
         onCardClick={onCardClick}
+        handleDeleteNewsClick={handleDeleteNewsClick}
         itemClasses="news__item"
       />
       {numberOfRenderedNews < newsList.length && (
@@ -147,7 +153,6 @@ function News({ classes, onCardClick, children }) {
 News.propTypes = {
   classes: PropTypes.string.isRequired,
   onCardClick: PropTypes.func.isRequired,
+  handleDeleteNewsClick: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
 };
-
-export default News;

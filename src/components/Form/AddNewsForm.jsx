@@ -26,7 +26,7 @@ export default function AddNewsForm() {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const [isLoadig, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [fileName, setFileName] = useState('');
   const fileInputRef = useRef(null);
   const formRef = useRef(null);
@@ -132,7 +132,7 @@ export default function AddNewsForm() {
       >
         Отправить
       </Button>
-      {isLoadig && <Preloader />}
+      {isLoading && <Preloader />}
     </Form>
   );
 }

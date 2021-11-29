@@ -56,8 +56,8 @@ class Api {
     }).then(this.constructor._onError);
   }
 
-  deleteCard(data) {
-    return fetch(`${this._baseUrl}/movies/${data.id}`, {
+  deleteNews(id) {
+    return fetch(`${this._baseUrl}/news/${id}`, {
       method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
