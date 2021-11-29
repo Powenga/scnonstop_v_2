@@ -6,7 +6,12 @@ import UserContext from '../../context/user-context';
 import ModalContext from '../../context/modal-context';
 import './SectionTitleWithButton.css';
 
-export default function SectionTitleWithButton({ title, subtitle, modalType }) {
+export default function SectionTitleWithButton({
+  title,
+  subtitle,
+  modalType,
+  theme,
+}) {
   const [shouldShowButton, setShouldShowButton] = useState(false);
   const user = useContext(UserContext);
   const [, setModal] = useContext(ModalContext);
@@ -25,7 +30,7 @@ export default function SectionTitleWithButton({ title, subtitle, modalType }) {
 
   return (
     <div className="section-title-with-button">
-      <SectionTitle title={title} subtitle={subtitle} />
+      <SectionTitle title={title} subtitle={subtitle} theme={theme} />
       {shouldShowButton && (
         <button
           type="button"
@@ -42,4 +47,9 @@ SectionTitleWithButton.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   modalType: PropTypes.string.isRequired,
+  theme: PropTypes.string,
+};
+
+SectionTitleWithButton.defaultProps = {
+  theme: '',
 };

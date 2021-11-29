@@ -14,7 +14,7 @@ import Map from '../Map/Map';
 import CallBackForm from '../CallbackForm/CallBackForm';
 import './Main.css';
 
-export default function Main({ containerClasses, handleDeleteNewsClick }) {
+export default function Main({ containerClasses }) {
   return (
     <main className="main">
       <section className="main__section main__section_type_promo">
@@ -116,5 +116,4 @@ export default function Main({ containerClasses, handleDeleteNewsClick }) {
 
 Main.propTypes = {
   containerClasses: PropTypes.string.isRequired,
-  handleDeleteClick: PropTypes.func,
 };

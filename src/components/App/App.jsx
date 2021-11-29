@@ -14,6 +14,7 @@ import {
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_SHOW_NEWS,
+  MODAL_TYPES_ADD_SPECS,
 } from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
 import EditNewsForm from '../Form/EditNewsForm';
@@ -83,6 +84,13 @@ function App() {
       return (
         <Modal>
           <NewsContent news={currentNews} />
+        </Modal>
+      );
+    }
+    if (modal.modalType === MODAL_TYPES_ADD_SPECS) {
+      return (
+        <Modal>
+
         </Modal>
       );
     }
