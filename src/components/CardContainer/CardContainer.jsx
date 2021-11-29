@@ -12,9 +12,11 @@ export default function CardContainer({
   return (
     <ul className={`card-container ${classes && classes}`}>
       {cards.map((card) => (
-        <li className={`card-container__item ${itemClasses && itemClasses}`}>
+        <li
+          className={`card-container__item ${itemClasses && itemClasses}`}
+          key={card.id}
+        >
           <Component
-            key={card.id}
             card={card}
           />
         </li>
@@ -26,11 +28,12 @@ export default function CardContainer({
 CardContainer.propTypes = {
   classes: PropTypes.string,
   itemClasses: PropTypes.string,
-  Component: PropTypes.element.isRequired,
-  cards: PropTypes.arrayOf(newsPropTypes).isRequired,
+  Component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+  cards: PropTypes.arrayOf(newsPropTypes),
 };
 
 CardContainer.defaultProps = {
   classes: '',
   itemClasses: '',
+  cards: [],
 };

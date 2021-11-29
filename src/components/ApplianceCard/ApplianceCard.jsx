@@ -24,6 +24,10 @@ export default ApplianceCard;
 
 ApplianceCard.propTypes = {
   card: appliancePropTypes.isRequired,
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.string,
   onClick: PropTypes.func.isRequired,
+};
+
+ApplianceCard.defaultProps = {
+  classes: '',
 };

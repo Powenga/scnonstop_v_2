@@ -18,24 +18,28 @@ export const { REACT_APP_API_URL = 'https://scnonstop.ru/api' } = process.env;
 
 export const appliancesCards = [
   {
+    id: 1,
     title: 'Cтиральные машины',
     src: wmPath,
     value: 'Cтиральная машина',
     formSrc: formWmPath,
   },
   {
+    id: 2,
     title: 'Холодильники',
     src: refPath,
     value: 'Холодильник',
     formSrc: formRefPath,
   },
   {
+    id: 3,
     title: 'Посудомоечные машины',
     src: dwPath,
     value: 'Посудомоечная машина',
     formSrc: formDwPath,
   },
   {
+    id: 4,
     title: 'Водонагреватели',
     src: boilPath,
     value: 'Водонагреватель',

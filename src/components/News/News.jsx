@@ -10,7 +10,6 @@ import './News.css';
 
 export default function News({
   classes,
-  children,
 }) {
   const [newsList, setNewsList] = useState([]);
   const [renderedNewsList, setRenderedNewsList] = useState([]);
@@ -121,7 +120,6 @@ export default function News({
         subtitle="Узнайте о наших специальных предложениях"
         modalType={MODAL_TYPES_NEWS}
       />
-      {children}
       <CardContainer
         classes="news__container"
         Component={NewsCardWithOption}
@@ -148,5 +146,4 @@ export default function News({
 
 News.propTypes = {
   classes: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
 };
