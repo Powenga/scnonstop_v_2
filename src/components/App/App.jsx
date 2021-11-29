@@ -6,10 +6,12 @@ import Main from '../Main/Main';
 import auth from '../../utils/auth';
 import api from '../../utils/main-api';
 import UserContext from '../../context/user-context';
+import NewsHandlerContext from '../../context/news-handlers-context';
 import ModalContext from '../../context/modal-context';
 import Modal from '../Modal/Modal';
-import { MODAL_TYPES_CONFIRM, MODAL_TYPES_NEWS } from '../../utils/constants';
+import { MODAL_TYPES_CONFIRM, MODAL_TYPES_EDIT_NEWS, MODAL_TYPES_NEWS } from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
+import EditNewsForm from '../Form/EditNewsForm';
 import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
 import Preloader from '../Preloader/Preloader';
@@ -24,7 +26,8 @@ function App() {
   const modalState = useState({ isOpen: false, modalType: '' });
   const [modal, setModalState] = modalState;
 
-  const [deletetNewsid, setDeletedNewsId] = useState(null);
+  const [newsId, setNewsId] = useState(null);
+  const [editedNews, setEditedNews] = useState({});
 
   function renderModal() {
     if (!modal.isOpen) {
@@ -41,10 +44,17 @@ function App() {
       return (
         <Modal>
           <ModalConfirm
-            id={deletetNewsid}
+            id={newsId}
             onConfirm={handleDeleteNews}
             confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"
             />
+        </Modal>
+      );
+    }
+    if (modal.modalType === MODAL_TYPES_EDIT_NEWS) {
+      return (
+        <Modal>
+          <EditNewsForm news={editedNews}/>
         </Modal>
       );
     }
@@ -52,9 +62,13 @@ function App() {
   }
 
   const handleDeleteNewsClick = useCallback((cardId) => {
-    console.log(cardId);
     setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM });
-    setDeletedNewsId(cardId);
+    setNewsId(cardId);
+  }, []);
+
+  const handleEditNewsClick = useCallback((news) => {
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_EDIT_NEWS });
+    setEditedNews(news);
   }, []);
 
   const handleDeleteNews = (id) => {
@@ -88,10 +102,17 @@ function App() {
         <div className="app">
           <Header containerClasses="app__container" />
           <UserContext.Provider value={user}>
+            <NewsHandlerContext.Provider
+              value={{
+                onClick: () => {},
+                handleDeleteNewsClick,
+                handleEditNewsClick
+               }}
+            >
             <Main
               containerClasses="app__container"
-              handleDeleteNewsClick={handleDeleteNewsClick}
             />
+            </NewsHandlerContext.Provider>
           </UserContext.Provider>
           <Footer containerClasses="app__container" />
           {renderModal()}

@@ -10,8 +10,6 @@ import './News.css';
 
 export default function News({
   classes,
-  onCardClick,
-  handleDeleteNewsClick,
   children,
 }) {
   const [newsList, setNewsList] = useState([]);
@@ -128,8 +126,6 @@ export default function News({
         classes="news__container"
         Component={NewsCardWithOption}
         cards={renderedNewsList}
-        onCardClick={onCardClick}
-        handleDeleteNewsClick={handleDeleteNewsClick}
         itemClasses="news__item"
       />
       {numberOfRenderedNews < newsList.length && (
@@ -152,7 +148,5 @@ export default function News({
 
 News.propTypes = {
   classes: PropTypes.string.isRequired,
-  onCardClick: PropTypes.func.isRequired,
-  handleDeleteNewsClick: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
 };

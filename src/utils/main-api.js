@@ -38,6 +38,26 @@ class Api {
       .then(this.constructor._onError);
   }
 
+  editNews(data, formData, isFile) {
+    return fetch(`${this._baseUrl}/news/${data.id}`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(data),
+      credentials: 'include',
+    })
+      .then(this.constructor._onError)
+      .then((res) => {
+        if (isFile) {
+          return fetch(`${this._baseUrl}/news/${res.id}/image`, {
+            method: 'PATCH',
+            body: formData,
+            credentials: 'include',
+          }).then(this.constructor._onError);
+        }
+        return res;
+      });
+  }
+
   editProfile(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',

@@ -14,15 +14,24 @@ import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
+import { newsPropTypes } from '../../utils/prop-types';
 
-let formData = new FormData();
+const formData = new FormData();
 
-export default function AddNewsForm() {
+export default function EditNewsForm({ news }) {
+  const {
+    id,
+    title,
+    date,
+    fullContent,
+  } = news;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
-    title: '',
-    date: '',
-    content: '',
+    title,
+    date: `${date.getFullYear()}-${date.getMonth() + 1}-${
+      date.getDate() < 10 ? '0' : ''
+    }${date.getDate()}`,
+    content: fullContent,
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -60,7 +69,7 @@ export default function AddNewsForm() {
     formData.append('news-image', fileInputRef.current.files[0]);
     event.preventDefault();
     api
-      .saveNews(values, formData)
+      .editNews({ id, ...values }, formData, fileName)
       .then(() => {
         setModalState({
           isOpen: false,
@@ -69,7 +78,6 @@ export default function AddNewsForm() {
       })
       .catch((error) => {
         setErrorMessage(error.message);
-        formData = new FormData();
       });
   };
 
@@ -82,15 +90,14 @@ export default function AddNewsForm() {
       errorMessage={errorMessage}
     >
       <SectionTitle
-        title="Добавление новости"
-        subtitle="Введите данные для добавления новости"
+        title="Редактирование новости"
+        subtitle="Введите данные для редактирования новости"
       />
       <FileInput
         id="fileNewsId"
         fileName={fileName}
         name="news-image"
         ref={fileInputRef}
-        required
         classes={`${styles.input} ${styles.input_pos_first}`}
         onChange={handleChange}
       />
@@ -123,14 +130,14 @@ export default function AddNewsForm() {
         onChange={handleChange}
         maxLength={750}
       />
-      <Button
-        type="submit"
-        classes={styles.submitButton}
-        disabled={!isValid}
-      >
+      <Button type="submit" classes={styles.submitButton} disabled={!isValid}>
         Отправить
       </Button>
       {isLoading && <Preloader />}
     </Form>
   );
 }
+
+EditNewsForm.propTypes = {
+  news: newsPropTypes.isRequired,
+};

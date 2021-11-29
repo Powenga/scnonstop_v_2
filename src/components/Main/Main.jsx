@@ -34,10 +34,7 @@ export default function Main({ containerClasses, handleDeleteNewsClick }) {
         </Appliances>
       </section>
       <section className="main__section main__section_type_news">
-        <News
-          classes={containerClasses}
-          handleDeleteNewsClick={handleDeleteNewsClick}
-        />
+        <News classes={containerClasses} />
       </section>
       <section className="main__section main__section_type_schema">
         <Scheme classes={containerClasses}>

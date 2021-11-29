@@ -4,7 +4,10 @@ import { newsPropTypes } from '../../utils/prop-types';
 import './CardContainer.css';
 
 export default function CardContainer({
-  classes, itemClasses, Component, cards, onCardClick, handleDeleteNewsClick,
+  classes,
+  itemClasses,
+  Component,
+  cards,
 }) {
   return (
     <ul className={`card-container ${classes && classes}`}>
@@ -13,8 +16,6 @@ export default function CardContainer({
           <Component
             key={card.id}
             card={card}
-            onClick={onCardClick}
-            handleDeleteNewsClick={handleDeleteNewsClick}
           />
         </li>
       ))}
@@ -27,13 +28,9 @@ CardContainer.propTypes = {
   itemClasses: PropTypes.string,
   Component: PropTypes.element.isRequired,
   cards: PropTypes.arrayOf(newsPropTypes).isRequired,
-  onCardClick: PropTypes.func,
-  handleDeleteNewsClick: PropTypes.func,
 };
 
 CardContainer.defaultProps = {
   classes: '',
   itemClasses: '',
-  onCardClick: () => {},
-  handleDeleteNewsClick: () => {},
 };

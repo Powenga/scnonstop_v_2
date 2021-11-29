@@ -2,19 +2,27 @@ import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import NewsCard from '../NewsCard/NewsCard';
 import UserContext from '../../context/user-context';
+import NewsHandlerContext from '../../context/news-handlers-context';
 import styles from './NewsCardWithOption.module.css';
 
 export default function NewsCardWithOption({ ...props }) {
-  const { card, onClick, handleDeleteNewsClick } = props;
+  const {
+    card,
+  } = props;
   const [shouldShowButton, setShouldShowButton] = useState(false);
   const user = useContext(UserContext);
+  const {
+    onClick,
+    handleDeleteNewsClick,
+    handleEditNewsClick,
+  } = useContext(NewsHandlerContext);
 
   function handleDelete() {
     handleDeleteNewsClick(card.id);
   }
 
   function handleEdit() {
-    console.log('Редактировать!');
+    handleEditNewsClick(card);
   }
 
   useEffect(() => {
@@ -49,4 +57,5 @@ NewsCardWithOption.propTypes = {
   card: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   handleDeleteNewsClick: PropTypes.func.isRequired,
+  handleEditNewsClick: PropTypes.func.isRequired,
 };
