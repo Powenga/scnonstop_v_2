@@ -9,7 +9,12 @@ import UserContext from '../../context/user-context';
 import NewsHandlerContext from '../../context/news-handlers-context';
 import ModalContext from '../../context/modal-context';
 import Modal from '../Modal/Modal';
-import { MODAL_TYPES_CONFIRM, MODAL_TYPES_EDIT_NEWS, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
+import {
+  MODAL_TYPES_CONFIRM,
+  MODAL_TYPES_EDIT_NEWS,
+  MODAL_TYPES_ADD_NEWS,
+  MODAL_TYPES_SHOW_NEWS,
+} from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
 import EditNewsForm from '../Form/EditNewsForm';
 import ModalConfirm from '../Modal/ModalConfirm';
@@ -26,8 +31,7 @@ function App() {
   const modalState = useState({ isOpen: false, modalType: '' });
   const [modal, setModalState] = modalState;
 
-  const [newsId, setNewsId] = useState(null);
-  const [editedNews, setEditedNews] = useState({});
+  const [currentNews, setCurrentNews] = useState({});
 
   function renderModal() {
     if (!modal.isOpen) {
@@ -44,7 +48,7 @@ function App() {
       return (
         <Modal>
           <ModalConfirm
-            id={newsId}
+            news={currentNews}
             onConfirm={handleDeleteNews}
             confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"
             />
@@ -54,7 +58,7 @@ function App() {
     if (modal.modalType === MODAL_TYPES_EDIT_NEWS) {
       return (
         <Modal>
-          <EditNewsForm news={editedNews}/>
+          <EditNewsForm news={currentNews}/>
         </Modal>
       );
     }
@@ -68,21 +72,22 @@ function App() {
     return <Modal>Специалисты</Modal>;
   }
 
-  const handleDeleteNewsClick = useCallback((cardId) => {
+  const handleDeleteNewsClick = useCallback((news) => {
     setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM });
-    setNewsId(cardId);
+    setCurrentNews(news);
   }, []);
 
   const handleEditNewsClick = useCallback((news) => {
     setModalState({ isOpen: true, modalType: MODAL_TYPES_EDIT_NEWS });
-    setEditedNews(news);
+    setCurrentNews(news);
   }, []);
 
   const handleDeleteNews = useCallback((id) => {
     return api.deleteNews(id);
   }, [])
 
-  const handleClickNews = useCallback((id) => {
+  const handleClickNews = useCallback((news) => {
+    setCurrentNews(news)
     setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_NEWS });
   }, [])
 
@@ -115,9 +120,9 @@ function App() {
           <UserContext.Provider value={user}>
             <NewsHandlerContext.Provider
               value={{
-                onClick: () => {},
                 handleDeleteNewsClick,
-                handleEditNewsClick
+                handleEditNewsClick,
+                handleClickNews
                }}
             >
             <Main

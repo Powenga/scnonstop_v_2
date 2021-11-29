@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
+import { newsPropTypes } from '../../utils/prop-types';
 
 export default function ModalConfirm({
-  id,
+  news,
   confirmMessage,
   onConfirm,
 }) {
@@ -15,7 +16,7 @@ export default function ModalConfirm({
   const handleConfirm = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    onConfirm(id)
+    onConfirm(news.id)
       .then(() => {
         setIsSuccess(true);
       })
@@ -53,11 +54,11 @@ export default function ModalConfirm({
 }
 
 ModalConfirm.propTypes = {
-  id: PropTypes.string,
+  news: newsPropTypes,
   confirmMessage: PropTypes.string.isRequired,
   onConfirm: PropTypes.func.isRequired,
 };
 
 ModalConfirm.defaultProps = {
-  id: '',
+  news: {},
 };

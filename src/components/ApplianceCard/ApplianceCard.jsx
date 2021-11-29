@@ -11,7 +11,13 @@ function ApplianceCard({
   }
 
   return (
-    <div onClick={handleClick} onKeyDown={() => {}} role="button" tabIndex={0} className={`app-card ${classes || ''}`}>
+    <div
+      onClick={handleClick}
+      onKeyDown={() => {}}
+      role="button"
+      tabIndex={0}
+      className={`app-card ${classes || ''}`}
+    >
       <figure className="app-card__container">
         <img className="app-card__image" src={card.src} alt={card.title} />
         <figcaption className="app-card__title">{card.title}</figcaption>

@@ -13,13 +13,13 @@ export default function NewsCardWithOption({ ...props }) {
   const [shouldShowButton, setShouldShowButton] = useState(false);
   const user = useContext(UserContext);
   const {
-    onClick,
+    handleClickNews,
     handleDeleteNewsClick,
     handleEditNewsClick,
   } = useContext(NewsHandlerContext);
 
   function handleDelete() {
-    handleDeleteNewsClick(card.id);
+    handleDeleteNewsClick(card);
   }
 
   function handleEdit() {
@@ -32,7 +32,7 @@ export default function NewsCardWithOption({ ...props }) {
 
   return (
     <div className={styles.container}>
-      <NewsCard card={card} onClick={onClick} />
+      <NewsCard card={card} handleClickNews={handleClickNews} />
 
       {shouldShowButton && (
         <>
