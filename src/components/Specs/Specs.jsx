@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import CardContainer from '../CardContainer/CardContainer';
 import SpecCard from '../SpecCard/SpecCard';
-import { MODAL_TYPES_ADD_SPECS, specsRenderPrefs, specs } from '../../utils/constants';
+import { MODAL_TYPES_ADD_SPECS, specsRenderPrefs } from '../../utils/constants';
 import api from '../../utils/main-api';
 import './Specs.css';
 
@@ -74,7 +74,6 @@ export default function Specs({ classes }) {
     const list = specsList.slice(0, specsGrid.rows * specsGrid.specsPerRows);
     setRenderedSpecsList(list);
     setNumberOfRenderedSpecs(list.length);
-    console.log({specsList, list, renderedSpecsList});
   }, [specsList, specsGrid]);
 
   useEffect(() => {
