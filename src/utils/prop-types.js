@@ -14,3 +14,11 @@ export const newsPropTypes = PropTypes.shape({
   content: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 });
+
+export const specsPropTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  about: PropTypes.string.isRequired,
+  link: PropTypes.string,
+});

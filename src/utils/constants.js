@@ -64,6 +64,18 @@ export const newsRenderPrefs = {
   },
 };
 
+export const specsRenderPrefs = {
+  desktop: {
+    rows: 1,
+    numberPerRow: 3,
+  },
+  mobile: {
+    resolution: 550,
+    rows: 1,
+    numberPerRow: 2,
+  },
+};
+
 export const MODAL_ROOT_SELECTOR = '#modal';
 export const ESC_KEY = 'Escape';
 export const MODAL_TYPES_PRELOADER = 'MODAL_TYPES_PRELOADER';

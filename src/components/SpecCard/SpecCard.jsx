@@ -1,6 +1,9 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { specsPropTypes } from '../../utils/prop-types';
 import './SpecCard.css';
 
-export default function SpecCard({ card, classes, onClick }) {
+export default function SpecCard({ card, classes }) {
   function getAgeWord(age) {
     let count = age % 100;
     if (count >= 5 && count <= 20) {
@@ -20,7 +23,7 @@ export default function SpecCard({ card, classes, onClick }) {
     <div className={`spec-card ${classes || ''}`}>
       <figure className="spec-card__figure">
         <img
-          src={card.src}
+          src={card.link}
           alt="Фотография специалиста"
           className="spec-card__image"
         />
@@ -32,3 +35,12 @@ export default function SpecCard({ card, classes, onClick }) {
     </div>
   );
 }
+
+SpecCard.propTypes = {
+  card: specsPropTypes.isRequired,
+  classes: PropTypes.string,
+};
+
+SpecCard.defaultProps = {
+  classes: '',
+};

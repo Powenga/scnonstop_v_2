@@ -12,11 +12,11 @@
   border: none;
   cursor: pointer;
   transition: transform .3s ease;
-  transform: translate(50%, -50%);
+  transform: translate(0, -50%);
 }
 
 .button:hover {
-  transform: scale(1.1) translate(50%, -50%);
+  transform: scale(1.1) translate(0, -50%);
 }
 
 .delete_button {
@@ -29,4 +29,9 @@
   top: 0;
   right: 50%;
   background: center / contain url('../../images/edit-button.svg');
+  transform: translate(50%, -50%);
+}
+
+.edit_button:hover {
+  transform: scale(1.1) translate(50%, -50%);
 }
