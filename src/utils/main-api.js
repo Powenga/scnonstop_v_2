@@ -18,7 +18,6 @@ class Api {
   getNews() {
     return fetch(`${this._baseUrl}/news`, {
       headers: this._headers,
-      credentials: 'include',
     }).then(this.constructor._onError);
   }
 
@@ -49,6 +48,48 @@ class Api {
       .then((res) => {
         if (isFile) {
           return fetch(`${this._baseUrl}/news/${res.id}/image`, {
+            method: 'PATCH',
+            body: formData,
+            credentials: 'include',
+          }).then(this.constructor._onError);
+        }
+        return res;
+      });
+  }
+
+  getSpecs() {
+    return fetch(`${this._baseUrl}/specialists`, {
+      headers: this._headers,
+    }).then(this.constructor._onError);
+  }
+
+  saveSpecs(data, formData) {
+    return fetch(`${this._baseUrl}/specialists`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(data),
+      credentials: 'include',
+    })
+      .then(this.constructor._onError)
+      .then(({ id }) => fetch(`${this._baseUrl}/specialists/${id}/image`, {
+        method: 'PATCH',
+        body: formData,
+        credentials: 'include',
+      }))
+      .then(this.constructor._onError);
+  }
+
+  editSpecs(data, formData, isFile) {
+    return fetch(`${this._baseUrl}/specialists/${data.id}`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(data),
+      credentials: 'include',
+    })
+      .then(this.constructor._onError)
+      .then((res) => {
+        if (isFile) {
+          return fetch(`${this._baseUrl}/specialists/${res.id}/image`, {
             method: 'PATCH',
             body: formData,
             credentials: 'include',

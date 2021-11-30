@@ -21,6 +21,7 @@ import EditNewsForm from '../Form/EditNewsForm';
 import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
 import NewsContent from '../Modal/NewsContent';
+import AddSpecialistForm from '../Form/AddSpecialistForm';
 
 function App() {
   const [user, setUser] = useState({
@@ -90,7 +91,7 @@ function App() {
     if (modal.modalType === MODAL_TYPES_ADD_SPECS) {
       return (
         <Modal>
-
+          <AddSpecialistForm />
         </Modal>
       );
     }

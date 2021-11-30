@@ -6,7 +6,6 @@ import React, {
 } from 'react';
 import Form from './Form';
 import Input from './Input';
-import TextArea from './TextArea';
 import api from '../../utils/main-api';
 import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
@@ -17,12 +16,12 @@ import FileInput from './FileInput';
 
 let formData = new FormData();
 
-export default function AddNewsForm() {
+export default function AddSpecialistForm() {
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
-    title: '',
-    date: '',
-    content: '',
+    name: '',
+    age: '',
+    about: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -57,10 +56,10 @@ export default function AddNewsForm() {
 
   const handleSubmit = (event) => {
     setIsLoading(true);
-    formData.append('news-image', fileInputRef.current.files[0]);
+    formData.append('specialist-avatar', fileInputRef.current.files[0]);
     event.preventDefault();
     api
-      .saveNews(values, formData)
+      .saveSpecs(values, formData)
       .then(() => {
         setIsLoading(false);
         setModalState({
@@ -84,46 +83,45 @@ export default function AddNewsForm() {
       errorMessage={errorMessage}
     >
       <SectionTitle
-        title="Добавление новости"
-        subtitle="Введите данные для добавления новости"
+        title="Добавление мастера"
+        subtitle="Введите данные для добавления мастера"
       />
       <FileInput
-        id="fileNewsId"
+        id="specsAvatarId"
         fileName={fileName}
-        name="news-image"
+        name="specialist-avatar"
         ref={fileInputRef}
         required
         classes={`${styles.input} ${styles.input_pos_first}`}
         onChange={handleChange}
       />
       <Input
-        id="titleNewsId"
-        name="title"
-        placeholder="Название новости"
-        value={values.title}
+        id="specNameId"
+        name="name"
+        placeholder="Имя"
+        value={values.name}
         classes={styles.input}
         onChange={handleChange}
         maxLength={60}
       />
       <Input
-        id="dateNewsId"
-        type="date"
-        name="date"
-        placeholder="Дата размещения"
-        value={values.date}
+        id="specsAgeId"
+        type="number"
+        name="age"
+        placeholder="Возраст мастера"
+        value={values.age}
+        classes={styles.input}
+        onChange={handleChange}
+        max={100}
+      />
+      <Input
+        id="specAboutId"
+        name="about"
+        placeholder="Описание"
+        value={values.about}
         classes={styles.input}
         onChange={handleChange}
         maxLength={60}
-      />
-      <TextArea
-        id="contentNewsId"
-        name="content"
-        value={values.content}
-        rows={4}
-        placeholder="Текст новости"
-        classes={styles.input}
-        onChange={handleChange}
-        maxLength={750}
       />
       <Button
         type="submit"
