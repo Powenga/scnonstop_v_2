@@ -1,26 +1,23 @@
 import React, {
   useEffect,
   useState,
-  useContext,
 } from 'react';
 import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
+import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
-import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
-import NewsHandlerContext from '../../context/news-handlers-context';
 import './News.css';
 import NewsCard from '../NewsCard/NewsCard';
 
-export default function News({ classes }) {
-  const {
-    handleClickNews,
-    handleDeleteNewsClick,
-    handleEditNewsClick,
-  } = useContext(NewsHandlerContext);
-
+export default function News({
+  classes,
+  handleClickNews,
+  handleDeleteNewsClick,
+  handleEditNewsClick,
+}) {
   const [newsList, setNewsList] = useState([]);
   const [renderedNewsList, setRenderedNewsList] = useState([]);
   const [numberOfRenderedNews, setNumberOfRenderedNews] = useState(0);
@@ -164,4 +161,7 @@ export default function News({ classes }) {
 
 News.propTypes = {
   classes: PropTypes.string.isRequired,
+  handleClickNews: PropTypes.func.isRequired,
+  handleDeleteNewsClick: PropTypes.func.isRequired,
+  handleEditNewsClick: PropTypes.func.isRequired,
 };

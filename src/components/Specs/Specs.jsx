@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import CardContainer from '../CardContainer/CardContainer';
 import SpecCard from '../SpecCard/SpecCard';
+import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
 import { MODAL_TYPES_ADD_SPECS, specsRenderPrefs } from '../../utils/constants';
 import api from '../../utils/main-api';
 import './Specs.css';
@@ -97,7 +98,15 @@ export default function Specs({ classes }) {
       />
       <CardContainer
         classes="specs__container"
-        Component={SpecCard}
+        Component={({ card }) => (
+          <CardWithOptions
+            Component={SpecCard}
+            // handleClick={handleClickNews}
+            // handleDeleteClick={handleDeleteNewsClick}
+            // handleEditClick={handleEditNewsClick}
+            card={card}
+          />
+        )}
         cards={renderedSpecsList}
         itemClasses="specs__item"
       />

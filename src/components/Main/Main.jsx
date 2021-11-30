@@ -14,7 +14,12 @@ import Map from '../Map/Map';
 import CallBackForm from '../CallbackForm/CallBackForm';
 import './Main.css';
 
-export default function Main({ containerClasses }) {
+export default function Main({
+  containerClasses,
+  handleClickNews,
+  handleDeleteNewsClick,
+  handleEditNewsClick,
+}) {
   return (
     <main className="main">
       <section className="main__section main__section_type_promo">
@@ -34,7 +39,12 @@ export default function Main({ containerClasses }) {
         </Appliances>
       </section>
       <section className="main__section main__section_type_news">
-        <News classes={containerClasses} />
+        <News
+          classes={containerClasses}
+          handleDeleteNewsClick={handleDeleteNewsClick}
+          handleEditNewsClick={handleEditNewsClick}
+          handleClickNews={handleClickNews}
+        />
       </section>
       <section className="main__section main__section_type_schema">
         <Scheme classes={containerClasses}>
@@ -116,4 +126,7 @@ export default function Main({ containerClasses }) {
 
 Main.propTypes = {
   containerClasses: PropTypes.string.isRequired,
+  handleClickNews: PropTypes.func.isRequired,
+  handleDeleteNewsClick: PropTypes.func.isRequired,
+  handleEditNewsClick: PropTypes.func.isRequired,
 };

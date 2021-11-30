@@ -6,7 +6,6 @@ import Main from '../Main/Main';
 import auth from '../../utils/auth';
 import api from '../../utils/main-api';
 import UserContext from '../../context/user-context';
-import NewsHandlerContext from '../../context/news-handlers-context';
 import ModalContext from '../../context/modal-context';
 import Modal from '../Modal/Modal';
 import {
@@ -125,15 +124,12 @@ function App() {
         <div className="app">
           <Header containerClasses="app__container" />
           <UserContext.Provider value={user}>
-            <NewsHandlerContext.Provider
-              value={{
-                handleDeleteNewsClick,
-                handleEditNewsClick,
-                handleClickNews,
-              }}
-            >
-              <Main containerClasses="app__container" />
-            </NewsHandlerContext.Provider>
+            <Main
+              containerClasses="app__container"
+              handleDeleteNewsClick={handleDeleteNewsClick}
+              handleEditNewsClick={handleEditNewsClick}
+              handleClickNews={handleClickNews}
+            />
           </UserContext.Provider>
           <Footer containerClasses="app__container" />
           {renderModal()}
