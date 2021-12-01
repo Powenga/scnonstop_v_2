@@ -13,7 +13,6 @@ export default function Specs({
   classes,
   handleDeleteSpecClick,
   handleEditSpecClick,
-  handleClickSpec,
 }) {
   const [specsList, setSpecsList] = useState([]);
   const [renderedSpecsList, setRenderedSpecsList] = useState([]);
@@ -106,7 +105,6 @@ export default function Specs({
         Component={({ card }) => (
           <CardWithOptions
             Component={SpecCard}
-            handleClick={handleClickSpec}
             handleDeleteClick={handleDeleteSpecClick}
             handleEditClick={handleEditSpecClick}
             card={card}
@@ -137,5 +135,4 @@ Specs.propTypes = {
   classes: PropTypes.string.isRequired,
   handleDeleteSpecClick: PropTypes.func.isRequired,
   handleEditSpecClick: PropTypes.func.isRequired,
-  handleClickSpec: PropTypes.func.isRequired,
 };

@@ -66,11 +66,6 @@ function App() {
 
   const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
 
-  const handleClickSpec = useCallback((news) => {
-    setCurrentSpec(news);
-    setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_NEWS });
-  }, []);
-
   function renderModal() {
     if (!modal.isOpen) {
       return '';
@@ -171,7 +166,6 @@ function App() {
               handleClickNews={handleClickNews}
               handleDeleteSpecClick={handleDeleteSpecClick}
               handleEditSpecClick={handleEditSpecClick}
-              handleClickSpec={handleClickSpec}
             />
           </UserContext.Provider>
           <Footer containerClasses="app__container" />

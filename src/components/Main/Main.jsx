@@ -21,7 +21,6 @@ export default function Main({
   handleEditNewsClick,
   handleDeleteSpecClick,
   handleEditSpecClick,
-  handleClickSpec,
 }) {
   return (
     <main className="main">
@@ -93,7 +92,6 @@ export default function Main({
       <section className="main__section main__section_type_specs">
         <Specs
           classes={containerClasses}
-          handleClickSpec={handleClickSpec}
           handleDeleteSpecClick={handleDeleteSpecClick}
           handleEditSpecClick={handleEditSpecClick}
         >
@@ -139,5 +137,4 @@ Main.propTypes = {
   handleEditNewsClick: PropTypes.func.isRequired,
   handleDeleteSpecClick: PropTypes.func.isRequired,
   handleEditSpecClick: PropTypes.func.isRequired,
-  handleClickSpec: PropTypes.func.isRequired,
 };
