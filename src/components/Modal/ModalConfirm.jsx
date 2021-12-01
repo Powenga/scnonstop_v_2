@@ -5,7 +5,8 @@ import Preloader from '../Preloader/Preloader';
 import { newsPropTypes } from '../../utils/prop-types';
 
 export default function ModalConfirm({
-  news,
+  title,
+  data,
   confirmMessage,
   onConfirm,
 }) {
@@ -16,7 +17,7 @@ export default function ModalConfirm({
   const handleConfirm = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    onConfirm(news.id)
+    onConfirm(data)
       .then(() => {
         setIsSuccess(true);
       })
@@ -41,7 +42,7 @@ export default function ModalConfirm({
 
   return (
     <>
-      <h2>Вы уверены?</h2>
+      <h2>{title}</h2>
       <Button type="button" onButtonClick={handleConfirm}>
         Да
       </Button>
@@ -54,11 +55,12 @@ export default function ModalConfirm({
 }
 
 ModalConfirm.propTypes = {
-  news: newsPropTypes,
+  title: PropTypes.string.isRequired,
+  data: newsPropTypes,
   confirmMessage: PropTypes.string.isRequired,
   onConfirm: PropTypes.func.isRequired,
 };
 
 ModalConfirm.defaultProps = {
-  news: {},
+  data: {},
 };

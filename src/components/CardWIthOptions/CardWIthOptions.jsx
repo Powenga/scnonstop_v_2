@@ -28,7 +28,7 @@ export default function CardWithOptions({
 
   return (
     <div className={styles.container}>
-      <Component card={card} handleClick={handleClick} />
+      <Component card={card} onClick={handleClick} />
 
       {shouldShowButton && (
         <>

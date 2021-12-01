@@ -19,6 +19,9 @@ export default function Main({
   handleClickNews,
   handleDeleteNewsClick,
   handleEditNewsClick,
+  handleDeleteSpecClick,
+  handleEditSpecClick,
+  handleClickSpec,
 }) {
   return (
     <main className="main">
@@ -88,7 +91,12 @@ export default function Main({
         </OrderForm>
       </section>
       <section className="main__section main__section_type_specs">
-        <Specs classes={containerClasses}>
+        <Specs
+          classes={containerClasses}
+          handleClickSpec={handleClickSpec}
+          handleDeleteSpecClick={handleDeleteSpecClick}
+          handleEditSpecClick={handleEditSpecClick}
+        >
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               наши мастера
@@ -129,4 +137,7 @@ Main.propTypes = {
   handleClickNews: PropTypes.func.isRequired,
   handleDeleteNewsClick: PropTypes.func.isRequired,
   handleEditNewsClick: PropTypes.func.isRequired,
+  handleDeleteSpecClick: PropTypes.func.isRequired,
+  handleEditSpecClick: PropTypes.func.isRequired,
+  handleClickSpec: PropTypes.func.isRequired,
 };

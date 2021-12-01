@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { newsPropTypes } from '../../utils/prop-types';
 import './NewsCard.css';
 
-export default function NewsCard({ card, handleClickNews }) {
+export default function NewsCard({ card, onClick }) {
   const handleClick = useCallback((event) => {
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
-    handleClickNews(card);
-  }, [handleClickNews]);
+    onClick(card);
+  }, [onClick]);
 
   const handleEnter = useCallback((event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleClick(event);
     }
-  }, [handleClickNews]);
+  }, [onClick]);
 
   return (
     <div
@@ -41,10 +41,10 @@ export default function NewsCard({ card, handleClickNews }) {
 
 NewsCard.propTypes = {
   card: newsPropTypes,
-  handleClickNews: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 NewsCard.defaultProps = {
   card: {},
-  handleClickNews: () => {},
+  onClick: () => {},
 };

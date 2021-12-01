@@ -9,7 +9,12 @@ import { MODAL_TYPES_ADD_SPECS, specsRenderPrefs } from '../../utils/constants';
 import api from '../../utils/main-api';
 import './Specs.css';
 
-export default function Specs({ classes }) {
+export default function Specs({
+  classes,
+  handleDeleteSpecClick,
+  handleEditSpecClick,
+  handleClickSpec,
+}) {
   const [specsList, setSpecsList] = useState([]);
   const [renderedSpecsList, setRenderedSpecsList] = useState([]);
   const [numberOfRenderedSpecs, setNumberOfRenderedSpecs] = useState(0);
@@ -101,9 +106,9 @@ export default function Specs({ classes }) {
         Component={({ card }) => (
           <CardWithOptions
             Component={SpecCard}
-            // handleClick={handleClickNews}
-            // handleDeleteClick={handleDeleteNewsClick}
-            // handleEditClick={handleEditNewsClick}
+            handleClick={handleClickSpec}
+            handleDeleteClick={handleDeleteSpecClick}
+            handleEditClick={handleEditSpecClick}
             card={card}
           />
         )}
@@ -121,7 +126,7 @@ export default function Specs({ classes }) {
       )}
       {numberOfRenderedSpecs <= 0 && (
         <p className="news__empty-message">
-          Тут пока ничего нет... Но скоро появятся :&#41;
+          Тут пока ничего нет... Но скоро появится :&#41;
         </p>
       )}
     </div>
@@ -130,4 +135,7 @@ export default function Specs({ classes }) {
 
 Specs.propTypes = {
   classes: PropTypes.string.isRequired,
+  handleDeleteSpecClick: PropTypes.func.isRequired,
+  handleEditSpecClick: PropTypes.func.isRequired,
+  handleClickSpec: PropTypes.func.isRequired,
 };

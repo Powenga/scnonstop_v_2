@@ -28,9 +28,9 @@ export default function EditNewsForm({ news }) {
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     title,
-    date: `${date.getFullYear()}-${date.getMonth() + 1}-${
-      date.getDate() < 10 ? '0' : ''
-    }${date.getDate()}`,
+    date: `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? '0' : ''}${
+      date.getMonth() + 1
+    }-${date.getDate() < 10 ? '0' : ''}${date.getDate()}`,
     content: fullContent,
   });
   const [errorMessage, setErrorMessage] = useState('');

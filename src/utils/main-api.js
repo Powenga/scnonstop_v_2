@@ -57,6 +57,14 @@ class Api {
       });
   }
 
+  deleteNews(id) {
+    return fetch(`${this._baseUrl}/news/${id}`, {
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: 'include',
+    }).then(this.constructor._onError);
+  }
+
   getSpecs() {
     return fetch(`${this._baseUrl}/specialists`, {
       headers: this._headers,
@@ -99,6 +107,14 @@ class Api {
       });
   }
 
+  deleteSpec(id) {
+    return fetch(`${this._baseUrl}/specialists/${id}`, {
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: 'include',
+    }).then(this.constructor._onError);
+  }
+
   editProfile(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
@@ -113,14 +129,6 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify(data),
-      credentials: 'include',
-    }).then(this.constructor._onError);
-  }
-
-  deleteNews(id) {
-    return fetch(`${this._baseUrl}/news/${id}`, {
-      method: 'DELETE',
-      headers: this._headers,
       credentials: 'include',
     }).then(this.constructor._onError);
   }

@@ -9,7 +9,8 @@ import UserContext from '../../context/user-context';
 import ModalContext from '../../context/modal-context';
 import Modal from '../Modal/Modal';
 import {
-  MODAL_TYPES_CONFIRM,
+  MODAL_TYPES_CONFIRM_DELETE_NEWS,
+  MODAL_TYPES_CONFIRM_DELETE_SPEC,
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_SHOW_NEWS,
@@ -33,9 +34,10 @@ function App() {
   const [modal, setModalState] = modalState;
 
   const [currentNews, setCurrentNews] = useState({});
+  const [currentSpec, setCurrentSpec] = useState({});
 
   const handleDeleteNewsClick = useCallback((news) => {
-    setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM });
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM_DELETE_NEWS });
     setCurrentNews(news);
   }, []);
 
@@ -44,10 +46,27 @@ function App() {
     setCurrentNews(news);
   }, []);
 
-  const handleDeleteNews = useCallback((id) => api.deleteNews(id), []);
+  const handleDeleteNews = useCallback((data) => api.deleteNews(data.id), []);
 
   const handleClickNews = useCallback((news) => {
     setCurrentNews(news);
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_NEWS });
+  }, []);
+
+  const handleDeleteSpecClick = useCallback((spec) => {
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM_DELETE_SPEC });
+    setCurrentSpec(spec);
+  }, []);
+
+  const handleEditSpecClick = useCallback((news) => {
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_EDIT_NEWS });
+    setCurrentSpec(news);
+  }, []);
+
+  const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
+
+  const handleClickSpec = useCallback((news) => {
+    setCurrentSpec(news);
     setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_NEWS });
   }, []);
 
@@ -62,13 +81,26 @@ function App() {
         </Modal>
       );
     }
-    if (modal.modalType === MODAL_TYPES_CONFIRM) {
+    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_NEWS) {
       return (
         <Modal>
           <ModalConfirm
-            news={currentNews}
+            title="Вы уверены что хотите удалить эту новость?"
+            data={currentNews}
             onConfirm={handleDeleteNews}
             confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"
+          />
+        </Modal>
+      );
+    }
+    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_SPEC) {
+      return (
+        <Modal>
+          <ModalConfirm
+            title="Вы уверены что хотите удалить этого мастера?"
+            data={currentSpec}
+            onConfirm={handleDeleteSpec}
+            confirmMessage="Мастер успешно удален. Пожалуйста, перезагрузите страницу"
           />
         </Modal>
       );
@@ -129,6 +161,9 @@ function App() {
               handleDeleteNewsClick={handleDeleteNewsClick}
               handleEditNewsClick={handleEditNewsClick}
               handleClickNews={handleClickNews}
+              handleDeleteSpecClick={handleDeleteSpecClick}
+              handleEditSpecClick={handleEditSpecClick}
+              handleClickSpec={handleClickSpec}
             />
           </UserContext.Provider>
           <Footer containerClasses="app__container" />
