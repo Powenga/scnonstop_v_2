@@ -15,9 +15,8 @@ import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
 
-let formData = new FormData();
-
 export default function AddNewsForm() {
+  const formData = new FormData();
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     title: '',
@@ -70,7 +69,6 @@ export default function AddNewsForm() {
       })
       .catch((error) => {
         setErrorMessage(error.message);
-        formData = new FormData();
         setIsLoading(false);
       });
   };

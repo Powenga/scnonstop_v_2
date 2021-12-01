@@ -14,7 +14,8 @@ import {
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_SHOW_NEWS,
-  MODAL_TYPES_ADD_SPECS,
+  MODAL_TYPES_ADD_SPEC,
+  MODAL_TYPES_EDIT_SPEC,
 } from '../../utils/constants';
 import AddNewsForm from '../Form/AddNewsForm';
 import EditNewsForm from '../Form/EditNewsForm';
@@ -119,10 +120,17 @@ function App() {
         </Modal>
       );
     }
-    if (modal.modalType === MODAL_TYPES_ADD_SPECS) {
+    if (modal.modalType === MODAL_TYPES_ADD_SPEC) {
       return (
         <Modal>
           <AddSpecialistForm />
+        </Modal>
+      );
+    }
+    if (modal.modalType === MODAL_TYPES_EDIT_SPEC) {
+      return (
+        <Modal>
+          <EditNewsForm news={currentNews} />
         </Modal>
       );
     }

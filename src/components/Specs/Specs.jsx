@@ -5,7 +5,7 @@ import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithBu
 import CardContainer from '../CardContainer/CardContainer';
 import SpecCard from '../SpecCard/SpecCard';
 import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
-import { MODAL_TYPES_ADD_SPECS, specsRenderPrefs } from '../../utils/constants';
+import { MODAL_TYPES_ADD_SPEC, specsRenderPrefs } from '../../utils/constants';
 import api from '../../utils/main-api';
 import './Specs.css';
 
@@ -98,7 +98,7 @@ export default function Specs({
       <SectionTitleWithButton
         title="наши мастера"
         subtitle="Познакомтесь на нашими специалистами"
-        modalType={MODAL_TYPES_ADD_SPECS}
+        modalType={MODAL_TYPES_ADD_SPEC}
         theme="dark"
       />
       <CardContainer

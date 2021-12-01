@@ -14,9 +14,8 @@ import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
 
-let formData = new FormData();
-
 export default function AddSpecialistForm() {
+  const formData = new FormData();
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     name: '',
@@ -69,7 +68,6 @@ export default function AddSpecialistForm() {
       })
       .catch((error) => {
         setErrorMessage(error.message);
-        formData = new FormData();
         setIsLoading(false);
       });
   };
