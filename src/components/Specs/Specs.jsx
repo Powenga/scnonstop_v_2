@@ -60,7 +60,7 @@ export default function Specs({
     if (viewportWidth <= specsRenderPrefs.mobile.resolution) {
       specsPerRows = specsRenderPrefs.mobile.numberPerRow;
       rows = getNumberOfRows(
-        specsRenderPrefs,
+        numberOfRenderedSpecs,
         specsPerRows,
         specsRenderPrefs.mobile.rows,
       );
@@ -68,7 +68,7 @@ export default function Specs({
     if (viewportWidth > specsRenderPrefs.mobile.resolution) {
       specsPerRows = specsRenderPrefs.desktop.numberPerRow;
       rows = getNumberOfRows(
-        specsRenderPrefs,
+        numberOfRenderedSpecs,
         specsPerRows,
         specsRenderPrefs.desktop.rows,
       );
