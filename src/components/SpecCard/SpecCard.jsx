@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import PropTypes from 'prop-types';
 import { specsPropTypes } from '../../utils/prop-types';
 import './SpecCard.css';
 
-export default function SpecCard({ card, classes, onClick }) {
+const SpecCard = ({ card, classes, onClick }) => {
   function getAgeWord(age) {
     let count = age % 100;
     if (count >= 5 && count <= 20) {
@@ -54,7 +54,7 @@ export default function SpecCard({ card, classes, onClick }) {
       <p className="spec-card__about">{card.about}</p>
     </div>
   );
-}
+};
 
 SpecCard.propTypes = {
   card: specsPropTypes.isRequired,
@@ -66,3 +66,5 @@ SpecCard.defaultProps = {
   classes: '',
   onClick: () => {},
 };
+
+export default memo(SpecCard);

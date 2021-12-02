@@ -23,6 +23,7 @@ import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
 import NewsContent from '../Modal/NewsContent';
 import AddSpecialistForm from '../Form/AddSpecialistForm';
+import EditSpecForm from '../Form/EditSpecForm';
 
 function App() {
   const [user, setUser] = useState({
@@ -59,9 +60,9 @@ function App() {
     setCurrentSpec(spec);
   }, []);
 
-  const handleEditSpecClick = useCallback((news) => {
-    setModalState({ isOpen: true, modalType: MODAL_TYPES_EDIT_NEWS });
-    setCurrentSpec(news);
+  const handleEditSpecClick = useCallback((spec) => {
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_EDIT_SPEC });
+    setCurrentSpec(spec);
   }, []);
 
   const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
@@ -125,7 +126,7 @@ function App() {
     if (modal.modalType === MODAL_TYPES_EDIT_SPEC) {
       return (
         <Modal>
-          <EditNewsForm news={currentNews} />
+          <EditSpecForm spec={currentSpec} />
         </Modal>
       );
     }
