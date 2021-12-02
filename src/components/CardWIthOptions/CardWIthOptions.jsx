@@ -1,16 +1,21 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  memo,
+} from 'react';
 import PropTypes from 'prop-types';
 import UserContext from '../../context/user-context';
 import { newsPropTypes } from '../../utils/prop-types';
 import styles from './CardWithOptions.module.css';
 
-export default function CardWithOptions({
+const CardWithOptions = ({
   Component,
   card,
   handleClick,
   handleDeleteClick,
   handleEditClick,
-}) {
+}) => {
   const [shouldShowButton, setShouldShowButton] = useState(false);
   const user = useContext(UserContext);
 
@@ -29,7 +34,6 @@ export default function CardWithOptions({
   return (
     <div className={styles.container}>
       <Component card={card} onClick={handleClick} />
-
       {shouldShowButton && (
         <>
           <button
@@ -48,7 +52,7 @@ export default function CardWithOptions({
       )}
     </div>
   );
-}
+};
 
 CardWithOptions.propTypes = {
   Component: PropTypes.element.isRequired,
@@ -61,3 +65,5 @@ CardWithOptions.propTypes = {
 CardWithOptions.defaultProps = {
   card: {},
 };
+
+export default memo(CardWithOptions);

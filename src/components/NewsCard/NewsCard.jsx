@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { newsPropTypes } from '../../utils/prop-types';
 import './NewsCard.css';
 
-export default function NewsCard({ card, onClick }) {
+const NewsCard = ({ card, onClick }) => {
   const handleClick = useCallback((event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -37,7 +37,7 @@ export default function NewsCard({ card, onClick }) {
       <p className="news-card__content">{card.content}</p>
     </div>
   );
-}
+};
 
 NewsCard.propTypes = {
   card: newsPropTypes,
@@ -48,3 +48,5 @@ NewsCard.defaultProps = {
   card: {},
   onClick: () => {},
 };
+
+export default memo(NewsCard);

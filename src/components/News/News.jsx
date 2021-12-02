@@ -3,7 +3,6 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import CardContainer from '../CardContainer/CardContainer';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
@@ -127,20 +126,22 @@ export default function News({
         subtitle="Узнайте о наших специальных предложениях"
         modalType={MODAL_TYPES_ADD_NEWS}
       />
-      <CardContainer
-        classes="news__container"
-        Component={({ card }) => (
-          <CardWithOptions
-            Component={NewsCard}
-            handleClick={handleClickNews}
-            handleDeleteClick={handleDeleteNewsClick}
-            handleEditClick={handleEditNewsClick}
-            card={card}
-          />
-        )}
-        cards={renderedNewsList}
-        itemClasses="news__item"
-      />
+      <ul className="news__container">
+        {renderedNewsList.map((card) => (
+          <li
+            className="news__item"
+            key={card.id}
+          >
+            <CardWithOptions
+              Component={NewsCard}
+              handleClick={handleClickNews}
+              handleDeleteClick={handleDeleteNewsClick}
+              handleEditClick={handleEditNewsClick}
+              card={card}
+            />
+          </li>
+        ))}
+      </ul>
       {numberOfRenderedNews < newsList.length && (
         <Button
           classes="news__more"

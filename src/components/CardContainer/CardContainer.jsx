@@ -16,9 +16,7 @@ export default function CardContainer({
           className={`card-container__item ${itemClasses && itemClasses}`}
           key={card.id}
         >
-          <Component
-            card={card}
-          />
+          <Component card={card} />
         </li>
       ))}
     </ul>
