@@ -87,7 +87,7 @@ class Api {
       .then(this.constructor._onError);
   }
 
-  editSpecs(data, formData, isFile) {
+  editSpec(data, formData, isFile) {
     return fetch(`${this._baseUrl}/specialists/${data.id}`, {
       method: 'PATCH',
       headers: this._headers,

@@ -13,14 +13,21 @@ import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
+import { specsPropTypes } from '../../utils/prop-types';
 
-export default function AddSpecialistForm() {
+export default function EditSpecForm({ spec }) {
   const formData = new FormData();
+  const {
+    id,
+    name: specName,
+    age,
+    about,
+  } = spec;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
-    name: '',
-    age: '',
-    about: '',
+    specName,
+    age,
+    about,
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -58,7 +65,7 @@ export default function AddSpecialistForm() {
     formData.append('specialist-avatar', fileInputRef.current.files[0]);
     event.preventDefault();
     api
-      .saveSpecs(values, formData)
+      .editSpec({ id, ...values, name: values.specName }, formData, fileName)
       .then(() => {
         setIsLoading(false);
         setModalState({
@@ -67,43 +74,42 @@ export default function AddSpecialistForm() {
         });
       })
       .catch((error) => {
-        setErrorMessage(error.message);
         setIsLoading(false);
+        setErrorMessage(error.message);
       });
   };
 
   return (
     <Form
       ref={formRef}
-      name="addSpecForm"
+      name="editSpecForm"
       classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
       <SectionTitle
-        title="Добавление мастера"
-        subtitle="Введите данные для добавления мастера"
+        title="Редактирование данных мастера"
+        subtitle="Введите данные для редактирования данных"
       />
       <FileInput
-        id="specsAvatarId"
+        id="editSpecsAvatarId"
         fileName={fileName}
         name="specialist-avatar"
         ref={fileInputRef}
-        required
         classes={`${styles.input} ${styles.input_pos_first}`}
         onChange={handleChange}
       />
       <Input
-        id="specNameId"
-        name="name"
+        id="editSpecNameId"
+        name="specName"
         placeholder="Имя"
-        value={values.name}
+        value={values.specName}
         classes={styles.input}
         onChange={handleChange}
         maxLength={60}
       />
       <Input
-        id="specsAgeId"
+        id="editSpecsAgeId"
         type="number"
         name="age"
         placeholder="Возраст мастера"
@@ -113,7 +119,7 @@ export default function AddSpecialistForm() {
         max={100}
       />
       <Input
-        id="specAboutId"
+        id="editSpecAboutId"
         name="about"
         placeholder="Описание"
         value={values.about}
@@ -121,14 +127,14 @@ export default function AddSpecialistForm() {
         onChange={handleChange}
         maxLength={60}
       />
-      <Button
-        type="submit"
-        classes={styles.submitButton}
-        disabled={!isValid}
-      >
+      <Button type="submit" classes={styles.submitButton} disabled={!isValid}>
         Отправить
       </Button>
       {isLoading && <Preloader />}
     </Form>
   );
 }
+
+EditSpecForm.propTypes = {
+  spec: specsPropTypes.isRequired,
+};

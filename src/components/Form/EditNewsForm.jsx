@@ -71,12 +71,14 @@ export default function EditNewsForm({ news }) {
     api
       .editNews({ id, ...values }, formData, fileName)
       .then(() => {
+        setIsLoading(false);
         setModalState({
           isOpen: false,
           modalType: null,
         });
       })
       .catch((error) => {
+        setIsLoading(false);
         setErrorMessage(error.message);
       });
   };
@@ -84,7 +86,7 @@ export default function EditNewsForm({ news }) {
   return (
     <Form
       ref={formRef}
-      name="addNewsForm"
+      name="editNewsForm"
       classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
@@ -94,7 +96,7 @@ export default function EditNewsForm({ news }) {
         subtitle="Введите данные для редактирования новости"
       />
       <FileInput
-        id="fileNewsId"
+        id="editFileNewsId"
         fileName={fileName}
         name="news-image"
         ref={fileInputRef}
@@ -102,7 +104,7 @@ export default function EditNewsForm({ news }) {
         onChange={handleChange}
       />
       <Input
-        id="titleNewsId"
+        id="editTitleNewsId"
         name="title"
         placeholder="Название новости"
         value={values.title}
@@ -111,7 +113,7 @@ export default function EditNewsForm({ news }) {
         maxLength={60}
       />
       <Input
-        id="dateNewsId"
+        id="editDateNewsId"
         type="date"
         name="date"
         placeholder="Дата размещения"
@@ -121,7 +123,7 @@ export default function EditNewsForm({ news }) {
         maxLength={60}
       />
       <TextArea
-        id="contentNewsId"
+        id="editContentNewsId"
         name="content"
         value={values.content}
         rows={4}
