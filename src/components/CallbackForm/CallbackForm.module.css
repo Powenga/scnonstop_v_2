@@ -1,4 +1,5 @@
 .callback-form__wrap {
+  position: relative;
   background-color: #fff;
   margin: 0 auto;
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
@@ -86,6 +87,10 @@
   width: calc(287 / 800 * 100%);
   min-width: 250px;
   margin: 0 auto;
+}
+
+.callback-form__success-message {
+  color: #fff;
 }
 
 

@@ -1,0 +1,28 @@
+:global(.main-text) {
+  font-family: 'Oswald' ,sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #121212;
+}
+
+@media screen and (max-width: 1600px) {
+  :global .main-text {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :global .main-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  :global .main-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

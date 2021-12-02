@@ -82,7 +82,7 @@ function App() {
       return (
         <Modal>
           <ModalConfirm
-            title="Вы уверены что хотите удалить эту новость?"
+            title="Удалить новость?"
             data={currentNews}
             onConfirm={handleDeleteNews}
             confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"

@@ -8,12 +8,11 @@ export default function Button({
   function handleClick(evt) {
     onButtonClick(evt);
   }
-
   return (
     <button
       disabled={disabled}
       onClick={handleClick}
-      type={type !== undefined ? 'submit' : 'button'}
+      type={type === 'submit' ? 'submit' : 'button'}
       className={`button ${classes && classes} ${disabled && 'button_disabled'}`}
     >
       {children}

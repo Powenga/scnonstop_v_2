@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import { newsPropTypes } from '../../utils/prop-types';
 
 export default function ModalConfirm({
@@ -21,8 +22,8 @@ export default function ModalConfirm({
       .then(() => {
         setIsSuccess(true);
       })
-      .catch(() => {
-        setErrorMessage('Что-то пошло не так!');
+      .catch((error) => {
+        setErrorMessage(error.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -42,7 +43,7 @@ export default function ModalConfirm({
 
   return (
     <>
-      <h2>{title}</h2>
+      <SectionTitle title={title} classes="" />
       <Button type="button" onButtonClick={handleConfirm}>
         Да
       </Button>

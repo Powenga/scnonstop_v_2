@@ -58,7 +58,7 @@ class Api {
   }
 
   deleteNews(id) {
-    return fetch(`${this._baseUrl}/news/${id}`, {
+    return fetch(`${this._baseUrl}/news1/${id}`, {
       method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
@@ -112,6 +112,14 @@ class Api {
       method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
+    }).then(this.constructor._onError);
+  }
+
+  sendCallbackQuery(data) {
+    return fetch(`${this._baseUrl}/mail/callback`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(data),
     }).then(this.constructor._onError);
   }
 
