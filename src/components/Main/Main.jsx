@@ -106,11 +106,7 @@ export default function Main({
         </Specs>
       </section>
       <section className="main__section main__section_type_brands">
-        <Brands classes={containerClasses}>
-          <div className="main__section-title-container">
-            <h2 className="main__section-title">марки техники</h2>
-          </div>
-        </Brands>
+        <Brands classes={containerClasses} />
       </section>
       <section className="main__section">
         <Map>
