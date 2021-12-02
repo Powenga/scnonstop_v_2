@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
+import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 
 function InputWithMask({
@@ -7,11 +8,13 @@ function InputWithMask({
   name,
   value,
   placeholder,
-  styleNames,
-  readOnly,
+  format,
   onChange,
   mask,
   classes,
+  allowEmptyFormatting,
+  required,
+  regexp,
 }) {
   const [error, setError] = useState('');
   const [isFocus, setIsFocus] = useState(false);
@@ -19,7 +22,7 @@ function InputWithMask({
   const handleChange = (event) => {
     const { target } = event;
     const { value: inputValue } = target;
-    if (inputValue && !/\d{2}.\d{2}.\d{4}/i.test(inputValue)) {
+    if (inputValue && !regexp.test(inputValue)) {
       target.setCustomValidity('Введите корректные данные.');
     } else {
       target.setCustomValidity('');
@@ -29,31 +32,6 @@ function InputWithMask({
     onChange(event);
   };
 
-  function limit(inputValue, max) {
-    let val = inputValue;
-    if (val.length === 1 && val[0] > max[0]) {
-      val = `0${val}`;
-    }
-    if (val.length === 2) {
-      if (Number(val) === 0) {
-        val = '01';
-        // this can happen when user paste number
-      } else if (val > max) {
-        val = max;
-      }
-    }
-    return val;
-  }
-
-  function limitDate(val) {
-    console.log(val);
-    const day = limit(val.substring(0, 2), '31');
-    const month = limit(val.substring(2, 4), '12');
-    const year = val.substring(4, 8);
-
-    return `${day[0] || 'д'}${day[1] || 'д'}.${month[0] || 'м'}${month[1] || 'м'}.${year[0] || 'г'}${year[1] || 'г'}${year[2] || 'г'}${year[3] || 'г'}`;
-  }
-
   return (
     <label htmlFor={id} className={`${styles.label} ${classes}`}>
       <NumberFormat
@@ -62,12 +40,11 @@ function InputWithMask({
         onChange={handleChange}
         onFocus={() => { setIsFocus(true); }}
         onBlur={() => { setIsFocus(false); }}
-        mask={['д', 'д', 'м', 'м', 'г', 'г', 'г', 'г']}
-        className={`${styles.input} classes`}
-        placeholder={isFocus && 'дд.мм.гггг'}
-        // format={cardExpiry}
-        format={limitDate}
-        required
+        mask={mask}
+        className={`${styles.input} ${!isFocus && !value ? styles.input_value_hide : ''}`}
+        format={format}
+        required={required}
+        allowEmptyFormatting={allowEmptyFormatting}
       />
       <span
         className={`${styles.placeholder} ${
@@ -82,5 +59,25 @@ function InputWithMask({
     </label>
   );
 }
+
+InputWithMask.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  format: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  mask: PropTypes.string.isRequired,
+  classes: PropTypes.string,
+  allowEmptyFormatting: PropTypes.bool,
+  required: PropTypes.bool,
+  regexp: PropTypes.instanceOf(RegExp).isRequired,
+};
+
+InputWithMask.defaultProps = {
+  classes: '',
+  allowEmptyFormatting: false,
+  required: false,
+};
 
 export default InputWithMask;

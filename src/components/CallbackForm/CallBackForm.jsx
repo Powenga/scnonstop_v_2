@@ -11,6 +11,7 @@ import Preloader from '../Preloader/Preloader';
 import mainApi from '../../utils/main-api';
 import styles from './CallbackForm.module.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import InputWithMask from '../Form/InputWithMask';
 
 export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({
@@ -83,7 +84,7 @@ export default function CallBackForm({ classes, children }) {
             maxLength={25}
             required
           />
-          <Input
+          <InputWithMask
             id="callbackUserPhone"
             name="userPhone"
             placeholder="Телефон для связи"
@@ -93,6 +94,10 @@ export default function CallBackForm({ classes, children }) {
             minLength={1}
             maxLength={25}
             required
+            mask="_"
+            format="+7 (###) ###-##-##"
+            allowEmptyFormatting
+            regexp={/\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}/}
           />
           <div>
             <label

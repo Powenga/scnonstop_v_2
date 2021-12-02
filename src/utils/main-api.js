@@ -58,7 +58,7 @@ class Api {
   }
 
   deleteNews(id) {
-    return fetch(`${this._baseUrl}/news1/${id}`, {
+    return fetch(`${this._baseUrl}/news/${id}`, {
       method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
