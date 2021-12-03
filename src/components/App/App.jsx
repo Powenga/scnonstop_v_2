@@ -167,8 +167,8 @@ function App() {
   return (
     <ModalContext.Provider value={modalState}>
       <div className="app">
-        <Header containerClasses="app__container" />
         <UserContext.Provider value={{ user, setUser }}>
+          <Header containerClasses="app__container" />
           <Switch>
             <Route path="/" exact>
               <Home

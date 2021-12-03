@@ -13,7 +13,7 @@ export default function Button({
       disabled={disabled}
       onClick={handleClick}
       type={type === 'submit' ? 'submit' : 'button'}
-      className={`button ${classes && classes} ${disabled && 'button_disabled'}`}
+      className={`button ${classes || ''} ${disabled && 'button_disabled'}`}
     >
       {children}
     </button>

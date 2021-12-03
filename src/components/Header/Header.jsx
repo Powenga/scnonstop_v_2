@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
+import PropTypes from 'prop-types';
 import Logo from '../Logo/Logo';
 import Social from '../Social/Social';
 import Button from '../Button/Button';
@@ -9,11 +10,14 @@ import vkPath from '../../images/social-icon-vk.svg';
 import insPath from '../../images/social-icon-inst.svg';
 import ytPath from '../../images/social-icon-yt.svg';
 import odPath from '../../images/social-icon-od.svg';
+import UserContext from '../../context/user-context';
 
-function Header({ onRequestClick, containerClasses, refForm }) {
-  function handleClick() {
+function Header({ onRequestClick, containerClasses }) {
+  const { user } = useContext(UserContext);
+
+  const handleClick = () => {
     onRequestClick();
-  }
+  };
 
   return (
     <header className="header">
@@ -76,7 +80,11 @@ function Header({ onRequestClick, containerClasses, refForm }) {
         </Social>
         <p className="header__schedule">работаем каждый день с&nbsp;9:00 до&nbsp;22:00</p>
         <div className="header__contacts">
-          <Button type="button" classes="header__order-button">
+          <Button
+            type="button"
+            classes="header__order-button"
+            onButtonClick={handleClick}
+          >
             оформить заявку
           </Button>
           <PhoneLink href="tel:+79508022222" classes="header__phone-button">
@@ -84,8 +92,36 @@ function Header({ onRequestClick, containerClasses, refForm }) {
           </PhoneLink>
         </div>
       </div>
+      {user.id && (
+        <div className={containerClasses || ''}>
+          <div className="admin-buttons">
+            <Button
+              type="button"
+              classes="admin-buttons__button"
+            >
+              Сбросить пароль
+            </Button>
+            <Button
+              type="button"
+              classes="admin-buttons__button"
+            >
+              Выйти
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
+
+Header.propTypes = {
+  containerClasses: PropTypes.string,
+  onRequestClick: PropTypes.func,
+};
+
+Header.defaultProps = {
+  containerClasses: '',
+  onRequestClick: () => {},
+};
 
 export default Header;
