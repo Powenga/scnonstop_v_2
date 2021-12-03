@@ -24,6 +24,7 @@ import './App.css';
 import NewsContent from '../Modal/NewsContent';
 import AddSpecialistForm from '../Form/AddSpecialistForm';
 import EditSpecForm from '../Form/EditSpecForm';
+import Login from '../../pages/login';
 
 function App() {
   const [user, setUser] = useState({
@@ -169,6 +170,9 @@ function App() {
                 handleDeleteSpecClick={handleDeleteSpecClick}
                 handleEditSpecClick={handleEditSpecClick}
               />
+            </Route>
+            <Route path="/login" exact>
+              <Login />
             </Route>
           </Switch>
         </UserContext.Provider>

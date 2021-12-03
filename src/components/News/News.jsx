@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
+import NewsCard from '../NewsCard/NewsCard';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
 import './News.css';
-import NewsCard from '../NewsCard/NewsCard';
 
 export default function News({
   classes,

@@ -4,29 +4,25 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { Redirect } from 'react-router-dom';
 import Form from './Form';
 import Input from './Input';
-import TextArea from './TextArea';
-import api from '../../utils/main-api';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
-import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import FileInput from './FileInput';
+import UserContext from '../../context/user-context';
+import auth from '../../utils/auth';
+const styles = {};
 
 export default function AddNewsForm() {
-  const formData = new FormData();
-  const [, setModalState] = useContext(modalContext);
+  const user = useContext(UserContext);
   const [values, setValues] = useState({
-    title: '',
-    date: '',
-    content: '',
+    email: '',
+    password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [fileName, setFileName] = useState('');
-  const fileInputRef = useRef(null);
   const formRef = useRef(null);
 
   const handleChange = useCallback((event) => {
@@ -35,16 +31,6 @@ export default function AddNewsForm() {
       setIsValid(formRef.current.checkValidity());
     }
     const { target } = event;
-    if (target.type === 'file') {
-      if (fileInputRef.current) {
-        setFileName(
-          fileInputRef.current.files[0]
-            ? fileInputRef.current.files[0].name
-            : '',
-        );
-      }
-      return;
-    }
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
     setValues((state) => ({
@@ -55,16 +41,11 @@ export default function AddNewsForm() {
 
   const handleSubmit = (event) => {
     setIsLoading(true);
-    formData.append('news-image', fileInputRef.current.files[0]);
     event.preventDefault();
-    api
-      .saveNews(values, formData)
+    auth
+      .saveNews(values)
       .then(() => {
         setIsLoading(false);
-        setModalState({
-          isOpen: false,
-          modalType: null,
-        });
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -72,32 +53,27 @@ export default function AddNewsForm() {
       });
   };
 
+  if (user.id) {
+    // return <Redirect to="/" />;
+  }
+
   return (
     <Form
       ref={formRef}
       name="addNewsForm"
+      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
       <SectionTitle
-        title="Добавление новости"
-        subtitle="Введите данные для добавления новости"
-      />
-      <FileInput
-        id="fileNewsId"
-        fileName={fileName}
-        name="news-image"
-        ref={fileInputRef}
-        required
-        classes="form__input form__input_pos_first"
-        onChange={handleChange}
+        title="Вход"
       />
       <Input
         id="titleNewsId"
         name="title"
         placeholder="Название новости"
         value={values.title}
-        classes="form__input"
+        classes={styles.input}
         onChange={handleChange}
         maxLength={60}
       />
@@ -107,26 +83,16 @@ export default function AddNewsForm() {
         name="date"
         placeholder="Дата размещения"
         value={values.date}
-        classes="form__input"
+        classes={styles.input}
         onChange={handleChange}
         maxLength={60}
       />
-      <TextArea
-        id="contentNewsId"
-        name="content"
-        value={values.content}
-        rows={4}
-        placeholder="Текст новости"
-        classes="form__input"
-        onChange={handleChange}
-        maxLength={750}
-      />
       <Button
         type="submit"
-        classes="form__submit-button"
+        classes={styles.submitButton}
         disabled={!isValid}
       >
-        Отправить
+        Войти
       </Button>
       {isLoading && <Preloader />}
     </Form>

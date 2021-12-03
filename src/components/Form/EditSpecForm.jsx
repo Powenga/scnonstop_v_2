@@ -7,7 +7,6 @@ import React, {
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
@@ -83,7 +82,6 @@ export default function EditSpecForm({ spec }) {
     <Form
       ref={formRef}
       name="editSpecForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
@@ -96,7 +94,7 @@ export default function EditSpecForm({ spec }) {
         fileName={fileName}
         name="specialist-avatar"
         ref={fileInputRef}
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -104,7 +102,7 @@ export default function EditSpecForm({ spec }) {
         name="specName"
         placeholder="Имя"
         value={values.specName}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -114,7 +112,7 @@ export default function EditSpecForm({ spec }) {
         name="age"
         placeholder="Возраст мастера"
         value={values.age}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         max={100}
       />
@@ -123,11 +121,11 @@ export default function EditSpecForm({ spec }) {
         name="about"
         placeholder="Описание"
         value={values.about}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
-      <Button type="submit" classes={styles.submitButton} disabled={!isValid}>
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
       {isLoading && <Preloader />}

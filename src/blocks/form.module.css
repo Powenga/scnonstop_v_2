@@ -1,5 +1,6 @@
 :global .form {
   position: relative;
+  padding-bottom: 32px;
 }
 
 :global .form__error {

@@ -7,7 +7,6 @@ import React, {
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
@@ -76,7 +75,6 @@ export default function AddSpecialistForm() {
     <Form
       ref={formRef}
       name="addSpecForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
@@ -90,7 +88,7 @@ export default function AddSpecialistForm() {
         name="specialist-avatar"
         ref={fileInputRef}
         required
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -98,7 +96,7 @@ export default function AddSpecialistForm() {
         name="name"
         placeholder="Имя"
         value={values.name}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -108,7 +106,7 @@ export default function AddSpecialistForm() {
         name="age"
         placeholder="Возраст мастера"
         value={values.age}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         max={100}
       />
@@ -117,13 +115,13 @@ export default function AddSpecialistForm() {
         name="about"
         placeholder="Описание"
         value={values.about}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
       <Button
         type="submit"
-        classes={styles.submitButton}
+        classes="form__submit-button"
         disabled={!isValid}
       >
         Отправить

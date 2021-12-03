@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Form.module.css';
 
 const Form = forwardRef(
   ({
@@ -13,12 +12,12 @@ const Form = forwardRef(
     <form
       ref={ref}
       name={name}
-      className={`${styles.form} ${classes}`}
+      className={`form ${classes || ''}`}
       noValidate
       onSubmit={onSubmit}
     >
       {children}
-      {errorMessage && <span className={styles.error}>{errorMessage}</span>}
+      {errorMessage && <span className="form__error">{errorMessage}</span>}
     </form>
   ),
 );
