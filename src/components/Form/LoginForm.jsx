@@ -1,21 +1,18 @@
 import React, {
   useCallback,
-  useContext,
   useRef,
   useState,
 } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Form from './Form';
 import Input from './Input';
 import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import UserContext from '../../context/user-context';
 import auth from '../../utils/auth';
-const styles = {};
 
 export default function AddNewsForm() {
-  const user = useContext(UserContext);
+  const history = useHistory();
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -43,9 +40,10 @@ export default function AddNewsForm() {
     setIsLoading(true);
     event.preventDefault();
     auth
-      .saveNews(values)
+      .signIn(values)
       .then(() => {
         setIsLoading(false);
+        history.replace('/');
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -53,15 +51,10 @@ export default function AddNewsForm() {
       });
   };
 
-  if (user.id) {
-    // return <Redirect to="/" />;
-  }
-
   return (
     <Form
       ref={formRef}
       name="addNewsForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
@@ -69,27 +62,28 @@ export default function AddNewsForm() {
         title="Вход"
       />
       <Input
-        id="titleNewsId"
-        name="title"
-        placeholder="Название новости"
-        value={values.title}
-        classes={styles.input}
+        id="loginEmail"
+        name="email"
+        placeholder="E-mail"
+        value={values.email}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
         maxLength={60}
       />
       <Input
-        id="dateNewsId"
-        type="date"
-        name="date"
-        placeholder="Дата размещения"
-        value={values.date}
-        classes={styles.input}
+        id="loginPassword"
+        type="password"
+        name="password"
+        placeholder="Пароль"
+        value={values.password}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
+        minLength={8}
       />
       <Button
         type="submit"
-        classes={styles.submitButton}
+        classes="form__submit-button"
         disabled={!isValid}
       >
         Войти

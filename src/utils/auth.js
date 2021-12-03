@@ -25,11 +25,11 @@ class Auth {
       .then(this.constructor._onError);
   }
 
-  signIn(email, password) {
+  signIn(data) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password, email }),
+      body: JSON.stringify(data),
       credentials: 'include',
     })
       .then(this.constructor._onError);
