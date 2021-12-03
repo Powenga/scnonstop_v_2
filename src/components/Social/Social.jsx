@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Social.css';
 
 function Social({ classes, children }) {
-  function handleClick(evt) { }
+  function handleClick() { }
 
   return (
     <>
@@ -35,3 +36,12 @@ function Social({ classes, children }) {
 }
 
 export default Social;
+
+Social.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+};
+
+Social.defaultProps = {
+  classes: '',
+};

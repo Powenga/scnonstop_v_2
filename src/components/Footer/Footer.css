@@ -75,7 +75,7 @@
 }
 
 .footer__phone::before {
-  content: url('');
+  content: '';
   display: inline-block;
   bottom: 6px;
   left: 0;
@@ -103,7 +103,7 @@
 }
 
 .footer__email::before {
-  content: url('');
+  content: '';
   display: inline-block;
   bottom: 2px;
   left: 0;

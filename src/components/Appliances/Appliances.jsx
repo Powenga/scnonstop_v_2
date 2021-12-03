@@ -5,7 +5,7 @@ import ApplianceCard from '../ApplianceCard/ApplianceCard';
 import { appliancesCards } from '../../utils/constants';
 import './Appliances.css';
 
-function Appliances({ classes, onCardClick, children }) {
+function Appliances({ classes, children }) {
   return (
     <div className={`appliances ${classes && classes}`}>
       {children}
@@ -13,7 +13,6 @@ function Appliances({ classes, onCardClick, children }) {
         classes="appliances__container"
         Component={ApplianceCard}
         cards={appliancesCards}
-        onCardClick={onCardClick}
         itemClasses="appliances__item"
       />
     </div>
@@ -24,6 +23,5 @@ export default Appliances;
 
 Appliances.propTypes = {
   classes: PropTypes.string.isRequired,
-  onCardClick: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };

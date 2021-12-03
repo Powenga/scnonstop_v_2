@@ -5,7 +5,7 @@ import ardoPath from '../../images/brand-icons/ardo.png';
 import bekoPath from '../../images/brand-icons/beko.png';
 import askoPath from '../../images/brand-icons/asko.png';
 
-export const brandList = [
+const brandList = [
   {
     title: 'Atlant',
     appType: [
@@ -1980,3 +1980,5 @@ export const brandList = [
     ],
   },
 ];
+
+export default brandList;

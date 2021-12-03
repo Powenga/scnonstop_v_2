@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import './Brands.css';
-import { brandList } from '../../utils/data/brands';
+import brandList from '../../utils/data/brands';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import './Brands.css';
 
 export default function Brands({ classes }) {
   const [brandsWithIcons, setBrandsWithIcons] = useState([]);

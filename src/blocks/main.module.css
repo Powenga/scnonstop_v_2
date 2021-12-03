@@ -181,7 +181,7 @@
   :global .main__section_type_promo {
     display: flex;
     flex-direction: column-reverse;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     background: -200px bottom / auto no-repeat
         url(../images/hero-bckg-text.png),

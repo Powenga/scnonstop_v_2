@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import './Price.css';
-import { priceList } from '../../utils/constants';
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import PhoneLink from '../PhoneLink/PhoneLink';
+import './Price.css';
+import { priceList } from '../../utils/constants';
 
 function Price({ classes, children }) {
   const menuRef = useRef();
@@ -36,19 +37,24 @@ function Price({ classes, children }) {
     <div className={`price ${classes && classes}`}>
       {children}
       <ul className="price__menu" ref={menuRef}>
-        {priceList.map((item, index) => (
+        {priceList.map((item) => (
           <li
             className={`price__menu-item ${item.title === appType.title && 'price__menu-item_active'}`}
-            key={index}
-            onClick={handleClick}
+            key={item.id}
           >
-            {item.title}
+            <button
+              className="price__menu-button"
+              type="button"
+              onClick={handleClick}
+            >
+              {item.title}
+            </button>
           </li>
         ))}
       </ul>
       <ul className="price__container">
-        {appType.content.map((item, index) => (
-          <li className="price__item">
+        {appType.content.map((item) => (
+          <li className="price__item" key={item.id}>
             <p className="price__text">
               {item.problem}
               <span className="price__price">{item.price}</span>
@@ -69,3 +75,12 @@ function Price({ classes, children }) {
 }
 
 export default Price;
+
+Price.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
+
+Price.defaultProps = {
+  classes: '',
+};

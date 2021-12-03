@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './PhoneLink.css';
 
 function PhoneLink({ classes, children }) {
@@ -11,3 +13,12 @@ function PhoneLink({ classes, children }) {
 }
 
 export default PhoneLink;
+
+PhoneLink.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+PhoneLink.defaultProps = {
+  classes: '',
+};

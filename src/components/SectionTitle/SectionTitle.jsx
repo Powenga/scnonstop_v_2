@@ -30,12 +30,13 @@ export default SectionTitle;
 
 SectionTitle.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   theme: PropTypes.string,
   classes: PropTypes.string,
 };
 
 SectionTitle.defaultProps = {
   theme: '',
+  subtitle: '',
   classes: '',
 };

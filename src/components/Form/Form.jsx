@@ -23,11 +23,11 @@ const Form = forwardRef(
 );
 
 Form.propTypes = {
-  name: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   classes: PropTypes.string.isRequired,
   errorMessage: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 };
 
 Form.defaultProps = {

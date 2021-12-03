@@ -1,8 +1,10 @@
-import './Promo.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 import promoImgPath from '../../images/promo-img.jpg';
 import Button from '../Button/Button';
+import './Promo.css';
 
-function Promo({ classes, children }) {
+function Promo({ classes }) {
   return (
     <div className={`promo ${classes || ''}`}>
       <div className="promo__text-wrap">
@@ -30,3 +32,11 @@ function Promo({ classes, children }) {
 }
 
 export default Promo;
+
+Promo.propTypes = {
+  classes: PropTypes.string,
+};
+
+Promo.defaultProps = {
+  classes: '',
+};

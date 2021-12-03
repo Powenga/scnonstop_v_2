@@ -1,6 +1,8 @@
-import { advantages } from '../../utils/constants';
+import React from 'react';
+import PropTypes from 'prop-types';
 import AdvantageCard from '../AdvantageCard/AdvantageCard';
 import CardContainer from '../CardContainer/CardContainer';
+import { advantages } from '../../utils/constants';
 import './Advantages.css';
 
 export default function Advantages({ classes, onCardClick, children }) {
@@ -18,3 +20,14 @@ export default function Advantages({ classes, onCardClick, children }) {
     </div>
   );
 }
+
+Advantages.propTypes = {
+  classes: PropTypes.string,
+  onCardClick: PropTypes.func,
+  children: PropTypes.element.isRequired,
+};
+
+Advantages.defaultProps = {
+  classes: '',
+  onCardClick: () => {},
+};

@@ -30,6 +30,15 @@
   cursor: pointer;
 }
 
+.price__menu-button {
+  color: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .price__menu-item:hover {
   opacity: .8;
 }

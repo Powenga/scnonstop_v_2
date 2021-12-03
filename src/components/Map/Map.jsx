@@ -1,5 +1,6 @@
+import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import './Map.css';
-import { useEffect, useRef } from 'react';
 
 export default function Map({ classes, children }) {
   const scriptContainer = useRef(null);
@@ -29,3 +30,12 @@ export default function Map({ classes, children }) {
     </div>
   );
 }
+
+Map.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
+
+Map.defaultProps = {
+  classes: '',
+};

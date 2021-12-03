@@ -4,18 +4,10 @@ import { appliancePropTypes } from '../../utils/prop-types';
 import './ApplianceCard.css';
 
 function ApplianceCard({
-  card, classes, onClick,
+  card, classes,
 }) {
-  function handleClick(evt) {
-    onClick(evt.value);
-  }
-
   return (
     <div
-      onClick={handleClick}
-      onKeyDown={() => {}}
-      role="button"
-      tabIndex={0}
       className={`app-card ${classes || ''}`}
     >
       <figure className="app-card__container">
@@ -31,7 +23,6 @@ export default ApplianceCard;
 ApplianceCard.propTypes = {
   card: appliancePropTypes.isRequired,
   classes: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
 };
 
 ApplianceCard.defaultProps = {

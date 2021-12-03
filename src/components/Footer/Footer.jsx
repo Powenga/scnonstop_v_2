@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Footer.css';
 
 import { Link } from 'react-router-dom';
@@ -127,3 +129,11 @@ export default function Footer({ containerClasses }) {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  containerClasses: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  containerClasses: '',
+};

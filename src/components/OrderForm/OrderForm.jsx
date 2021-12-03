@@ -1,12 +1,13 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { appliancesCards } from '../../utils/constants';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import './OrderForm.css';
 
 export default function OrderForm({ classes, children }) {
-  function onSubmit() {
-    alert('Форма отправлена!');
-  }
+  const onSubmit = () => {
+  };
 
   return (
     <div className={`order-form ${classes}`}>
@@ -23,8 +24,13 @@ export default function OrderForm({ classes, children }) {
             <legend className="order-form__legend">Выберите тип техники:</legend>
             <div className="order-form__appliances-wrap">
               {appliancesCards.map((elem) => (
-                <label className="order-form__label">
+                <label
+                  key={elem.id}
+                  htmlFor={`app-type_${elem.id}`}
+                  className="order-form__label"
+                >
                   <input
+                    id={`app-type_${elem.id}`}
                     name="app-type"
                     type="radio"
                     value={elem.value}
@@ -61,3 +67,12 @@ export default function OrderForm({ classes, children }) {
     </div>
   );
 }
+
+OrderForm.propTypes = {
+  classes: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
+
+OrderForm.defaultProps = {
+  classes: '',
+};

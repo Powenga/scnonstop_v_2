@@ -3,8 +3,9 @@ import secondStageImgPath from '../../images/scheme-2.png';
 import thirdStageImgPath from '../../images/scheme-3.png';
 import fourthStageImgPath from '../../images/scheme-4.png';
 
-export const schemeCards = [
+const schemeCards = [
   {
+    id: 1,
     alt: 'Первый этап',
     src: firstStageImgPath,
     content:
@@ -12,6 +13,7 @@ export const schemeCards = [
     stage: 1,
   },
   {
+    id: 2,
     alt: 'Второй этап',
     src: secondStageImgPath,
     content:
@@ -19,6 +21,7 @@ export const schemeCards = [
     stage: 2,
   },
   {
+    id: 3,
     alt: 'Третий этап',
     src: thirdStageImgPath,
     content:
@@ -26,6 +29,7 @@ export const schemeCards = [
     stage: 3,
   },
   {
+    id: 4,
     alt: 'Четвертый этап',
     src: fourthStageImgPath,
     content:
@@ -33,3 +37,5 @@ export const schemeCards = [
     stage: 4,
   },
 ];
+
+export default schemeCards;

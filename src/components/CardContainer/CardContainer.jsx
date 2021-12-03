@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { newsPropTypes, appliancePropTypes } from '../../utils/prop-types';
+import {
+  newsPropTypes,
+  appliancePropTypes,
+  schemePropTypes,
+  advatnagePropTypes,
+} from '../../utils/prop-types';
 import './CardContainer.css';
 
 export default function CardContainer({
@@ -30,6 +35,8 @@ CardContainer.propTypes = {
   cards: PropTypes.oneOfType([
     PropTypes.arrayOf(newsPropTypes),
     PropTypes.arrayOf(appliancePropTypes),
+    PropTypes.arrayOf(schemePropTypes),
+    PropTypes.arrayOf(advatnagePropTypes),
   ]),
 };
 

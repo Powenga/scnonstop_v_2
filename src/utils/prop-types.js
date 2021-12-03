@@ -7,6 +7,13 @@ export const appliancePropTypes = PropTypes.shape({
   formSrc: PropTypes.string.isRequired,
 });
 
+export const advatnagePropTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  content: PropTypes.string,
+});
+
 export const newsPropTypes = PropTypes.shape({
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -21,4 +28,12 @@ export const specsPropTypes = PropTypes.shape({
   age: PropTypes.number.isRequired,
   about: PropTypes.string.isRequired,
   link: PropTypes.string,
+});
+
+export const schemePropTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  stage: PropTypes.number.isRequired,
 });

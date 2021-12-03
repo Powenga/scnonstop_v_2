@@ -1,4 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './SchemeCard.css';
+import { schemePropTypes } from '../../utils/prop-types';
 
 export default function SchemeCard({ classes, card }) {
   return (
@@ -11,3 +14,12 @@ export default function SchemeCard({ classes, card }) {
     </div>
   );
 }
+
+SchemeCard.propTypes = {
+  classes: PropTypes.string,
+  card: schemePropTypes.isRequired,
+};
+
+SchemeCard.defaultProps = {
+  classes: '',
+};

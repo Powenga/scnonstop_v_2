@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { advatnagePropTypes } from '../../utils/prop-types';
 import './AdvantageCard.css';
 
 export default function AdvantageCard({ classes, card }) {
@@ -10,3 +13,12 @@ export default function AdvantageCard({ classes, card }) {
     </div>
   );
 }
+
+AdvantageCard.propTypes = {
+  classes: PropTypes.string,
+  card: advatnagePropTypes.isRequired,
+};
+
+AdvantageCard.defaultProps = {
+  classes: '',
+};
