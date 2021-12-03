@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import Main from '../Main/Main';
+import Home from '../../pages/home';
 import auth from '../../utils/auth';
 import api from '../../utils/main-api';
 import UserContext from '../../context/user-context';
@@ -155,25 +155,28 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <ModalContext.Provider value={modalState}>
-        <div className="app">
-          <Header containerClasses="app__container" />
-          <UserContext.Provider value={user}>
-            <Main
-              containerClasses="app__container"
-              handleDeleteNewsClick={handleDeleteNewsClick}
-              handleEditNewsClick={handleEditNewsClick}
-              handleClickNews={handleClickNews}
-              handleDeleteSpecClick={handleDeleteSpecClick}
-              handleEditSpecClick={handleEditSpecClick}
-            />
-          </UserContext.Provider>
-          <Footer containerClasses="app__container" />
-          {renderModal()}
-        </div>
-      </ModalContext.Provider>
-    </BrowserRouter>
+    <ModalContext.Provider value={modalState}>
+      <div className="app">
+        <Header containerClasses="app__container" />
+        <UserContext.Provider value={user}>
+          <Switch>
+            <Route path="/" exact>
+              <Home
+                containerClasses="app__container"
+                handleDeleteNewsClick={handleDeleteNewsClick}
+                handleEditNewsClick={handleEditNewsClick}
+                handleClickNews={handleClickNews}
+                handleDeleteSpecClick={handleDeleteSpecClick}
+                handleEditSpecClick={handleEditSpecClick}
+              />
+            </Route>
+          </Switch>
+        </UserContext.Provider>
+        <Footer containerClasses="app__container" />
+        {renderModal()}
+      </div>
+    </ModalContext.Provider>
+
   );
 }
 

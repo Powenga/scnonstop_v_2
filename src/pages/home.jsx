@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Promo from '../Promo/Promo';
-import promoImgPath from '../../images/promo-img.jpg';
-import Appliances from '../Appliances/Appliances';
-import News from '../News/News';
-import Scheme from '../Scheme/Scheme';
-import Price from '../Price/Price';
-import Advantages from '../Advantages/Advantages';
-import OrderForm from '../OrderForm/OrderForm';
-import Specs from '../Specs/Specs';
-import Brands from '../Brands/Brands';
-import Map from '../Map/Map';
-import CallBackForm from '../CallbackForm/CallBackForm';
-import './Main.css';
+import Promo from '../components/Promo/Promo';
+import Appliances from '../components/Appliances/Appliances';
+import News from '../components/News/News';
+import Scheme from '../components/Scheme/Scheme';
+import Price from '../components/Price/Price';
+import Advantages from '../components/Advantages/Advantages';
+import OrderForm from '../components/OrderForm/OrderForm';
+import Specs from '../components/Specs/Specs';
+import Brands from '../components/Brands/Brands';
+import Map from '../components/Map/Map';
+import CallBackForm from '../components/CallbackForm/CallBackForm';
+import promoImgPath from '../images/promo-img.jpg';
 
-export default function Main({
+export default function Home({
   containerClasses,
   handleClickNews,
   handleDeleteNewsClick,
@@ -126,7 +125,7 @@ export default function Main({
   );
 }
 
-Main.propTypes = {
+Home.propTypes = {
   containerClasses: PropTypes.string.isRequired,
   handleClickNews: PropTypes.func.isRequired,
   handleDeleteNewsClick: PropTypes.func.isRequired,
