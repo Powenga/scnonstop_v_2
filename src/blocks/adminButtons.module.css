@@ -8,6 +8,11 @@
 }
 
 :global .admin-buttons__button {
-  flex: 1 0 50%;
+  flex: 1 0 65%;
   max-width: 250px;
+}
+
+:global .admin-buttons__button_size_small{
+  flex: 1 0 25%;
+  margin-left: 10px;
 }

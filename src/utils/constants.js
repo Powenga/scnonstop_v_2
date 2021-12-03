@@ -13,7 +13,7 @@ export { schemeCards } from './data/scheme';
 export { advantages } from './data/advantages';
 export { specs } from './data/specialists';
 
-export const { REACT_APP_API_URL = 'https://scnonstop.ru/api' } = process.env;
+export const { REACT_APP_API_URL = 'https://beta.scnonstop.ru/api' } = process.env;
 
 export const appliancesCards = [
   {

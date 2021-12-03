@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Header.css';
 import PropTypes from 'prop-types';
 import Logo from '../Logo/Logo';
@@ -10,13 +11,31 @@ import vkPath from '../../images/social-icon-vk.svg';
 import insPath from '../../images/social-icon-inst.svg';
 import ytPath from '../../images/social-icon-yt.svg';
 import odPath from '../../images/social-icon-od.svg';
+import auth from '../../utils/auth';
 import UserContext from '../../context/user-context';
 
 function Header({ onRequestClick, containerClasses }) {
-  const { user } = useContext(UserContext);
-
+  const { user, setUser } = useContext(UserContext);
+  const history = useHistory();
   const handleClick = () => {
     onRequestClick();
+  };
+
+  const logout = (event) => {
+    event.preventDefault();
+    auth.logout()
+      .then(() => {
+        setUser({
+          email: '',
+          id: '',
+          isAdmin: false,
+          isLoaded: true,
+        });
+        history.replace('/');
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
   return (
@@ -98,12 +117,17 @@ function Header({ onRequestClick, containerClasses }) {
             <Button
               type="button"
               classes="admin-buttons__button"
+              onButtonClick={(event) => {
+                event.preventDefault();
+                history.push('/update-password');
+              }}
             >
               Сбросить пароль
             </Button>
             <Button
               type="button"
-              classes="admin-buttons__button"
+              classes="admin-buttons__button admin-buttons__button_size_small"
+              onButtonClick={logout}
             >
               Выйти
             </Button>
