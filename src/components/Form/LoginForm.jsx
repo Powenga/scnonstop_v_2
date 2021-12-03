@@ -71,6 +71,7 @@ export default function LoginForm() {
       <Input
         id="loginEmail"
         name="email"
+        type="email"
         placeholder="E-mail"
         value={values.email}
         classes="form__input form__input_pos_first"
