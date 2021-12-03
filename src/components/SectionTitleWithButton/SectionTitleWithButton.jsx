@@ -13,7 +13,7 @@ export default function SectionTitleWithButton({
   theme,
 }) {
   const [shouldShowButton, setShouldShowButton] = useState(false);
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [, setModal] = useContext(ModalContext);
 
   const handleClick = (event) => {

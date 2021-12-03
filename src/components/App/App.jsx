@@ -33,6 +33,7 @@ function App() {
     email: '',
     id: '',
     isAdmin: false,
+    isLoaded: false,
   });
 
   const modalState = useState({ isOpen: false, modalType: '' });
@@ -137,6 +138,10 @@ function App() {
   }
 
   useEffect(() => {
+    setUser({
+      ...user,
+      isLoaded: false,
+    });
     auth
       .checkAutorization()
       .then((data) => {
@@ -146,6 +151,7 @@ function App() {
           email,
           id,
           isAdmin: role === 'owner',
+          isLoaded: true,
         }));
       })
       .catch(() => {
@@ -153,6 +159,7 @@ function App() {
           email: '',
           id: '',
           isAdmin: false,
+          isLoaded: true,
         });
       });
   }, []);
@@ -161,7 +168,7 @@ function App() {
     <ModalContext.Provider value={modalState}>
       <div className="app">
         <Header containerClasses="app__container" />
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, setUser }}>
           <Switch>
             <Route path="/" exact>
               <Home

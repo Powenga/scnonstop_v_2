@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useRef,
   useState,
+  useContext,
 } from 'react';
 import { useHistory } from 'react-router-dom';
 import Form from './Form';
@@ -10,8 +11,10 @@ import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import auth from '../../utils/auth';
+import UserContext from '../../context/user-context';
 
 export default function UpdatePasswordForm() {
+  const { setUser } = useContext(UserContext);
   const history = useHistory();
   const [values, setValues] = useState({
     newPassword: '',
@@ -42,6 +45,12 @@ export default function UpdatePasswordForm() {
     auth
       .updatePassword(values)
       .then(() => {
+        setUser({
+          email: '',
+          id: '',
+          isAdmin: false,
+          isLoaded: true,
+        });
         setIsLoading(false);
         history.replace('/login');
       })

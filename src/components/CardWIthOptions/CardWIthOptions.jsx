@@ -17,7 +17,7 @@ const CardWithOptions = ({
   handleEditClick,
 }) => {
   const [shouldShowButton, setShouldShowButton] = useState(false);
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   function handleDelete() {
     handleDeleteClick(card);

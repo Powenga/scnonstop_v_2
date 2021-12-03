@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useRef,
   useState,
+  useContext,
 } from 'react';
 import { useHistory } from 'react-router-dom';
 import Form from './Form';
@@ -10,8 +11,10 @@ import Button from '../Button/Button';
 import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import auth from '../../utils/auth';
+import UserContext from '../../context/user-context';
 
 export default function LoginForm() {
+  const { setUser } = useContext(UserContext);
   const history = useHistory();
   const [values, setValues] = useState({
     email: '',
@@ -41,7 +44,11 @@ export default function LoginForm() {
     event.preventDefault();
     auth
       .signIn(values)
-      .then(() => {
+      .then((data) => {
+        setUser({
+          ...data,
+          isAdmin: data.role === 'owner',
+        });
         setIsLoading(false);
         history.replace('/');
       })
