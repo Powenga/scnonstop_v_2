@@ -27,6 +27,8 @@ import EditSpecForm from '../Form/EditSpecForm';
 import Login from '../../pages/login';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UpdatePassword from '../../pages/updatePassword';
+import BetaMessage from '../BetaMessage/BetaMessage';
+import CookieMessage from '../CookieMessage/CookieMessage';
 
 function App() {
   const [user, setUser] = useState({
@@ -134,7 +136,6 @@ function App() {
         </Modal>
       );
     }
-    return <Modal>Специалисты</Modal>;
   }
 
   useEffect(() => {
@@ -169,6 +170,8 @@ function App() {
       <div className="app">
         <UserContext.Provider value={{ user, setUser }}>
           <Header containerClasses="app__container" />
+          <BetaMessage />
+          <CookieMessage />
           <Switch>
             <Route path="/" exact>
               <Home

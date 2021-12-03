@@ -4,7 +4,8 @@
     "document": "readonly",
     "fetch": "readonly",
     "window": "readonly",
-    "FormData": "readonly"
+    "FormData": "readonly",
+    "localStorage": "readonly"
   },
   "rules": {
     "no-underscore-dangle": [

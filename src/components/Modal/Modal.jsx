@@ -47,5 +47,8 @@ export default function Modal({ children }) {
 }
 
 Modal.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOf([
+    PropTypes.element,
+    PropTypes.arrayOf([PropTypes.node]),
+  ]),
 };
