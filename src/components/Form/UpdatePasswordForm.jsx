@@ -11,10 +11,10 @@ import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import auth from '../../utils/auth';
 
-export default function LoginForm() {
+export default function UpdatePasswordForm() {
   const history = useHistory();
   const [values, setValues] = useState({
-    email: '',
+    newPassword: '',
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
@@ -40,10 +40,10 @@ export default function LoginForm() {
     setIsLoading(true);
     event.preventDefault();
     auth
-      .signIn(values)
+      .updatePassword(values)
       .then(() => {
         setIsLoading(false);
-        history.replace('/');
+        history.replace('/login');
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -59,23 +59,25 @@ export default function LoginForm() {
       errorMessage={errorMessage}
     >
       <SectionTitle
-        title="Вход"
+        title="Обновить пароль"
       />
       <Input
-        id="loginEmail"
-        name="email"
-        placeholder="E-mail"
-        value={values.email}
+        id="updatePasswordOld"
+        type="password"
+        name="password"
+        placeholder="Старый пароль"
+        value={values.password}
         classes="form__input form__input_pos_first"
         onChange={handleChange}
         maxLength={60}
+        minLength={8}
       />
       <Input
-        id="loginPassword"
+        id="updatePasswordNew"
         type="password"
-        name="password"
-        placeholder="Пароль"
-        value={values.password}
+        name="newPassword"
+        placeholder="Новый пароль"
+        value={values.newPassword}
         classes="form__input"
         onChange={handleChange}
         maxLength={60}
@@ -86,7 +88,7 @@ export default function LoginForm() {
         classes="form__submit-button"
         disabled={!isValid}
       >
-        Войти
+        Обновить
       </Button>
       {isLoading && <Preloader />}
     </Form>

@@ -15,19 +15,19 @@ class Auth {
       });
   }
 
-  signUp(name, email, password) {
-    return fetch(`${this._baseUrl}/signup`, {
+  signIn(data) {
+    return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify(data),
       credentials: 'include',
     })
       .then(this.constructor._onError);
   }
 
-  signIn(data) {
-    return fetch(`${this._baseUrl}/signin`, {
-      method: 'POST',
+  updatePassword(data) {
+    return fetch(`${this._baseUrl}/users/me/password`, {
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
       credentials: 'include',

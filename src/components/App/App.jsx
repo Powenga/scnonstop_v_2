@@ -25,6 +25,8 @@ import NewsContent from '../Modal/NewsContent';
 import AddSpecialistForm from '../Form/AddSpecialistForm';
 import EditSpecForm from '../Form/EditSpecForm';
 import Login from '../../pages/login';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import UpdatePassword from '../../pages/updatePassword';
 
 function App() {
   const [user, setUser] = useState({
@@ -174,6 +176,9 @@ function App() {
             <Route path="/login" exact>
               <Login />
             </Route>
+            <ProtectedRoute path="/update-password" exact>
+              <UpdatePassword />
+            </ProtectedRoute>
           </Switch>
         </UserContext.Provider>
         <Footer containerClasses="app__container" />
