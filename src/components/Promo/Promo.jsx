@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import promoImgPath from '../../images/promo-img.jpg';
 import Button from '../Button/Button';
 import './Promo.css';
+import useLoad from '../../hooks/useLoad';
 
 function Promo({ classes }) {
+  const { isLoad, setIsLoad, style } = useLoad(false);
   return (
     <div className={`promo ${classes || ''}`}>
       <div className="promo__text-wrap">
@@ -20,8 +22,14 @@ function Promo({ classes }) {
           ПОДРОБНЕЕ
         </Button>
       </div>
-      <div className="promo__img-wrap">
+      <div
+        className={`promo__img-wrap  image-preloader ${
+          !isLoad ? 'image-preloader_animate' : ''
+        }`}
+      >
         <img
+          onLoad={() => setIsLoad(true)}
+          style={style}
           className="promo__img"
           src={promoImgPath}
           alt="Мастер по ремонту бытовой техники и заказчик"

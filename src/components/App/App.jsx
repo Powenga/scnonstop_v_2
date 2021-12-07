@@ -136,6 +136,7 @@ function App() {
         </Modal>
       );
     }
+    return null;
   }
 
   useEffect(() => {

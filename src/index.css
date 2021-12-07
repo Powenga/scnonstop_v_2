@@ -5,6 +5,7 @@
 @import url(./blocks/message.module.css);
 @import url(./blocks/form.module.css);
 @import url(./blocks/adminButtons.module.css);
+@import url(./blocks/imagePreloader.module.css);
 
 body {
   -webkit-font-smoothing: antialiased;

@@ -1,0 +1,24 @@
+:global .image-preloader {
+  overflow: hidden;
+  background-color: #000;
+}
+
+:global .image-preloader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 70%;
+  width: 200%;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: placeHolderShimmer;
+  animation-play-state: paused;
+  background: linear-gradient(85deg, #000 10%, #161616 40%, #000 50%);
+}
+
+:global  .image-preloader_animate::before {
+  animation-play-state: running;
+}

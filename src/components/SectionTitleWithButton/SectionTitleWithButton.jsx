@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import UserContext from '../../context/user-context';

@@ -15,6 +15,7 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .button_disabled {

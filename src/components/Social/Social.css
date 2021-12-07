@@ -36,6 +36,8 @@
   display: block;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
 }
 
 .social__icon:hover {

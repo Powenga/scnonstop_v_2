@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Header.css';
 import PropTypes from 'prop-types';
@@ -13,8 +13,11 @@ import ytPath from '../../images/social-icon-yt.svg';
 import odPath from '../../images/social-icon-od.svg';
 import auth from '../../utils/auth';
 import UserContext from '../../context/user-context';
+import useLoad from '../../hooks/useLoad';
 
 function Header({ onRequestClick, containerClasses }) {
+  const { setIsLoad, style } = useLoad(false);
+  const [iconsLoaded, seticonsLoaded] = useState(0);
   const { user, setUser } = useContext(UserContext);
   const history = useHistory();
   const handleClick = () => {
@@ -38,13 +41,15 @@ function Header({ onRequestClick, containerClasses }) {
       });
   };
 
+  useEffect(() => {
+    if (iconsLoaded === 4) {
+      setIsLoad(true);
+    }
+  }, [iconsLoaded]);
+
   return (
     <header className="header">
-      <div
-        className={`header__container ${
-          containerClasses || ''
-        }`}
-      >
+      <div className={`header__container ${containerClasses || ''}`}>
         <Logo classes="header__logo" />
         <div className="header__ya-rating-container">
           <iframe
@@ -62,7 +67,13 @@ function Header({ onRequestClick, containerClasses }) {
             rel="noopener noreferrer"
             className="social__icon social__icon_target_fb"
           >
-            <img className="social__icon-img" src={fbPath} alt="Facebook" />
+            <img
+              onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+              style={style}
+              className="social__icon-img"
+              src={fbPath}
+              alt="Facebook"
+            />
           </a>
           <a
             href="https://vk.com/scnonstop"
@@ -70,7 +81,13 @@ function Header({ onRequestClick, containerClasses }) {
             rel="noopener noreferrer"
             className="social__icon social__icon_target_vk"
           >
-            <img className="social__icon-img" src={vkPath} alt="Вконтакте" />
+            <img
+              onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+              style={style}
+              className="social__icon-img"
+              src={vkPath}
+              alt="Вконтакте"
+            />
           </a>
           <a
             href="https://www.instagram.com/scnonstop/"
@@ -78,7 +95,13 @@ function Header({ onRequestClick, containerClasses }) {
             rel="noopener noreferrer"
             className="social__icon social__icon_target_ins"
           >
-            <img className="social__icon-img" src={insPath} alt="Instagram" />
+            <img
+              onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+              style={style}
+              className="social__icon-img"
+              src={insPath}
+              alt="Instagram"
+            />
           </a>
           <a
             href="https://www.youtube.com/channel/UCMUx8nr9us-Rm1ZfhL0Ydwg"
@@ -86,7 +109,13 @@ function Header({ onRequestClick, containerClasses }) {
             rel="noopener noreferrer"
             className="social__icon social__icon_target_yt"
           >
-            <img className="social__icon-img" src={ytPath} alt="Youtube" />
+            <img
+              onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+              style={style}
+              className="social__icon-img"
+              src={ytPath}
+              alt="Youtube"
+            />
           </a>
           <a
             href="https://ok.ru/scnonstop"
@@ -94,10 +123,18 @@ function Header({ onRequestClick, containerClasses }) {
             rel="noopener noreferrer"
             className="social__icon social__icon_target_od"
           >
-            <img className="social__icon-img" src={odPath} alt="Однокласники" />
+            <img
+              onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+              style={style}
+              className="social__icon-img"
+              src={odPath}
+              alt="Однокласники"
+            />
           </a>
         </Social>
-        <p className="header__schedule">работаем каждый день с&nbsp;9:00 до&nbsp;22:00</p>
+        <p className="header__schedule">
+          работаем каждый день с&nbsp;9:00 до&nbsp;22:00
+        </p>
         <div className="header__contacts">
           <Button
             type="button"
