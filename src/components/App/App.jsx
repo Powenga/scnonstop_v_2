@@ -7,28 +7,20 @@ import auth from '../../utils/auth';
 import api from '../../utils/main-api';
 import UserContext from '../../context/user-context';
 import ModalContext from '../../context/modal-context';
-import Modal from '../Modal/Modal';
 import {
   MODAL_TYPES_CONFIRM_DELETE_NEWS,
   MODAL_TYPES_CONFIRM_DELETE_SPEC,
   MODAL_TYPES_EDIT_NEWS,
-  MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_SHOW_NEWS,
-  MODAL_TYPES_ADD_SPEC,
   MODAL_TYPES_EDIT_SPEC,
 } from '../../utils/constants';
-import AddNewsForm from '../Form/AddNewsForm';
-import EditNewsForm from '../Form/EditNewsForm';
-import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
-import NewsContent from '../Modal/NewsContent';
-import AddSpecialistForm from '../Form/AddSpecialistForm';
-import EditSpecForm from '../Form/EditSpecForm';
 import Login from '../../pages/login';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UpdatePassword from '../../pages/updatePassword';
 import BetaMessage from '../BetaMessage/BetaMessage';
 import CookieMessage from '../CookieMessage/CookieMessage';
+import Modals from '../../Modals/Modals';
 
 function App() {
   const [user, setUser] = useState({
@@ -39,7 +31,7 @@ function App() {
   });
 
   const modalState = useState({ isOpen: false, modalType: '' });
-  const [modal, setModalState] = modalState;
+  const [, setModalState] = modalState;
 
   const [currentNews, setCurrentNews] = useState({});
   const [currentSpec, setCurrentSpec] = useState({});
@@ -72,72 +64,6 @@ function App() {
   }, []);
 
   const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
-
-  function renderModal() {
-    if (!modal.isOpen) {
-      return '';
-    }
-    if (modal.modalType === MODAL_TYPES_ADD_NEWS) {
-      return (
-        <Modal>
-          <AddNewsForm />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_NEWS) {
-      return (
-        <Modal>
-          <ModalConfirm
-            title="Удалить новость?"
-            data={currentNews}
-            onConfirm={handleDeleteNews}
-            confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"
-          />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_SPEC) {
-      return (
-        <Modal>
-          <ModalConfirm
-            title="Вы уверены что хотите удалить этого мастера?"
-            data={currentSpec}
-            onConfirm={handleDeleteSpec}
-            confirmMessage="Мастер успешно удален. Пожалуйста, перезагрузите страницу"
-          />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_EDIT_NEWS) {
-      return (
-        <Modal>
-          <EditNewsForm news={currentNews} />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_SHOW_NEWS) {
-      return (
-        <Modal>
-          <NewsContent news={currentNews} />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_ADD_SPEC) {
-      return (
-        <Modal>
-          <AddSpecialistForm />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_EDIT_SPEC) {
-      return (
-        <Modal>
-          <EditSpecForm spec={currentSpec} />
-        </Modal>
-      );
-    }
-    return null;
-  }
 
   useEffect(() => {
     setUser({
@@ -193,7 +119,12 @@ function App() {
           </Switch>
         </UserContext.Provider>
         <Footer containerClasses="app__container" />
-        {renderModal()}
+        <Modals
+          currentNews={currentNews}
+          handleDeleteNews={handleDeleteNews}
+          currentSpec={currentSpec}
+          handleDeleteSpec={handleDeleteSpec}
+        />
       </div>
     </ModalContext.Provider>
 

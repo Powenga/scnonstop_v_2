@@ -107,7 +107,8 @@
 }
 
 .problem {
-  opacity: .8;
+  opacity: .6;
+  transition: opacity .3s ease;
 }
 
 

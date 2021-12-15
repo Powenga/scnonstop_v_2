@@ -16,6 +16,7 @@ export default function OrderForm({ classes, children }) {
     problem: '',
     brand: '',
   });
+  const [ownProblem, setOwnProblem] = useState('');
   const formRef = useRef(null);
 
   const handleChange = (event) => {
@@ -41,7 +42,7 @@ export default function OrderForm({ classes, children }) {
   useEffect(() => {
     setStepValidity([
       Boolean(values.appType),
-      Boolean(values.problem),
+      Boolean(values.problem && values.problem !== 'Другая проблема'),
       Boolean(values.brand),
     ]);
   }, [values, step]);
@@ -142,12 +143,29 @@ export default function OrderForm({ classes, children }) {
                           checked={item.problem === values.problem}
                           className={styles.input}
                         />
-                        <span className={styles.problem}>
-                          {item.problem}
-                        </span>
+                        <span className={styles.problem}>{item.problem}</span>
                       </label>
                     </li>
                   ))}
+                  <li className="problem__item">
+                    <label
+                      htmlFor="problem_more"
+                      className={`${styles.label} problem__text`}
+                    >
+                      <input
+                        id="problem_more"
+                        type="radio"
+                        name="problem"
+                        value="Другая проблема"
+                        onChange={handleChange}
+                        checked={values.problem === 'Другая проблема'}
+                        className={styles.input}
+                      />
+                      <span className={styles.problem}>
+                        {ownProblem || 'Другая проблема'}
+                      </span>
+                    </label>
+                  </li>
                 </ul>
               </div>
             </fieldset>

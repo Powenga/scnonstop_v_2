@@ -18,6 +18,14 @@
   line-height: 24px;
   font-weight: 300;
   color: #000;
+  margin: 0;
+}
+
+:global .problem__more {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1600px) {
