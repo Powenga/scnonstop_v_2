@@ -1,7 +1,18 @@
+import {
+  BOILER,
+  BOILER_TITLE,
+  DISHWASHER,
+  DISHWASHER_TITLE,
+  REFRIGETATOR,
+  REFRIGETATOR_TITLE,
+  WASHING_MACHINE,
+  WASHING_MACHINE_TITLE,
+} from '../constants';
+
 const priceList = [
   {
-    id: 'wm',
-    title: 'Стиральные машины',
+    id: WASHING_MACHINE,
+    title: WASHING_MACHINE_TITLE,
     content: [
       {
         id: 1,
@@ -51,8 +62,8 @@ const priceList = [
     ],
   },
   {
-    id: 'ref',
-    title: 'Холодильники',
+    id: REFRIGETATOR,
+    title: REFRIGETATOR_TITLE,
     content: [
       {
         id: 1,
@@ -92,8 +103,8 @@ const priceList = [
     ],
   },
   {
-    id: 'dw',
-    title: 'Посудомоечные машины',
+    id: DISHWASHER,
+    title: DISHWASHER_TITLE,
     content: [
       {
         id: 1,
@@ -163,8 +174,8 @@ const priceList = [
     ],
   },
   {
-    id: 'bo',
-    title: 'Водонагреватели',
+    id: BOILER,
+    title: BOILER_TITLE,
     content: [
       {
         id: 1,

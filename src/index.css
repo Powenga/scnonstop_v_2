@@ -6,6 +6,7 @@
 @import url(./blocks/form.module.css);
 @import url(./blocks/adminButtons.module.css);
 @import url(./blocks/imagePreloader.module.css);
+@import url(./blocks/problem.module.css);
 
 body {
   -webkit-font-smoothing: antialiased;
