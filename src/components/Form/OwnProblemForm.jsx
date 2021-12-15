@@ -67,7 +67,7 @@ export default function OwnProblemForm({ orderState }) {
         value={values.ownProblem}
         rows={4}
         placeholder="Описание неполадки"
-        classes="form__input"
+        classes="form__input_pos_first form__input"
         onChange={handleChange}
         maxLength={750}
       />

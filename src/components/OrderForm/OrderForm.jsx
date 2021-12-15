@@ -5,7 +5,11 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { appliancesCards, MODAL_TYPES_OWN_PROBLEM, priceList } from '../../utils/constants';
+import {
+  appliancesCards,
+  MODAL_TYPES_OWN_PROBLEM,
+  priceList,
+} from '../../utils/constants';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import styles from './OrderForm.module.css';
@@ -161,6 +165,7 @@ export default function OrderForm({ classes, orderState, children }) {
                   ))}
                   <li className="problem__item">
                     <label
+                      title={values.ownProblem}
                       htmlFor="problem_more"
                       className={`${styles.label} problem__text`}
                     >
@@ -170,12 +175,17 @@ export default function OrderForm({ classes, orderState, children }) {
                         name="problem"
                         value={values.ownProblem}
                         onChange={handleChange}
-                        checked={values.ownProblem && values.problem === values.ownProblem}
+                        checked={
+                          values.ownProblem
+                          && values.problem === values.ownProblem
+                        }
                         className={styles.input}
                         onClick={handleOwnProblemClick}
                       />
                       <span className={styles.problem}>
-                        {values.ownProblem || 'Другая проблема'}
+                        {values.ownProblem
+                          ? `${values.ownProblem.slice(0, 50).trim()}...`
+                          : 'Другая проблема'}
                       </span>
                     </label>
                   </li>
