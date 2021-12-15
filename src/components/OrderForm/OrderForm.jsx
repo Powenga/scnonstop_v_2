@@ -1,23 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { appliancesCards, priceList } from '../../utils/constants';
+import { appliancesCards, MODAL_TYPES_OWN_PROBLEM, priceList } from '../../utils/constants';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import styles from './OrderForm.module.css';
+import modalContext from '../../context/modal-context';
+import { orderStatePropTypes } from '../../utils/prop-types';
 
-export default function OrderForm({ classes, children }) {
+export default function OrderForm({ classes, orderState, children }) {
+  const [values, setValues] = orderState;
+  const [, setModal] = useContext(modalContext);
   const [step, setStep] = useState(1);
   const [stepValidity, setStepValidity] = useState([]);
   const [problemList, setProblemList] = useState([]);
   const [fieldsetStyle, setFieldsetStyle] = useState('');
   const [stepIcontStyle, setStepIcontStyle] = useState('');
-  const [values, setValues] = useState({
-    appType: '',
-    problem: '',
-    brand: '',
-  });
-  const [ownProblem, setOwnProblem] = useState('');
+
   const formRef = useRef(null);
+
+  const handleOwnProblemClick = (event) => {
+    event.preventDefault();
+    setModal({
+      isOpen: true,
+      modalType: MODAL_TYPES_OWN_PROBLEM,
+    });
+  };
 
   const handleChange = (event) => {
     const { target } = event;
@@ -30,6 +42,7 @@ export default function OrderForm({ classes, children }) {
           [name]: value,
           problem: '',
           brand: '',
+          ownProblem: '',
         };
       }
       return {
@@ -128,9 +141,8 @@ export default function OrderForm({ classes, children }) {
               <div className={styles['fieldset-content']}>
                 <ul className="problem">
                   {problemList.map((item) => (
-                    <li className="problem__item">
+                    <li key={item.id} className="problem__item">
                       <label
-                        key={item.id}
                         htmlFor={`problem_${item.id}`}
                         className={`${styles.label} problem__text`}
                       >
@@ -156,13 +168,14 @@ export default function OrderForm({ classes, children }) {
                         id="problem_more"
                         type="radio"
                         name="problem"
-                        value="Другая проблема"
+                        value={values.ownProblem}
                         onChange={handleChange}
-                        checked={values.problem === 'Другая проблема'}
+                        checked={values.ownProblem && values.problem === values.ownProblem}
                         className={styles.input}
+                        onClick={handleOwnProblemClick}
                       />
                       <span className={styles.problem}>
-                        {ownProblem || 'Другая проблема'}
+                        {values.ownProblem || 'Другая проблема'}
                       </span>
                     </label>
                   </li>
@@ -237,6 +250,7 @@ export default function OrderForm({ classes, children }) {
 OrderForm.propTypes = {
   classes: PropTypes.string,
   children: PropTypes.element.isRequired,
+  orderState: orderStatePropTypes.isRequired,
 };
 
 OrderForm.defaultProps = {

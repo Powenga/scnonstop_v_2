@@ -12,6 +12,7 @@ import Brands from '../components/Brands/Brands';
 import Map from '../components/Map/Map';
 import CallBackForm from '../components/CallbackForm/CallBackForm';
 import promoImgPath from '../images/promo-img.jpg';
+import { orderStatePropTypes } from '../utils/prop-types';
 
 export default function Home({
   containerClasses,
@@ -20,6 +21,7 @@ export default function Home({
   handleEditNewsClick,
   handleDeleteSpecClick,
   handleEditSpecClick,
+  orderState,
 }) {
   return (
     <main className="main">
@@ -82,7 +84,7 @@ export default function Home({
         </Advantages>
       </section>
       <section className="main__section main__section_type_order-form">
-        <OrderForm classes={containerClasses}>
+        <OrderForm classes={containerClasses} orderState={orderState}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОФОРМЛЕНИЕ ЗАЯВКИ</h2>
           </div>
@@ -132,4 +134,5 @@ Home.propTypes = {
   handleEditNewsClick: PropTypes.func.isRequired,
   handleDeleteSpecClick: PropTypes.func.isRequired,
   handleEditSpecClick: PropTypes.func.isRequired,
+  orderState: orderStatePropTypes.isRequired,
 };

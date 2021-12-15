@@ -30,6 +30,13 @@ function App() {
     isLoaded: false,
   });
 
+  const orderState = useState({
+    appType: '',
+    problem: '',
+    ownProblem: '',
+    brand: '',
+  });
+
   const modalState = useState({ isOpen: false, modalType: '' });
   const [, setModalState] = modalState;
 
@@ -108,6 +115,7 @@ function App() {
                 handleClickNews={handleClickNews}
                 handleDeleteSpecClick={handleDeleteSpecClick}
                 handleEditSpecClick={handleEditSpecClick}
+                orderState={orderState}
               />
             </Route>
             <Route path="/login" exact>
@@ -124,6 +132,7 @@ function App() {
           handleDeleteNews={handleDeleteNews}
           currentSpec={currentSpec}
           handleDeleteSpec={handleDeleteSpec}
+          orderState={orderState}
         />
       </div>
     </ModalContext.Provider>

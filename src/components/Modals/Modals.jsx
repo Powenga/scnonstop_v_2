@@ -15,15 +15,18 @@ import {
   MODAL_TYPES_CONFIRM_DELETE_SPEC,
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_EDIT_SPEC,
+  MODAL_TYPES_OWN_PROBLEM,
   MODAL_TYPES_SHOW_NEWS,
 } from '../../utils/constants';
 import { newsPropTypes, specsPropTypes } from '../../utils/prop-types';
+import OwnProblemForm from '../Form/OwnProblemForm';
 
 const Modals = ({
   currentNews,
   handleDeleteNews,
   currentSpec,
   handleDeleteSpec,
+  orderState,
 }) => {
   const [modal] = useContext(modalContext);
   const { isOpen, modalType } = modal;
@@ -89,14 +92,35 @@ const Modals = ({
       </Modal>
     );
   }
+  if (modalType === MODAL_TYPES_OWN_PROBLEM) {
+    return (
+      <Modal>
+        <OwnProblemForm orderState={orderState} />
+      </Modal>
+    );
+  }
   return null;
 };
 
 export default Modals;
 
 Modals.propTypes = {
-  currentNews: newsPropTypes.isRequired,
-  handleDeleteNews: PropTypes.func.isRequired,
-  currentSpec: specsPropTypes.isRequired,
-  handleDeleteSpec: PropTypes.func.isRequired,
+  currentNews: newsPropTypes,
+  handleDeleteNews: PropTypes.func,
+  currentSpec: specsPropTypes,
+  handleDeleteSpec: PropTypes.func,
+  orderState: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.func,
+    ]),
+  ).isRequired,
+};
+
+Modals.defaultProps = {
+  currentNews: {},
+  handleDeleteNews: () => {},
+  currentSpec: {},
+  handleDeleteSpec: () => {},
+
 };

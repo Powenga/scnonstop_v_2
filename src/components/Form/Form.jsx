@@ -24,7 +24,7 @@ const Form = forwardRef(
 
 Form.propTypes = {
   name: PropTypes.string.isRequired,
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.string,
   errorMessage: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
@@ -32,6 +32,7 @@ Form.propTypes = {
 
 Form.defaultProps = {
   errorMessage: '',
+  classes: '',
 };
 
 export default Form;
