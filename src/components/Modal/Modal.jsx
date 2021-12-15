@@ -5,10 +5,12 @@ import ModalOverlay from '../ModalOverlay/ModalOverlay';
 import ModalContext from '../../context/modal-context';
 import styles from './Modal.module.css';
 import { ESC_KEY, MODAL_ROOT_SELECTOR } from '../../utils/constants';
+import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 
 const modalRoot = document.querySelector(MODAL_ROOT_SELECTOR);
 
 export default function Modal({ children }) {
+  useLockBodyScroll();
   const [, setModal] = useContext(ModalContext);
   const closeModal = useCallback(() => {
     setModal({

@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import AddNewsForm from '../components/Form/AddNewsForm';
-import AddSpecialistForm from '../components/Form/AddSpecialistForm';
-import EditNewsForm from '../components/Form/EditNewsForm';
-import EditSpecForm from '../components/Form/EditSpecForm';
-import Modal from '../components/Modal/Modal';
-import ModalConfirm from '../components/Modal/ModalConfirm';
-import NewsContent from '../components/Modal/NewsContent';
-import modalContext from '../context/modal-context';
+import AddNewsForm from '../Form/AddNewsForm';
+import AddSpecialistForm from '../Form/AddSpecialistForm';
+import EditNewsForm from '../Form/EditNewsForm';
+import EditSpecForm from '../Form/EditSpecForm';
+import Modal from '../Modal/Modal';
+import ModalConfirm from '../Modal/ModalConfirm';
+import NewsContent from '../Modal/NewsContent';
+import modalContext from '../../context/modal-context';
 import {
   MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_ADD_SPEC,
@@ -16,8 +16,8 @@ import {
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_EDIT_SPEC,
   MODAL_TYPES_SHOW_NEWS,
-} from '../utils/constants';
-import { newsPropTypes, specsPropTypes } from '../utils/prop-types';
+} from '../../utils/constants';
+import { newsPropTypes, specsPropTypes } from '../../utils/prop-types';
 
 const Modals = ({
   currentNews,

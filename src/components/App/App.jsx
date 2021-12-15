@@ -20,7 +20,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UpdatePassword from '../../pages/updatePassword';
 import BetaMessage from '../BetaMessage/BetaMessage';
 import CookieMessage from '../CookieMessage/CookieMessage';
-import Modals from '../../Modals/Modals';
+import Modals from '../Modals/Modals';
 
 function App() {
   const [user, setUser] = useState({
