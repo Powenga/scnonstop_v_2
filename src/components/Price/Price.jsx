@@ -55,7 +55,7 @@ function Price({ classes, children }) {
       <ul className="price__container problem">
         {appType.content.map((item) => (
           <li className="price__item problem__item" key={item.id}>
-            <p className="problem__text">
+            <p className="price__text problem__text">
               {item.problem}
               <span className="price__price">{item.price}</span>
             </p>

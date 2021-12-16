@@ -60,9 +60,13 @@
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
 }
 
+.price__item {
+  width: 100%;
+}
+
 .price__text {
-  margin: 0 0 32px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 }
