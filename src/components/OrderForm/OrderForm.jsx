@@ -1,9 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   appliancesCards,
@@ -24,7 +19,9 @@ export default function OrderForm({ classes, orderState, children }) {
   const [step, setStep] = useState(1);
   const [stepValidity, setStepValidity] = useState([]);
   const [problemList, setProblemList] = useState([]);
-  const [fieldsetStyle, setFieldsetStyle] = useState(styles.fieldset_slide_forward);
+  const [fieldsetStyle, setFieldsetStyle] = useState(
+    styles.fieldset_slide_forward,
+  );
   const [stepIcontStyle, setStepIcontStyle] = useState('');
   const [brandList, setBrandList] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -61,31 +58,6 @@ export default function OrderForm({ classes, orderState, children }) {
     });
   };
 
-  useEffect(() => {
-    setStepValidity([
-      Boolean(values.appType),
-      Boolean(values.problem && values.problem !== 'Другая проблема'),
-      Boolean(values.brand),
-    ]);
-  }, [values, step]);
-
-  useEffect(() => {
-    if (values.appType) {
-      setProblemList(
-        () => priceList.find((item) => item.id === values.appType).content,
-      );
-      const list = brands.filter(
-        (item) => item.appType.includes(values.appType),
-      );
-      setBrandList([...list]);
-      setFilteredBrandList([...list]);
-    }
-  }, [values.appType]);
-
-  useEffect(() => {
-    setStepIcontStyle(`stages-wrap_step_${step}`);
-  }, [step]);
-
   const handleNextStep = (event) => {
     event.preventDefault();
     if (step < 4) {
@@ -106,14 +78,40 @@ export default function OrderForm({ classes, orderState, children }) {
     event.preventDefault();
     const { value } = event.target;
     setSearchQuery(value);
-    setFilteredBrandList(
-      () => brandList.filter(
-        ({ title }) => title.toLowerCase().includes(value.toLowerCase()),
+    setFilteredBrandList(() =>
+      brandList.filter(({ title }) =>
+        title.toLowerCase().includes(value.toLowerCase()),
       ),
     );
   };
 
   const onSubmit = () => {};
+
+  useEffect(() => {
+    setStepValidity([
+      Boolean(values.appType),
+      Boolean(values.problem && values.problem !== 'Другая проблема'),
+      Boolean(values.brand),
+    ]);
+  }, [values, step]);
+
+  useEffect(() => {
+    if (values.appType) {
+      setProblemList(
+        () => priceList.find((item) => item.id === values.appType).content,
+      );
+      const list = brands.filter((item) =>
+        item.appType.includes(values.appType),
+      );
+      setBrandList([...list]);
+      setFilteredBrandList([...list]);
+    }
+  }, [values.appType]);
+
+  useEffect(() => {
+    setStepIcontStyle(`stages-wrap_step_${step}`);
+  }, [step]);
+
   return (
     <div className={`order-form ${classes}`}>
       <div className={styles.wrap}>
@@ -203,8 +201,8 @@ export default function OrderForm({ classes, orderState, children }) {
                           value={values.ownProblem}
                           onChange={handleChange}
                           checked={
-                            values.ownProblem
-                            && values.problem === values.ownProblem
+                            values.ownProblem &&
+                            values.problem === values.ownProblem
                           }
                           className={styles.input}
                           onClick={handleOwnProblemClick}
