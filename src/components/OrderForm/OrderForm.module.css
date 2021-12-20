@@ -12,7 +12,7 @@
 }
 
 .info {
-  font-family: 'Oswald' ,sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 20px;
   line-height: 32px;
   font-weight: 300;
@@ -26,7 +26,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: stretch;
 }
 
@@ -38,6 +38,7 @@
   justify-content: flex-start;
   align-items: stretch;
   overflow: hidden;
+  height: 100%;
 }
 
 .fieldset {
@@ -48,10 +49,41 @@
   position: relative;
   padding: 0;
   margin: 0;
-  transition: transform .6s ease-in-out;
   width: 100%;
   flex-shrink: 0;
   min-width: 0;
+}
+
+.fieldset_slide_forward {
+  animation: slideFromRight 0.5s ease-in-out;
+}
+
+.fieldset_slide_backward {
+  animation: slideFromLeft 0.5s ease-in-out;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translate(-50%);
+  }
+  80% {
+    transform: translate(2%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translate(50%);
+  }
+  80% {
+    transform: translate(-2%);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 .fieldset_step_1 {
@@ -78,14 +110,14 @@
 
 .legend {
   display: block;
-  font-family: 'Oswald' ,sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 22px;
   line-height: 32px;
   font-weight: 300;
-  color: #27306B;
+  color: #27306b;
 }
 
-.appliances-wrap{
+.appliances-wrap {
   display: grid;
   gap: 32px 10px;
   grid-template-columns: repeat(auto-fit, 120px);
@@ -106,13 +138,21 @@
 
 .input:checked + .problem {
   opacity: 1;
+  outline: none;
+}
+
+.input:focus + .problem {
+  outline: 1px solid #fbc928;
+}
+
+.input:focus + .input-image {
+  outline: 2px solid #fbc928;
 }
 
 .problem {
-  opacity: .6;
-  transition: opacity .3s ease;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
-
 
 .label {
   position: relative;
@@ -127,17 +167,23 @@
   opacity: 1;
 }
 
+.brands {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+}
+
 .input-image {
   display: block;
   margin: 0 auto;
   min-height: 100px;
-  opacity: .5;
-  transition: .3s ease;
+  opacity: 0.5;
+  transition: 0.3s ease;
 }
 
 .input-title {
   margin: 0;
-  font-family: 'Oswald' ,sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 20px;
   line-height: 32px;
   font-weight: 300;
@@ -186,7 +232,7 @@
   width: 25px;
   height: 100%;
   border-radius: 3px;
-  background-color: #27306B;
+  background-color: #27306b;
 }
 
 .stages-wrap::before {
@@ -197,10 +243,10 @@
   position: absolute;
   top: 2.5px;
   left: 12.5px;
-  border: 2px solid #FFDA49;
+  border: 2px solid #ffda49;
   border-radius: 50%;
-  background-color: #FFE88E;
-  transition: transform .3s ease-in-out;
+  background-color: #ffe88e;
+  transition: transform 0.3s ease-in-out;
 }
 
 .stages-wrap_step_1::before {
@@ -237,7 +283,7 @@
     padding: 27px 14px 54px;
   }
 
-  .appliances-wrap{
+  .appliances-wrap {
     gap: 27px 5px;
   }
 
@@ -283,7 +329,7 @@
   .fieldset-content {
     padding: 26px 13px 52px;
   }
-  .appliances-wrap{
+  .appliances-wrap {
     gap: 26px 5px;
     grid-template-columns: repeat(auto-fit, 130px);
   }
@@ -313,7 +359,7 @@
   .fieldset-content {
     padding: 20px 10px 40px;
   }
-  .appliances-wrap{
+  .appliances-wrap {
     gap: 20px 4px;
     grid-template-columns: repeat(auto-fit, 100px);
   }

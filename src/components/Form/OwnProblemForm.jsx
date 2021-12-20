@@ -70,6 +70,7 @@ export default function OwnProblemForm({ orderState }) {
         classes="form__input_pos_first form__input"
         onChange={handleChange}
         maxLength={750}
+        isFocused
       />
       <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         сохранить

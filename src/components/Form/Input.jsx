@@ -13,6 +13,7 @@ export default function Input({
   maxLength,
   type,
   max,
+  required,
 }) {
   const [error, setError] = useState('');
   const [isFocused, setIsFocused] = useState(false);
@@ -41,7 +42,7 @@ export default function Input({
         onFocus={toggleFocus}
         onBlur={toggleFocus}
         max={max}
-        required
+        required={required}
       />
       <span
         className={`${styles.placeholder} ${
@@ -68,6 +69,7 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   type: PropTypes.string,
   max: PropTypes.number,
+  required: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -77,4 +79,5 @@ Input.defaultProps = {
   maxLength: 1000,
   type: 'text',
   max: 999,
+  required: true,
 };
