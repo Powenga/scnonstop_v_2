@@ -35,7 +35,9 @@ export default function Input({
         name={name}
         type={type || 'text'}
         value={value}
-        className={`${styles.input} ${!isFocused && !value && styles.input_value_hide}`}
+        className={`${styles.input} ${
+          !isFocused && !value && styles.input_value_hide
+        }`}
         onChange={handleChange}
         minLength={minLength}
         maxLength={maxLength}
@@ -51,9 +53,7 @@ export default function Input({
       >
         {placeholder}
       </span>
-      {error && (
-        <span className={styles.error}>{error}</span>
-      )}
+      {error && <span className={styles.error}>{error}</span>}
     </label>
   );
 }

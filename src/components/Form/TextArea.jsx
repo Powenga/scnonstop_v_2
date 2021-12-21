@@ -60,9 +60,7 @@ function TextArea({
       >
         {placeholder}
       </span>
-      {error && (
-        <span className={styles.error}>{error}</span>
-      )}
+      {error && <span className={styles.error}>{error}</span>}
     </label>
   );
 }

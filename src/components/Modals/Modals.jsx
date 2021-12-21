@@ -110,10 +110,7 @@ Modals.propTypes = {
   currentSpec: specsPropTypes,
   handleDeleteSpec: PropTypes.func,
   orderState: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.func,
-    ]),
+    PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   ).isRequired,
 };
 
@@ -122,5 +119,4 @@ Modals.defaultProps = {
   handleDeleteNews: () => {},
   currentSpec: {},
   handleDeleteSpec: () => {},
-
 };

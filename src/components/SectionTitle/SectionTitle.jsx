@@ -2,12 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import './SectionTitle.css';
 
-const SectionTitle = memo(({
-  title,
-  subtitle,
-  theme,
-  classes,
-}) => (
+const SectionTitle = memo(({ title, subtitle, theme, classes }) => (
   <>
     <div className={`section-title-container ${classes || ''}`}>
       <h2

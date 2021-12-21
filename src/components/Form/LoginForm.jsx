@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useRef,
-  useState,
-  useContext,
-} from 'react';
+import React, { useCallback, useRef, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Form from './Form';
 import Input from './Input';
@@ -65,9 +60,7 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
     >
-      <SectionTitle
-        title="Вход"
-      />
+      <SectionTitle title="Вход" />
       <Input
         id="loginEmail"
         name="email"
@@ -89,11 +82,7 @@ export default function LoginForm() {
         maxLength={60}
         minLength={8}
       />
-      <Button
-        type="submit"
-        classes="form__submit-button"
-        disabled={!isValid}
-      >
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Войти
       </Button>
       {isLoading && <Preloader />}

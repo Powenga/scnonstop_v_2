@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
@@ -16,12 +11,7 @@ import { specsPropTypes } from '../../utils/prop-types';
 
 export default function EditSpecForm({ spec }) {
   const formData = new FormData();
-  const {
-    id,
-    name: specName,
-    age,
-    about,
-  } = spec;
+  const { id, name: specName, age, about } = spec;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     specName,

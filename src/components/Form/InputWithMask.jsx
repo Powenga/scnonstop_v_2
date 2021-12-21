@@ -38,10 +38,16 @@ function InputWithMask({
         id={id}
         name={name}
         onChange={handleChange}
-        onFocus={() => { setIsFocus(true); }}
-        onBlur={() => { setIsFocus(false); }}
+        onFocus={() => {
+          setIsFocus(true);
+        }}
+        onBlur={() => {
+          setIsFocus(false);
+        }}
         mask={mask}
-        className={`${styles.input} ${!isFocus && !value ? styles.input_value_hide : ''}`}
+        className={`${styles.input} ${
+          !isFocus && !value ? styles.input_value_hide : ''
+        }`}
         format={format}
         required={required}
         allowEmptyFormatting={allowEmptyFormatting}
@@ -53,9 +59,7 @@ function InputWithMask({
       >
         {placeholder}
       </span>
-      {error && (
-        <span className={styles.error}>{error}</span>
-      )}
+      {error && <span className={styles.error}>{error}</span>}
     </label>
   );
 }

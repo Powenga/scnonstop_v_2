@@ -30,15 +30,16 @@ export default function BetaMessage() {
   }
 
   return (
-    <div style={{
-      backgroundColor: '#fff',
-      position: 'fixed',
-      padding: 10,
-      top: 20,
-      left: 20,
-      boxShadow: '1px 1px 4px #000',
-      zIndex: '500',
-    }}
+    <div
+      style={{
+        backgroundColor: '#fff',
+        position: 'fixed',
+        padding: 10,
+        top: 20,
+        left: 20,
+        boxShadow: '1px 1px 4px #000',
+        zIndex: '500',
+      }}
     >
       <SectionTitle title="Сaйт находится в разработке" />
       <p className="main-text" style={{ textAlign: 'center' }}>
@@ -64,14 +65,10 @@ export default function BetaMessage() {
           alignItems: 'center',
         }}
       >
-        <Button
-          type="button"
-          onButtonClick={handleClick}
-        >
+        <Button type="button" onButtonClick={handleClick}>
           Понятно
         </Button>
       </div>
-
     </div>
   );
 }

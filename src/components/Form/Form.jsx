@@ -2,13 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 const Form = forwardRef(
-  ({
-    name,
-    classes,
-    onSubmit,
-    children,
-    errorMessage,
-  }, ref) => (
+  ({ name, classes, onSubmit, children, errorMessage }, ref) => (
     <form
       ref={ref}
       name={name}

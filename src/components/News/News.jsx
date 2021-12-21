@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
@@ -128,10 +125,7 @@ export default function News({
       />
       <ul className="news__container">
         {renderedNewsList.map((card) => (
-          <li
-            className="news__item"
-            key={card.id}
-          >
+          <li className="news__item" key={card.id}>
             <CardWithOptions
               Component={NewsCard}
               handleClick={handleClickNews}

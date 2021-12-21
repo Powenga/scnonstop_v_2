@@ -101,10 +101,7 @@ export default function Specs({
       />
       <ul className="specs__container">
         {renderedSpecsList.map((card) => (
-          <li
-            className="specs__item"
-            key={card.id}
-          >
+          <li className="specs__item" key={card.id}>
             <CardWithOptions
               Component={SpecCard}
               handleDeleteClick={handleDeleteSpecClick}

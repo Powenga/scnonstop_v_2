@@ -26,7 +26,8 @@ function Header({ onRequestClick, containerClasses }) {
 
   const logout = (event) => {
     event.preventDefault();
-    auth.logout()
+    auth
+      .logout()
       .then(() => {
         setUser({
           email: '',

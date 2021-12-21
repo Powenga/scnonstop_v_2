@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
@@ -119,11 +114,7 @@ export default function AddSpecialistForm() {
         onChange={handleChange}
         maxLength={60}
       />
-      <Button
-        type="submit"
-        classes="form__submit-button"
-        disabled={!isValid}
-      >
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
       {isLoading && <Preloader />}

@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
@@ -18,12 +13,7 @@ import { newsPropTypes } from '../../utils/prop-types';
 const formData = new FormData();
 
 export default function EditNewsForm({ news }) {
-  const {
-    id,
-    title,
-    date,
-    fullContent,
-  } = news;
+  const { id, title, date, fullContent } = news;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     title,

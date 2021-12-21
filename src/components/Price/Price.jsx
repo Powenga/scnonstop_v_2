@@ -10,7 +10,9 @@ function Price({ classes, children }) {
   const [appType, setAppType] = useState(priceList[0]);
 
   function handleClick(event) {
-    setAppType(priceList.find((item) => item.title === event.target.textContent));
+    setAppType(
+      priceList.find((item) => item.title === event.target.textContent),
+    );
   }
 
   useEffect(() => {
@@ -39,7 +41,9 @@ function Price({ classes, children }) {
       <ul className="price__menu" ref={menuRef}>
         {priceList.map((item) => (
           <li
-            className={`price__menu-item ${item.title === appType.title && 'price__menu-item_active'}`}
+            className={`price__menu-item ${
+              item.title === appType.title && 'price__menu-item_active'
+            }`}
             key={item.id}
           >
             <button
@@ -62,10 +66,16 @@ function Price({ classes, children }) {
           </li>
         ))}
       </ul>
-      <p className="price__content">Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?</p>
-      <p className="price__content price__content_type_accent">Позвоните нам или закажите обратный&nbsp;звонок!</p>
+      <p className="price__content">
+        Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?
+      </p>
+      <p className="price__content price__content_type_accent">
+        Позвоните нам или закажите обратный&nbsp;звонок!
+      </p>
       <div className="price__button-wrap">
-        <Button type="button" classes="price__button">заказать звонок</Button>
+        <Button type="button" classes="price__button">
+          заказать звонок
+        </Button>
         <PhoneLink href="tel:+79508022222" classes="price__button">
           позвонить
         </PhoneLink>

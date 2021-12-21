@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Social.css';
 
 function Social({ classes, children }) {
-  function handleClick() { }
+  function handleClick() {}
 
   return (
     <>

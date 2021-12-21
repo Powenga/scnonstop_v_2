@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 export default function Button({
-  onButtonClick, type, classes, children, disabled,
+  onButtonClick,
+  type,
+  classes,
+  children,
+  disabled,
 }) {
   function handleClick(evt) {
     onButtonClick(evt);

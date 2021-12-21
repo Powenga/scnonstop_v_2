@@ -136,7 +136,6 @@ function App() {
         />
       </div>
     </ModalContext.Provider>
-
   );
 }
 

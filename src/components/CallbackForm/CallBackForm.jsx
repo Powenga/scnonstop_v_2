@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useRef,
-} from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
@@ -115,16 +111,13 @@ export default function CallBackForm({ classes, children }) {
               />
               <span className={styles['callback-form__checkbox-pseudo']} />
               <span className={styles['callback-form__policy-info']}>
-                Я согласен с
-                {' '}
+                Я согласен с{' '}
                 <Button
                   classes={`button_type_text ${styles['callback-form__policy']}`}
                 >
                   Политикой конфиденциальности
-                </Button>
-                {' '}
-                и
-                {' '}
+                </Button>{' '}
+                и{' '}
                 <Button
                   classes={`button_type_text ${styles['callback-form__policy']}`}
                 >
@@ -142,15 +135,18 @@ export default function CallBackForm({ classes, children }) {
           </Button>
         </Form>
         {isSuccess && (
-        <div className="message">
-          <div className="message__container">
-            <SectionTitle title="Cообщение отправлено!" classes="message__title" />
-            <p className="main-text message__text">Спасибо за обращение.</p>
-            <p className="main-text message__text">
-              Мы свяжемся с Вами в ближайшее время.
-            </p>
+          <div className="message">
+            <div className="message__container">
+              <SectionTitle
+                title="Cообщение отправлено!"
+                classes="message__title"
+              />
+              <p className="main-text message__text">Спасибо за обращение.</p>
+              <p className="main-text message__text">
+                Мы свяжемся с Вами в ближайшее время.
+              </p>
+            </div>
           </div>
-        </div>
         )}
         {isLoading && <Preloader />}
       </div>

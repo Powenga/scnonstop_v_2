@@ -4,12 +4,7 @@ import styles from './NewsContent.module.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function NewsContent({ news }) {
-  const {
-    title,
-    formattedDate,
-    fullContent,
-    link,
-  } = news;
+  const { title, formattedDate, fullContent, link } = news;
   return (
     <div className={styles.container}>
       <SectionTitle title={title} subtitle={formattedDate} />

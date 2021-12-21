@@ -31,7 +31,8 @@ export default function CardContainer({
 CardContainer.propTypes = {
   classes: PropTypes.string,
   itemClasses: PropTypes.string,
-  Component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+  Component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
   cards: PropTypes.oneOfType([
     PropTypes.arrayOf(newsPropTypes),
     PropTypes.arrayOf(appliancePropTypes),

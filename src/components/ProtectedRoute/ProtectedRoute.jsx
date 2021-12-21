@@ -13,15 +13,7 @@ export default function ProtectedRoute({ children }) {
   }
 
   return (
-    <Route
-      render={() => (
-        user.id ? (
-          children
-        ) : (
-          <Redirect to="/login" />
-        )
-      )}
-    />
+    <Route render={() => (user.id ? children : <Redirect to="/login" />)} />
   );
 }
 

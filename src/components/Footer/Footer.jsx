@@ -13,11 +13,7 @@ import odPath from '../../images/social-icon-od-w.svg';
 export default function Footer({ containerClasses }) {
   return (
     <footer className="footer">
-      <div
-        className={`footer__container ${
-          containerClasses || ''
-        }`}
-      >
+      <div className={`footer__container ${containerClasses || ''}`}>
         <ul className="footer__appliances-container">
           <li className="footer__appliances-item">Cтиральные машины</li>
           <li className="footer__appliances-item">Холодильники</li>
@@ -119,11 +115,7 @@ export default function Footer({ containerClasses }) {
           </div>
         </div>
         <p className="footer__copyright">
-          &copy;
-          {' '}
-          {new Date().getFullYear()}
-          {' '}
-          Сервисный центр NON-STOP
+          &copy; {new Date().getFullYear()} Сервисный центр NON-STOP
         </p>
       </div>
     </footer>

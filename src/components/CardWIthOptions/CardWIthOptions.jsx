@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useContext,
-  useEffect,
-  memo,
-} from 'react';
+import React, { useState, useContext, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import UserContext from '../../context/user-context';
 import { newsPropTypes } from '../../utils/prop-types';
