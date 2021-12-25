@@ -12,7 +12,6 @@ function TextArea({
   onChange,
   minLength,
   maxLength,
-  isFocused,
 }) {
   const [textLimit, setTextLimit] = useState(maxLength);
   const [error, setError] = useState('');
@@ -24,11 +23,11 @@ function TextArea({
     onChange(event);
   }
 
-  useEffect(() => {
-    if (inputRef.current && isFocused) {
-      inputRef.current.focus();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (inputRef.current && isFocused) {
+  //     inputRef.current.focus();
+  //   }
+  // }, []);
 
   useEffect(() => {
     function textCounter() {
@@ -77,7 +76,6 @@ TextArea.propTypes = {
   onChange: PropTypes.func.isRequired,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
-  isFocused: PropTypes.bool,
 };
 
 TextArea.defaultProps = {
@@ -85,5 +83,4 @@ TextArea.defaultProps = {
   classes: '',
   minLength: 1,
   maxLength: 0,
-  isFocused: false,
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
@@ -11,12 +11,24 @@ const modalRoot = document.querySelector(MODAL_ROOT_SELECTOR);
 
 export default function Modal({ children }) {
   useLockBodyScroll();
-  const [, setModal] = useContext(ModalContext);
+  const [modal, setModal] = useContext(ModalContext);
   const closeModal = useCallback(() => {
     setModal({
       isOpen: false,
       modalType: '',
+      focusTarget: null,
     });
+  }, []);
+
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (modalRef.current) {
+      modalRef.current.focus();
+    }
+    return () => {
+      modal.focusTarget.focus();
+    };
   }, []);
 
   useEffect(() => {
@@ -34,7 +46,7 @@ export default function Modal({ children }) {
   return createPortal(
     <div className={styles.modal}>
       <ModalOverlay closeModal={closeModal} />
-      <div className={styles.modalContainer}>
+      <div tabIndex={-1} ref={modalRef} className={styles.modalContainer}>
         <button
           type="button"
           aria-label="Закрыть"

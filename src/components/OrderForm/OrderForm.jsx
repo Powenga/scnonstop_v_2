@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import {
   appliancesCards,
   MODAL_TYPES_OWN_PROBLEM,
-  priceList,
 } from '../../utils/constants';
+import { problems } from '../../utils/data';
 import brands from '../../utils/data/brands';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import styles from './OrderForm.module.css';
 import modalContext from '../../context/modal-context';
 import { orderStatePropTypes } from '../../utils/prop-types';
-import Input from '../Form/Input';
 import Fieldset from './Fieldset';
+import FieldsetWithProblems from './FieldsetWithProblems';
+import FieldsetWithBrands from './FieldsetWithBrands';
 
 export default function OrderForm({ classes, orderState, children }) {
   const [values, setValues] = orderState;
@@ -25,16 +26,16 @@ export default function OrderForm({ classes, orderState, children }) {
   );
   const [stepIcontStyle, setStepIcontStyle] = useState('');
   const [brandList, setBrandList] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredBrandList, setFilteredBrandList] = useState([]);
 
   const formRef = useRef(null);
 
   const handleOwnProblemClick = (event) => {
     event.preventDefault();
+    const { target } = event;
     setModal({
       isOpen: true,
       modalType: MODAL_TYPES_OWN_PROBLEM,
+      focusTarget: target,
     });
   };
 
@@ -75,17 +76,6 @@ export default function OrderForm({ classes, orderState, children }) {
     setFieldsetStyle(styles.fieldset_slide_backward);
   };
 
-  const handleFilterBrandsList = (event) => {
-    event.preventDefault();
-    const { value } = event.target;
-    setSearchQuery(value);
-    setFilteredBrandList(() =>
-      brandList.filter(({ title }) =>
-        title.toLowerCase().includes(value.toLowerCase()),
-      ),
-    );
-  };
-
   const onSubmit = () => {};
 
   useEffect(() => {
@@ -99,13 +89,12 @@ export default function OrderForm({ classes, orderState, children }) {
   useEffect(() => {
     if (values.appType) {
       setProblemList(
-        () => priceList.find((item) => item.id === values.appType).content,
+        () => problems.find((item) => item.id === values.appType).problems,
       );
       const list = brands.filter((item) =>
         item.appType.includes(values.appType),
       );
       setBrandList([...list]);
-      setFilteredBrandList([...list]);
     }
   }, [values.appType]);
 
@@ -164,94 +153,21 @@ export default function OrderForm({ classes, orderState, children }) {
               </Fieldset>
             )}
             {step === 2 && (
-              <Fieldset
-                title="Выберите неисправность:"
-                classes={`${styles.fieldset} ${fieldsetStyle}`}
-              >
-                <ul className="problem">
-                  {problemList.map((item) => (
-                    <li key={item.id} className="problem__item">
-                      <label
-                        htmlFor={`problem_${item.id}`}
-                        className={`${styles.label} problem__text`}
-                      >
-                        <input
-                          id={`problem_${item.id}`}
-                          type="radio"
-                          name="problem"
-                          value={item.problem}
-                          onChange={handleChange}
-                          checked={item.problem === values.problem}
-                          className={styles.input}
-                        />
-                        <span className={styles.problem}>{item.problem}</span>
-                      </label>
-                    </li>
-                  ))}
-                  <li className="problem__item">
-                    <label
-                      title={values.ownProblem}
-                      htmlFor="problem_more"
-                      className={`${styles.label} problem__text`}
-                    >
-                      <input
-                        id="problem_more"
-                        type="radio"
-                        name="problem"
-                        value={values.ownProblem}
-                        onChange={handleChange}
-                        checked={
-                          values.ownProblem &&
-                          values.problem === values.ownProblem
-                        }
-                        className={styles.input}
-                        onClick={handleOwnProblemClick}
-                      />
-                      <span className={styles.problem}>
-                        {values.ownProblem
-                          ? `${values.ownProblem.slice(0, 50).trim()}...`
-                          : 'Другая проблема'}
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-              </Fieldset>
+              <FieldsetWithProblems
+                problemList={problemList}
+                fieldsetStyle={fieldsetStyle}
+                values={values}
+                handleChange={handleChange}
+                handleOwnProblemClick={handleOwnProblemClick}
+              />
             )}
             {step === 3 && (
-              <Fieldset
-                title="Выберите марку техники:"
-                classes={`${styles.fieldset} ${fieldsetStyle}`}
-              >
-                <Input
-                  onChange={handleFilterBrandsList}
-                  type="text"
-                  placeholder="Начните вводить название марки"
-                  name="brand-filter"
-                  required={false}
-                  value={searchQuery}
-                />
-                <ul className={styles.brands}>
-                  {filteredBrandList.map((item) => (
-                    <li key={item.id} className="problem__item">
-                      <label
-                        htmlFor={item.id}
-                        className={`${styles.label} problem__text`}
-                      >
-                        <input
-                          id={item.id}
-                          type="radio"
-                          name="brand"
-                          value={item.title}
-                          onChange={handleChange}
-                          checked={item.title === values.brand}
-                          className={styles.input}
-                        />
-                        <span className={styles.problem}>{item.title}</span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </Fieldset>
+              <FieldsetWithBrands
+                brandList={brandList}
+                fieldsetStyle={fieldsetStyle}
+                values={values}
+                handleChange={handleChange}
+              />
             )}
           </div>
           <div className={styles['menu-wrap']}>

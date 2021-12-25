@@ -38,10 +38,6 @@
   transform: rotate(90deg);
 }
 
-.closeButton:focus {
-  outline: none;
-}
-
 @media screen and (max-width: 1600px) {
   .modalContainer {
     padding: 27px;

@@ -57,10 +57,7 @@ export default function OwnProblemForm({ orderState }) {
 
   return (
     <Form ref={formRef} name="addNewsForm" onSubmit={handleSubmit}>
-      <SectionTitle
-        title="Другая проблема"
-        subtitle="Введите описание своей неполадки"
-      />
+      <SectionTitle title="Другая проблема" subtitle="Опишите что сломалось" />
       <TextArea
         id="ownProblemId"
         name="ownProblem"
@@ -70,7 +67,6 @@ export default function OwnProblemForm({ orderState }) {
         classes="form__input_pos_first form__input"
         onChange={handleChange}
         maxLength={750}
-        isFocused
       />
       <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         сохранить

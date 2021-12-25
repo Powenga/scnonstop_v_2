@@ -37,7 +37,11 @@ function App() {
     brand: '',
   });
 
-  const modalState = useState({ isOpen: false, modalType: '' });
+  const modalState = useState({
+    isOpen: false,
+    modalType: '',
+    focusTarget: null,
+  });
   const [, setModalState] = modalState;
 
   const [currentNews, setCurrentNews] = useState({});

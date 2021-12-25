@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import PhoneLink from '../PhoneLink/PhoneLink';
 import './Price.css';
-import { priceList } from '../../utils/constants';
+import { priceList } from '../../utils/data';
 
 function Price({ classes, children }) {
   const menuRef = useRef();
@@ -60,7 +60,7 @@ function Price({ classes, children }) {
         {appType.content.map((item) => (
           <li className="price__item problem__item" key={item.id}>
             <p className="price__text problem__text">
-              {item.problem}
+              {item.task}
               <span className="price__price">{item.price}</span>
             </p>
           </li>
