@@ -15,11 +15,13 @@ import {
   MODAL_TYPES_CONFIRM_DELETE_SPEC,
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_EDIT_SPEC,
+  MODAL_TYPES_OWN_BRAND,
   MODAL_TYPES_OWN_PROBLEM,
   MODAL_TYPES_SHOW_NEWS,
 } from '../../utils/constants';
 import { newsPropTypes, specsPropTypes } from '../../utils/prop-types';
 import OwnProblemForm from '../Form/OwnProblemForm';
+import OwnBrandForm from '../Form/OwnBrandForm';
 
 const Modals = ({
   currentNews,
@@ -96,6 +98,13 @@ const Modals = ({
     return (
       <Modal>
         <OwnProblemForm orderState={orderState} />
+      </Modal>
+    );
+  }
+  if (modalType === MODAL_TYPES_OWN_BRAND) {
+    return (
+      <Modal>
+        <OwnBrandForm orderState={orderState} />
       </Modal>
     );
   }

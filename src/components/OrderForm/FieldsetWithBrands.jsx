@@ -10,7 +10,7 @@ const FieldsetWithBrands = ({
   fieldsetStyle,
   values,
   handleChange,
-  // handleOwnProblemClick,
+  handleBrandClick,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredBrandList, setFilteredBrandList] = useState(brandList);
@@ -71,6 +71,29 @@ const FieldsetWithBrands = ({
             </label>
           </li>
         ))}
+        <li className="problem__item">
+          <label
+            title={values.ownBrand}
+            htmlFor="problem_more"
+            className={`${styles.label} problem__text`}
+          >
+            <input
+              id="problem_more"
+              type="radio"
+              name="problem"
+              value={values.ownBrand}
+              onChange={handleChange}
+              checked={values.ownBrand && values.brand === values.ownBrand}
+              className={styles.input}
+              onClick={handleBrandClick}
+            />
+            <span className={styles.problem}>
+              {values.ownBrand
+                ? `${values.ownBrand.slice(0, 50).trim()}...`
+                : 'Другая марка'}
+            </span>
+          </label>
+        </li>
       </ul>
     </Fieldset>
   );
@@ -83,5 +106,5 @@ FieldsetWithBrands.propTypes = {
   fieldsetStyle: PropTypes.string.isRequired,
   values: orderStatePropTypes.isRequired,
   handleChange: PropTypes.func.isRequired,
-  // handleOwnProblemClick: PropTypes.func.isRequired,
+  handleBrandClick: PropTypes.func.isRequired,
 };

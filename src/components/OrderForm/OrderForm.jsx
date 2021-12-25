@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   appliancesCards,
+  MODAL_TYPES_OWN_BRAND,
   MODAL_TYPES_OWN_PROBLEM,
 } from '../../utils/constants';
 import { problems } from '../../utils/data';
@@ -35,6 +36,16 @@ export default function OrderForm({ classes, orderState, children }) {
     setModal({
       isOpen: true,
       modalType: MODAL_TYPES_OWN_PROBLEM,
+      focusTarget: target,
+    });
+  };
+
+  const handleBrandClick = (event) => {
+    event.preventDefault();
+    const { target } = event;
+    setModal({
+      isOpen: true,
+      modalType: MODAL_TYPES_OWN_BRAND,
       focusTarget: target,
     });
   };
@@ -82,7 +93,7 @@ export default function OrderForm({ classes, orderState, children }) {
     setStepValidity([
       Boolean(values.appType),
       Boolean(values.problem && values.problem !== 'Другая проблема'),
-      Boolean(values.brand),
+      Boolean(values.brand && values.brand !== 'Другая марка'),
     ]);
   }, [values, step]);
 
@@ -167,6 +178,7 @@ export default function OrderForm({ classes, orderState, children }) {
                 fieldsetStyle={fieldsetStyle}
                 values={values}
                 handleChange={handleChange}
+                handleBrandClick={handleBrandClick}
               />
             )}
           </div>
