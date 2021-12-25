@@ -5,7 +5,7 @@ import styles from './OrderForm.module.css';
 import { orderStatePropTypes } from '../../utils/prop-types';
 import Input from '../Form/Input';
 
-const FieldsetWithBrands = ({
+const FieldsetWithUserData = ({
   brandList,
   fieldsetStyle,
   values,
@@ -40,7 +40,6 @@ const FieldsetWithBrands = ({
     >
       <Input
         onChange={handleFilterBrandsList}
-        id="ownBrandInput"
         type="text"
         placeholder="Начните вводить название марки"
         name="brand-filter"
@@ -56,7 +55,7 @@ const FieldsetWithBrands = ({
             >
               <input
                 ref={(element) => {
-                  if (item === values.brand || index === 0) {
+                  if (index === 0) {
                     inputRef = element;
                   }
                 }}
@@ -79,14 +78,9 @@ const FieldsetWithBrands = ({
             className={`${styles.label} problem__text`}
           >
             <input
-              ref={(element) => {
-                if (values.ownBrand && values.brand === values.ownBrand) {
-                  inputRef = element;
-                }
-              }}
               id="problem_more"
               type="radio"
-              name="brand"
+              name="problem"
               value={values.ownBrand}
               onChange={handleChange}
               checked={values.ownBrand && values.brand === values.ownBrand}
@@ -105,9 +99,9 @@ const FieldsetWithBrands = ({
   );
 };
 
-export default FieldsetWithBrands;
+export default FieldsetWithUserData;
 
-FieldsetWithBrands.propTypes = {
+FieldsetWithUserData.propTypes = {
   brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   fieldsetStyle: PropTypes.string.isRequired,
   values: orderStatePropTypes.isRequired,

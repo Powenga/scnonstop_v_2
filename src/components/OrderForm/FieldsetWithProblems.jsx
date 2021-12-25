@@ -33,7 +33,7 @@ const FieldsetWithProblems = ({
             >
               <input
                 ref={(element) => {
-                  if (index === 0) {
+                  if (problem === values.problem || index === 0) {
                     inputRef = element;
                   }
                 }}
@@ -56,6 +56,11 @@ const FieldsetWithProblems = ({
             className={`${styles.label} problem__text`}
           >
             <input
+              ref={(element) => {
+                if (values.ownProblem && values.problem === values.ownProblem) {
+                  inputRef = element;
+                }
+              }}
               id="problem_more"
               type="radio"
               name="problem"

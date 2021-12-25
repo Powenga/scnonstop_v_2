@@ -181,6 +181,15 @@ export default function OrderForm({ classes, orderState, children }) {
                 handleBrandClick={handleBrandClick}
               />
             )}
+            {step === 4 && (
+              <FieldsetWithBrands
+                brandList={brandList}
+                fieldsetStyle={fieldsetStyle}
+                values={values}
+                handleChange={handleChange}
+                handleBrandClick={handleBrandClick}
+              />
+            )}
           </div>
           <div className={styles['menu-wrap']}>
             <div className={styles['button-wrap']}>
