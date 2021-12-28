@@ -70,6 +70,7 @@ const FieldsetWithUserData = ({ fieldsetStyle, values, handleChange }) => {
             value={values.policy}
             className="checkbox"
             onChange={handleChange}
+            checked={values.policy}
             required
           />
           <span className="checkbox-pseudo" />

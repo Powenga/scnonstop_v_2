@@ -51,6 +51,7 @@ function InputWithMask({
         format={format}
         required={required}
         allowEmptyFormatting={allowEmptyFormatting}
+        value={value}
       />
       <span
         className={`${styles.placeholder} ${
