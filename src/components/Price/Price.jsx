@@ -61,7 +61,9 @@ function Price({ classes, children }) {
           <li className="price__item problem__item" key={item.id}>
             <p className="price__text problem__text">
               {item.task}
-              <span className="price__price">{item.price}</span>
+              <span className="price__price">
+                {item.price !== 0 ? `от ${item.price} руб.` : 'БЕСПЛАТНО'}
+              </span>
             </p>
           </li>
         ))}
