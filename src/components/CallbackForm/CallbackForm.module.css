@@ -40,14 +40,6 @@
   margin-bottom: 64px;
 }
 
-.callback-form__input:focus + .callback-form__input-placeholder {
-  transform: translate(0, -110%) scale(0.5);
-}
-
-.callback-form__input-placeholder_fill {
-  transform: translate(0, -110%) scale(0.5);
-}
-
 .callback-form__checkbox {
   position: absolute;
   width: 1px;

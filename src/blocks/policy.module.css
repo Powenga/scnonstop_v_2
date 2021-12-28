@@ -1,0 +1,42 @@
+
+:global .policy {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+:global .checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+:global .checkbox-pseudo {
+  display: block;
+  position: relative;
+  top: -8px;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  background-image: url(../images/radio.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+:global .checkbox:checked + .checkbox-pseudo {
+  background-image: url(../images/radio-check.svg);
+}
+
+:global .policy-info {
+  font-family: "Oswald",sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 32px;
+  color: #2F2F2F;
+  margin: 0;
+}

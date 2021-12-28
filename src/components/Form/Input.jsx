@@ -1,62 +1,68 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 
-export default function Input({
-  id,
-  name,
-  placeholder,
-  value,
-  onChange,
-  classes,
-  minLength,
-  maxLength,
-  type,
-  max,
-  required,
-}) {
-  const [error, setError] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
+const Input = forwardRef(
+  (
+    {
+      id,
+      name,
+      placeholder,
+      value,
+      onChange,
+      classes,
+      minLength,
+      maxLength,
+      type,
+      max,
+      required,
+    },
+    ref,
+  ) => {
+    const [error, setError] = useState('');
+    const [isFocused, setIsFocused] = useState(false);
 
-  function toggleFocus() {
-    setIsFocused(!isFocused);
-  }
+    function toggleFocus() {
+      setIsFocused(!isFocused);
+    }
 
-  function handleChange(event) {
-    const { validationMessage } = event.target;
-    setError(validationMessage);
-    onChange(event);
-  }
+    function handleChange(event) {
+      const { validationMessage } = event.target;
+      setError(validationMessage);
+      onChange(event);
+    }
 
-  return (
-    <label htmlFor={id} className={`${styles.label} ${classes}`}>
-      <input
-        id={id}
-        name={name}
-        type={type || 'text'}
-        value={value}
-        className={`${styles.input} ${
-          !isFocused && !value && styles.input_value_hide
-        }`}
-        onChange={handleChange}
-        minLength={minLength}
-        maxLength={maxLength}
-        onFocus={toggleFocus}
-        onBlur={toggleFocus}
-        max={max}
-        required={required}
-      />
-      <span
-        className={`${styles.placeholder} ${
-          isFocused || value ? styles.placeholder_fill : ''
-        }`}
-      >
-        {placeholder}
-      </span>
-      {error && <span className={styles.error}>{error}</span>}
-    </label>
-  );
-}
+    return (
+      <label htmlFor={id} className={`${styles.label} ${classes}`}>
+        <input
+          ref={ref}
+          id={id}
+          name={name}
+          type={type || 'text'}
+          value={value}
+          className={`${styles.input} ${
+            !isFocused && !value && styles.input_value_hide
+          }`}
+          onChange={handleChange}
+          minLength={minLength}
+          maxLength={maxLength}
+          onFocus={toggleFocus}
+          onBlur={toggleFocus}
+          max={max}
+          required={required}
+        />
+        <span
+          className={`${styles.placeholder} ${
+            isFocused || value ? styles.placeholder_fill : ''
+          }`}
+        >
+          {placeholder}
+        </span>
+        {error && <span className={styles.error}>{error}</span>}
+      </label>
+    );
+  },
+);
 
 Input.propTypes = {
   id: PropTypes.string,
@@ -81,3 +87,5 @@ Input.defaultProps = {
   max: 999,
   required: true,
 };
+
+export default Input;

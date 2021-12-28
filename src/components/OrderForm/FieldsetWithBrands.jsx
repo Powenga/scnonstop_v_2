@@ -35,7 +35,7 @@ const FieldsetWithBrands = ({
 
   return (
     <Fieldset
-      title="Выберите марку техники:"
+      title="Выберите марку техники"
       classes={`${styles.fieldset} ${fieldsetStyle}`}
     >
       <Input

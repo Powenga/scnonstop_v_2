@@ -36,6 +36,10 @@ function App() {
     ownProblem: '',
     brand: '',
     ownBrand: '',
+    userName: '',
+    userPhone: '',
+    userAddress: '',
+    policy: '',
   });
 
   const modalState = useState({

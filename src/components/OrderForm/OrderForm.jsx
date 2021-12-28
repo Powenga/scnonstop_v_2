@@ -15,6 +15,8 @@ import { orderStatePropTypes } from '../../utils/prop-types';
 import Fieldset from './Fieldset';
 import FieldsetWithProblems from './FieldsetWithProblems';
 import FieldsetWithBrands from './FieldsetWithBrands';
+import FieldsetWithUserData from './FielsetWithUserData';
+import FieldsetWithOrder from './FieldsetWithOrders';
 
 export default function OrderForm({ classes, orderState, children }) {
   const [values, setValues] = orderState;
@@ -73,7 +75,7 @@ export default function OrderForm({ classes, orderState, children }) {
 
   const handleNextStep = (event) => {
     event.preventDefault();
-    if (step < 4) {
+    if (step < 5) {
       setStep(step + 1);
     }
     setFieldsetStyle(styles.fieldset_slide_forward);
@@ -94,6 +96,12 @@ export default function OrderForm({ classes, orderState, children }) {
       Boolean(values.appType),
       Boolean(values.problem && values.problem !== 'Другая проблема'),
       Boolean(values.brand && values.brand !== 'Другая марка'),
+      Boolean(
+        values.userName &&
+          values.userPhone &&
+          values.userAddress &&
+          values.policy,
+      ),
     ]);
   }, [values, step]);
 
@@ -182,12 +190,16 @@ export default function OrderForm({ classes, orderState, children }) {
               />
             )}
             {step === 4 && (
-              <FieldsetWithBrands
-                brandList={brandList}
+              <FieldsetWithUserData
                 fieldsetStyle={fieldsetStyle}
                 values={values}
                 handleChange={handleChange}
-                handleBrandClick={handleBrandClick}
+              />
+            )}
+            {step === 5 && (
+              <FieldsetWithOrder
+                fieldsetStyle={fieldsetStyle}
+                values={values}
               />
             )}
           </div>
@@ -207,6 +219,7 @@ export default function OrderForm({ classes, orderState, children }) {
               <div
                 className={`${styles['stages-wrap']} ${styles[stepIcontStyle]}`}
               >
+                <div className={styles.stage} />
                 <div className={styles.stage} />
                 <div className={styles.stage} />
                 <div className={styles.stage} />

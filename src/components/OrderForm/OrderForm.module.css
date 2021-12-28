@@ -223,13 +223,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 115px;
+  width: 120px;
   height: 5px;
   margin: 0 auto;
 }
 
 .stage {
-  width: 25px;
+  width: 20px;
   height: 100%;
   border-radius: 3px;
   background-color: #27306b;
@@ -242,7 +242,7 @@
   box-sizing: border-box;
   position: absolute;
   top: 2.5px;
-  left: 12.5px;
+  left: 10px;
   border: 2px solid #ffda49;
   border-radius: 50%;
   background-color: #ffe88e;
@@ -252,15 +252,21 @@
 .stages-wrap_step_1::before {
   transform: translate(calc(-50% + 0px), -50%);
 }
-
 .stages-wrap_step_2::before {
-  transform: translate(calc(-50% + 30px), -50%);
+  transform: translate(calc(-50% + 25px), -50%);
 }
 .stages-wrap_step_3::before {
-  transform: translate(calc(-50% + 60px), -50%);
+  transform: translate(calc(-50% + 50px), -50%);
 }
 .stages-wrap_step_4::before {
-  transform: translate(calc(-50% + 90px), -50%);
+  transform: translate(calc(-50% + 75px), -50%);
+}
+.stages-wrap_step_5::before {
+  transform: translate(calc(-50% + 100px), -50%);
+}
+
+.user-input {
+  margin-bottom: 32px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -297,6 +303,10 @@
   .input-title {
     font-size: 18px;
     line-height: 27px;
+  }
+
+  .user-input {
+    margin-bottom: 27px;
   }
 }
 
@@ -342,6 +352,9 @@
   .input-title {
     line-height: 26px;
   }
+  .user-input {
+    margin-bottom: 26px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -381,6 +394,10 @@
   .stages {
     width: 100%;
     order: -1;
+    margin-bottom: 20px;
+  }
+
+  .user-input {
     margin-bottom: 20px;
   }
 }

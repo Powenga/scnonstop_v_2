@@ -1,100 +1,90 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Fieldset from './Fieldset';
 import styles from './OrderForm.module.css';
 import { orderStatePropTypes } from '../../utils/prop-types';
 import Input from '../Form/Input';
+import InputWithMask from '../Form/InputWithMask';
+import Button from '../Button/Button';
 
-const FieldsetWithUserData = ({
-  brandList,
-  fieldsetStyle,
-  values,
-  handleChange,
-  handleBrandClick,
-}) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredBrandList, setFilteredBrandList] = useState(brandList);
-  let inputRef = useRef(null);
-
-  const handleFilterBrandsList = (event) => {
-    event.preventDefault();
-    const { value } = event.target;
-    setSearchQuery(value);
-    setFilteredBrandList(() =>
-      brandList.filter(({ title }) =>
-        title.toLowerCase().includes(value.toLowerCase()),
-      ),
-    );
-  };
+const FieldsetWithUserData = ({ fieldsetStyle, values, handleChange }) => {
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (inputRef) {
-      inputRef.focus();
+    if (inputRef.current) {
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 500);
     }
   }, []);
 
   return (
     <Fieldset
-      title="Выберите марку техники:"
+      title="Введите контактые данные"
       classes={`${styles.fieldset} ${fieldsetStyle}`}
     >
       <Input
-        onChange={handleFilterBrandsList}
-        type="text"
-        placeholder="Начните вводить название марки"
-        name="brand-filter"
-        required={false}
-        value={searchQuery}
+        ref={inputRef}
+        id="callbackUserName"
+        name="userName"
+        placeholder="Ваше имя"
+        value={values.userName}
+        classes={styles['user-input']}
+        onChange={handleChange}
+        minLength={2}
+        maxLength={25}
+        required
       />
-      <ul className={styles.brands}>
-        {filteredBrandList.map((item, index) => (
-          <li key={item.id} className="problem__item">
-            <label
-              htmlFor={item.id}
-              className={`${styles.label} problem__text`}
-            >
-              <input
-                ref={(element) => {
-                  if (index === 0) {
-                    inputRef = element;
-                  }
-                }}
-                id={item.id}
-                type="radio"
-                name="brand"
-                value={item.title}
-                onChange={handleChange}
-                checked={item.title === values.brand}
-                className={styles.input}
-              />
-              <span className={styles.problem}>{item.title}</span>
-            </label>
-          </li>
-        ))}
-        <li className="problem__item">
-          <label
-            title={values.ownBrand}
-            htmlFor="problem_more"
-            className={`${styles.label} problem__text`}
-          >
-            <input
-              id="problem_more"
-              type="radio"
-              name="problem"
-              value={values.ownBrand}
-              onChange={handleChange}
-              checked={values.ownBrand && values.brand === values.ownBrand}
-              className={styles.input}
-              onClick={handleBrandClick}
-            />
-            <span className={styles.problem}>
-              {values.ownBrand
-                ? `${values.ownBrand.slice(0, 50).trim()}...`
-                : 'Другая марка'}
-            </span>
-          </label>
-        </li>
-      </ul>
+      <InputWithMask
+        id="callbackUserPhone"
+        name="userPhone"
+        placeholder="Телефон для связи"
+        value={values.userPhone}
+        classes={styles['user-input']}
+        onChange={handleChange}
+        minLength={1}
+        maxLength={25}
+        required
+        mask="_"
+        format="+7 (###) ###-##-##"
+        allowEmptyFormatting
+        regexp={/\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}/}
+      />
+      <Input
+        id="callbackUserName"
+        name="userAddress"
+        placeholder="Ваш адрес"
+        value={values.userAddress}
+        classes={styles['user-input']}
+        onChange={handleChange}
+        minLength={2}
+        maxLength={25}
+        required
+      />
+      <div>
+        <label htmlFor="order-policy" className="policy">
+          <input
+            id="order-policy"
+            name="policy"
+            type="checkbox"
+            value={values.policy}
+            className="checkbox"
+            onChange={handleChange}
+            required
+          />
+          <span className="checkbox-pseudo" />
+          <span className="policy-info">
+            Я согласен с{' '}
+            <Button classes="button_type_text">
+              Политикой конфиденциальности
+            </Button>{' '}
+            и{' '}
+            <Button classes="button_type_text">
+              Правилами пользования сайтом
+            </Button>
+          </span>
+        </label>
+      </div>
     </Fieldset>
   );
 };
@@ -102,9 +92,7 @@ const FieldsetWithUserData = ({
 export default FieldsetWithUserData;
 
 FieldsetWithUserData.propTypes = {
-  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   fieldsetStyle: PropTypes.string.isRequired,
   values: orderStatePropTypes.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleBrandClick: PropTypes.func.isRequired,
 };
