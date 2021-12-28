@@ -6,13 +6,12 @@ class Auth {
   }
 
   static _onError(res) {
-    return res.json()
-      .then((data) => {
-        if (res.ok) {
-          return Promise.resolve(data);
-        }
-        return Promise.reject(data);
-      });
+    return res.json().then((data) => {
+      if (res.ok) {
+        return Promise.resolve(data);
+      }
+      return Promise.reject(data);
+    });
   }
 
   signIn(data) {
@@ -21,8 +20,7 @@ class Auth {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
       credentials: 'include',
-    })
-      .then(this.constructor._onError);
+    }).then(this.constructor._onError);
   }
 
   updatePassword(data) {
@@ -31,8 +29,7 @@ class Auth {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
       credentials: 'include',
-    })
-      .then(this.constructor._onError);
+    }).then(this.constructor._onError);
   }
 
   checkAutorization() {
@@ -41,8 +38,7 @@ class Auth {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    })
-      .then(this.constructor._onError);
+    }).then(this.constructor._onError);
   }
 
   logout() {
@@ -51,8 +47,7 @@ class Auth {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    })
-      .then(this.constructor._onError);
+    }).then(this.constructor._onError);
   }
 }
 
