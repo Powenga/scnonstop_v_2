@@ -56,7 +56,7 @@ const FieldsetWithBrands = ({
             >
               <input
                 ref={(element) => {
-                  if (item === values.brand || index === 0) {
+                  if (item.title === values.brand || index === 0) {
                     inputRef = element;
                   }
                 }}

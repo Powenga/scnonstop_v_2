@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
@@ -28,14 +28,14 @@ export default function Specs({
     }, 1000);
   }
 
-  const handleMoreClick = useCallback(() => {
+  const handleMoreClick = () => {
     if (numberOfRenderedSpecs < specsList.length) {
       setSpecsGrid((state) => ({
         ...state,
         rows: state.rows + 1,
       }));
     }
-  }, []);
+  };
 
   useEffect(() => {
     window.addEventListener('resize', updateViewportWidth);
