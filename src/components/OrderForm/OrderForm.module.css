@@ -142,11 +142,11 @@
   outline: none;
 }
 
-.input:focus + .problem {
+.input:focus-visible + .problem {
   outline: 1px solid #fbc928;
 }
 
-.input:focus + .input-image {
+.input:focus-visible + .input-image {
   outline: 2px solid #fbc928;
 }
 

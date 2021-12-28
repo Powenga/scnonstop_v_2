@@ -27,7 +27,9 @@ export default function Modal({ children }) {
       modalRef.current.focus();
     }
     return () => {
-      modal.focusTarget.focus();
+      if (modal.focusTarget) {
+        modal.focusTarget.focus();
+      }
     };
   }, []);
 

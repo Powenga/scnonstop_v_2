@@ -21,6 +21,10 @@
   max-height: 90vh;
 }
 
+.modalContainer:focus {
+  outline: none;
+}
+
 .closeButton {
   position: absolute;
   top: -36px;
