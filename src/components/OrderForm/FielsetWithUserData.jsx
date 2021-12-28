@@ -78,10 +78,6 @@ const FieldsetWithUserData = ({ fieldsetStyle, values, handleChange }) => {
             Я согласен с{' '}
             <Button classes="button_type_text">
               Политикой конфиденциальности
-            </Button>{' '}
-            и{' '}
-            <Button classes="button_type_text">
-              Правилами пользования сайтом
             </Button>
           </span>
         </label>

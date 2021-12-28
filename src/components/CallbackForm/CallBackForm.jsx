@@ -98,30 +98,23 @@ export default function CallBackForm({ classes, children }) {
           <div>
             <label
               htmlFor="policy"
-              className={`${styles['callback-form__label']} ${styles['callback-form__label_type_policy']}`}
+              className={`${styles['callback-form__label']} ${styles['callback-form__label_type_policy']} policy`}
             >
               <input
                 id="policy"
                 name="policy"
                 type="checkbox"
                 value={values.policy}
-                className={styles['callback-form__checkbox']}
+                className="checkbox"
                 onChange={handleChange}
+                checked={values.policy}
                 required
               />
-              <span className={styles['callback-form__checkbox-pseudo']} />
-              <span className={styles['callback-form__policy-info']}>
+              <span className="checkbox-pseudo" />
+              <span className="policy-info">
                 Я согласен с{' '}
-                <Button
-                  classes={`button_type_text ${styles['callback-form__policy']}`}
-                >
+                <Button classes="button_type_text">
                   Политикой конфиденциальности
-                </Button>{' '}
-                и{' '}
-                <Button
-                  classes={`button_type_text ${styles['callback-form__policy']}`}
-                >
-                  Правилами пользования сайтом
                 </Button>
               </span>
             </label>

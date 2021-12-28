@@ -7,7 +7,7 @@
 }
 
 :global .checkbox:focus-visible + .checkbox-pseudo {
-  outline: 1px solid indigo;
+  outline: 1px solid #fbc928;
 }
 
 :global .checkbox {
