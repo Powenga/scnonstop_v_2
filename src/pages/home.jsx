@@ -22,11 +22,17 @@ export default function Home({
   handleDeleteSpecClick,
   handleEditSpecClick,
   orderState,
+  orderRef,
+  schemeRef,
+  handleMoreDetailsClick,
 }) {
   return (
     <main className="main">
       <section className="main__section main__section_type_promo">
-        <Promo classes={containerClasses} />
+        <Promo
+          classes={containerClasses}
+          onMoreButtonClick={handleMoreDetailsClick}
+        />
         <img
           className="main__section-img"
           src={promoImgPath}
@@ -49,7 +55,10 @@ export default function Home({
           handleClickNews={handleClickNews}
         />
       </section>
-      <section className="main__section main__section_type_schema">
+      <section
+        className="main__section main__section_type_schema"
+        ref={schemeRef}
+      >
         <Scheme classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
@@ -83,7 +92,10 @@ export default function Home({
           </div>
         </Advantages>
       </section>
-      <section className="main__section main__section_type_order-form">
+      <section
+        className="main__section main__section_type_order-form"
+        ref={orderRef}
+      >
         <OrderForm classes={containerClasses} orderState={orderState}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОФОРМЛЕНИЕ ЗАЯВКИ</h2>
@@ -135,4 +147,13 @@ Home.propTypes = {
   handleDeleteSpecClick: PropTypes.func.isRequired,
   handleEditSpecClick: PropTypes.func.isRequired,
   orderState: orderStatePropTypes.isRequired,
+  orderRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  schemeRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  handleMoreDetailsClick: PropTypes.func.isRequired,
 };

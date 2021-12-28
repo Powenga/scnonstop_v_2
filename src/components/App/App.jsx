@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -51,6 +51,23 @@ function App() {
 
   const [currentNews, setCurrentNews] = useState({});
   const [currentSpec, setCurrentSpec] = useState({});
+
+  const orderRef = useRef(null);
+  const schemeRef = useRef(null);
+
+  const handleOrderButtonClick = useCallback((event) => {
+    event.preventDefault();
+    if (orderRef.current) {
+      orderRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
+  const handleMoreDetailsClick = useCallback((event) => {
+    event.preventDefault();
+    if (schemeRef.current) {
+      schemeRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   const handleDeleteNewsClick = useCallback((news) => {
     setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM_DELETE_NEWS });
@@ -112,12 +129,16 @@ function App() {
     <ModalContext.Provider value={modalState}>
       <div className="app">
         <UserContext.Provider value={{ user, setUser }}>
-          <Header containerClasses="app__container" />
+          <Header
+            containerClasses="app__container"
+            onRequestClick={handleOrderButtonClick}
+          />
           <BetaMessage />
           <CookieMessage />
           <Switch>
             <Route path="/" exact>
               <Home
+                orderRef={orderRef}
                 containerClasses="app__container"
                 handleDeleteNewsClick={handleDeleteNewsClick}
                 handleEditNewsClick={handleEditNewsClick}
@@ -125,6 +146,8 @@ function App() {
                 handleDeleteSpecClick={handleDeleteSpecClick}
                 handleEditSpecClick={handleEditSpecClick}
                 orderState={orderState}
+                schemeRef={schemeRef}
+                handleMoreDetailsClick={handleMoreDetailsClick}
               />
             </Route>
             <Route path="/login" exact>

@@ -5,7 +5,8 @@
     "fetch": "readonly",
     "window": "readonly",
     "FormData": "readonly",
-    "localStorage": "readonly"
+    "localStorage": "readonly",
+    "Element": "readonly"
   },
   "rules": {
     "no-underscore-dangle": [

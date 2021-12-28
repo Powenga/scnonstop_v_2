@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Header.css';
 import PropTypes from 'prop-types';
@@ -20,9 +20,10 @@ function Header({ onRequestClick, containerClasses }) {
   const [iconsLoaded, seticonsLoaded] = useState(0);
   const { user, setUser } = useContext(UserContext);
   const history = useHistory();
-  const handleClick = () => {
-    onRequestClick();
-  };
+
+  const handleClick = useCallback((event) => {
+    onRequestClick(event);
+  }, []);
 
   const logout = (event) => {
     event.preventDefault();
