@@ -17,6 +17,9 @@ import FieldsetWithProblems from './FieldsetWithProblems';
 import FieldsetWithBrands from './FieldsetWithBrands';
 import FieldsetWithUserData from './FielsetWithUserData';
 import FieldsetWithOrder from './FieldsetWithOrders';
+import mainApi from '../../utils/main-api';
+import Preloader from '../Preloader/Preloader';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function OrderForm({ classes, orderState, children }) {
   const [values, setValues] = orderState;
@@ -29,6 +32,9 @@ export default function OrderForm({ classes, orderState, children }) {
   );
   const [stepIcontStyle, setStepIcontStyle] = useState('');
   const [brandList, setBrandList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const formRef = useRef(null);
 
@@ -89,7 +95,39 @@ export default function OrderForm({ classes, orderState, children }) {
     setFieldsetStyle(styles.fieldset_slide_backward);
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    const {
+      appType,
+      problem,
+      brand,
+      userName,
+      userPhone,
+      userAddress,
+      policy,
+    } = values;
+    mainApi
+      .sendOrder({
+        appType,
+        problem,
+        appMark: brand,
+        userName,
+        userPhone,
+        address: userAddress,
+        policy,
+      })
+      .then(() => {
+        setErrorMessage('');
+        setIsLoading(false);
+        setIsSuccess(true);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+        setIsLoading(false);
+        setIsSuccess(false);
+      });
+  };
 
   useEffect(() => {
     setStepValidity([
@@ -130,6 +168,7 @@ export default function OrderForm({ classes, orderState, children }) {
           classes={styles.form}
           onSubmit={onSubmit}
           ref={formRef}
+          errorMessage={errorMessage}
         >
           <p className={styles.info}>
             Для многих фотография – способ самовыражения и общения, возможность
@@ -229,17 +268,43 @@ export default function OrderForm({ classes, orderState, children }) {
             <div
               className={`${styles['button-wrap']} ${styles.wrap_pos_right}`}
             >
-              <Button
-                type="button"
-                classes={styles.button}
-                onButtonClick={handleNextStep}
-                disabled={!stepValidity[step - 1]}
-              >
-                ДАЛЕЕ
-              </Button>
+              {step === 5 ? (
+                <Button
+                  type="submit"
+                  classes={styles.button}
+                  onButtonClick={() => {}}
+                  disabled={stepValidity.some((element) => element === false)}
+                >
+                  ОТПРАВИТЬ
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  classes={styles.button}
+                  onButtonClick={handleNextStep}
+                  disabled={!stepValidity[step - 1]}
+                >
+                  ДАЛЕЕ
+                </Button>
+              )}
             </div>
           </div>
         </Form>
+        {isSuccess && (
+          <div className="message">
+            <div className="message__container">
+              <SectionTitle
+                title="Cообщение отправлено!"
+                classes="message__title"
+              />
+              <p className="main-text message__text">Спасибо за обращение.</p>
+              <p className="main-text message__text">
+                Мы свяжемся с Вами в ближайшее время.
+              </p>
+            </div>
+          </div>
+        )}
+        {isLoading && <Preloader />}
       </div>
     </div>
   );

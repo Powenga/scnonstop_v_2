@@ -29,11 +29,13 @@ class Api {
       credentials: 'include',
     })
       .then(this.constructor._onError)
-      .then(({ id }) => fetch(`${this._baseUrl}/news/${id}/image`, {
-        method: 'PATCH',
-        body: formData,
-        credentials: 'include',
-      }))
+      .then(({ id }) =>
+        fetch(`${this._baseUrl}/news/${id}/image`, {
+          method: 'PATCH',
+          body: formData,
+          credentials: 'include',
+        }),
+      )
       .then(this.constructor._onError);
   }
 
@@ -79,11 +81,13 @@ class Api {
       credentials: 'include',
     })
       .then(this.constructor._onError)
-      .then(({ id }) => fetch(`${this._baseUrl}/specialists/${id}/image`, {
-        method: 'PATCH',
-        body: formData,
-        credentials: 'include',
-      }))
+      .then(({ id }) =>
+        fetch(`${this._baseUrl}/specialists/${id}/image`, {
+          method: 'PATCH',
+          body: formData,
+          credentials: 'include',
+        }),
+      )
       .then(this.constructor._onError);
   }
 
@@ -123,21 +127,11 @@ class Api {
     }).then(this.constructor._onError);
   }
 
-  editProfile(data) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify(data),
-      credentials: 'include',
-    }).then(this.constructor._onError);
-  }
-
-  saveCard(data) {
-    return fetch(`${this._baseUrl}/movies`, {
+  sendOrder(data) {
+    return fetch(`${this._baseUrl}/mail/order`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify(data),
-      credentials: 'include',
     }).then(this.constructor._onError);
   }
 }
