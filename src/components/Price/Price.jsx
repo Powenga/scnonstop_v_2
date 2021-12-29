@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import PhoneLink from '../PhoneLink/PhoneLink';
-import './Price.css';
+import styles from './Price.module.css';
 import { priceList } from '../../utils/data';
 
 function Price({ classes, children }) {
@@ -36,49 +36,48 @@ function Price({ classes, children }) {
   }, []);
 
   return (
-    <div className={`price ${classes && classes}`}>
+    <div className={`${styles.price} ${classes || ''}`}>
       {children}
-      <ul className="price__menu" ref={menuRef}>
-        {priceList.map((item) => (
-          <li
-            className={`price__menu-item ${
-              item.title === appType.title && 'price__menu-item_active'
-            }`}
-            key={item.id}
-          >
-            <button
-              className="price__menu-button"
-              type="button"
-              onClick={handleClick}
-            >
-              {item.title}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <ul className="price__container problem">
+      <div className={styles.menuWrap}>
+        <ul className={styles.menu} ref={menuRef}>
+          {priceList.map((item) => (
+            <li className={styles['menu-item']} key={item.id}>
+              <button
+                className={`${styles['menu-button']} ${
+                  item.title === appType.title && styles['menu-button_active']
+                }`}
+                type="button"
+                onClick={handleClick}
+              >
+                {item.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <ul className={`${styles.container} problem`}>
         {appType.content.map((item) => (
-          <li className="price__item problem__item" key={item.id}>
-            <p className="price__text problem__text">
+          <li className={`${styles.item} problem__item`} key={item.id}>
+            <p className={`${styles.text} problem__text`}>
               {item.task}
-              <span className="price__price">
+              <span className={styles['text-price']}>
                 {item.price !== 0 ? `от ${item.price} руб.` : 'БЕСПЛАТНО'}
               </span>
             </p>
           </li>
         ))}
       </ul>
-      <p className="price__content">
+      <p className={styles.content}>
         Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?
       </p>
-      <p className="price__content price__content_type_accent">
+      <p className={`${styles.content} ${styles.content_type_accent}`}>
         Позвоните нам или закажите обратный&nbsp;звонок!
       </p>
-      <div className="price__button-wrap">
-        <Button type="button" classes="price__button">
+      <div className={styles['button-wrap']}>
+        <Button type="button" classes={styles.button}>
           заказать звонок
         </Button>
-        <PhoneLink href="tel:+79508022222" classes="price__button">
+        <PhoneLink href="tel:+79508022222" classes={styles.button}>
           позвонить
         </PhoneLink>
       </div>

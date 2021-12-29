@@ -11,6 +11,9 @@
 :global .problem__item {
   margin: 0 0 32px;
 }
+:global .problem__item:last-child {
+  margin-bottom: 0;
+}
 
 :global .problem__text {
   font-family: 'Oswald', sans-serif;
@@ -44,18 +47,18 @@
     margin-bottom: 26px;
   }
 
-  :global .price__text {
+  :global .problem__text {
     font-size: 20px;
     line-height: 20px;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 550px) {
   :global .problem__item {
     margin-bottom: 20px;
   }
 
-  :global .price__text {
+  :global .problem__text {
     font-size: 18px;
     line-height: 18px;
   }
