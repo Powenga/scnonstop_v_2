@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Footer.css';
 
@@ -9,8 +9,18 @@ import vkPath from '../../images/social-icon-vk-w.svg';
 import insPath from '../../images/social-icon-inst-w.svg';
 import ytPath from '../../images/social-icon-yt-w.svg';
 import odPath from '../../images/social-icon-od-w.svg';
+import useLoad from '../../hooks/useLoad';
 
 export default function Footer({ containerClasses }) {
+  const { setIsLoad, style } = useLoad(false);
+  const [iconsLoaded, seticonsLoaded] = useState(0);
+
+  useEffect(() => {
+    if (iconsLoaded === 4) {
+      setIsLoad(true);
+    }
+  }, [iconsLoaded]);
+
   return (
     <footer className="footer">
       <div className={`footer__container ${containerClasses || ''}`}>
@@ -37,6 +47,8 @@ export default function Footer({ containerClasses }) {
                   className="social__icon footer__social-icon social__icon_target_fb"
                 >
                   <img
+                    onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+                    style={style}
                     className="social__icon-img"
                     src={fbPath}
                     alt="Facebook"
@@ -49,6 +61,8 @@ export default function Footer({ containerClasses }) {
                   className="social__icon footer__social-icon social__icon_target_vk"
                 >
                   <img
+                    onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+                    style={style}
                     className="social__icon-img"
                     src={vkPath}
                     alt="Вконтакте"
@@ -61,6 +75,8 @@ export default function Footer({ containerClasses }) {
                   className="social__icon footer__social-icon social__icon_target_ins"
                 >
                   <img
+                    onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+                    style={style}
                     className="social__icon-img"
                     src={insPath}
                     alt="Instagram"
@@ -73,6 +89,8 @@ export default function Footer({ containerClasses }) {
                   className="social__icon footer__social-icon social__icon_target_yt"
                 >
                   <img
+                    onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+                    style={style}
                     className="social__icon-img"
                     src={ytPath}
                     alt="Youtube"
@@ -85,6 +103,8 @@ export default function Footer({ containerClasses }) {
                   className="social__icon footer__social-icon social__icon_target_od"
                 >
                   <img
+                    onLoad={() => seticonsLoaded(iconsLoaded + 1)}
+                    style={style}
                     className="social__icon-img"
                     src={odPath}
                     alt="Однокласники"

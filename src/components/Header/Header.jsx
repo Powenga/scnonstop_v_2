@@ -44,7 +44,7 @@ function Header({ onRequestClick, containerClasses }) {
   };
 
   useEffect(() => {
-    if (iconsLoaded === 4) {
+    if (iconsLoaded === 5) {
       setIsLoad(true);
     }
   }, [iconsLoaded]);
@@ -62,7 +62,28 @@ function Header({ onRequestClick, containerClasses }) {
             frameBorder="0"
           />
         </div>
-        <Social classes="header__social social_tablet_menu">
+        <button
+          type="button"
+          className="header__social_tablet"
+          aria-label="Показать социальные сети"
+          onClick={handleClick}
+        >
+          <svg
+            width="50"
+            height="46"
+            viewBox="0 0 50 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g opacity="1">
+              <rect width="50" height="46" fill="black" />
+              <rect x="6" y="5" width="38" height="8" fill="white" />
+              <rect x="6" y="19" width="38" height="8" fill="white" />
+              <rect x="6" y="33" width="38" height="8" fill="white" />
+            </g>
+          </svg>
+        </button>
+        <Social classes="header__social">
           <a
             href="https://www.facebook.com/scnonstop48"
             target="_blank"
