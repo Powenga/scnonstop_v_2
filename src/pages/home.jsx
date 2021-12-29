@@ -11,7 +11,7 @@ import Specs from '../components/Specs/Specs';
 import Brands from '../components/Brands/Brands';
 import Map from '../components/Map/Map';
 import CallBackForm from '../components/CallbackForm/CallBackForm';
-import promoImgPath from '../images/promo-img.jpg';
+import { promoImgPath } from '../utils/data';
 import { orderStatePropTypes } from '../utils/prop-types';
 
 export default function Home({

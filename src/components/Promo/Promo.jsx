@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import promoImgPath from '../../images/promo-img.jpg';
+import { promoImgPath } from '../../utils/data';
 import Button from '../Button/Button';
 import './Promo.css';
 import useLoad from '../../hooks/useLoad';
