@@ -53,7 +53,7 @@
   right: 0;
   width: calc(54 / 405 * 100%);
   padding-bottom: calc(54 / 405 * 100%);
-  background: top right / cover url(../../images/news-card-corner.svg);
+  background: top right / cover no-repeat url(../../images/news-card-corner.svg);
   transform-origin: top right;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
