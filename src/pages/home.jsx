@@ -69,7 +69,7 @@ export default function Home({
               КАК МЫ РАБОТАЕМ
             </h2>
             <p className="main__section-subtitle main__section-subtitle_theme_dark">
-              Познакомтесь со схемой работы
+              Познакомьтесь со схемой работы
             </p>
           </div>
         </Scheme>

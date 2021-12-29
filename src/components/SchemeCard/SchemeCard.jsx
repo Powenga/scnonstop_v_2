@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SchemeCard.css';
 import { schemePropTypes } from '../../utils/prop-types';
+import styles from './SchemeCard.module.css';
 
 export default function SchemeCard({ classes, card }) {
   return (
-    <div className={`scheme-card ${classes || ''}`}>
-      <div className="scheme-card__text-wrap">
-        <p className="scheme-card__text">{card.content}</p>
+    <div className={`${styles.card} ${classes || ''}`}>
+      <div className={styles['text-wrap']}>
+        <p className={styles.text}>{card.content}</p>
       </div>
-      <img src={card.src} alt={card.alt} className="scheme-card__img" />
+      <picture className={styles.pic}>
+        <source
+          srcSet={`${card.src}, ${card.srcMobile} 2x`}
+          media="(max-width: 550px)"
+        />
+        <img src={card.src} alt={card.alt} className={styles.img} />
+      </picture>
       <div
-        className={`scheme-card__arrow scheme-card__arrow_stage_${card.stage}`}
+        className={`${styles.arrow} ${styles[`arrow_stage_${card.stage}`]}`}
       />
     </div>
   );

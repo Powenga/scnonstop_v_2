@@ -20,7 +20,7 @@
 
 :global .main__section_type_schema {
   background: 75% top / auto no-repeat url(../images/scheme-wm.png),
-    70% top / auto no-repeat url(../images/scheme-bckg-img.png), #2F2F2F;
+    70% top / auto no-repeat url(../images/scheme-bckg-img.png), #2f2f2f;
 }
 
 :global .main__section_type_price {
@@ -31,12 +31,15 @@
 
 :global .main__section_type_advantages {
   background: 100% 100% / auto no-repeat url(../images/advantages/adv-ref.png),
-    0 100% / auto no-repeat url(../images/advantages/adv-bckg.png), #2F2F2F;
+    0 100% / auto no-repeat url(../images/advantages/adv-bckg.png), #2f2f2f;
 }
 
 :global .main__section_type_specs {
-  background: bottom 0 right 10% / auto no-repeat url(../images/specialists/specs-wm.png),
-    top 0 right 0 / auto no-repeat url(../images/specialists/specs-background.png), #2F2F2F;
+  background: bottom 0 right 10% / auto no-repeat
+      url(../images/specialists/specs-wm.png),
+    top 0 right 0 / auto no-repeat
+      url(../images/specialists/specs-background.png),
+    #2f2f2f;
 }
 
 :global .main__section_type_brands {
@@ -124,16 +127,14 @@
   }
 
   :global .main__section_type_promo {
-    background: -25% bottom / auto no-repeat
-        url(../images/hero-bckg-text.png),
+    background: -25% bottom / auto no-repeat url(../images/hero-bckg-text.png),
       110% bottom / auto no-repeat url(../images/hero-bckg-img.png), #2f2f2f;
   }
 }
 
 @media screen and (max-width: 1230px) {
   :global .main__section_type_promo {
-    background: -350px bottom / auto no-repeat
-        url(../images/hero-bckg-text.png),
+    background: -350px bottom / auto no-repeat url(../images/hero-bckg-text.png),
       110% bottom / auto no-repeat url(../images/hero-bckg-img.png), #2f2f2f;
   }
 }
@@ -154,8 +155,11 @@
     object-position: top center;
   }
   :global .main__section_type_specs {
-    background: bottom -60px right -5% / auto no-repeat url(../images/specialists/specs-wm.png),
-      top 0 right 100% / auto no-repeat url(../images/specialists/specs-background.png), #2F2F2F;
+    background: bottom -60px right -5% / auto no-repeat
+        url(../images/specialists/specs-wm.png),
+      top 0 right 100% / auto no-repeat
+        url(../images/specialists/specs-background.png),
+      #2f2f2f;
   }
 }
 
@@ -170,7 +174,7 @@
   }
   :global .main__section_type_advantages {
     background: right -50px top 100% / auto no-repeat url(../images/advantages/adv-ref.png),
-      0 0 / auto no-repeat url(../images/advantages/adv-bckg.png), #2F2F2F;
+      0 0 / auto no-repeat url(../images/advantages/adv-bckg.png), #2f2f2f;
   }
 }
 
@@ -183,8 +187,7 @@
     flex-direction: column-reverse;
     align-items: flex-start;
     justify-content: center;
-    background: -200px bottom / auto no-repeat
-        url(../images/hero-bckg-text.png),
+    background: -200px bottom / auto no-repeat url(../images/hero-bckg-text.png),
       #2f2f2f;
   }
   :global .main__section-img {
@@ -216,15 +219,18 @@
     max-height: 240px;
   }
   :global .main__section_type_schema {
-    background: right -50px bottom -10px / auto no-repeat url(../images/scheme-wm.png),
-      left -20px top / auto no-repeat url(../images/scheme-bckg-img.png), #2F2F2F;
+    background: right -50px bottom -10px / 278px 338px no-repeat
+        url(../images/scheme-wm_large.png),
+      left -20px top / auto no-repeat url(../images/scheme-bckg-img.png),
+      #2f2f2f;
   }
   :global .main__section_type_advantages {
     background: right -120px top 100% / auto no-repeat url(../images/advantages/adv-ref.png),
-      0 0 / auto no-repeat url(../images/advantages/adv-bckg.png), #2F2F2F;
+      0 0 / auto no-repeat url(../images/advantages/adv-bckg.png), #2f2f2f;
   }
   :global .main__section_type_specs {
     background: bottom -60px left 5% / auto no-repeat url(../images/specialists/specs-wm.png),
-      top -200px right 100% / auto no-repeat url(../images/specialists/specs-background.png), #2F2F2F;
+      top -200px right 100% / auto no-repeat url(../images/specialists/specs-background.png),
+      #2f2f2f;
   }
 }

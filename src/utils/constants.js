@@ -18,7 +18,6 @@ export const REFRIGETATOR_TITLE = 'Холодильники';
 export const DISHWASHER_TITLE = 'Посудомоечные машины';
 export const BOILER_TITLE = 'Водонагреватели';
 
-export { default as schemeCards } from './data/scheme';
 export { default as advantages } from './data/advantages';
 
 export const { REACT_APP_API_URL = 'https://beta.scnonstop.ru/api' } =

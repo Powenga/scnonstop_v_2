@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
 import SchemeCard from '../SchemeCard/SchemeCard';
 import './Scheme.css';
-import { schemeCards } from '../../utils/constants';
+import { schemeCards } from '../../utils/data';
 
 export default function Scheme({ classes, children }) {
   return (

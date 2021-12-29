@@ -1,4 +1,4 @@
-.scheme-card {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.scheme-card__text-wrap {
+.text-wrap {
   background-color: #fff;
   padding: 32px;
   margin-bottom: 32px;
@@ -19,7 +19,7 @@
   border: 1px solid #e1e1e1;
 }
 
-.scheme-card__text {
+.text {
   margin: 0;
   font-family: 'Oswald', sans-serif;
   font-size: 21px;
@@ -29,7 +29,17 @@
   text-align: center;
 }
 
-.scheme-card__arrow {
+.pic {
+  display: block;
+}
+
+.img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.arrow {
   position: absolute;
   bottom: 50px;
   left: 100%;
@@ -39,48 +49,48 @@
   background: center / auto no-repeat url(../../images/scheme-arrow.png);
 }
 
-.scheme-card__arrow_stage_4 {
+.arrow_stage_4 {
   display: none;
 }
 
 @media screen and (max-width: 1600px) {
-  .scheme-card__text-wrap {
+  .text-wrap {
     padding: 27px;
     margin-bottom: 27px;
   }
-  .scheme-card__text {
+  .text {
     font-size: 18px;
     line-height: 27px;
   }
 }
 
-@media screen and (max-width:1024px) {
-  .scheme-card__arrow_stage_2 {
+@media screen and (max-width: 1024px) {
+  .arrow_stage_2 {
     display: none;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .scheme-card {
+  .card {
     flex-direction: column-reverse;
   }
-  .scheme-card__text-wrap {
+  .text-wrap {
     padding: 20px;
     margin: 20px 0 0px;
   }
-  .scheme-card__text {
+  .text {
     font-size: 18px;
     line-height: 20px;
   }
-  .scheme-card__arrow{
+  .arrow {
     transform: rotate(90deg);
     top: 30px;
     left: 70%;
   }
-  .scheme-card__arrow_stage_2 {
+  .arrow_stage_2 {
     display: block;
   }
-  .scheme-card__arrow_stage_4 {
+  .arrow_stage_4 {
     display: block;
   }
 }
