@@ -5,6 +5,10 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function NewsContent({ news }) {
   const { title, formattedDate, fullContent, link } = news;
+  const paragraphs = fullContent
+    .split('\n')
+    .map((text, index) => ({ id: index, content: text }));
+
   return (
     <div className={styles.container}>
       <SectionTitle
@@ -20,7 +24,11 @@ export default function NewsContent({ news }) {
           />
         </div>
       </div>
-      <p className="main-text">{fullContent}</p>
+      {paragraphs.map((item) => (
+        <p key={item.id} className="main-text">
+          {item.content}
+        </p>
+      ))}
     </div>
   );
 }
