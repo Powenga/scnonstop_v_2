@@ -43,11 +43,6 @@
 }
 
 .news-card__content {
-  font-family: 'Oswald', sans-serif;
-  font-size: 21px;
-  line-height: 32px;
-  font-weight: 300;
-  color: #121212;
   margin: 0 0 auto;
 }
 
@@ -82,10 +77,6 @@
     line-height: 27px;
     margin: 0 0 27px;
   }
-  .news-card__content {
-    font-size: 18px;
-    line-height: 27px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -97,16 +88,10 @@
     line-height: 26px;
     margin: 0 0 26px;
   }
-
   .news-card__date {
     font-size: 12px;
     line-height: 26px;
     margin: 0 0 26px;
-  }
-
-  .news-card__content {
-    font-size: 18px;
-    line-height: 26px;
   }
 }
 
@@ -124,10 +109,5 @@
     font-size: 12px;
     line-height: 20px;
     margin: 0 0 20px;
-  }
-
-  .news-card__content {
-    font-size: 18px;
-    line-height: 20px;
   }
 }

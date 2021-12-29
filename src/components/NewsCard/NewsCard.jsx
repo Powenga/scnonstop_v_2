@@ -40,7 +40,7 @@ const NewsCard = ({ card, onClick }) => {
         {card.title}
       </h3>
       <p className="news-card__date">{card.formattedDate}</p>
-      <p className="news-card__content">{card.content}</p>
+      <p className="main-text news-card__content">{card.content}</p>
     </div>
   );
 };
