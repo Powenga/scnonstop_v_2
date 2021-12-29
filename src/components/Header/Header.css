@@ -29,7 +29,7 @@
   background-color: #27306b;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
   grid-column: col-start 5 / span 2;
   display: flex;
   justify-content: center;
@@ -49,10 +49,60 @@
 
 .header__social_tablet {
   display: none;
+  position: relative;
+}
+
+.header__social-button {
   padding: 0;
   border: none;
   background-color: transparent;
   height: 46px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#header-button-rect-top {
+  transition: opacity 0.3s ease;
+}
+#header-button-rect-middle {
+  transition: transform 0.5s ease;
+  transform-origin: center;
+}
+#header-button-rect-bottom {
+  transform-origin: center 37px;
+  transition: transform 0.5s ease;
+}
+
+.header__social-button_opened #header-button-rect-top {
+  opacity: 0;
+}
+.header__social-button_opened #header-button-rect-middle {
+  transform: rotate(-45deg);
+}
+.header__social-button_opened #header-button-rect-bottom {
+  transform: translateY(-14px) rotate(45deg);
+}
+
+.header__social-container {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  z-index: 900;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 50px;
+  animation: fadeIn .3s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .header__contacts {
@@ -206,7 +256,6 @@
     text-align: center;
   }
 }
-
 
 @media screen and (max-width: 550px) {
   .header__container {

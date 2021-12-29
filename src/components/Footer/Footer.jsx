@@ -39,7 +39,7 @@ export default function Footer({ containerClasses }) {
               <a href="mailto:order@scnonstop.ru" className="footer__email">
                 order@scnonstop.ru
               </a>
-              <Social classes="footer__social">
+              <Social classes="footer__social social_pos_footer">
                 <a
                   href="https://www.facebook.com/scnonstop48"
                   target="_blank"

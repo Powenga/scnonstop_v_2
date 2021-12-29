@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.social_pos_footer {
+  justify-content: flex-start;
+}
+
 .social__icon {
   display: inline-block;
   max-width: 60px;
@@ -21,7 +25,15 @@
   background-size: contain;
   position: relative;
   top: 0;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
+}
+
+.social__icon_tablet {
+  min-width: auto;
+  min-height: auto;
+  width: auto;
+  height: auto;
+
 }
 
 .social__icon-img {
@@ -29,7 +41,7 @@
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: opacity .5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .social__icon:hover {
@@ -54,10 +66,15 @@
   height: 46px;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .social__button:hover {
   opacity: 1;
 }
 
+@media screen and (max-width: 1024px) {
+  .social__icon:hover {
+    transform: none;
+  }
+}

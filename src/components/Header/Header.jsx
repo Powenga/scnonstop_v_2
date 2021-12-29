@@ -17,6 +17,7 @@ import useLoad from '../../hooks/useLoad';
 
 function Header({ onRequestClick, containerClasses }) {
   const { setIsLoad, style } = useLoad(false);
+  const [socialIsShown, setSocialIsShown] = useState(false);
   const [iconsLoaded, seticonsLoaded] = useState(0);
   const { user, setUser } = useContext(UserContext);
   const history = useHistory();
@@ -49,6 +50,21 @@ function Header({ onRequestClick, containerClasses }) {
     }
   }, [iconsLoaded]);
 
+  useEffect(() => {
+    function socialOutClickHandler(event) {
+      const { target } = event;
+      if (!target.classList.contains('social__icon_tablet')) {
+        setSocialIsShown(false);
+      }
+    }
+    if (socialIsShown) {
+      document.addEventListener('click', socialOutClickHandler);
+    }
+    return () => {
+      document.removeEventListener('click', socialOutClickHandler);
+    };
+  }, [socialIsShown]);
+
   return (
     <header className="header">
       <div className={`header__container ${containerClasses || ''}`}>
@@ -62,33 +78,130 @@ function Header({ onRequestClick, containerClasses }) {
             frameBorder="0"
           />
         </div>
-        <button
-          type="button"
-          className="header__social_tablet"
-          aria-label="Показать социальные сети"
-          onClick={handleClick}
-        >
-          <svg
-            width="50"
-            height="46"
-            viewBox="0 0 50 46"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="header__social_tablet">
+          <button
+            type="button"
+            className={`header__social-button ${
+              socialIsShown && 'header__social-button_opened'
+            }`}
+            aria-label="Показать социальные сети"
+            onClick={(event) => {
+              event.preventDefault();
+              setSocialIsShown(!socialIsShown);
+            }}
           >
-            <g opacity="1">
-              <rect width="50" height="46" fill="black" />
-              <rect x="6" y="5" width="38" height="8" fill="white" />
-              <rect x="6" y="19" width="38" height="8" fill="white" />
-              <rect x="6" y="33" width="38" height="8" fill="white" />
-            </g>
-          </svg>
-        </button>
+            <svg
+              width="50"
+              height="46"
+              viewBox="0 0 50 46"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="1">
+                <rect width="50" height="46" fill="black" />
+                <rect
+                  id="header-button-rect-top"
+                  x="6"
+                  y="5"
+                  width="38"
+                  height="8"
+                  fill="white"
+                />
+                <rect
+                  id="header-button-rect-middle"
+                  x="6"
+                  y="19"
+                  width="38"
+                  height="8"
+                  fill="white"
+                />
+                <rect
+                  id="header-button-rect-bottom"
+                  x="6"
+                  y="33"
+                  width="38"
+                  height="8"
+                  fill="white"
+                />
+              </g>
+            </svg>
+          </button>
+          {socialIsShown && (
+            <div className="header__social-container">
+              <a
+                href="https://www.facebook.com/scnonstop48"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social__icon social__icon_tablet"
+              >
+                <img
+                  style={style}
+                  className="social__icon-img"
+                  src={fbPath}
+                  alt="Facebook"
+                />
+              </a>
+              <a
+                href="https://vk.com/scnonstop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social__icon social__icon_tablet"
+              >
+                <img
+                  style={style}
+                  className="social__icon-img"
+                  src={vkPath}
+                  alt="Вконтакте"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/scnonstop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social__icon social__icon_tablet"
+              >
+                <img
+                  style={style}
+                  className="social__icon-img"
+                  src={insPath}
+                  alt="Instagram"
+                />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCMUx8nr9us-Rm1ZfhL0Ydwg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social__icon social__icon_tablet"
+              >
+                <img
+                  style={style}
+                  className="social__icon-img"
+                  src={ytPath}
+                  alt="Youtube"
+                />
+              </a>
+              <a
+                href="https://ok.ru/scnonstop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social__icon social__icon_tablet"
+              >
+                <img
+                  style={style}
+                  className="social__icon-img"
+                  src={odPath}
+                  alt="Однокласники"
+                />
+              </a>
+            </div>
+          )}
+        </div>
         <Social classes="header__social">
           <a
             href="https://www.facebook.com/scnonstop48"
             target="_blank"
             rel="noopener noreferrer"
-            className="social__icon social__icon_target_fb"
+            className="social__icon"
           >
             <img
               onLoad={() => seticonsLoaded(iconsLoaded + 1)}
@@ -102,7 +215,7 @@ function Header({ onRequestClick, containerClasses }) {
             href="https://vk.com/scnonstop"
             target="_blank"
             rel="noopener noreferrer"
-            className="social__icon social__icon_target_vk"
+            className="social__icon"
           >
             <img
               onLoad={() => seticonsLoaded(iconsLoaded + 1)}
@@ -116,7 +229,7 @@ function Header({ onRequestClick, containerClasses }) {
             href="https://www.instagram.com/scnonstop/"
             target="_blank"
             rel="noopener noreferrer"
-            className="social__icon social__icon_target_ins"
+            className="social__icon"
           >
             <img
               onLoad={() => seticonsLoaded(iconsLoaded + 1)}
@@ -130,7 +243,7 @@ function Header({ onRequestClick, containerClasses }) {
             href="https://www.youtube.com/channel/UCMUx8nr9us-Rm1ZfhL0Ydwg"
             target="_blank"
             rel="noopener noreferrer"
-            className="social__icon social__icon_target_yt"
+            className="social__icon"
           >
             <img
               onLoad={() => seticonsLoaded(iconsLoaded + 1)}
@@ -144,7 +257,7 @@ function Header({ onRequestClick, containerClasses }) {
             href="https://ok.ru/scnonstop"
             target="_blank"
             rel="noopener noreferrer"
-            className="social__icon social__icon_target_od"
+            className="social__icon"
           >
             <img
               onLoad={() => seticonsLoaded(iconsLoaded + 1)}
