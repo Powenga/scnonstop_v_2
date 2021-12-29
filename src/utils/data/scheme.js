@@ -24,7 +24,7 @@ const schemeCards = [
     src: secondStageImgPath,
     srcMobile: secondMobile,
     content:
-      'Мы связываетмся с\u00a0Вами и\u00a0уточняем детали и\u00a0время выполнения заказа',
+      'Мы связываемся с\u00a0Вами и\u00a0уточняем детали и\u00a0время выполнения заказа',
     stage: 2,
   },
   {
@@ -41,8 +41,7 @@ const schemeCards = [
     alt: 'Четвертый этап',
     src: fourthStageImgPath,
     srcMobile: fourtMobile,
-    content:
-      'Мастер передает Вам договор и\u00a0закрывающие документы, Вы оплачиваете полученные услуги',
+    content: 'Оплачиваете наши услуги. Мастер выдаст вам гарантию и\u00a0чек.',
     stage: 4,
   },
 ];

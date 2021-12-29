@@ -67,6 +67,10 @@ function Price({ classes, children }) {
           </li>
         ))}
       </ul>
+      <p className={`${styles.content} ${styles.note}`}>
+        *Если вы воспользуетесь нашими услугами по ремонту, сумма диагностики
+        будет вычтена из финальной стоимости
+      </p>
       <p className={styles.content}>
         Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?
       </p>

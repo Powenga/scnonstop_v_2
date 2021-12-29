@@ -119,8 +119,8 @@ export default function News({
   return (
     <div className={`news ${classes && classes}`}>
       <SectionTitleWithButton
-        title="Новости и акции"
-        subtitle="Узнайте о наших специальных предложениях"
+        title="Новости"
+        subtitle="Только актуальная и полезная информация"
         modalType={MODAL_TYPES_ADD_NEWS}
       />
       <ul className="news__container">

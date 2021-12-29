@@ -24,10 +24,6 @@ export default function Map({ classes, children }) {
     <div className={`map ${classes || ''}`}>
       {children}
       <div className="map__container" ref={scriptContainer} />
-      <p className="map__info">
-        Если вы воспользуетесь нашими услугами по ремонту, сумма диагностики
-        будет вычтена из финальной стоимости
-      </p>
     </div>
   );
 }

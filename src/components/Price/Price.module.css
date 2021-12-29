@@ -70,7 +70,7 @@
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid #e1e1e1;
-  margin: 0 auto 64px;
+  margin: 0 auto 32px;
   padding: 32px 32px 64px;
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
 }
@@ -106,6 +106,10 @@
   color: #27306b;
 }
 
+.note {
+  margin-bottom: 32px;
+}
+
 .button-wrap {
   margin: 32px auto;
   display: flex;
@@ -132,7 +136,7 @@
     margin-right: 27px;
   }
   .container {
-    margin-bottom: 54px;
+    margin-bottom: 27px;
     padding: 27px 27px 54px;
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
   }
@@ -142,6 +146,9 @@
   }
   .content_type_accent {
     font-size: 26px;
+  }
+  .note {
+    margin-bottom: 27px;
   }
   .button-wrap {
     margin: 27px auto;
@@ -161,7 +168,7 @@
     margin-right: 26px;
   }
   .container {
-    margin-bottom: 52px;
+    margin-bottom: 26px;
     padding: 26px 26px 52px;
     width: calc(8 / 12 * 100% - 4 / 12 * 26px);
   }
@@ -171,6 +178,9 @@
   }
   .content_type_accent {
     font-size: 24px;
+  }
+  .note {
+    margin-bottom: 26px;
   }
   .button-wrap {
     margin: 26px auto;
@@ -208,7 +218,7 @@
     margin-right: 20px;
   }
   .container {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 20px 20px 40px;
   }
   .content {
@@ -217,6 +227,9 @@
   }
   .content_type_accent {
     font-size: 20px;
+  }
+  .note {
+    margin-bottom: 20px;
   }
   .button-wrap {
     margin: 20px auto;
