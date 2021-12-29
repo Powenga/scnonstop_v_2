@@ -225,11 +225,11 @@
       #2f2f2f;
   }
   :global .main__section_type_advantages {
-    background: right -120px top 100% / auto no-repeat url(../images/advantages/adv-ref.png),
+    background: right -120px top 100% / 701px 495px no-repeat url(../images/advantages/adv-ref_large.png),
       0 0 / auto no-repeat url(../images/advantages/adv-bckg.png), #2f2f2f;
   }
   :global .main__section_type_specs {
-    background: bottom -60px left 5% / auto no-repeat url(../images/specialists/specs-wm.png),
+    background: bottom -60px left 5% / 280px 191px no-repeat url(../images/specialists/specs-wm_large.png),
       top -200px right 100% / auto no-repeat url(../images/specialists/specs-background.png),
       #2f2f2f;
   }

@@ -119,7 +119,11 @@ function App() {
   const handleAdvantageClick = useCallback((event, advantage) => {
     event.preventDefault();
     setCurrentAdvantage(advantage);
-    setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_ADVANTAGE });
+    setModalState({
+      isOpen: true,
+      modalType: MODAL_TYPES_SHOW_ADVANTAGE,
+      focusTarget: event.target,
+    });
   }, []);
 
   useEffect(() => {
