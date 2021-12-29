@@ -18,12 +18,18 @@ import {
   MODAL_TYPES_MORE,
   MODAL_TYPES_OWN_BRAND,
   MODAL_TYPES_OWN_PROBLEM,
+  MODAL_TYPES_SHOW_ADVANTAGE,
   MODAL_TYPES_SHOW_NEWS,
 } from '../../utils/constants';
-import { newsPropTypes, specsPropTypes } from '../../utils/prop-types';
+import {
+  advatnagePropTypes,
+  newsPropTypes,
+  specsPropTypes,
+} from '../../utils/prop-types';
 import OwnProblemForm from '../Form/OwnProblemForm';
 import OwnBrandForm from '../Form/OwnBrandForm';
 import MoreContent from '../Modal/MoreContent';
+import AdvantageContent from '../Modal/AdvantageContent';
 
 const Modals = ({
   currentNews,
@@ -31,6 +37,7 @@ const Modals = ({
   currentSpec,
   handleDeleteSpec,
   orderState,
+  currentAdvantage,
 }) => {
   const [modal] = useContext(modalContext);
   const { isOpen, modalType } = modal;
@@ -117,6 +124,13 @@ const Modals = ({
       </Modal>
     );
   }
+  if (modalType === MODAL_TYPES_SHOW_ADVANTAGE) {
+    return (
+      <Modal>
+        <AdvantageContent card={currentAdvantage} />
+      </Modal>
+    );
+  }
   return null;
 };
 
@@ -130,6 +144,7 @@ Modals.propTypes = {
   orderState: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   ).isRequired,
+  currentAdvantage: advatnagePropTypes,
 };
 
 Modals.defaultProps = {
@@ -137,4 +152,5 @@ Modals.defaultProps = {
   handleDeleteNews: () => {},
   currentSpec: {},
   handleDeleteSpec: () => {},
+  currentAdvantage: {},
 };

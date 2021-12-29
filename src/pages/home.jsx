@@ -26,6 +26,7 @@ export default function Home({
   schemeRef,
   handleMoreDetailsClick,
   handleApplianceClick,
+  handleAdvantageClick,
 }) {
   return (
     <main className="main">
@@ -85,7 +86,10 @@ export default function Home({
         </Price>
       </section>
       <section className="main__section main__section_type_advantages">
-        <Advantages classes={containerClasses}>
+        <Advantages
+          classes={containerClasses}
+          handleAdvantageClick={handleAdvantageClick}
+        >
           <div className="main__section-title-container">
             <h2 className="main__section-title main__section-title_theme_dark">
               наши преимущества
@@ -161,4 +165,5 @@ Home.propTypes = {
   ]).isRequired,
   handleMoreDetailsClick: PropTypes.func.isRequired,
   handleApplianceClick: PropTypes.func.isRequired,
+  handleAdvantageClick: PropTypes.func.isRequired,
 };

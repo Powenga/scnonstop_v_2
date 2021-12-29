@@ -14,6 +14,7 @@ import {
   MODAL_TYPES_SHOW_NEWS,
   MODAL_TYPES_EDIT_SPEC,
   MODAL_TYPES_MORE,
+  MODAL_TYPES_SHOW_ADVANTAGE,
 } from '../../utils/constants';
 import './App.css';
 import Login from '../../pages/login';
@@ -54,6 +55,7 @@ function App() {
 
   const [currentNews, setCurrentNews] = useState({});
   const [currentSpec, setCurrentSpec] = useState({});
+  const [currentAdvantage, setCurrentAdvantage] = useState({});
 
   const orderRef = useRef(null);
   const schemeRef = useRef(null);
@@ -114,6 +116,12 @@ function App() {
 
   const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
 
+  const handleAdvantageClick = useCallback((event, advantage) => {
+    event.preventDefault();
+    setCurrentAdvantage(advantage);
+    setModalState({ isOpen: true, modalType: MODAL_TYPES_SHOW_ADVANTAGE });
+  }, []);
+
   useEffect(() => {
     setUser({
       ...user,
@@ -165,6 +173,7 @@ function App() {
                 schemeRef={schemeRef}
                 handleMoreDetailsClick={handleMoreDetailsClick}
                 handleApplianceClick={handleApplianceClick}
+                handleAdvantageClick={handleAdvantageClick}
               />
             </Route>
             <Route path="/login" exact>
@@ -180,6 +189,7 @@ function App() {
           currentNews={currentNews}
           handleDeleteNews={handleDeleteNews}
           currentSpec={currentSpec}
+          currentAdvantage={currentAdvantage}
           handleDeleteSpec={handleDeleteSpec}
           orderState={orderState}
         />

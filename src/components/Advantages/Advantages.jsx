@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AdvantageCard from '../AdvantageCard/AdvantageCard';
-import CardContainer from '../CardContainer/CardContainer';
 import { advantages } from '../../utils/constants';
 import './Advantages.css';
 
-export default function Advantages({ classes, onCardClick, children }) {
+export default function Advantages({
+  classes,
+  handleAdvantageClick,
+  children,
+}) {
   return (
     <div className={`advantages ${classes || ''}`}>
       {children}
-      <CardContainer
-        classes="advantages__container"
-        Component={AdvantageCard}
-        cards={advantages}
-        onCardClick={onCardClick}
-        itemClasses="advantages__item"
-      />
+      <ul className="advantages__container">
+        {advantages.map((item) => (
+          <li className="advantages__item">
+            <AdvantageCard card={item} onClick={handleAdvantageClick} />
+          </li>
+        ))}
+      </ul>
       <div className="advantages__img" />
     </div>
   );
@@ -23,11 +26,10 @@ export default function Advantages({ classes, onCardClick, children }) {
 
 Advantages.propTypes = {
   classes: PropTypes.string,
-  onCardClick: PropTypes.func,
+  handleAdvantageClick: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
 };
 
 Advantages.defaultProps = {
   classes: '',
-  onCardClick: () => {},
 };

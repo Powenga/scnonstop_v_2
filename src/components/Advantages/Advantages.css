@@ -5,12 +5,23 @@
 .advantages__container {
   margin: 64px auto 32px;
   display: flex;
-  width: calc(10 / 12 * 100% - 2 /12 * 32px);
+  width: calc(10 / 12 * 100% - 2 / 12 * 32px);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 17%));
   grid-auto-rows: 1fr;
   justify-content: center;
-  gap: 32px
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantages__item {
+  transition: transform 0.3s ease;
+}
+
+.advantages__item:hover {
+  transform: translateY(-15px);
 }
 
 .advantages__img {
@@ -19,7 +30,6 @@
   margin: 0 auto;
   background: center / contain no-repeat url(../../images/advantages/stars.png);
 }
-
 
 @media screen and (max-width: 1600px) {
   .advantages {
@@ -52,6 +62,9 @@
 @media screen and (max-width: 550px) {
   .advantages {
     padding: 20px 0;
+  }
+  .advantages__item:hover {
+    transform: none;
   }
 }
 
