@@ -66,6 +66,9 @@
   .advantages__item:hover {
     transform: none;
   }
+  .advantages__img{
+    background: center / 294px 30px no-repeat url(../../images/advantages/star_large.svg);
+  }
 }
 
 @media screen and (max-width: 425px) {
