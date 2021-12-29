@@ -1,0 +1,19 @@
+.title {
+  text-align: right;
+  margin-bottom: 32px;
+}
+
+.container {
+  overflow: auto;
+  scrollbar-width: thin;
+  padding-right: 4px;
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #cdcdcd;
+}

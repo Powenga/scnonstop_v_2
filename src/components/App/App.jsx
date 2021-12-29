@@ -13,6 +13,7 @@ import {
   MODAL_TYPES_EDIT_NEWS,
   MODAL_TYPES_SHOW_NEWS,
   MODAL_TYPES_EDIT_SPEC,
+  MODAL_TYPES_MORE,
 } from '../../utils/constants';
 import './App.css';
 import Login from '../../pages/login';
@@ -66,9 +67,11 @@ function App() {
 
   const handleMoreDetailsClick = useCallback((event) => {
     event.preventDefault();
-    if (schemeRef.current) {
-      schemeRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    setModalState({
+      isOpen: true,
+      modalType: MODAL_TYPES_MORE,
+      focusTarget: event.target,
+    });
   }, []);
 
   const handleApplianceClick = useCallback((event, card) => {

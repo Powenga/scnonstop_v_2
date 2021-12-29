@@ -1,15 +1,31 @@
 :global(.main-text) {
   font-family: 'Oswald', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 32px;
   font-weight: 300;
   color: #121212;
 }
 
+:global .main-text_paragraph {
+  margin: 0 0 32px;
+}
+
+:global .main-text__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+
 @media screen and (max-width: 1600px) {
   :global .main-text {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 27px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 27px;
+  }
+  :global .main-text__list {
+    margin-bottom: 27px;
   }
 }
 
@@ -18,11 +34,23 @@
     font-size: 18px;
     line-height: 26px;
   }
+  :global .main-text__list {
+    margin-bottom: 26px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 26px;
+  }
 }
 
 @media screen and (max-width: 550px) {
   :global .main-text {
     font-size: 16px;
     line-height: 20px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 20px;
+  }
+  :global .main-text__list {
+    margin-bottom: 20px;
   }
 }

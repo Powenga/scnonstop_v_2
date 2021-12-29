@@ -15,11 +15,13 @@
   font-size: 40px;
   line-height: 64px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .section-title_theme_dark {
   color: #ffe88e;
 }
+
 
 .section-title:after {
   content: '';
