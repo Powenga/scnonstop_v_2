@@ -167,7 +167,7 @@
 
 @media screen and (max-width: 550px) {
   .promo__text-wrap {
-    padding: 20px 0 20px;
+    padding: 20px 0 40px;
   }
   .promo__title {
     font-size: 26px;
