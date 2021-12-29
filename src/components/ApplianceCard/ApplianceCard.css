@@ -1,5 +1,8 @@
 .app-card {
   cursor: pointer;
+  display: block;
+  background-color: transparent;
+  border: none;
 }
 
 .app-card:hover .app-card__image {

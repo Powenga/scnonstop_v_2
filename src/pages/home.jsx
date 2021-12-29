@@ -25,6 +25,7 @@ export default function Home({
   orderRef,
   schemeRef,
   handleMoreDetailsClick,
+  handleApplianceClick,
 }) {
   return (
     <main className="main">
@@ -40,7 +41,10 @@ export default function Home({
         />
       </section>
       <section className="main__section main__section_type_appliances">
-        <Appliances classes={containerClasses}>
+        <Appliances
+          classes={containerClasses}
+          handleApplianceClick={handleApplianceClick}
+        >
           <div className="main__section-title-container">
             <h2 className="main__section-title">ЧТО МЫ РЕМОНТИРУЕМ</h2>
             <p className="main__section-subtitle">Начните с выбора техники</p>
@@ -156,4 +160,5 @@ Home.propTypes = {
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
   handleMoreDetailsClick: PropTypes.func.isRequired,
+  handleApplianceClick: PropTypes.func.isRequired,
 };

@@ -42,6 +42,8 @@ function App() {
     policy: '',
   });
 
+  const [, setOrder] = orderState;
+
   const modalState = useState({
     isOpen: false,
     modalType: '',
@@ -68,6 +70,17 @@ function App() {
       schemeRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
+
+  const handleApplianceClick = useCallback((event, card) => {
+    event.preventDefault();
+    setOrder((state) => ({
+      ...state,
+      appType: card.value,
+    }));
+    if (orderRef.current) {
+      orderRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   const handleDeleteNewsClick = useCallback((news) => {
     setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM_DELETE_NEWS });
@@ -148,6 +161,7 @@ function App() {
                 orderState={orderState}
                 schemeRef={schemeRef}
                 handleMoreDetailsClick={handleMoreDetailsClick}
+                handleApplianceClick={handleApplianceClick}
               />
             </Route>
             <Route path="/login" exact>

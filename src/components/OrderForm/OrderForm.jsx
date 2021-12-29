@@ -62,21 +62,10 @@ export default function OrderForm({ classes, orderState, children }) {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
-    setValues((state) => {
-      if (name === 'appType') {
-        return {
-          ...state,
-          [name]: value,
-          problem: '',
-          brand: '',
-          ownProblem: '',
-        };
-      }
-      return {
-        ...state,
-        [name]: value,
-      };
-    });
+    setValues((state) => ({
+      ...state,
+      [name]: value,
+    }));
   };
 
   const handleNextStep = (event) => {
@@ -144,6 +133,13 @@ export default function OrderForm({ classes, orderState, children }) {
   }, [values, step]);
 
   useEffect(() => {
+    setValues((state) => ({
+      ...state,
+      problem: '',
+      brand: '',
+      ownProblem: '',
+    }));
+    setStep(1);
     if (values.appType) {
       setProblemList(
         () => problems.find((item) => item.id === values.appType).problems,
