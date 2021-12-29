@@ -20,7 +20,7 @@ export default function NewsContent({ news }) {
           />
         </div>
       </div>
-      <p className={styles.content}>{fullContent}</p>
+      <p className="main-text">{fullContent}</p>
     </div>
   );
 }
