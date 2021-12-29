@@ -2,14 +2,15 @@
   background-color: #fff;
   margin: 0 auto;
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
-  padding: 32px 32px 32px;
+  padding: 32px;
   border: 1px solid #e1e1e1;
-  height: calc(100vh - 32px - 64px);
+  height: calc(100vh - 32px - 32px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   position: relative;
+  min-height: 568px;
 }
 
 .info {
@@ -22,13 +23,14 @@
 }
 
 .form {
-  flex: 1 1 auto;
-  max-height: calc(100% - 64px);
+  flex: 1 1 100%;
+  max-height: calc(100% - 32px * 2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  padding-bottom: 0;
 }
 
 .fieldset-wrap {
@@ -196,13 +198,13 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .button-wrap {
   flex-grow: 1;
-  flex-basis: 30%;
+  flex-basis: 33%;
 }
 
 .wrap_pos_right {
@@ -213,9 +215,13 @@
 }
 
 .button {
-  width: auto;
-  padding: 0 42px 0;
+  max-width: calc();
+  width: 100%;
   margin-bottom: 0;
+}
+
+.stages {
+  flex: 1 0 33%;
 }
 
 .stages-wrap {
@@ -293,27 +299,26 @@
 @media screen and (max-width: 1600px) {
   .wrap {
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
-    padding: 27px 27px 54px;
-    min-height: calc(100vh - 27px - 54px);
+    padding: 27px;
+    height: calc(100vh - 27px - 27px);
   }
   .info {
     font-size: 18px;
     line-height: 27px;
     margin: 27px 0 27px;
   }
-
+  .form {
+    max-height: calc(100% - 27px * 2);
+  }
   .fieldset {
     margin-bottom: 54px;
   }
-
   .fieldset-content {
     padding: 27px 14px 54px;
   }
-
   .appliances-wrap {
     gap: 27px 5px;
   }
-
   .legend {
     font-size: 22px;
     line-height: 27px;
@@ -325,7 +330,6 @@
     font-size: 18px;
     line-height: 27px;
   }
-
   .user-input {
     margin-bottom: 27px;
   }
@@ -341,13 +345,16 @@
   .wrap {
     box-sizing: border-box;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
   }
 }
 
 @media screen and (max-width: 768px) {
   .wrap {
-    padding: 26px 26px 52px;
+    padding: 26px;
+  }
+  .form {
+    max-height: calc(100% - 26px * 2);
   }
   .info {
     font-size: 18px;
@@ -380,7 +387,10 @@
 
 @media screen and (max-width: 550px) {
   .wrap {
-    padding: 20px 20px 40px;
+    padding: 20px;
+  }
+  .form {
+    max-height: calc(100% - 20px * 2);
   }
   .info {
     font-size: 16px;
@@ -413,12 +423,15 @@
     flex-wrap: wrap;
   }
   .stages {
-    width: 100%;
+    flex-basis: 100%;
     order: -1;
     margin-bottom: 20px;
   }
 
   .user-input {
     margin-bottom: 20px;
+  }
+  .button-wrap {
+    max-width: 33%;
   }
 }

@@ -166,11 +166,9 @@ export default function OrderForm({ classes, orderState, children }) {
           ref={formRef}
           errorMessage={errorMessage}
         >
-          <p className={styles.info}>
-            Для многих фотография – способ самовыражения и общения, возможность
-            высказаться и заявить о себе. Длиннофокусные объективы выполняют
-            съемку с более узким углом обзора, чем угол зрения человеческого
-            глаза.
+          <p className="main-text">
+            Оставьте заявку на нашем сайте и мастер перезвонит вам в течение 15
+            минут для уточнения времени визита.
           </p>
           <div className={styles['fieldset-wrap']}>
             {step === 1 && (
