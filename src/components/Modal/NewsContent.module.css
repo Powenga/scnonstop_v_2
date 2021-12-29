@@ -1,8 +1,11 @@
+.title {
+  text-align: right;
+}
+
 .container {
-  max-height: 80vh;
   overflow: auto;
   scrollbar-width: thin;
-  padding-right: 6px;
+  padding-right: 4px;
 }
 
 .container::-webkit-scrollbar {
@@ -14,10 +17,19 @@
   background-color: #cdcdcd;
 }
 
+.imageContainer {
+  background-color: #d9d9d9;
+}
+
 .imageWrap {
-  max-width: 450px;
   width: 100%;
-  padding-bottom: 60%;
+  margin: 32px auto 32px;
+  max-width: 300px;
+}
+
+.image {
+  width: 100%;
+  padding-bottom: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -48,7 +60,7 @@
     margin: 27px auto 27px;
   }
   .news-card__content {
-     line-height: 26px;
+    line-height: 26px;
   }
 }
 

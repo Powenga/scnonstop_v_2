@@ -7,11 +7,19 @@ export default function NewsContent({ news }) {
   const { title, formattedDate, fullContent, link } = news;
   return (
     <div className={styles.container}>
-      <SectionTitle title={title} subtitle={formattedDate} />
-      <div
-        className={styles.imageWrap}
-        style={{ backgroundImage: `url(${link}` }}
+      <SectionTitle
+        title={title}
+        subtitle={formattedDate}
+        classes={styles.title}
       />
+      <div className={styles.imageContainer}>
+        <div className={styles.imageWrap}>
+          <div
+            className={styles.image}
+            style={{ backgroundImage: `url(${link}` }}
+          />
+        </div>
+      </div>
       <p className={styles.content}>{fullContent}</p>
     </div>
   );
