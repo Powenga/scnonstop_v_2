@@ -1,16 +1,16 @@
 .wrap {
-  background-color: #fff;
-  margin: 0 auto;
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
   padding: 32px;
-  border: 1px solid #e1e1e1;
   height: calc(100vh - 32px - 32px);
+  min-height: 568px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  position: relative;
-  min-height: 568px;
 }
 
 .info {
@@ -205,13 +205,6 @@
 .button-wrap {
   flex-grow: 1;
   flex-basis: 33%;
-}
-
-.wrap_pos_right {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
 }
 
 .button {

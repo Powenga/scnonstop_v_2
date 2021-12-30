@@ -12,9 +12,7 @@ const FieldsetWithUserData = ({ fieldsetStyle, values, handleChange }) => {
 
   useEffect(() => {
     if (inputRef.current) {
-      setTimeout(() => {
-        inputRef.current.focus();
-      }, 500);
+      inputRef.current.focus();
     }
   }, []);
 
@@ -23,8 +21,8 @@ const FieldsetWithUserData = ({ fieldsetStyle, values, handleChange }) => {
       title="Введите контактые данные"
       classes={`${styles.fieldset} ${fieldsetStyle}`}
     >
+      <div ref={inputRef} tabIndex={-1} />
       <Input
-        ref={inputRef}
         id="callbackUserName"
         name="userName"
         placeholder="Ваше имя"

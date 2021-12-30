@@ -16,6 +16,7 @@ const Input = forwardRef(
       type,
       max,
       required,
+      autoComplete,
     },
     ref,
   ) => {
@@ -50,6 +51,7 @@ const Input = forwardRef(
           onBlur={toggleFocus}
           max={max}
           required={required}
+          autoComplete={autoComplete || 'off'}
         />
         <span
           className={`${styles.placeholder} ${
@@ -76,6 +78,7 @@ Input.propTypes = {
   type: PropTypes.string,
   max: PropTypes.number,
   required: PropTypes.bool,
+  autoComplete: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -86,6 +89,7 @@ Input.defaultProps = {
   type: 'text',
   max: 999,
   required: true,
+  autoComplete: false,
 };
 
 export default Input;

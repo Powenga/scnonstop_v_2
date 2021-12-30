@@ -167,7 +167,7 @@ export default function OrderForm({ classes, orderState, children }) {
           errorMessage={errorMessage}
         >
           <p className="main-text">
-            Оставьте заявку на нашем сайте и мастер перезвонит вам в течение 15
+            Оставьте заявку на нашем сайте и мастер перезвонит вам в течении 15
             минут для уточнения времени визита.
           </p>
           <div className={styles['fieldset-wrap']}>
@@ -259,9 +259,7 @@ export default function OrderForm({ classes, orderState, children }) {
                 <div className={styles.stage} />
               </div>
             </div>
-            <div
-              className={`${styles['button-wrap']} ${styles.wrap_pos_right}`}
-            >
+            <div className={styles['button-wrap']}>
               {step === 5 ? (
                 <Button
                   type="submit"
