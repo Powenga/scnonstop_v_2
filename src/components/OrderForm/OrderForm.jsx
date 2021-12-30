@@ -226,6 +226,7 @@ export default function OrderForm({ classes, orderState, children }) {
               <FieldsetWithUserData
                 fieldsetStyle={fieldsetStyle}
                 values={values}
+                setValues={setValues}
                 handleChange={handleChange}
               />
             )}

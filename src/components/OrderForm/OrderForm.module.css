@@ -289,6 +289,34 @@
   margin-bottom: 32px;
 }
 
+.list {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e1e1e1;
+}
+
+.suggestion {
+  background-color: #fff;
+  border: none;
+  text-align: start;
+  padding: 5px 10px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.suggestion_current {
+  background-color: #e1e1e1;;
+}
+
 @media screen and (max-width: 1600px) {
   .wrap {
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
