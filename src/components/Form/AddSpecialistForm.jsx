@@ -13,7 +13,6 @@ export default function AddSpecialistForm() {
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     name: '',
-    age: '',
     about: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
@@ -94,16 +93,6 @@ export default function AddSpecialistForm() {
         classes="form__input"
         onChange={handleChange}
         maxLength={60}
-      />
-      <Input
-        id="specsAgeId"
-        type="number"
-        name="age"
-        placeholder="Возраст мастера"
-        value={values.age}
-        classes="form__input"
-        onChange={handleChange}
-        max={100}
       />
       <Input
         id="specAboutId"

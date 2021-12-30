@@ -11,11 +11,10 @@ import { specsPropTypes } from '../../utils/prop-types';
 
 export default function EditSpecForm({ spec }) {
   const formData = new FormData();
-  const { id, name: specName, age, about } = spec;
+  const { id, name: specName, about } = spec;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     specName,
-    age,
     about,
   });
   const [errorMessage, setErrorMessage] = useState('');
@@ -95,16 +94,6 @@ export default function EditSpecForm({ spec }) {
         classes="form__input"
         onChange={handleChange}
         maxLength={60}
-      />
-      <Input
-        id="editSpecsAgeId"
-        type="number"
-        name="age"
-        placeholder="Возраст мастера"
-        value={values.age}
-        classes="form__input"
-        onChange={handleChange}
-        max={100}
       />
       <Input
         id="editSpecAboutId"
