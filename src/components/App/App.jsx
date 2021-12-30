@@ -59,6 +59,7 @@ function App() {
 
   const orderRef = useRef(null);
   const schemeRef = useRef(null);
+  const callbackRef = useRef(null);
 
   const handleOrderButtonClick = useCallback((event) => {
     event.preventDefault();
@@ -74,6 +75,13 @@ function App() {
       modalType: MODAL_TYPES_MORE,
       focusTarget: event.target,
     });
+  }, []);
+
+  const handleCallbackClick = useCallback((event) => {
+    event.preventDefault();
+    if (callbackRef.current) {
+      callbackRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, []);
 
   const handleApplianceClick = useCallback((event, card) => {
@@ -175,9 +183,11 @@ function App() {
                 handleEditSpecClick={handleEditSpecClick}
                 orderState={orderState}
                 schemeRef={schemeRef}
+                callbackRef={callbackRef}
                 handleMoreDetailsClick={handleMoreDetailsClick}
                 handleApplianceClick={handleApplianceClick}
                 handleAdvantageClick={handleAdvantageClick}
+                handleCallbackClick={handleCallbackClick}
               />
             </Route>
             <Route path="/login" exact>

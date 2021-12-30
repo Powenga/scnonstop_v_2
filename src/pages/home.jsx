@@ -24,9 +24,11 @@ export default function Home({
   orderState,
   orderRef,
   schemeRef,
+  callbackRef,
   handleMoreDetailsClick,
   handleApplianceClick,
   handleAdvantageClick,
+  handleCallbackClick,
 }) {
   return (
     <main className="main">
@@ -76,7 +78,10 @@ export default function Home({
         </Scheme>
       </section>
       <section className="main__section main__section_type_price">
-        <Price classes={containerClasses}>
+        <Price
+          classes={containerClasses}
+          handleCallbackClick={handleCallbackClick}
+        >
           <div className="main__section-title-container">
             <h2 className="main__section-title">Стоимость ремонта</h2>
             <p className="main__section-subtitle">
@@ -136,7 +141,10 @@ export default function Home({
           </div>
         </Map>
       </section>
-      <section className="main__section main__section_type_callback">
+      <section
+        ref={callbackRef}
+        className="main__section main__section_type_callback"
+      >
         <CallBackForm classes={containerClasses}>
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОСТАЛИСЬ ВОПРОСЫ?</h2>
@@ -163,7 +171,12 @@ Home.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
+  callbackRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
   handleMoreDetailsClick: PropTypes.func.isRequired,
   handleApplianceClick: PropTypes.func.isRequired,
   handleAdvantageClick: PropTypes.func.isRequired,
+  handleCallbackClick: PropTypes.func.isRequired,
 };

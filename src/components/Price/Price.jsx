@@ -5,7 +5,7 @@ import PhoneLink from '../PhoneLink/PhoneLink';
 import styles from './Price.module.css';
 import { priceList } from '../../utils/data';
 
-function Price({ classes, children }) {
+function Price({ classes, children, handleCallbackClick }) {
   const menuRef = useRef();
   const [appType, setAppType] = useState(priceList[0]);
 
@@ -75,7 +75,11 @@ function Price({ classes, children }) {
         Позвоните нам или закажите обратный&nbsp;звонок!
       </p>
       <div className={styles['button-wrap']}>
-        <Button type="button" classes={styles.button}>
+        <Button
+          type="button"
+          classes={styles.button}
+          onButtonClick={handleCallbackClick}
+        >
           заказать звонок
         </Button>
         <PhoneLink href="tel:+79508022222" classes={styles.button}>
@@ -100,6 +104,7 @@ export default Price;
 Price.propTypes = {
   classes: PropTypes.string,
   children: PropTypes.element.isRequired,
+  handleCallbackClick: PropTypes.func.isRequired,
 };
 
 Price.defaultProps = {
