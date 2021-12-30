@@ -61,16 +61,13 @@ function Price({ classes, children }) {
             <p className={`${styles.text} problem__text`}>
               {item.task}
               <span className={styles['text-price']}>
-                {item.price !== 0 ? `от ${item.price} руб.` : 'БЕСПЛАТНО'}
+                {`от ${item.price} руб.`}
               </span>
             </p>
           </li>
         ))}
       </ul>
-      <p className={`${styles.content} ${styles.note}`}>
-        *Если вы воспользуетесь нашими услугами по ремонту, сумма диагностики
-        будет вычтена из финальной стоимости
-      </p>
+
       <p className={styles.content}>
         Есть вопросы по стоимости? Хотите&nbsp;уточнить&nbsp;условия?
       </p>
@@ -85,6 +82,15 @@ function Price({ classes, children }) {
           позвонить
         </PhoneLink>
       </div>
+      <p className={`main-text ${styles.note}`}>
+        * Точную стоимость работ инженер определит после диагностики. Цены
+        указаны за работу, без заменяемых деталей.
+      </p>
+      <p className={`main-text ${styles.note}`}>
+        ** Диагностика бесплатная в случае осуществления ремонта нашими
+        мастерами. Стоимость ремонта не менее 500 руб, так как эта цена включает
+        выезд мастера.
+      </p>
     </div>
   );
 }

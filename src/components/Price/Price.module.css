@@ -108,6 +108,12 @@
 
 .note {
   margin-bottom: 32px;
+  text-align: center;
+}
+
+.note:last-child {
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .button-wrap {

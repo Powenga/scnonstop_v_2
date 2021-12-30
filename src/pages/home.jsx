@@ -80,7 +80,7 @@ export default function Home({
           <div className="main__section-title-container">
             <h2 className="main__section-title">Стоимость ремонта</h2>
             <p className="main__section-subtitle">
-              Ознакомьтесь с нашим прайс-листом
+              Ознакомьтесь с нашим прайс-листом*
             </p>
           </div>
         </Price>
