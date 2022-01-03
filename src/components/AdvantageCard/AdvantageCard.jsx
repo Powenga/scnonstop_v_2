@@ -27,7 +27,7 @@ export default function AdvantageCard({ classes, card, onClick }) {
 AdvantageCard.propTypes = {
   classes: PropTypes.string,
   card: advatnagePropTypes.isRequired,
-  onClick: PropTypes.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 AdvantageCard.defaultProps = {
