@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import UserContext from '../../context/user-context';
-import { newsPropTypes } from '../../utils/prop-types';
+import { newsPropTypes, specsPropTypes } from '../../utils/prop-types';
 import styles from './CardWithOptions.module.css';
 
 const CardWithOptions = ({
@@ -50,15 +50,19 @@ const CardWithOptions = ({
 };
 
 CardWithOptions.propTypes = {
-  Component: PropTypes.element.isRequired,
-  card: newsPropTypes,
-  handleClick: PropTypes.func.isRequired,
+  Component: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.object.isRequired,
+  ]).isRequired,
+  card: PropTypes.oneOfType([newsPropTypes, specsPropTypes]),
+  handleClick: PropTypes.func,
   handleDeleteClick: PropTypes.func.isRequired,
   handleEditClick: PropTypes.func.isRequired,
 };
 
 CardWithOptions.defaultProps = {
   card: {},
+  handleClick: () => {},
 };
 
 export default memo(CardWithOptions);
