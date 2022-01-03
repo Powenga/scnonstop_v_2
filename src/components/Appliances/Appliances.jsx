@@ -10,7 +10,7 @@ function Appliances({ classes, children, handleApplianceClick }) {
       {children}
       <ul className="appliances__container">
         {appliancesCards.map((card) => (
-          <li className="appliances__item">
+          <li className="appliances__item" key={card.id}>
             <ApplianceCard card={card} onClick={handleApplianceClick} />
           </li>
         ))}
