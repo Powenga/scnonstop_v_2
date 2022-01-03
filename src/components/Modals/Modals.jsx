@@ -137,14 +137,14 @@ const Modals = ({
 export default Modals;
 
 Modals.propTypes = {
-  currentNews: newsPropTypes,
+  currentNews: PropTypes.oneOfType([newsPropTypes, PropTypes.object]),
   handleDeleteNews: PropTypes.func,
-  currentSpec: specsPropTypes,
+  currentSpec: PropTypes.oneOfType([specsPropTypes, PropTypes.object]),
   handleDeleteSpec: PropTypes.func,
   orderState: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   ).isRequired,
-  currentAdvantage: advatnagePropTypes,
+  currentAdvantage: PropTypes.oneOfType([advatnagePropTypes, PropTypes.object]),
 };
 
 Modals.defaultProps = {
