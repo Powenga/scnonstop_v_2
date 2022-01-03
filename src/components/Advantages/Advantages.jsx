@@ -14,7 +14,7 @@ export default function Advantages({
       {children}
       <ul className="advantages__container">
         {advantages.map((item) => (
-          <li className="advantages__item">
+          <li className="advantages__item" key={item.id}>
             <AdvantageCard card={item} onClick={handleAdvantageClick} />
           </li>
         ))}
