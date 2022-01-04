@@ -13,6 +13,10 @@
   margin: 0 auto;
 }
 
+.app__container_type_policy {
+  padding: 32px 0 64px;
+}
+
 @media screen and (max-width: 1280px) {
   .app__container {
     width: calc(1270 / 1280 * 100%);

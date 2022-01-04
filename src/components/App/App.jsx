@@ -23,6 +23,7 @@ import UpdatePassword from '../../pages/updatePassword';
 import BetaMessage from '../BetaMessage/BetaMessage';
 import CookieMessage from '../CookieMessage/CookieMessage';
 import Modals from '../Modals/Modals';
+import Policy from '../../pages/policy';
 
 function App() {
   const [user, setUser] = useState({
@@ -189,6 +190,9 @@ function App() {
                 handleAdvantageClick={handleAdvantageClick}
                 handleCallbackClick={handleCallbackClick}
               />
+            </Route>
+            <Route path="/policy" exact>
+              <Policy />
             </Route>
             <Route path="/login" exact>
               <Login />
