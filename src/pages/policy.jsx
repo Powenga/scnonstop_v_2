@@ -11,7 +11,10 @@ export default function Policy() {
         }}
       >
         <div className="app__container app__container_type_policy">
-          <SectionTitle title="Политика конфиденциальности" />
+          <SectionTitle
+            classes="main-text_paragraph"
+            title="Политика конфиденциальности"
+          />
           <h3 className="main-text main-text_paragraph main-text_large">
             {' '}
             1. Общие положения
