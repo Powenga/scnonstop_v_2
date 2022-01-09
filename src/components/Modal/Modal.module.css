@@ -55,13 +55,13 @@
     width: 27px;
     height: 27px;
     top: -27px;
+    right: -27px;
   }
 }
 
 @media screen and (max-width: 964px) {
   .modalContainer {
-    padding: 26px;
-    width: calc(8 / 12 * 100% - 4 / 12 * 26px);
+    width: 90%;
   }
   .closeButton {
     top: -26px;
@@ -72,8 +72,15 @@
 
 @media screen and (max-width: 768px) {
   .modalContainer {
+    padding: 26px;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .modalContainer {
     padding: 20px;
-    width: 90%;
+
   }
   .closeButton {
     top: -30px;

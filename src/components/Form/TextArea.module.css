@@ -18,19 +18,6 @@
   resize: none;
 }
 
-.input {
-  scrollbar-width: thin;
-}
-
-.input::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f0f0f0;
-}
-
-.input::-webkit-scrollbar-thumb {
-  background-color: #cdcdcd;
-}
-
 .input:focus {
   outline: none;
 }
@@ -71,6 +58,20 @@
 .input:focus ~ .placeholder,
 .placeholder_state_fill {
   transform: translate(0, -110%) scale(0.5);
+}
+
+@media screen and (min-width: 769px) {
+  .input {
+    scrollbar-width: thin;
+  }
+  .input::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+  }
+
+  .input::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
 }
 
 @media screen and (max-width: 1600px) {

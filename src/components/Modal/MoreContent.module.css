@@ -5,15 +5,33 @@
 
 .container {
   overflow: auto;
-  scrollbar-width: thin;
-  padding-right: 4px;
 }
 
-.container::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f0f0f0;
-}
+@media screen and (min-width: 769px) {
+  .container {
+    scrollbar-width: thin;
+  }
+  .container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+  }
 
-.container::-webkit-scrollbar-thumb {
-  background-color: #cdcdcd;
+  .container::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .title {
+    margin-bottom: 27px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .title {
+    margin-bottom: 26px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .title {
+    margin-bottom: 20px;
+  }
 }

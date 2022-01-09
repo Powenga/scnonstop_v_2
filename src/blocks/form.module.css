@@ -1,6 +1,7 @@
 :global .form {
   position: relative;
-  padding-bottom: 32px;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 :global .form__error {
@@ -28,6 +29,20 @@
   width: 100%;
 }
 
+@media screen and (min-width: 769px) {
+  :global .form {
+    scrollbar-width: thin;
+  }
+  :global .form::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+  }
+
+  :global .form::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .error {
     font-size: 18px;
@@ -42,7 +57,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .error {
+  :global .error {
     font-size: 18px;
     line-height: 26px;
   }

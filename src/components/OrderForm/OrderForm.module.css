@@ -311,6 +311,20 @@
   background-color: #e1e1e1;;
 }
 
+@media screen and (min-width: 769px) {
+  .fieldset-content {
+    scrollbar-width: thin;
+  }
+  .fieldset-content::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+  }
+
+  .fieldset-content::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .wrap {
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
