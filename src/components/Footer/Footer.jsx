@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Footer.css';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Social from '../Social/Social';
 import fbPath from '../../images/social-icon-fb-w.svg';
 import vkPath from '../../images/social-icon-vk-w.svg';
@@ -113,9 +113,9 @@ export default function Footer({ containerClasses }) {
               </Social>
             </div>
             <div className="footer__policy-container">
-              <Link to="/policy" className="footer__policy-link">
+              <NavLink to="/policy" className="footer__policy-link">
                 Политика конфиденциальности
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="footer__content-column">

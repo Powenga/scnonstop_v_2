@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { AddressSuggestions } from 'react-dadata';
 import PropTypes from 'prop-types';
 import Fieldset from './Fieldset';
@@ -6,7 +7,6 @@ import styles from './OrderForm.module.css';
 import { orderStatePropTypes } from '../../utils/prop-types';
 import Input from '../Form/Input';
 import InputWithMask from '../Form/InputWithMask';
-import Button from '../Button/Button';
 import inputStyles from '../Form/Input.module.css';
 
 const FieldsetWithUserData = ({
@@ -117,9 +117,9 @@ const FieldsetWithUserData = ({
           <span className="checkbox-pseudo" />
           <span className="policy-info">
             Я согласен с{' '}
-            <Button classes="button_type_text">
+            <NavLink to="/policy" classes="button_type_text">
               Политикой конфиденциальности
-            </Button>
+            </NavLink>
           </span>
         </label>
       </div>

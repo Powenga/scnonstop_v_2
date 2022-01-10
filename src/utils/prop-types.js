@@ -38,13 +38,10 @@ export const schemePropTypes = PropTypes.shape({
 });
 
 export const orderStatePropTypes = PropTypes.arrayOf(
-  PropTypes.oneOfType([
-    PropTypes.shape({
-      appType: PropTypes.string,
-      problem: PropTypes.string,
-      ownProblem: PropTypes.string,
-      brand: PropTypes.string,
-    }),
-    PropTypes.func,
-  ]),
+  PropTypes.shape({
+    appType: PropTypes.string,
+    problem: PropTypes.string,
+    ownProblem: PropTypes.string,
+    brand: PropTypes.string,
+  }),
 );

@@ -5,13 +5,10 @@ import {
   MODAL_TYPES_OWN_BRAND,
   MODAL_TYPES_OWN_PROBLEM,
 } from '../../utils/constants';
-import { problems } from '../../utils/data';
-import brands from '../../utils/data/brands';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import styles from './OrderForm.module.css';
 import modalContext from '../../context/modal-context';
-import { orderStatePropTypes } from '../../utils/prop-types';
 import Fieldset from './Fieldset';
 import FieldsetWithProblems from './FieldsetWithProblems';
 import FieldsetWithBrands from './FieldsetWithBrands';
@@ -19,18 +16,27 @@ import FieldsetWithUserData from './FielsetWithUserData';
 import FieldsetWithOrder from './FieldsetWithOrders';
 import mainApi from '../../utils/main-api';
 import SectionTitle from '../SectionTitle/SectionTitle';
+import { orderStatePropTypes } from '../../utils/prop-types';
 
-export default function OrderForm({ classes, orderState, children }) {
-  const [values, setValues] = orderState;
+export default function OrderForm({
+  classes,
+  children,
+  values,
+  setValues,
+  step,
+  setStep,
+  problemList,
+  brandList,
+}) {
   const [, setModal] = useContext(modalContext);
-  const [step, setStep] = useState(1);
+
   const [stepValidity, setStepValidity] = useState([]);
-  const [problemList, setProblemList] = useState([]);
+
   const [fieldsetStyle, setFieldsetStyle] = useState(
     styles.fieldset_slide_forward,
   );
   const [stepIcontStyle, setStepIcontStyle] = useState('');
-  const [brandList, setBrandList] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -130,25 +136,6 @@ export default function OrderForm({ classes, orderState, children }) {
       ),
     ]);
   }, [values, step]);
-
-  useEffect(() => {
-    setValues((state) => ({
-      ...state,
-      problem: '',
-      brand: '',
-      ownProblem: '',
-    }));
-    setStep(1);
-    if (values.appType) {
-      setProblemList(
-        () => problems.find((item) => item.id === values.appType).problems,
-      );
-      const list = brands.filter((item) =>
-        item.appType.includes(values.appType),
-      );
-      setBrandList([...list]);
-    }
-  }, [values.appType]);
 
   useEffect(() => {
     setStepIcontStyle(`stages-wrap_step_${step}`);
@@ -305,7 +292,12 @@ export default function OrderForm({ classes, orderState, children }) {
 OrderForm.propTypes = {
   classes: PropTypes.string,
   children: PropTypes.element.isRequired,
-  orderState: orderStatePropTypes.isRequired,
+  values: orderStatePropTypes.isRequired,
+  setValues: PropTypes.func.isRequired,
+  step: PropTypes.number.isRequired,
+  setStep: PropTypes.func.isRequired,
+  problemList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 OrderForm.defaultProps = {

@@ -25,6 +25,8 @@ import CookieMessage from '../CookieMessage/CookieMessage';
 import Modals from '../Modals/Modals';
 import Policy from '../../pages/policy';
 import useScrollToTop from '../../hooks/useScrollToTop';
+import { problems } from '../../utils/data';
+import brands from '../../utils/data/brands';
 
 function App() {
   useScrollToTop();
@@ -35,7 +37,7 @@ function App() {
     isLoaded: false,
   });
 
-  const orderState = useState({
+  const [orderState, setOrderState] = useState({
     appType: '',
     problem: '',
     ownProblem: '',
@@ -47,7 +49,9 @@ function App() {
     policy: '',
   });
 
-  const [, setOrder] = orderState;
+  const [step, setStep] = useState(1);
+  const [problemList, setProblemList] = useState([]);
+  const [brandList, setBrandList] = useState([]);
 
   const modalState = useState({
     isOpen: false,
@@ -89,7 +93,7 @@ function App() {
 
   const handleApplianceClick = useCallback((event, card) => {
     event.preventDefault();
-    setOrder((state) => ({
+    setOrderState((state) => ({
       ...state,
       appType: card.value,
     }));
@@ -164,6 +168,25 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    setOrderState((state) => ({
+      ...state,
+      problem: '',
+      brand: '',
+      ownProblem: '',
+    }));
+    setStep(1);
+    if (orderState.appType) {
+      setProblemList(
+        () => problems.find((item) => item.id === orderState.appType).problems,
+      );
+      const list = brands.filter((item) =>
+        item.appType.includes(orderState.appType),
+      );
+      setBrandList([...list]);
+    }
+  }, [orderState.appType]);
+
   return (
     <ModalContext.Provider value={modalState}>
       <div className="app">
@@ -185,6 +208,11 @@ function App() {
                 handleDeleteSpecClick={handleDeleteSpecClick}
                 handleEditSpecClick={handleEditSpecClick}
                 orderState={orderState}
+                setOrderState={setOrderState}
+                step={step}
+                setStep={setStep}
+                problemList={problemList}
+                brandList={brandList}
                 schemeRef={schemeRef}
                 callbackRef={callbackRef}
                 handleMoreDetailsClick={handleMoreDetailsClick}

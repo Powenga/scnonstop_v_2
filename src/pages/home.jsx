@@ -22,6 +22,11 @@ export default function Home({
   handleDeleteSpecClick,
   handleEditSpecClick,
   orderState,
+  setOrderState,
+  step,
+  setStep,
+  problemList,
+  brandList,
   orderRef,
   schemeRef,
   callbackRef,
@@ -109,7 +114,15 @@ export default function Home({
         className="main__section main__section_type_order-form"
         ref={orderRef}
       >
-        <OrderForm classes={containerClasses} orderState={orderState}>
+        <OrderForm
+          classes={containerClasses}
+          values={orderState}
+          setValues={setOrderState}
+          step={step}
+          setStep={setStep}
+          problemList={problemList}
+          brandList={brandList}
+        >
           <div className="main__section-title-container">
             <h2 className="main__section-title">ОФОРМЛЕНИЕ ЗАЯВКИ</h2>
           </div>
@@ -162,7 +175,6 @@ Home.propTypes = {
   handleEditNewsClick: PropTypes.func.isRequired,
   handleDeleteSpecClick: PropTypes.func.isRequired,
   handleEditSpecClick: PropTypes.func.isRequired,
-  orderState: orderStatePropTypes.isRequired,
   orderRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
@@ -179,4 +191,10 @@ Home.propTypes = {
   handleApplianceClick: PropTypes.func.isRequired,
   handleAdvantageClick: PropTypes.func.isRequired,
   handleCallbackClick: PropTypes.func.isRequired,
+  orderState: orderStatePropTypes.isRequired,
+  setOrderState: PropTypes.func.isRequired,
+  step: PropTypes.number.isRequired,
+  setStep: PropTypes.func.isRequired,
+  problemList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
