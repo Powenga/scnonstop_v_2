@@ -116,9 +116,6 @@ export default function Footer({ containerClasses }) {
               <Link to="/policy" className="footer__policy-link">
                 Политика конфиденциальности
               </Link>
-              <Link to="/policy" className="footer__policy-link">
-                Правила сайта
-              </Link>
             </div>
           </div>
           <div className="footer__content-column">

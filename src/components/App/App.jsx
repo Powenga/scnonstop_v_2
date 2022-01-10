@@ -24,8 +24,10 @@ import BetaMessage from '../BetaMessage/BetaMessage';
 import CookieMessage from '../CookieMessage/CookieMessage';
 import Modals from '../Modals/Modals';
 import Policy from '../../pages/policy';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 function App() {
+  useScrollToTop();
   const [user, setUser] = useState({
     email: '',
     id: '',
