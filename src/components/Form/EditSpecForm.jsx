@@ -3,7 +3,6 @@ import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -73,6 +72,7 @@ export default function EditSpecForm({ spec }) {
       name="editSpecForm"
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Редактирование данных мастера"
@@ -107,7 +107,6 @@ export default function EditSpecForm({ spec }) {
       <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

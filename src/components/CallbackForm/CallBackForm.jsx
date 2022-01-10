@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
-import Preloader from '../Preloader/Preloader';
 import mainApi from '../../utils/main-api';
 import styles from './CallbackForm.module.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
@@ -62,6 +61,7 @@ export default function CallBackForm({ classes, children }) {
           classes={styles['callback-form__form']}
           onSubmit={onSubmit}
           errorMessage={errorMessage}
+          isLoading={isLoading}
         >
           <p className={styles['callback-form__info']}>
             Нужен обратный звонок? Заполните форму и мы Вам перезвоним.
@@ -138,7 +138,6 @@ export default function CallBackForm({ classes, children }) {
             </div>
           </div>
         )}
-        {isLoading && <Preloader />}
       </div>
     </div>
   );

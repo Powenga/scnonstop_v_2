@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import Form from './Form';
 import Input from './Input';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import auth from '../../utils/auth';
 import UserContext from '../../context/user-context';
@@ -61,6 +60,7 @@ export default function UpdatePasswordForm() {
       name="addNewsForm"
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle title="Обновить пароль" />
       <Input
@@ -88,7 +88,6 @@ export default function UpdatePasswordForm() {
       <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Обновить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

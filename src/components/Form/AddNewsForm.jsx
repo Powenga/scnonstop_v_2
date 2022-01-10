@@ -4,7 +4,6 @@ import Input from './Input';
 import TextArea from './TextArea';
 import api from '../../utils/main-api';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -73,6 +72,7 @@ export default function AddNewsForm() {
       name="addNewsForm"
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Добавление новости"
@@ -119,7 +119,6 @@ export default function AddNewsForm() {
       <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

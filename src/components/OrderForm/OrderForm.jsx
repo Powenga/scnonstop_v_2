@@ -18,7 +18,6 @@ import FieldsetWithBrands from './FieldsetWithBrands';
 import FieldsetWithUserData from './FielsetWithUserData';
 import FieldsetWithOrder from './FieldsetWithOrders';
 import mainApi from '../../utils/main-api';
-import Preloader from '../Preloader/Preloader';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function OrderForm({ classes, orderState, children }) {
@@ -165,6 +164,7 @@ export default function OrderForm({ classes, orderState, children }) {
           onSubmit={onSubmit}
           ref={formRef}
           errorMessage={errorMessage}
+          isLoading={isLoading}
         >
           <p className="main-text">
             Оставьте заявку на нашем сайте и мастер перезвонит вам в течении 15
@@ -297,7 +297,6 @@ export default function OrderForm({ classes, orderState, children }) {
             </div>
           </div>
         )}
-        {isLoading && <Preloader />}
       </div>
     </div>
   );
