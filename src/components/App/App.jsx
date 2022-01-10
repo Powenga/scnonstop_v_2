@@ -232,7 +232,10 @@ function App() {
             </ProtectedRoute>
           </Switch>
         </UserContext.Provider>
-        <Footer containerClasses="app__container" />
+        <Footer
+          containerClasses="app__container"
+          handleApplianceClick={handleApplianceClick}
+        />
         <Modals
           currentNews={currentNews}
           handleDeleteNews={handleDeleteNews}

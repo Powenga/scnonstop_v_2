@@ -10,8 +10,14 @@ import insPath from '../../images/social-icon-inst-w.svg';
 import ytPath from '../../images/social-icon-yt-w.svg';
 import odPath from '../../images/social-icon-od-w.svg';
 import useLoad from '../../hooks/useLoad';
+import {
+  BOILER,
+  DISHWASHER,
+  REFRIGETATOR,
+  WASHING_MACHINE,
+} from '../../utils/constants';
 
-export default function Footer({ containerClasses }) {
+export default function Footer({ containerClasses, handleApplianceClick }) {
   const { setIsLoad, style } = useLoad(false);
   const [iconsLoaded, seticonsLoaded] = useState(0);
 
@@ -25,10 +31,50 @@ export default function Footer({ containerClasses }) {
     <footer className="footer">
       <div className={`footer__container ${containerClasses || ''}`}>
         <ul className="footer__appliances-container">
-          <li className="footer__appliances-item">Cтиральные машины</li>
-          <li className="footer__appliances-item">Холодильники</li>
-          <li className="footer__appliances-item">Посудомоечные машины</li>
-          <li className="footer__appliances-item">Водонагреватели</li>
+          <li className="footer__appliances-item">
+            <button
+              className="footer__appliances-button"
+              type="button"
+              onClick={(event) => {
+                handleApplianceClick(event, { value: WASHING_MACHINE });
+              }}
+            >
+              Cтиральные машины
+            </button>
+          </li>
+          <li className="footer__appliances-item">
+            <button
+              className="footer__appliances-button"
+              type="button"
+              onClick={(event) => {
+                handleApplianceClick(event, { value: REFRIGETATOR });
+              }}
+            >
+              Холодильники
+            </button>
+          </li>
+          <li className="footer__appliances-item">
+            <button
+              className="footer__appliances-button"
+              type="button"
+              onClick={(event) => {
+                handleApplianceClick(event, { value: DISHWASHER });
+              }}
+            >
+              Посудомоечные машины
+            </button>
+          </li>
+          <li className="footer__appliances-item">
+            <button
+              className="footer__appliances-button"
+              type="button"
+              onClick={(event) => {
+                handleApplianceClick(event, { value: BOILER });
+              }}
+            >
+              Водонагреватели
+            </button>
+          </li>
         </ul>
         <div className="footer__content">
           <div className="footer__content-column">
@@ -141,8 +187,10 @@ export default function Footer({ containerClasses }) {
 
 Footer.propTypes = {
   containerClasses: PropTypes.string,
+  handleApplianceClick: PropTypes.func,
 };
 
 Footer.defaultProps = {
   containerClasses: '',
+  handleApplianceClick: () => {},
 };

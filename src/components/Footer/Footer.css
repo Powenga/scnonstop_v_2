@@ -26,6 +26,14 @@
   margin: 0 32px 32px 0;
 }
 
+.footer__appliances-button {
+  border: none;
+  background: none;
+  color: #71a3d9;
+  padding: 0;
+  text-align: start;
+}
+
 .footer__content {
   margin: 0 auto;
   width: calc(10 / 12 * 100% - 2 / 12 * 32px);
