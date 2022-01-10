@@ -117,7 +117,7 @@ const FieldsetWithUserData = ({
           <span className="checkbox-pseudo" />
           <span className="policy-info">
             Я согласен с{' '}
-            <NavLink to="/policy" classes="button_type_text">
+            <NavLink to="/policy" className="policy__text">
               Политикой конфиденциальности
             </NavLink>
           </span>

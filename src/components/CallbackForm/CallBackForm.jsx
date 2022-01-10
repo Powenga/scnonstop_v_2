@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
@@ -110,9 +111,9 @@ export default function CallBackForm({ classes, children }) {
               <span className="checkbox-pseudo" />
               <span className="policy-info">
                 Я согласен с{' '}
-                <Button classes="button_type_text">
+                <NavLink to="/policy" className="policy__text">
                   Политикой конфиденциальности
-                </Button>
+                </NavLink>
               </span>
             </label>
           </div>
