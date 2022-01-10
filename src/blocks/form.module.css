@@ -6,9 +6,30 @@
 
 :global .form__error {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #000;
+  padding: 32px;
+  z-index: 1003;
+}
+
+:global .form__error-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  line-height: 0;
+}
+
+:global .form__error-text {
+  margin: 0;
   text-align: center;
   font-family: 'Oswald', sans-serif;
   font-size: 21px;
@@ -44,15 +65,18 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .error {
-    font-size: 18px;
-    line-height: 27px;
-  }
   :global .form__input {
     margin-bottom: 27px;
   }
   :global .form__input_pos_first {
     margin-top: 27px;
+  }
+  :global .form__error {
+    padding: 27px;
+  }
+  :global .form__error-text {
+    font-size: 21px;
+    line-height: 27px;
   }
 }
 
@@ -67,17 +91,27 @@
   :global .form__input_pos_first {
     margin-top: 26px;
   }
+  :global .form__error {
+    padding: 26px;
+  }
+  :global .form__error-text {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-  .error {
-    font-size: 16px;
-    line-height: 20px;
-  }
   :global .form__input {
     margin-bottom: 20px;
   }
   :global .form__input_pos_first {
     margin-top: 20px;
+  }
+  :global .form__error {
+    padding: 20px;
+  }
+  :global .form__error-text {
+    font-size: 18px;
+    line-height: 20px;
   }
 }

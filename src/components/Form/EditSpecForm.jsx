@@ -76,7 +76,7 @@ export default function EditSpecForm({ spec }) {
     >
       <SectionTitle
         title="Редактирование данных мастера"
-        subtitle="Введите данные для редактирования данных"
+        subtitle="Введите данные для редактирования"
       />
       <FileInput
         id="editSpecsAvatarId"
