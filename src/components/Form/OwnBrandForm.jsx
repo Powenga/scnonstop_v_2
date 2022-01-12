@@ -5,18 +5,18 @@ import React, {
   useState,
   useEffect,
 } from 'react';
+import PropTypes from 'prop-types';
 import Form from './Form';
 import TextArea from './TextArea';
 import Button from '../Button/Button';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import { orderStatePropTypes } from '../../utils/prop-types';
+import { orderPropTypes } from '../../utils/prop-types';
 
-export default function OwnBrandForm({ orderState }) {
-  const [orderValues, setOrderValues] = orderState;
+export default function OwnBrandForm({ order, setOrder }) {
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
-    ownBrand: orderValues.ownBrand,
+    ownBrand: order.ownBrand,
   });
   const [isValid, setIsValid] = useState(false);
   const formRef = useRef(null);
@@ -44,7 +44,7 @@ export default function OwnBrandForm({ orderState }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setOrderValues((state) => ({
+    setOrder((state) => ({
       ...state,
       brand: values.ownBrand,
       ownBrand: values.ownBrand,
@@ -79,5 +79,6 @@ export default function OwnBrandForm({ orderState }) {
 }
 
 OwnBrandForm.propTypes = {
-  orderState: orderStatePropTypes.isRequired,
+  order: orderPropTypes.isRequired,
+  setOrder: PropTypes.func.isRequired,
 };

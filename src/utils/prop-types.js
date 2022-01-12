@@ -37,11 +37,15 @@ export const schemePropTypes = PropTypes.shape({
   stage: PropTypes.number.isRequired,
 });
 
-export const orderStatePropTypes = PropTypes.arrayOf(
-  PropTypes.shape({
-    appType: PropTypes.string,
-    problem: PropTypes.string,
-    ownProblem: PropTypes.string,
-    brand: PropTypes.string,
-  }),
-);
+export const orderPropTypes = PropTypes.PropTypes.shape({
+  appType: PropTypes.string,
+  problem: PropTypes.string,
+  ownProblem: PropTypes.string,
+  brand: PropTypes.string,
+});
+
+export const brandPropTypes = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  appType: PropTypes.arrayOf(PropTypes.string).isRequired,
+});

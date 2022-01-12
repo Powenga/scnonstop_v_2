@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Fieldset from './Fieldset';
 import styles from './OrderForm.module.css';
-import { orderStatePropTypes } from '../../utils/prop-types';
+import { orderPropTypes } from '../../utils/prop-types';
 
 const FieldsetWithOrder = ({ values, fieldsetStyle }) => {
   return (
@@ -44,5 +44,5 @@ export default FieldsetWithOrder;
 
 FieldsetWithOrder.propTypes = {
   fieldsetStyle: PropTypes.string.isRequired,
-  values: orderStatePropTypes.isRequired,
+  values: orderPropTypes.isRequired,
 };

@@ -13,6 +13,7 @@ export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({
     userName: '',
     userPhone: '',
+    policy: false,
   });
 
   const [errorMessage, setErrorMessage] = useState('');

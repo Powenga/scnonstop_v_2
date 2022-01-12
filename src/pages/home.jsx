@@ -12,7 +12,7 @@ import Brands from '../components/Brands/Brands';
 import Map from '../components/Map/Map';
 import CallBackForm from '../components/CallbackForm/CallBackForm';
 import { promoImgPath } from '../utils/data';
-import { orderStatePropTypes } from '../utils/prop-types';
+import { brandPropTypes, orderPropTypes } from '../utils/prop-types';
 
 export default function Home({
   containerClasses,
@@ -21,8 +21,8 @@ export default function Home({
   handleEditNewsClick,
   handleDeleteSpecClick,
   handleEditSpecClick,
-  orderState,
-  setOrderState,
+  order,
+  setOrder,
   step,
   setStep,
   problemList,
@@ -133,8 +133,8 @@ export default function Home({
       >
         <OrderForm
           classes={containerClasses}
-          values={orderState}
-          setValues={setOrderState}
+          values={order}
+          setValues={setOrder}
           step={step}
           setStep={setStep}
           problemList={problemList}
@@ -215,10 +215,10 @@ Home.propTypes = {
   handleApplianceClick: PropTypes.func.isRequired,
   handleAdvantageClick: PropTypes.func.isRequired,
   handleCallbackClick: PropTypes.func.isRequired,
-  orderState: orderStatePropTypes.isRequired,
-  setOrderState: PropTypes.func.isRequired,
+  order: orderPropTypes.isRequired,
+  setOrder: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
   setStep: PropTypes.func.isRequired,
   problemList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  brandList: PropTypes.arrayOf(brandPropTypes).isRequired,
 };

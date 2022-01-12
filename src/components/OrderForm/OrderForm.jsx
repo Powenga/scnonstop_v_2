@@ -16,7 +16,7 @@ import FieldsetWithUserData from './FielsetWithUserData';
 import FieldsetWithOrder from './FieldsetWithOrders';
 import mainApi from '../../utils/main-api';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import { orderStatePropTypes } from '../../utils/prop-types';
+import { brandPropTypes, orderPropTypes } from '../../utils/prop-types';
 
 export default function OrderForm({
   classes,
@@ -292,12 +292,12 @@ export default function OrderForm({
 OrderForm.propTypes = {
   classes: PropTypes.string,
   children: PropTypes.element.isRequired,
-  values: orderStatePropTypes.isRequired,
+  values: orderPropTypes.isRequired,
   setValues: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
   setStep: PropTypes.func.isRequired,
   problemList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  brandList: PropTypes.arrayOf(brandPropTypes).isRequired,
 };
 
 OrderForm.defaultProps = {

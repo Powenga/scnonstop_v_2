@@ -4,7 +4,7 @@ import { AddressSuggestions } from 'react-dadata';
 import PropTypes from 'prop-types';
 import Fieldset from './Fieldset';
 import styles from './OrderForm.module.css';
-import { orderStatePropTypes } from '../../utils/prop-types';
+import { orderPropTypes } from '../../utils/prop-types';
 import Input from '../Form/Input';
 import InputWithMask from '../Form/InputWithMask';
 import inputStyles from '../Form/Input.module.css';
@@ -131,7 +131,7 @@ export default FieldsetWithUserData;
 
 FieldsetWithUserData.propTypes = {
   fieldsetStyle: PropTypes.string.isRequired,
-  values: orderStatePropTypes.isRequired,
+  values: orderPropTypes.isRequired,
   handleChange: PropTypes.func.isRequired,
   setValues: PropTypes.func.isRequired,
 };

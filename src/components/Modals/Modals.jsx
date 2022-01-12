@@ -24,6 +24,7 @@ import {
 import {
   advatnagePropTypes,
   newsPropTypes,
+  orderPropTypes,
   specsPropTypes,
 } from '../../utils/prop-types';
 import OwnProblemForm from '../Form/OwnProblemForm';
@@ -36,7 +37,8 @@ const Modals = ({
   handleDeleteNews,
   currentSpec,
   handleDeleteSpec,
-  orderState,
+  order,
+  setOrder,
   currentAdvantage,
 }) => {
   const [modal] = useContext(modalContext);
@@ -106,14 +108,14 @@ const Modals = ({
   if (modalType === MODAL_TYPES_OWN_PROBLEM) {
     return (
       <Modal>
-        <OwnProblemForm orderState={orderState} />
+        <OwnProblemForm order={order} setOrder={setOrder} />
       </Modal>
     );
   }
   if (modalType === MODAL_TYPES_OWN_BRAND) {
     return (
       <Modal>
-        <OwnBrandForm orderState={orderState} />
+        <OwnBrandForm order={order} setOrder={setOrder} />
       </Modal>
     );
   }
@@ -141,9 +143,8 @@ Modals.propTypes = {
   handleDeleteNews: PropTypes.func,
   currentSpec: PropTypes.oneOfType([specsPropTypes, PropTypes.object]),
   handleDeleteSpec: PropTypes.func,
-  orderState: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  ).isRequired,
+  order: orderPropTypes.isRequired,
+  setOrder: PropTypes.func.isRequired,
   currentAdvantage: PropTypes.oneOfType([advatnagePropTypes, PropTypes.object]),
 };
 

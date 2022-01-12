@@ -37,7 +37,7 @@ function App() {
     isLoaded: false,
   });
 
-  const [orderState, setOrderState] = useState({
+  const [order, setOrder] = useState({
     appType: '',
     problem: '',
     ownProblem: '',
@@ -93,7 +93,7 @@ function App() {
 
   const handleApplianceClick = useCallback((event, card) => {
     event.preventDefault();
-    setOrderState((state) => ({
+    setOrder((state) => ({
       ...state,
       appType: card.value,
     }));
@@ -169,23 +169,23 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setOrderState((state) => ({
+    setOrder((state) => ({
       ...state,
       problem: '',
       brand: '',
       ownProblem: '',
     }));
     setStep(1);
-    if (orderState.appType) {
+    if (order.appType) {
       setProblemList(
-        () => problems.find((item) => item.id === orderState.appType).problems,
+        () => problems.find((item) => item.id === order.appType).problems,
       );
       const list = brands.filter((item) =>
-        item.appType.includes(orderState.appType),
+        item.appType.includes(order.appType),
       );
       setBrandList([...list]);
     }
-  }, [orderState.appType]);
+  }, [order.appType]);
 
   return (
     <ModalContext.Provider value={modalState}>
@@ -207,8 +207,8 @@ function App() {
                 handleClickNews={handleClickNews}
                 handleDeleteSpecClick={handleDeleteSpecClick}
                 handleEditSpecClick={handleEditSpecClick}
-                orderState={orderState}
-                setOrderState={setOrderState}
+                order={order}
+                setOrder={setOrder}
                 step={step}
                 setStep={setStep}
                 problemList={problemList}
@@ -242,7 +242,8 @@ function App() {
           currentSpec={currentSpec}
           currentAdvantage={currentAdvantage}
           handleDeleteSpec={handleDeleteSpec}
-          orderState={orderState}
+          order={order}
+          setOrder={setOrder}
         />
       </div>
     </ModalContext.Provider>
