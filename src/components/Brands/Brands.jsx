@@ -35,8 +35,8 @@ export default function Brands({ classes }) {
         }}
       >
         {brandsIcons.map((elem) => (
-          <SwiperSlide>
-            <img className="brands__image" src={elem} alt="#" />
+          <SwiperSlide key={elem.id}>
+            <img className="brands__image" src={elem.src} alt="#" />
           </SwiperSlide>
         ))}
       </Swiper>
