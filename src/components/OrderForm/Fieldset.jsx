@@ -16,7 +16,10 @@ export default Fieldset;
 Fieldset.propTypes = {
   classes: PropTypes.string,
   title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]).isRequired,
 };
 
 Fieldset.defaultProps = {

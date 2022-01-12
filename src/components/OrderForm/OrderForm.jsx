@@ -153,7 +153,7 @@ export default function OrderForm({
           errorMessage={errorMessage}
           isLoading={isLoading}
         >
-          <p className="main-text">
+          <p className="main-text main-text_paragraph">
             Оставьте заявку на нашем сайте и мастер перезвонит вам в течении 15
             минут для уточнения времени визита.
           </p>
