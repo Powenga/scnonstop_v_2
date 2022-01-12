@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Fieldset from './Fieldset';
 import styles from './OrderForm.module.css';
-import { orderPropTypes } from '../../utils/prop-types';
+import { brandPropTypes, orderPropTypes } from '../../utils/prop-types';
 import Input from '../Form/Input';
 
 const FieldsetWithBrands = ({
@@ -108,7 +108,7 @@ const FieldsetWithBrands = ({
 export default FieldsetWithBrands;
 
 FieldsetWithBrands.propTypes = {
-  brandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  brandList: PropTypes.arrayOf(brandPropTypes).isRequired,
   fieldsetStyle: PropTypes.string.isRequired,
   values: orderPropTypes.isRequired,
   handleChange: PropTypes.func.isRequired,
