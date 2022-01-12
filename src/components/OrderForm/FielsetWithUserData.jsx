@@ -74,16 +74,16 @@ const FieldsetWithUserData = ({
           inputProps={{
             name: 'userAddress',
             type: 'text',
-            onChange: (event) => handleChange(event),
+            onChange: handleChange,
             className: `${styles['user-input']} ${inputStyles.input}`,
             minLength: 3,
             maxLength: 150,
             id: 'user-address-id',
             onFocus: toggleFocus,
             onBlur: toggleFocus,
+            value: values.userAddress,
           }}
           token="91e0e445a490f9e3b70e524eb5a9c7c44a225b7e"
-          value={values.userAddress}
           renderOption={(data) => data.value}
           minChars={2}
           filterLocations={[{ region: 'липецкая' }]}
