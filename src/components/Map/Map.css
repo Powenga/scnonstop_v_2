@@ -1,6 +1,10 @@
 .map__container {
   margin: 32px 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .map__container_collapsed {
@@ -40,7 +44,6 @@
   z-index: 1500;
 }
 
-
 @media screen and (max-width: 1600px) {
   .map__container {
     margin: 27px 0;
@@ -58,7 +61,7 @@
   .map__info {
     font-size: 18px;
     line-height: 26px;
-  };
+  }
 }
 
 @media screen and (max-width: 550px) {
