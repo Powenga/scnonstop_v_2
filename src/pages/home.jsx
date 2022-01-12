@@ -37,7 +37,10 @@ export default function Home({
 }) {
   return (
     <main className="main">
-      <section className="main__section main__section_type_promo">
+      <section
+        id="promo-section"
+        className="main__section main__section_type_promo"
+      >
         <Promo
           classes={containerClasses}
           onMoreButtonClick={handleMoreDetailsClick}
@@ -48,7 +51,10 @@ export default function Home({
           alt="Мастер по ремонту бытовой техники и заказчик"
         />
       </section>
-      <section className="main__section main__section_type_appliances">
+      <section
+        id="appliances-section"
+        className="main__section main__section_type_appliances"
+      >
         <Appliances
           classes={containerClasses}
           handleApplianceClick={handleApplianceClick}
@@ -59,7 +65,10 @@ export default function Home({
           </div>
         </Appliances>
       </section>
-      <section className="main__section main__section_type_news">
+      <section
+        id="news-section"
+        className="main__section main__section_type_news"
+      >
         <News
           classes={containerClasses}
           handleDeleteNewsClick={handleDeleteNewsClick}
@@ -68,6 +77,7 @@ export default function Home({
         />
       </section>
       <section
+        id="scheme-section"
         className="main__section main__section_type_schema"
         ref={schemeRef}
       >
@@ -82,7 +92,10 @@ export default function Home({
           </div>
         </Scheme>
       </section>
-      <section className="main__section main__section_type_price">
+      <section
+        id="price-section"
+        className="main__section main__section_type_price"
+      >
         <Price
           classes={containerClasses}
           handleCallbackClick={handleCallbackClick}
@@ -95,7 +108,10 @@ export default function Home({
           </div>
         </Price>
       </section>
-      <section className="main__section main__section_type_advantages">
+      <section
+        id="advantages-section"
+        className="main__section main__section_type_advantages"
+      >
         <Advantages
           classes={containerClasses}
           handleAdvantageClick={handleAdvantageClick}
@@ -111,6 +127,7 @@ export default function Home({
         </Advantages>
       </section>
       <section
+        id="order-section"
         className="main__section main__section_type_order-form"
         ref={orderRef}
       >
@@ -130,7 +147,7 @@ export default function Home({
       </section>
       <section
         className="main__section main__section_type_specs"
-        id="specialists"
+        id="specialists-section"
       >
         <Specs
           classes={containerClasses}
@@ -147,10 +164,13 @@ export default function Home({
           </div>
         </Specs>
       </section>
-      <section className="main__section main__section_type_brands">
+      <section
+        id="brands-section"
+        className="main__section main__section_type_brands"
+      >
         <Brands classes={containerClasses} />
       </section>
-      <section className="main__section">
+      <section id="map-section" className="main__section">
         <Map>
           <div className="main__section-title-container">
             <h2 className="main__section-title">карта обслуживания</h2>
@@ -158,6 +178,7 @@ export default function Home({
         </Map>
       </section>
       <section
+        id="callback-section"
         ref={callbackRef}
         className="main__section main__section_type_callback"
       >
