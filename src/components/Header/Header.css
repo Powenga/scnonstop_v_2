@@ -29,7 +29,7 @@
   background-color: #27306b;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
   grid-column: col-start 5 / span 2;
   display: flex;
   justify-content: center;
@@ -45,6 +45,64 @@
   grid-column: col-start 7 / span 3;
   align-self: start;
   justify-self: center;
+}
+
+.header__social_tablet {
+  display: none;
+  position: relative;
+}
+
+.header__social-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  height: 46px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#header-button-rect-top {
+  transition: opacity 0.3s ease;
+}
+#header-button-rect-middle {
+  transition: transform 0.5s ease;
+  transform-origin: center;
+}
+#header-button-rect-bottom {
+  transform-origin: center 37px;
+  transition: transform 0.5s ease;
+}
+
+.header__social-button_opened #header-button-rect-top {
+  opacity: 0;
+}
+.header__social-button_opened #header-button-rect-middle {
+  transform: rotate(-45deg);
+}
+.header__social-button_opened #header-button-rect-bottom {
+  transform: translateY(-14px) rotate(45deg);
+}
+
+.header__social-container {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  z-index: 900;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 50px;
+  animation: fadeIn .3s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .header__contacts {
@@ -123,6 +181,15 @@
   }
 
   .header__social {
+    opacity: 0;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+  }
+
+  .header__social_tablet {
+    display: block;
     grid-column: col-start 8 / span 2;
     grid-row: 1;
     justify-self: end;
@@ -155,7 +222,7 @@
     grid-row: 2;
   }
 
-  .header__social {
+  .header__social_tablet {
     grid-column: col-start / span 1;
     grid-row: 2;
     align-self: center;
@@ -185,11 +252,10 @@
     grid-row: 2;
     font-size: 18px;
     line-height: 26px;
-    justify-self: e;
+    justify-self: end;
     text-align: center;
   }
 }
-
 
 @media screen and (max-width: 550px) {
   .header__container {
@@ -215,7 +281,7 @@
     margin-left: 80px;
   }
 
-  .header__social {
+  .header__social_tablet {
     grid-column: col-start 2 / span 1;
     grid-row: 2;
     align-self: center;
@@ -246,7 +312,7 @@
   .header__ya-rating-container {
     margin-right: 0;
   }
-  .header__social {
+  .header__social_tablet {
     grid-column: col-start 1 / span 2;
     justify-self: start;
     margin-left: 40px;

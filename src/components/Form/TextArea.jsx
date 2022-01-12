@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TextArea.module.css';
 
@@ -15,12 +15,19 @@ function TextArea({
 }) {
   const [textLimit, setTextLimit] = useState(maxLength);
   const [error, setError] = useState('');
+  const inputRef = useRef(null);
 
   function handleChange(event) {
     const { validationMessage } = event.target;
     setError(validationMessage);
     onChange(event);
   }
+
+  // useEffect(() => {
+  //   if (inputRef.current && isFocused) {
+  //     inputRef.current.focus();
+  //   }
+  // }, []);
 
   useEffect(() => {
     function textCounter() {
@@ -33,6 +40,7 @@ function TextArea({
   return (
     <label htmlFor={id} className={`${styles.label} ${classes && classes}`}>
       <textarea
+        ref={inputRef}
         id={id}
         name={name}
         value={value}
@@ -51,9 +59,7 @@ function TextArea({
       >
         {placeholder}
       </span>
-      {error && (
-        <span className={styles.error}>{error}</span>
-      )}
+      {error && <span className={styles.error}>{error}</span>}
     </label>
   );
 }

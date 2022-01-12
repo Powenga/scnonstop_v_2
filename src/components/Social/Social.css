@@ -1,19 +1,15 @@
 .social {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.social_tablet_menu {
-  justify-content: space-between;
-}
-
-.social__button {
-  display: none;
+.social_pos_footer {
+  justify-content: flex-start;
 }
 
 .social__icon {
@@ -29,13 +25,23 @@
   background-size: contain;
   position: relative;
   top: 0;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
+}
+
+.social__icon_tablet {
+  min-width: auto;
+  min-height: auto;
+  width: auto;
+  height: auto;
+
 }
 
 .social__icon-img {
   display: block;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .social__icon:hover {
@@ -44,10 +50,13 @@
 
 .social__container {
   position: absolute;
+  top: 100%;
+  left: 0;
   visibility: hidden;
   opacity: 0;
   height: 1px;
   width: 1px;
+  background-color: #fff;
 }
 
 .social__button {
@@ -57,7 +66,7 @@
   height: 46px;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .social__button:hover {
@@ -65,25 +74,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .social_tablet_menu{
-    display: block;
-    overflow: hidden;
-    width: 50px;
-    height: 46px;
-  }
-  .social_tablet_menu .social__button {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-  }
-  .social_tablet_menu .social__icon {
-    visibility: hidden;
-  }
   .social__icon:hover {
-    transform: translateY(0);
-    opacity: 0.2;
+    transform: none;
   }
 }
-

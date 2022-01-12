@@ -1,1982 +1,1551 @@
-import aristonPath from '../../images/brand-icons/ariston.png';
-import aegPath from '../../images/brand-icons/aeg.png';
-import boschPath from '../../images/brand-icons/bosch.png';
-import ardoPath from '../../images/brand-icons/ardo.png';
-import bekoPath from '../../images/brand-icons/beko.png';
-import askoPath from '../../images/brand-icons/asko.png';
+import {
+  WASHING_MACHINE,
+  REFRIGETATOR,
+  DISHWASHER,
+  BOILER,
+} from '../constants';
 
-export const brandList = [
+const brandList = [
   {
     title: 'Atlant',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_0',
   },
   {
     title: 'AEG',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
-    iconSrc: aegPath,
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_1',
   },
   {
     title: 'ARESA',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_2',
   },
   {
     title: 'Ardo',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
-    iconSrc: ardoPath,
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_3',
   },
   {
     title: 'Artel',
-    appType: [
-      'wm',
-      'rf',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, BOILER],
+    id: 'brand_4',
   },
   {
     title: 'Asko',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
-    iconSrc: askoPath,
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_5',
   },
   {
     title: 'Bosch',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
-    iconSrc: boschPath,
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_6',
   },
   {
     title: 'Beko',
-    appType: [
-      'wm',
-      'dw',
-    ],
-    iconSrc: bekoPath,
+    appType: [WASHING_MACHINE, DISHWASHER],
+    id: 'brand_7',
   },
   {
     title: 'Brandt',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_8',
   },
   {
     title: 'Bravo',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_9',
   },
   {
     title: 'Bauknecht',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_10',
   },
   {
     title: 'Bomann',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_11',
   },
   {
     title: 'Candy',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_12',
   },
   {
     title: 'Clatronic',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_13',
   },
   {
     title: 'Daewoo Electronics',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_14',
   },
   {
     title: 'De Dietrich',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_15',
   },
   {
     title: 'Domus',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_16',
   },
   {
     title: 'Electrolux',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_17',
   },
   {
     title: 'Eurosoba',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_18',
   },
   {
     title: 'Evgo',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_19',
   },
   {
     title: 'Fagor',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_20',
   },
   {
     title: 'Frigidaire',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_21',
   },
   {
     title: 'Gorenje',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_22',
   },
   {
     title: 'Gaggenau',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_23',
   },
   {
     title: 'GRAUDE',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_24',
   },
   {
     title: 'Hotpoint-Ariston',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_25',
   },
   {
     title: 'Hansa',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_26',
   },
   {
     title: 'Haier',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_27',
   },
   {
     title: 'HIBERG',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_28',
   },
   {
     title: 'Hisense',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_29',
   },
   {
     title: 'HOMSAIR',
-    appType: [
-      'wm',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, DISHWASHER],
+    id: 'brand_30',
   },
   {
     title: 'Hoover',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_31',
   },
   {
     title: 'Hyundai',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_32',
   },
   {
     title: 'Indesit',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_33',
   },
   {
     title: 'Ignis',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_34',
   },
   {
     title: 'Kaiser',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_35',
   },
   {
     title: 'KRAFT',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_36',
   },
   {
     title: 'Kuppersberg',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_37',
   },
   {
     title: 'Kuppersbusch',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_38',
   },
   {
     title: 'LG',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_39',
   },
   {
     title: 'Leran',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_40',
   },
   {
     title: 'MAUNFELD',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_41',
   },
   {
     title: 'Midea',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_42',
   },
   {
     title: 'Miele',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_43',
   },
   {
     title: 'Mabe',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_44',
   },
   {
     title: 'NEFF',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_45',
   },
   {
     title: 'Optima',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_46',
   },
   {
     title: 'Orion',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_47',
   },
   {
     title: 'Panasonic',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_48',
   },
   {
     title: 'Renova',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_49',
   },
   {
     title: 'Rolsen',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_50',
   },
   {
     title: 'Samsung',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_51',
   },
   {
     title: 'Schaub Lorenz',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_52',
   },
   {
     title: 'Sharp',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_53',
   },
   {
     title: 'Siemens',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_54',
   },
   {
     title: 'Smart Life',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_55',
   },
   {
     title: 'Smeg',
-    appType: [
-      'wm',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, DISHWASHER],
+    id: 'brand_56',
   },
   {
     title: 'Schulthess',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_57',
   },
   {
     title: 'Sinbo',
-    appType: [
-      'wm',
-      'rf',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, BOILER],
+    id: 'brand_58',
   },
   {
     title: 'Teka',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_59',
   },
   {
     title: 'V-ZUG',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_60',
   },
   {
     title: 'Vestel',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_61',
   },
   {
     title: 'Vestfrost',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_62',
   },
   {
     title: 'Viomi',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_63',
   },
   {
     title: 'Weissgauff',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_64',
   },
   {
     title: 'Whirlpool',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_65',
   },
   {
     title: 'Willmark',
-    appType: [
-      'wm',
-      'rf',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, BOILER],
+    id: 'brand_66',
   },
   {
     title: 'White-Westinghouse',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_67',
   },
   {
     title: 'Xiaomi',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_68',
   },
   {
     title: 'Zanussi',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_69',
   },
   {
     title: 'Zigmund & Shtain',
-    appType: [
-      'wm',
-      'rf',
-      'dw',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR, DISHWASHER],
+    id: 'brand_70',
   },
   {
     title: 'Ассоль',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_71',
   },
   {
     title: 'Белоснежка',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_72',
   },
   {
     title: 'Бирюса',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_73',
   },
   {
     title: 'Вятка',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_74',
   },
   {
     title: 'ВолТек',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_75',
   },
   {
     title: 'Ока',
-    appType: [
-      'wm',
-      'rf',
-    ],
+    appType: [WASHING_MACHINE, REFRIGETATOR],
+    id: 'brand_76',
   },
   {
     title: 'Славда',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_77',
   },
   {
     title: 'Фея ',
-    appType: [
-      'wm',
-    ],
+    appType: [WASHING_MACHINE],
+    id: 'brand_78',
   },
   {
     title: 'AVEX',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_79',
   },
   {
     title: 'Akai',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_80',
   },
   {
     title: 'Amana',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_81',
   },
   {
     title: 'Amica',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_82',
   },
   {
     title: 'Artevino',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_83',
   },
   {
     title: 'ASCOLI',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_84',
   },
   {
     title: 'BBK',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_85',
   },
   {
     title: 'BEKO',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_86',
   },
   {
     title: 'BELTRATTO',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_87',
   },
   {
     title: 'Bosfor',
-    appType: [
-      'rf',
-      'bo',
-    ],
+    appType: [REFRIGETATOR, BOILER],
+    id: 'brand_88',
   },
   {
     title: 'Braun',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_89',
   },
   {
     title: 'Caso',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_90',
   },
   {
     title: 'Cavanova',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_91',
   },
   {
     title: 'CENTEK',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_92',
   },
   {
     title: 'Cold Vine',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_93',
   },
   {
     title: 'Comfee',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_94',
   },
   {
     title: 'Climadiff',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_95',
   },
   {
     title: 'DON',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_96',
   },
   {
     title: 'Daewoo',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_97',
   },
   {
     title: 'Delfa',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_98',
   },
   {
     title: 'Dex',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_99',
   },
   {
     title: 'Dometic',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_100',
   },
   {
     title: 'Dunavox',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_101',
   },
   {
     title: 'Ecotronic',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_102',
   },
   {
     title: 'Elenberg',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_103',
   },
   {
     title: 'Ellemme',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_104',
   },
   {
     title: 'Enofrigo',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_105',
   },
   {
     title: 'EuroCave',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_106',
   },
   {
     title: 'FROSTOR',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_107',
   },
   {
     title: 'Fhiaba',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_108',
   },
   {
     title: 'Franke',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_109',
   },
   {
     title: 'Freggia',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_110',
   },
   {
     title: 'Fulgor',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_111',
   },
   {
     title: 'GALATEC',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_112',
   },
   {
     title: 'Galaxy',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_113',
   },
   {
     title: 'General Electric',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_114',
   },
   {
     title: 'Gestrorag',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_115',
   },
   {
     title: 'Gemlux',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_116',
   },
   {
     title: 'Ginzzu',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_117',
   },
   {
     title: 'GoldStar',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_118',
   },
   {
     title: 'Gunter & Hauer',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_119',
   },
   {
     title: 'Hauswirt',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_120',
   },
   {
     title: 'Hitachi',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_121',
   },
   {
     title: 'ILVE',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_122',
   },
   {
     title: 'IP INDUSTRIE',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_123',
   },
   {
     title: 'Indel B',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_124',
   },
   {
     title: 'Interline',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_125',
   },
   {
     title: 'IO MABE',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_126',
   },
   {
     title: "Jacky's",
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_127',
   },
   {
     title: 'Kenwood',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_128',
   },
   {
     title: 'KitchenAid',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_129',
   },
   {
     title: 'Komatsu',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_130',
   },
   {
     title: 'Korting',
-    appType: [
-      'rf',
-      'dw',
-      'bo',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER, BOILER],
+    id: 'brand_131',
   },
   {
     title: 'LGEN',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_132',
   },
   {
     title: 'La Sommeliere',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_133',
   },
   {
     title: 'LEX',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_134',
   },
   {
     title: 'Liberton',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_135',
   },
   {
     title: 'Liberty',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_136',
   },
   {
     title: 'Liebherr',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_137',
   },
   {
     title: 'MPM',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_138',
   },
   {
     title: 'Marshall',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_139',
   },
   {
     title: 'MasterCook',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_140',
   },
   {
     title: 'Maytag',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_141',
   },
   {
     title: 'Mitsubishi Electric',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_142',
   },
   {
     title: 'Mystery',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_143',
   },
   {
     title: 'NORD',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_144',
   },
   {
     title: 'NORDFROST',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_145',
   },
   {
     title: 'Norcool',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_146',
   },
   {
     title: 'OAK',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_147',
   },
   {
     title: 'Olto',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_148',
   },
   {
     title: 'Oursson',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_149',
   },
   {
     title: 'Polair',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_150',
   },
   {
     title: 'Polar',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_151',
   },
   {
     title: 'Pozis',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_152',
   },
   {
     title: 'ProfiCook',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_153',
   },
   {
     title: 'Profycool',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_154',
   },
   {
     title: 'REEX',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_155',
   },
   {
     title: 'RENOVA',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_156',
   },
   {
     title: 'ROSENLEW',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_157',
   },
   {
     title: 'Restart',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_158',
   },
   {
     title: 'SUPRA',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_159',
   },
   {
     title: 'Sanyo',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_160',
   },
   {
     title: 'Saturn',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_161',
   },
   {
     title: 'SCANDILUX',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_162',
   },
   {
     title: 'Severin',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_163',
   },
   {
     title: 'Shivaki',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_164',
   },
   {
     title: 'Simfer',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_165',
   },
   {
     title: 'SONNEN',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_166',
   },
   {
     title: 'SMEG',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_167',
   },
   {
     title: 'Snaige',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_168',
   },
   {
     title: 'Steel',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_169',
   },
   {
     title: 'Stinol',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_170',
   },
   {
     title: 'Swizer',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_171',
   },
   {
     title: 'TEKA',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_172',
   },
   {
     title: 'Tecfrigo',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_173',
   },
   {
     title: 'TefCold',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_174',
   },
   {
     title: 'Tesler',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_175',
   },
   {
     title: 'Timberk',
-    appType: [
-      'rf',
-      'bo',
-    ],
+    appType: [REFRIGETATOR, BOILER],
+    id: 'brand_176',
   },
   {
     title: 'Toshiba',
-    appType: [
-      'rf',
-      'dw',
-    ],
+    appType: [REFRIGETATOR, DISHWASHER],
+    id: 'brand_177',
   },
   {
     title: 'Transtherm',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_178',
   },
   {
     title: 'V-HOME',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_179',
   },
   {
     title: 'WEST',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_180',
   },
   {
     title: 'Wine Craft',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_181',
   },
   {
     title: 'Winia',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_182',
   },
   {
     title: 'ZARGET',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_183',
   },
   {
     title: 'Zertek',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_184',
   },
   {
     title: 'Зил',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_185',
   },
   {
     title: 'ОРСК',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_186',
   },
   {
     title: 'Океан',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_187',
   },
   {
     title: 'Минск',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_188',
   },
   {
     title: 'Полюс',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_189',
   },
   {
     title: 'Саратов',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_190',
   },
   {
     title: 'Свияга',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_191',
   },
   {
     title: 'Смоленск',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_192',
   },
   {
     title: 'Снеж',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_193',
   },
   {
     title: 'Стинол',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_194',
   },
   {
     title: 'Юрюзань',
-    appType: [
-      'rf',
-    ],
+    appType: [REFRIGETATOR],
+    id: 'brand_195',
   },
   {
     title: 'CATA',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_196',
   },
   {
     title: 'Comfree',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_197',
   },
   {
     title: "De'Longhi",
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_198',
   },
   {
     title: 'EXITEQ',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_199',
   },
   {
     title: 'Flavia',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_200',
   },
   {
     title: 'Fornelli',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_201',
   },
   {
     title: 'FRANKE',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_202',
   },
   {
     title: 'GEFEST',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_203',
   },
   {
     title: 'Krona',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_204',
   },
   {
     title: 'MONSHER',
-    appType: [
-      'dw',
-    ],
+    appType: [DISHWASHER],
+    id: 'brand_205',
   },
   {
     title: 'Ariston',
-    appType: [
-      'bo',
-    ],
-    iconSrc: aristonPath,
+    appType: [BOILER],
+    id: 'brand_206',
   },
   {
     title: 'Atlantic',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_207',
   },
   {
     title: 'ACV',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_208',
   },
   {
     title: 'American Water Heater',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_209',
   },
   {
     title: 'Aparici',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_210',
   },
   {
     title: 'Atlanta',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_211',
   },
   {
     title: 'Austria-Email',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_212',
   },
   {
     title: 'Atmor',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_213',
   },
   {
     title: 'BAXI',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_214',
   },
   {
     title: 'Ballu',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_215',
   },
   {
     title: 'BaltGaz',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_216',
   },
   {
     title: 'Beretta',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_217',
   },
   {
     title: 'Bion',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_218',
   },
   {
     title: 'Bradford White',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_219',
   },
   {
     title: 'Buderus',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_220',
   },
   {
     title: 'CLAGE',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_221',
   },
   {
     title: 'Comfort',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_222',
   },
   {
     title: 'Drazice',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_223',
   },
   {
     title: 'De luxe',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_224',
   },
   {
     title: 'Delimano',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_225',
   },
   {
     title: 'DELTA',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_226',
   },
   {
     title: 'Edisson',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_227',
   },
   {
     title: 'ELDOM',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_228',
   },
   {
     title: 'Elsotherm',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_229',
   },
   {
     title: 'Electronicsdeluxe',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_230',
   },
   {
     title: 'Etalon',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_231',
   },
   {
     title: 'Ferroli',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_232',
   },
   {
     title: 'Galmet',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_233',
   },
   {
     title: 'Garanterm',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_234',
   },
   {
     title: 'Genberg',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_235',
   },
   {
     title: 'General hydraulic',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_236',
   },
   {
     title: 'GOPPO',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_237',
   },
   {
     title: 'Grohe',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_238',
   },
   {
     title: 'Hajdu',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_239',
   },
   {
     title: 'Halsen',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_240',
   },
   {
     title: 'Heateq',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_241',
   },
   {
     title: 'Horizont',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_242',
   },
   {
     title: 'Innovita',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_243',
   },
   {
     title: 'Jaspi',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_244',
   },
   {
     title: 'Kospel',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_245',
   },
   {
     title: 'Lenz Technic',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_246',
   },
   {
     title: 'Loriot',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_247',
   },
   {
     title: 'Matrix',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_248',
   },
   {
     title: 'Metalac',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_249',
   },
   {
     title: 'Mizudo',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_250',
   },
   {
     title: 'Mora',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_251',
   },
   {
     title: 'NeoClima',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_252',
   },
   {
     title: 'Neva',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_253',
   },
   {
     title: 'Nibe-Biawar',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_254',
   },
   {
     title: 'Nofer',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_255',
   },
   {
     title: 'Oasis',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_256',
   },
   {
     title: 'OSO',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_257',
   },
   {
     title: 'Parpool',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_258',
   },
   {
     title: 'Polaris',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_259',
   },
   {
     title: 'Potato',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_260',
   },
   {
     title: 'PROFFI',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_261',
   },
   {
     title: 'Protherm',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_262',
   },
   {
     title: 'REDMOND',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_263',
   },
   {
     title: 'Redber',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_264',
   },
   {
     title: 'Redring',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_265',
   },
   {
     title: 'Reflex',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_266',
   },
   {
     title: 'REGENT inox',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_267',
   },
   {
     title: 'Rinnai',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_268',
   },
   {
     title: 'Roda',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_269',
   },
   {
     title: 'Rointe',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_270',
   },
   {
     title: 'ROYAL Clima',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_271',
   },
   {
     title: 'Royal Thermo',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_272',
   },
   {
     title: 'Stiebel Eltron',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_273',
   },
   {
     title: 'Scarlett',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_274',
   },
   {
     title: 'STOUT',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_275',
   },
   {
     title: 'Sunsystem',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_276',
   },
   {
     title: 'Superflame',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_277',
   },
   {
     title: 'SUPERLUX',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_278',
   },
   {
     title: 'Thermex',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_279',
   },
   {
     title: 'Teplox',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_280',
   },
   {
     title: 'Termica',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_281',
   },
   {
     title: 'Tesy',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_282',
   },
   {
     title: 'Tatramat',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_283',
   },
   {
     title: 'Unitherm',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_284',
   },
   {
     title: 'UNIPUMP',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_285',
   },
   {
     title: 'Vaillant',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_286',
   },
   {
     title: 'Vatti',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_287',
   },
   {
     title: 'Vektor',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_288',
   },
   {
     title: 'Viessmann',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_289',
   },
   {
     title: 'Viterm',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_290',
   },
   {
     title: 'VES',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_291',
   },
   {
     title: 'WARM',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_292',
   },
   {
     title: 'Wert',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_293',
   },
   {
     title: 'Wester',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_294',
   },
   {
     title: 'Zerten',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_295',
   },
   {
     title: 'ZOTA',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_296',
   },
   {
     title: 'Акватерм',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_297',
   },
   {
     title: 'Гродторгмаш',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_298',
   },
   {
     title: 'Искра',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_299',
   },
   {
     title: 'Ладогаз',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_300',
   },
   {
     title: 'Лемакс',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_301',
   },
   {
     title: 'Нева-Транзит',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_302',
   },
   {
     title: 'РЕСАНТА',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_303',
   },
   {
     title: 'РОСС',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_304',
   },
   {
     title: 'Умница',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_305',
   },
   {
     title: 'Эван',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_306',
   },
   {
     title: 'Электромаш',
-    appType: [
-      'bo',
-    ],
+    appType: [BOILER],
+    id: 'brand_307',
   },
 ];
+
+export default brandList;

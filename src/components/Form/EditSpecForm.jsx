@@ -1,15 +1,8 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -17,16 +10,10 @@ import { specsPropTypes } from '../../utils/prop-types';
 
 export default function EditSpecForm({ spec }) {
   const formData = new FormData();
-  const {
-    id,
-    name: specName,
-    age,
-    about,
-  } = spec;
+  const { id, name: specName, about } = spec;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     specName,
-    age,
     about,
   });
   const [errorMessage, setErrorMessage] = useState('');
@@ -83,20 +70,20 @@ export default function EditSpecForm({ spec }) {
     <Form
       ref={formRef}
       name="editSpecForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Редактирование данных мастера"
-        subtitle="Введите данные для редактирования данных"
+        subtitle="Введите данные для редактирования"
       />
       <FileInput
         id="editSpecsAvatarId"
         fileName={fileName}
         name="specialist-avatar"
         ref={fileInputRef}
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -104,33 +91,22 @@ export default function EditSpecForm({ spec }) {
         name="specName"
         placeholder="Имя"
         value={values.specName}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
-      />
-      <Input
-        id="editSpecsAgeId"
-        type="number"
-        name="age"
-        placeholder="Возраст мастера"
-        value={values.age}
-        classes={styles.input}
-        onChange={handleChange}
-        max={100}
       />
       <Input
         id="editSpecAboutId"
         name="about"
         placeholder="Описание"
         value={values.about}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
-      <Button type="submit" classes={styles.submitButton} disabled={!isValid}>
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

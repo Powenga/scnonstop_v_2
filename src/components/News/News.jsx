@@ -1,15 +1,12 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
 import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
+import NewsCard from '../NewsCard/NewsCard';
 import mainApi from '../../utils/main-api';
 import { newsRenderPrefs, MODAL_TYPES_ADD_NEWS } from '../../utils/constants';
 import './News.css';
-import NewsCard from '../NewsCard/NewsCard';
 
 export default function News({
   classes,
@@ -122,16 +119,13 @@ export default function News({
   return (
     <div className={`news ${classes && classes}`}>
       <SectionTitleWithButton
-        title="Новости и акции"
-        subtitle="Узнайте о наших специальных предложениях"
+        title="Новости"
+        subtitle="Только актуальная и полезная информация"
         modalType={MODAL_TYPES_ADD_NEWS}
       />
       <ul className="news__container">
         {renderedNewsList.map((card) => (
-          <li
-            className="news__item"
-            key={card.id}
-          >
+          <li className="news__item" key={card.id}>
             <CardWithOptions
               Component={NewsCard}
               handleClick={handleClickNews}

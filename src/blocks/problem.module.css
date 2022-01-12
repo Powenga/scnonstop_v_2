@@ -1,0 +1,65 @@
+:global .problem {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+:global .problem__item {
+  margin: 0 0 32px;
+}
+:global .problem__item:last-child {
+  margin-bottom: 0;
+}
+
+:global .problem__text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #000;
+  margin: 0;
+}
+
+:global .problem__more {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1600px) {
+  :global .problem__item {
+    margin-bottom: 27px;
+  }
+
+  :global .problem__text {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  :global .problem__item {
+    margin-bottom: 26px;
+  }
+
+  :global .problem__text {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  :global .problem__item {
+    margin-bottom: 20px;
+  }
+
+  :global .problem__text {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}

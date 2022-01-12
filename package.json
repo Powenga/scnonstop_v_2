@@ -8,16 +8,18 @@
     "@testing-library/user-event": "^12.8.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-dadata": "^2.15.0",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.8.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "swiper": "^6.8.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "set ESLINT_NO_DEV_ERRORS=true&& set REACT_APP_API_URL=http://localhost:3001/api&& react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && scp -r ./build/* scnonstop_beta@scnonstop.beget.tech:/home/s/scnonstop/scnonstop.beget.tech/public_html",
+    "deploy": "npm run build && scp -r ./build/* scnonstop_beta@scnonstop.beget.tech:/home/s/scnonstop/beta.scnonstop.ru/public_html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "npx eslint --ext .js --ext .jsx ./src"
@@ -43,9 +45,13 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "2.5.1",
+    "prettier-eslint": "^13.0.0"
   }
 }

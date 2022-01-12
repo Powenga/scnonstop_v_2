@@ -4,6 +4,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 1000;
 }
 
 .modalContainer {
@@ -17,7 +18,15 @@
   width: calc(6 / 12 * 100% - 6 / 12 * 32px);
   max-width: calc(668px + 64px);
   box-sizing: border-box;
-  max-height: 90vh;
+  max-height: calc(100vh - 2 * 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.modalContainer:focus {
+  outline: none;
 }
 
 .closeButton {
@@ -37,32 +46,44 @@
   transform: rotate(90deg);
 }
 
-.closeButton:focus {
-  outline: none;
-}
-
 @media screen and (max-width: 1600px) {
   .modalContainer {
     padding: 27px;
     width: calc(6 / 12 * 100% - 6 / 12 * 27px);
   }
+  .closeButton {
+    width: 27px;
+    height: 27px;
+    top: -27px;
+    right: -27px;
+  }
 }
 
 @media screen and (max-width: 964px) {
   .modalContainer {
-    padding: 26px;
-    width: calc(8 / 12 * 100% - 4 / 12 * 26px);
+    width: 90%;
+  }
+  .closeButton {
+    top: -26px;
+    width: 26px;
+    height: 26px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .modalContainer {
+    padding: 26px;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .modalContainer {
     padding: 20px;
-    width: 90%;
+
   }
   .closeButton {
-    width: calc(2.68vw + 11.43px);
-    height: calc(2.68vw + 11.43px);
+    top: -30px;
     right: calc(-8.03vw + 25.71px);
   }
 }

@@ -1,0 +1,254 @@
+.price {
+  padding: 32px 0 64px;
+}
+
+.menu {
+  padding: 0;
+  margin: 64px auto 32px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 840px;
+  overflow: scroll visible;
+  scrollbar-width: none;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menuWrap {
+  position: relative;
+}
+
+.menuWrap::after {
+  content: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-item {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+  margin-right: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.menu-button {
+  color: #1e296e;
+  font-weight: inherit;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  opacity: 0.8;
+}
+.menu-button:focus {
+  opacity: 1;
+}
+
+.menu-button_active {
+  font-weight: 400;
+  color: #161e53;
+}
+
+.menu-item:last-child {
+  margin-right: 0;
+}
+
+.container {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #e1e1e1;
+  margin: 0 auto 32px;
+  padding: 32px 32px 64px;
+  width: calc(6 / 12 * 100% - 6 / 12 * 32px);
+}
+
+.item {
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.text-price {
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.content {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+}
+
+.content_type_accent {
+  font-size: 30px;
+  color: #27306b;
+}
+
+.note {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.note:last-child {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.button-wrap {
+  margin: 32px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 610px;
+}
+
+.button {
+  flex-basis: 48%;
+}
+
+@media screen and (max-width: 1600px) {
+  .price {
+    padding: 27px 0 54px;
+  }
+  .menu {
+    margin: 54px auto 27px;
+  }
+  .menu-item {
+    font-size: 22px;
+    line-height: 27px;
+    margin-right: 27px;
+  }
+  .container {
+    margin-bottom: 27px;
+    padding: 27px 27px 54px;
+    width: calc(6 / 12 * 100% - 6 / 12 * 27px);
+  }
+  .content {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .content_type_accent {
+    font-size: 26px;
+  }
+  .note {
+    margin-bottom: 27px;
+  }
+  .button-wrap {
+    margin: 27px auto;
+    max-width: 515px;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  .price {
+    padding: 26px 0 52px;
+  }
+  .menu {
+    margin: 52px auto 26px;
+  }
+  .menu-item {
+    line-height: 26px;
+    margin-right: 26px;
+  }
+  .container {
+    margin-bottom: 26px;
+    padding: 26px 26px 52px;
+    width: calc(8 / 12 * 100% - 4 / 12 * 26px);
+  }
+  .content {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .content_type_accent {
+    font-size: 24px;
+  }
+  .note {
+    margin-bottom: 26px;
+  }
+  .button-wrap {
+    margin: 26px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    justify-content: flex-start;
+  }
+  .container {
+    width: 100%;
+  }
+  .button-wrap {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .menuWrap::after {
+    content: url(../../images/price-arrows.svg);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .price {
+    padding: 20px 0 40px;
+  }
+  .menu {
+    margin: 40px auto 20px;
+  }
+  .menu-item {
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 20px;
+  }
+  .container {
+    margin-bottom: 20px;
+    padding: 20px 20px 40px;
+  }
+  .content {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .content_type_accent {
+    font-size: 20px;
+  }
+  .note {
+    margin-bottom: 20px;
+  }
+  .button-wrap {
+    margin: 20px auto;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  .button {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+  .button:last-child {
+    margin-bottom: 0px;
+  }
+}

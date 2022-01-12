@@ -1,0 +1,96 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.text-wrap {
+  background-color: #fff;
+  padding: 32px;
+  margin-bottom: 32px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e1e1e1;
+}
+
+.text {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #121212;
+  text-align: center;
+}
+
+.pic {
+  display: block;
+}
+
+.img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 50px;
+  left: 100%;
+  transform: translate(calc(-50% + 32px), 50%);
+  width: 100px;
+  height: 30px;
+  background: center / auto no-repeat url(../../images/scheme-arrow.png);
+}
+
+.arrow_stage_4 {
+  display: none;
+}
+
+@media screen and (max-width: 1600px) {
+  .text-wrap {
+    padding: 27px;
+    margin-bottom: 27px;
+  }
+  .text {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .arrow_stage_2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    flex-direction: column-reverse;
+  }
+  .text-wrap {
+    padding: 20px;
+    margin: 20px 0 0px;
+  }
+  .text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .arrow {
+    transform: rotate(90deg);
+    top: 30px;
+    left: 70%;
+  }
+  .arrow_stage_2 {
+    display: block;
+  }
+  .arrow_stage_4 {
+    display: block;
+  }
+}

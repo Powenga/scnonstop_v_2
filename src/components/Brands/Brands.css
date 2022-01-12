@@ -3,7 +3,7 @@
 }
 
 .brands__container {
-  margin: 64px auto;
+  margin: 32px auto 0;
   padding: 0;
   list-style: none;
   display: flex;
@@ -16,7 +16,10 @@
 
 .brands__image {
   display: block;
-  margin-right: 32px;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 1600px) {
@@ -24,7 +27,7 @@
     padding: 27px 0;
   }
   .brands__container {
-    margin: 54px auto;
+    margin: 27px auto 0;
   }
   .brands__image {
     margin-right: 27px;
@@ -42,7 +45,7 @@
     padding: 26px 0;
   }
   .brands__container {
-    margin: 52px auto;
+    margin: 26px auto 0;
   }
   .brands__image {
     display: block;
@@ -55,7 +58,7 @@
     padding: 20px 0;
   }
   .brands__container {
-    margin: 40px auto;
+    margin: 20px auto 0;
   }
   .brands__image {
     display: block;

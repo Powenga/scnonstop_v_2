@@ -4,19 +4,25 @@ import { newsPropTypes } from '../../utils/prop-types';
 import './NewsCard.css';
 
 const NewsCard = ({ card, onClick }) => {
-  const handleClick = useCallback((event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    event.nativeEvent.stopImmediatePropagation();
-    onClick(card);
-  }, [onClick]);
-
-  const handleEnter = useCallback((event) => {
-    if (event.key === 'Enter') {
+  const handleClick = useCallback(
+    (event) => {
       event.preventDefault();
-      handleClick(event);
-    }
-  }, [onClick]);
+      event.stopPropagation();
+      event.nativeEvent.stopImmediatePropagation();
+      onClick(card);
+    },
+    [onClick],
+  );
+
+  const handleEnter = useCallback(
+    (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        handleClick(event);
+      }
+    },
+    [onClick],
+  );
 
   return (
     <div
@@ -34,7 +40,7 @@ const NewsCard = ({ card, onClick }) => {
         {card.title}
       </h3>
       <p className="news-card__date">{card.formattedDate}</p>
-      <p className="news-card__content">{card.content}</p>
+      <p className="main-text news-card__content">{card.content}</p>
     </div>
   );
 };

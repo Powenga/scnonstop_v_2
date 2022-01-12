@@ -3,18 +3,21 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 export default function Button({
-  onButtonClick, type, classes, children, disabled,
+  onButtonClick,
+  type,
+  classes,
+  children,
+  disabled,
 }) {
   function handleClick(evt) {
     onButtonClick(evt);
   }
-
   return (
     <button
       disabled={disabled}
       onClick={handleClick}
-      type={type !== undefined ? 'submit' : 'button'}
-      className={`button ${classes && classes} ${disabled && 'button_disabled'}`}
+      type={type === 'submit' ? 'submit' : 'button'}
+      className={`button ${classes || ''} ${disabled && 'button_disabled'}`}
     >
       {children}
     </button>

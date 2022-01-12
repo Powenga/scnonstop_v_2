@@ -1,5 +1,8 @@
 .app-card {
   cursor: pointer;
+  display: block;
+  background-color: transparent;
+  border: none;
 }
 
 .app-card:hover .app-card__image {
@@ -43,6 +46,12 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .app-card:hover .app-card__image {
+    transform: none;
+  }
+}
+
 @media screen and (max-width: 964px) {
   .app-card__title {
     font-size: 25px;
@@ -60,5 +69,6 @@
 @media screen and (max-width: 425px) {
   .app-card__image {
     height: auto;
+    max-width: 100px;
   }
 }

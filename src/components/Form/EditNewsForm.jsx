@@ -1,16 +1,9 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -19,12 +12,7 @@ import { newsPropTypes } from '../../utils/prop-types';
 const formData = new FormData();
 
 export default function EditNewsForm({ news }) {
-  const {
-    id,
-    title,
-    date,
-    fullContent,
-  } = news;
+  const { id, title, date, fullContent } = news;
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     title,
@@ -87,9 +75,9 @@ export default function EditNewsForm({ news }) {
     <Form
       ref={formRef}
       name="editNewsForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Редактирование новости"
@@ -100,7 +88,7 @@ export default function EditNewsForm({ news }) {
         fileName={fileName}
         name="news-image"
         ref={fileInputRef}
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -108,7 +96,7 @@ export default function EditNewsForm({ news }) {
         name="title"
         placeholder="Название новости"
         value={values.title}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -118,7 +106,7 @@ export default function EditNewsForm({ news }) {
         name="date"
         placeholder="Дата размещения"
         value={values.date}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -128,14 +116,13 @@ export default function EditNewsForm({ news }) {
         value={values.content}
         rows={4}
         placeholder="Текст новости"
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={750}
       />
-      <Button type="submit" classes={styles.submitButton} disabled={!isValid}>
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

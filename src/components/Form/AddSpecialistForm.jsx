@@ -1,15 +1,8 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -19,7 +12,6 @@ export default function AddSpecialistForm() {
   const [, setModalState] = useContext(modalContext);
   const [values, setValues] = useState({
     name: '',
-    age: '',
     about: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
@@ -76,9 +68,9 @@ export default function AddSpecialistForm() {
     <Form
       ref={formRef}
       name="addSpecForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Добавление мастера"
@@ -90,7 +82,7 @@ export default function AddSpecialistForm() {
         name="specialist-avatar"
         ref={fileInputRef}
         required
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -98,37 +90,22 @@ export default function AddSpecialistForm() {
         name="name"
         placeholder="Имя"
         value={values.name}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
-      />
-      <Input
-        id="specsAgeId"
-        type="number"
-        name="age"
-        placeholder="Возраст мастера"
-        value={values.age}
-        classes={styles.input}
-        onChange={handleChange}
-        max={100}
       />
       <Input
         id="specAboutId"
         name="about"
         placeholder="Описание"
         value={values.about}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
-      <Button
-        type="submit"
-        classes={styles.submitButton}
-        disabled={!isValid}
-      >
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

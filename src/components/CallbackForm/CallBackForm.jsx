@@ -1,9 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
-import './CallbackForm.css';
 import Input from '../Form/Input';
+import mainApi from '../../utils/main-api';
+import styles from './CallbackForm.module.css';
+import SectionTitle from '../SectionTitle/SectionTitle';
+import InputWithMask from '../Form/InputWithMask';
 
 export default function CallBackForm({ classes, children }) {
   const [values, setValues] = useState({
@@ -11,12 +15,34 @@ export default function CallBackForm({ classes, children }) {
     userPhone: '',
   });
 
-  const onSubmit = useCallback((event) => {
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isValid, setIsValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = useRef(null);
+
+  const onSubmit = (event) => {
     event.preventDefault();
-    alert('Форма отправлена!');
-  }, []);
+    setIsLoading(true);
+    mainApi
+      .sendCallbackQuery(values)
+      .then(() => {
+        setErrorMessage('');
+        setIsLoading(false);
+        setIsSuccess(true);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+        setIsLoading(false);
+        setIsSuccess(false);
+      });
+  };
 
   const handleChange = useCallback((event) => {
+    if (formRef.current) {
+      formRef.current.checkValidity();
+      setIsValid(formRef.current.checkValidity());
+    }
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
@@ -27,73 +53,92 @@ export default function CallBackForm({ classes, children }) {
   }, []);
 
   return (
-    <div className={`callback-form ${classes || ''}`}>
-      <div className="callback-form__wrap">
+    <div className={`${styles['callback-form']} ${classes || ''}`}>
+      <div className={styles['callback-form__wrap']}>
         {children}
         <Form
+          ref={formRef}
           name="callback-form"
-          classes="callback-form__form"
+          classes={styles['callback-form__form']}
           onSubmit={onSubmit}
+          errorMessage={errorMessage}
+          isLoading={isLoading}
         >
-          <p className="callback-form__info">
-            Для многих фотография – способ самовыражения и общения, возможность
-            высказаться и заявить о себе. Длиннофокусные объективы выполняют
-            съемку с более узким углом обзора, чем угол зрения человеческого
-            глаза.
+          <p className={styles['callback-form__info']}>
+            Нужен обратный звонок? Заполните форму и мы Вам перезвоним.
           </p>
           <Input
             id="callbackUserName"
             name="userName"
             placeholder="Ваше имя"
             value={values.userName}
-            classes="callback-form__label"
+            classes={styles['callback-form__label']}
             onChange={handleChange}
-            maxLength={60}
+            minLength={2}
+            maxLength={25}
+            required
           />
-          <Input
+          <InputWithMask
             id="callbackUserPhone"
             name="userPhone"
             placeholder="Телефон для связи"
             value={values.userPhone}
-            classes="callback-form__label"
+            classes={styles['callback-form__label']}
             onChange={handleChange}
-            maxLength={60}
+            minLength={1}
+            maxLength={25}
+            required
+            mask="_"
+            format="+7 (###) ###-##-##"
+            allowEmptyFormatting
+            regexp={/\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}/}
           />
-          <div className="callback-form__policy-wrap">
-            <label htmlFor="policy" className="callback-form__label callback-form__label_type_policy">
+          <div>
+            <label
+              htmlFor="policy"
+              className={`${styles['callback-form__label']} ${styles['callback-form__label_type_policy']} policy`}
+            >
               <input
                 id="policy"
                 name="policy"
                 type="checkbox"
                 value={values.policy}
-                className="callback-form__checkbox"
+                className="checkbox"
+                onChange={handleChange}
+                checked={values.policy}
+                required
               />
-              <span className="callback-form__checkbox-pseudo" />
-              <span className="callback-form__policy-info">
-                Я согласен с
-                {' '}
-                <Button
-                  classes="button_type_text callback-form__policy"
-                  type="button"
-                >
+              <span className="checkbox-pseudo" />
+              <span className="policy-info">
+                Я согласен с{' '}
+                <NavLink to="/policy" className="policy__text">
                   Политикой конфиденциальности
-                </Button>
-                {' '}
-                и
-                {' '}
-                <Button
-                  classes="button_type_text callback-form__policy"
-                  type="button"
-                >
-                  Правилами пользования сайтом
-                </Button>
+                </NavLink>
               </span>
             </label>
           </div>
-          <Button type="submit" classes="callback-form__button">
+          <Button
+            type="submit"
+            classes={styles['callback-form__button']}
+            disabled={!isValid}
+          >
             ЗАКАЗАТЬ ЗВОНОК
           </Button>
         </Form>
+        {isSuccess && (
+          <div className="message">
+            <div className="message__container">
+              <SectionTitle
+                title="Cообщение отправлено!"
+                classes="message__title"
+              />
+              <p className="main-text message__text">Спасибо за обращение.</p>
+              <p className="main-text message__text">
+                Мы свяжемся с Вами в ближайшее время.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

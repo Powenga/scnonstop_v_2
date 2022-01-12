@@ -1,42 +1,106 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import Main from '../Main/Main';
+import Home from '../../pages/home';
 import auth from '../../utils/auth';
 import api from '../../utils/main-api';
 import UserContext from '../../context/user-context';
 import ModalContext from '../../context/modal-context';
-import Modal from '../Modal/Modal';
 import {
   MODAL_TYPES_CONFIRM_DELETE_NEWS,
   MODAL_TYPES_CONFIRM_DELETE_SPEC,
   MODAL_TYPES_EDIT_NEWS,
-  MODAL_TYPES_ADD_NEWS,
   MODAL_TYPES_SHOW_NEWS,
-  MODAL_TYPES_ADD_SPEC,
   MODAL_TYPES_EDIT_SPEC,
+  MODAL_TYPES_MORE,
+  MODAL_TYPES_SHOW_ADVANTAGE,
 } from '../../utils/constants';
-import AddNewsForm from '../Form/AddNewsForm';
-import EditNewsForm from '../Form/EditNewsForm';
-import ModalConfirm from '../Modal/ModalConfirm';
 import './App.css';
-import NewsContent from '../Modal/NewsContent';
-import AddSpecialistForm from '../Form/AddSpecialistForm';
-import EditSpecForm from '../Form/EditSpecForm';
+import Login from '../../pages/login';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import UpdatePassword from '../../pages/updatePassword';
+import BetaMessage from '../BetaMessage/BetaMessage';
+import CookieMessage from '../CookieMessage/CookieMessage';
+import Modals from '../Modals/Modals';
+import Policy from '../../pages/policy';
+import useScrollToTop from '../../hooks/useScrollToTop';
+import { problems } from '../../utils/data';
+import brands from '../../utils/data/brands';
 
 function App() {
+  useScrollToTop();
   const [user, setUser] = useState({
     email: '',
     id: '',
     isAdmin: false,
+    isLoaded: false,
   });
 
-  const modalState = useState({ isOpen: false, modalType: '' });
-  const [modal, setModalState] = modalState;
+  const [orderState, setOrderState] = useState({
+    appType: '',
+    problem: '',
+    ownProblem: '',
+    brand: '',
+    ownBrand: '',
+    userName: '',
+    userPhone: '',
+    userAddress: '',
+    policy: '',
+  });
+
+  const [step, setStep] = useState(1);
+  const [problemList, setProblemList] = useState([]);
+  const [brandList, setBrandList] = useState([]);
+
+  const modalState = useState({
+    isOpen: false,
+    modalType: '',
+    focusTarget: null,
+  });
+  const [, setModalState] = modalState;
 
   const [currentNews, setCurrentNews] = useState({});
   const [currentSpec, setCurrentSpec] = useState({});
+  const [currentAdvantage, setCurrentAdvantage] = useState({});
+
+  const orderRef = useRef(null);
+  const schemeRef = useRef(null);
+  const callbackRef = useRef(null);
+
+  const handleOrderButtonClick = useCallback((event) => {
+    event.preventDefault();
+    if (orderRef.current) {
+      orderRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
+  const handleMoreDetailsClick = useCallback((event) => {
+    event.preventDefault();
+    setModalState({
+      isOpen: true,
+      modalType: MODAL_TYPES_MORE,
+      focusTarget: event.target,
+    });
+  }, []);
+
+  const handleCallbackClick = useCallback((event) => {
+    event.preventDefault();
+    if (callbackRef.current) {
+      callbackRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
+  const handleApplianceClick = useCallback((event, card) => {
+    event.preventDefault();
+    setOrderState((state) => ({
+      ...state,
+      appType: card.value,
+    }));
+    if (orderRef.current) {
+      orderRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   const handleDeleteNewsClick = useCallback((news) => {
     setModalState({ isOpen: true, modalType: MODAL_TYPES_CONFIRM_DELETE_NEWS });
@@ -67,73 +131,21 @@ function App() {
 
   const handleDeleteSpec = useCallback((data) => api.deleteSpec(data.id), []);
 
-  function renderModal() {
-    if (!modal.isOpen) {
-      return '';
-    }
-    if (modal.modalType === MODAL_TYPES_ADD_NEWS) {
-      return (
-        <Modal>
-          <AddNewsForm />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_NEWS) {
-      return (
-        <Modal>
-          <ModalConfirm
-            title="Вы уверены что хотите удалить эту новость?"
-            data={currentNews}
-            onConfirm={handleDeleteNews}
-            confirmMessage="Новость успешно удалена. Пожалуйста, перезагрузите страницу"
-          />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_CONFIRM_DELETE_SPEC) {
-      return (
-        <Modal>
-          <ModalConfirm
-            title="Вы уверены что хотите удалить этого мастера?"
-            data={currentSpec}
-            onConfirm={handleDeleteSpec}
-            confirmMessage="Мастер успешно удален. Пожалуйста, перезагрузите страницу"
-          />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_EDIT_NEWS) {
-      return (
-        <Modal>
-          <EditNewsForm news={currentNews} />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_SHOW_NEWS) {
-      return (
-        <Modal>
-          <NewsContent news={currentNews} />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_ADD_SPEC) {
-      return (
-        <Modal>
-          <AddSpecialistForm />
-        </Modal>
-      );
-    }
-    if (modal.modalType === MODAL_TYPES_EDIT_SPEC) {
-      return (
-        <Modal>
-          <EditSpecForm spec={currentSpec} />
-        </Modal>
-      );
-    }
-    return <Modal>Специалисты</Modal>;
-  }
+  const handleAdvantageClick = useCallback((event, advantage) => {
+    event.preventDefault();
+    setCurrentAdvantage(advantage);
+    setModalState({
+      isOpen: true,
+      modalType: MODAL_TYPES_SHOW_ADVANTAGE,
+      focusTarget: event.target,
+    });
+  }, []);
 
   useEffect(() => {
+    setUser({
+      ...user,
+      isLoaded: false,
+    });
     auth
       .checkAutorization()
       .then((data) => {
@@ -143,6 +155,7 @@ function App() {
           email,
           id,
           isAdmin: role === 'owner',
+          isLoaded: true,
         }));
       })
       .catch(() => {
@@ -150,30 +163,89 @@ function App() {
           email: '',
           id: '',
           isAdmin: false,
+          isLoaded: true,
         });
       });
   }, []);
 
+  useEffect(() => {
+    setOrderState((state) => ({
+      ...state,
+      problem: '',
+      brand: '',
+      ownProblem: '',
+    }));
+    setStep(1);
+    if (orderState.appType) {
+      setProblemList(
+        () => problems.find((item) => item.id === orderState.appType).problems,
+      );
+      const list = brands.filter((item) =>
+        item.appType.includes(orderState.appType),
+      );
+      setBrandList([...list]);
+    }
+  }, [orderState.appType]);
+
   return (
-    <BrowserRouter>
-      <ModalContext.Provider value={modalState}>
-        <div className="app">
-          <Header containerClasses="app__container" />
-          <UserContext.Provider value={user}>
-            <Main
-              containerClasses="app__container"
-              handleDeleteNewsClick={handleDeleteNewsClick}
-              handleEditNewsClick={handleEditNewsClick}
-              handleClickNews={handleClickNews}
-              handleDeleteSpecClick={handleDeleteSpecClick}
-              handleEditSpecClick={handleEditSpecClick}
-            />
-          </UserContext.Provider>
-          <Footer containerClasses="app__container" />
-          {renderModal()}
-        </div>
-      </ModalContext.Provider>
-    </BrowserRouter>
+    <ModalContext.Provider value={modalState}>
+      <div className="app">
+        <UserContext.Provider value={{ user, setUser }}>
+          <Header
+            containerClasses="app__container"
+            onRequestClick={handleOrderButtonClick}
+          />
+          <BetaMessage />
+          <CookieMessage />
+          <Switch>
+            <Route path="/" exact>
+              <Home
+                orderRef={orderRef}
+                containerClasses="app__container"
+                handleDeleteNewsClick={handleDeleteNewsClick}
+                handleEditNewsClick={handleEditNewsClick}
+                handleClickNews={handleClickNews}
+                handleDeleteSpecClick={handleDeleteSpecClick}
+                handleEditSpecClick={handleEditSpecClick}
+                orderState={orderState}
+                setOrderState={setOrderState}
+                step={step}
+                setStep={setStep}
+                problemList={problemList}
+                brandList={brandList}
+                schemeRef={schemeRef}
+                callbackRef={callbackRef}
+                handleMoreDetailsClick={handleMoreDetailsClick}
+                handleApplianceClick={handleApplianceClick}
+                handleAdvantageClick={handleAdvantageClick}
+                handleCallbackClick={handleCallbackClick}
+              />
+            </Route>
+            <Route path="/policy" exact>
+              <Policy />
+            </Route>
+            <Route path="/login" exact>
+              <Login />
+            </Route>
+            <ProtectedRoute path="/update-password" exact>
+              <UpdatePassword />
+            </ProtectedRoute>
+          </Switch>
+        </UserContext.Provider>
+        <Footer
+          containerClasses="app__container"
+          handleApplianceClick={handleApplianceClick}
+        />
+        <Modals
+          currentNews={currentNews}
+          handleDeleteNews={handleDeleteNews}
+          currentSpec={currentSpec}
+          currentAdvantage={currentAdvantage}
+          handleDeleteSpec={handleDeleteSpec}
+          orderState={orderState}
+        />
+      </div>
+    </ModalContext.Provider>
   );
 }
 

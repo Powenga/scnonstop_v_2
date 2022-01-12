@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SectionTitleWithButton from '../SectionTitleWithButton/SectionTitleWithButton';
-import CardContainer from '../CardContainer/CardContainer';
 import SpecCard from '../SpecCard/SpecCard';
 import CardWithOptions from '../CardWIthOptions/CardWIthOptions';
 import { MODAL_TYPES_ADD_SPEC, specsRenderPrefs } from '../../utils/constants';
@@ -29,14 +28,14 @@ export default function Specs({
     }, 1000);
   }
 
-  function handleMoreClick() {
+  const handleMoreClick = () => {
     if (numberOfRenderedSpecs < specsList.length) {
       setSpecsGrid((state) => ({
         ...state,
         rows: state.rows + 1,
       }));
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('resize', updateViewportWidth);
@@ -100,24 +99,23 @@ export default function Specs({
         modalType={MODAL_TYPES_ADD_SPEC}
         theme="dark"
       />
-      <CardContainer
-        classes="specs__container"
-        Component={({ card }) => (
-          <CardWithOptions
-            Component={SpecCard}
-            handleDeleteClick={handleDeleteSpecClick}
-            handleEditClick={handleEditSpecClick}
-            card={card}
-          />
-        )}
-        cards={renderedSpecsList}
-        itemClasses="specs__item"
-      />
+      <ul className="specs__container">
+        {renderedSpecsList.map((card) => (
+          <li className="specs__item" key={card.id}>
+            <CardWithOptions
+              Component={SpecCard}
+              handleDeleteClick={handleDeleteSpecClick}
+              handleEditClick={handleEditSpecClick}
+              card={card}
+            />
+          </li>
+        ))}
+      </ul>
       {numberOfRenderedSpecs < specsList.length && (
         <Button
           classes="specs__more-button button_style_dark"
           type="Button"
-          onButtonClick={(evt) => handleMoreClick(evt)}
+          onButtonClick={handleMoreClick}
         >
           ПОКАЗАТЬ ЕЩЁ
         </Button>

@@ -1,63 +1,61 @@
+.title {
+  text-align: right;
+}
+
 .container {
-  max-height: 80vh;
   overflow: auto;
-  scrollbar-width: thin;
-  padding-right: 6px;
 }
 
-.container::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f0f0f0;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background-color: #cdcdcd;
+.imageContainer {
+  background-color: #d9d9d9;
+  margin: 32px auto;
 }
 
 .imageWrap {
-  max-width: 450px;
   width: 100%;
-  padding-bottom: 60%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 100%;
+  padding-bottom: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 32px auto 32px;
 }
 
-.content {
-  font-family: 'Oswald', sans-serif;
-  font-size: 21px;
-  line-height: 32px;
-  font-weight: 300;
-  color: #121212;
-  margin: 0 0 auto;
+@media screen and (min-width: 769px) {
+  .container {
+    scrollbar-width: thin;
+  }
+  .container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+  }
+
+  .container::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
 }
 
 @media screen and (max-width: 1600px) {
-  .imageWrap {
-    margin: 27px auto 27px;
-  }
-  .content {
-    font-size: 18px;
-    line-height: 27px;
+  .imageContainer {
+    margin: 27px auto;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .imageWrap {
-    margin: 27px auto 27px;
-  }
-  .news-card__content {
-     line-height: 26px;
+  .imageContainer {
+    margin: 26px auto;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .imageWrap {
-    margin: 20px auto 20px;
+  .imageContainer {
+    margin: 20px auto;
   }
-  .news-card__content {
-    font-size: 18px;
-    line-height: 20px;
+  .imageWrap {
+    max-width: 200px;
   }
 }

@@ -26,6 +26,14 @@
   margin: 0 32px 32px 0;
 }
 
+.footer__appliances-button {
+  border: none;
+  background: none;
+  color: #71a3d9;
+  padding: 0;
+  text-align: start;
+}
+
 .footer__content {
   margin: 0 auto;
   width: calc(10 / 12 * 100% - 2 / 12 * 32px);
@@ -68,6 +76,10 @@
   text-decoration: none;
   position: relative;
   transition: opacity 0.3s ease-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__phone:hover {
@@ -75,7 +87,7 @@
 }
 
 .footer__phone::before {
-  content: url('');
+  content: '';
   display: inline-block;
   bottom: 6px;
   left: 0;
@@ -96,6 +108,10 @@
   text-decoration: none;
   position: relative;
   transition: opacity 0.3s ease-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__email:hover {
@@ -103,7 +119,7 @@
 }
 
 .footer__email::before {
-  content: url('');
+  content: '';
   display: inline-block;
   bottom: 2px;
   left: 0;

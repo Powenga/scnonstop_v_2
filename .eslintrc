@@ -1,10 +1,12 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "globals": {
     "document": "readonly",
     "fetch": "readonly",
     "window": "readonly",
-    "FormData": "readonly"
+    "FormData": "readonly",
+    "localStorage": "readonly",
+    "Element": "readonly"
   },
   "rules": {
     "no-underscore-dangle": [

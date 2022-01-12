@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './FileInput.module.css';
 
 const FileInput = forwardRef(
-  ({
-    id,
-    fileName,
-    name,
-    required,
-    classes,
-    onChange,
-  }, ref) => {
+  ({ id, fileName, name, required, classes, onChange }, ref) => {
     function handleChange(event) {
       onChange(event);
     }

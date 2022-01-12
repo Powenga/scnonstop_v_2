@@ -1,16 +1,9 @@
-import React, {
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
 import api from '../../utils/main-api';
-import styles from './AddNewsForm.module.css';
 import Button from '../Button/Button';
-import Preloader from '../Preloader/Preloader';
 import modalContext from '../../context/modal-context';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import FileInput from './FileInput';
@@ -77,9 +70,9 @@ export default function AddNewsForm() {
     <Form
       ref={formRef}
       name="addNewsForm"
-      classes={styles.form}
       onSubmit={handleSubmit}
       errorMessage={errorMessage}
+      isLoading={isLoading}
     >
       <SectionTitle
         title="Добавление новости"
@@ -91,7 +84,7 @@ export default function AddNewsForm() {
         name="news-image"
         ref={fileInputRef}
         required
-        classes={`${styles.input} ${styles.input_pos_first}`}
+        classes="form__input form__input_pos_first"
         onChange={handleChange}
       />
       <Input
@@ -99,7 +92,7 @@ export default function AddNewsForm() {
         name="title"
         placeholder="Название новости"
         value={values.title}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -109,7 +102,7 @@ export default function AddNewsForm() {
         name="date"
         placeholder="Дата размещения"
         value={values.date}
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={60}
       />
@@ -119,18 +112,13 @@ export default function AddNewsForm() {
         value={values.content}
         rows={4}
         placeholder="Текст новости"
-        classes={styles.input}
+        classes="form__input"
         onChange={handleChange}
         maxLength={750}
       />
-      <Button
-        type="submit"
-        classes={styles.submitButton}
-        disabled={!isValid}
-      >
+      <Button type="submit" classes="form__submit-button" disabled={!isValid}>
         Отправить
       </Button>
-      {isLoading && <Preloader />}
     </Form>
   );
 }

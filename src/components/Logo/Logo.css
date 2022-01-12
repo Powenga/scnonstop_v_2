@@ -1,9 +1,13 @@
 .logo {
   display: block;
+  min-height: 79.58px;
 }
 
 .logo__image {
   display: block;
   width: 100%;
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
 }
+
 

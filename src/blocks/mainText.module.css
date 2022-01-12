@@ -1,0 +1,71 @@
+:global(.main-text) {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #121212;
+  margin: 0;
+}
+
+:global .main-text_paragraph {
+  margin: 0 0 32px;
+}
+
+:global .main-text__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+
+:global .main-text_large {
+  font-size: 27px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1600px) {
+  :global .main-text {
+    font-size: 20px;
+    line-height: 27px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 27px;
+  }
+  :global .main-text__list {
+    margin-bottom: 27px;
+  }
+  :global .main-text_large {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :global .main-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  :global .main-text__list {
+    margin-bottom: 26px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 26px;
+  }
+  :global .main-text_large {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  :global .main-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  :global .main-text_paragraph {
+    margin-bottom: 20px;
+  }
+  :global .main-text__list {
+    margin-bottom: 20px;
+  }
+  :global .main-text_large {
+    font-size: 20px;
+  }
+}

@@ -74,6 +74,9 @@
     flex-basis: calc(4 / 12 * 100% - 8 / 12 * 26px);
     margin: 0 26px 26px 0;
   }
+  .news__item:hover {
+    transform: none;
+  }
   .news__more {
     max-width: 150px;
   }
