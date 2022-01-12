@@ -128,7 +128,10 @@ export default function Home({
           </div>
         </OrderForm>
       </section>
-      <section className="main__section main__section_type_specs">
+      <section
+        className="main__section main__section_type_specs"
+        id="specialists"
+      >
         <Specs
           classes={containerClasses}
           handleDeleteSpecClick={handleDeleteSpecClick}
