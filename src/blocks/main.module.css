@@ -35,7 +35,7 @@
 }
 
 :global .main__section_type_specs {
-  background: bottom 0 right 10% / auto no-repeat
+  background: bottom -40px right 10% / auto no-repeat
       url(../images/specialists/specs-wm.png),
     top 0 right 0 / auto no-repeat
       url(../images/specialists/specs-background.png),
@@ -130,6 +130,13 @@
     background: -25% bottom / auto no-repeat url(../images/hero-bckg-text.png),
       110% bottom / auto no-repeat url(../images/hero-bckg-img.png), #2f2f2f;
   }
+  :global .main__section_type_specs {
+    background: bottom -70px right 10% / auto no-repeat
+        url(../images/specialists/specs-wm.png),
+      top 0 right 0 / auto no-repeat
+        url(../images/specialists/specs-background.png),
+      #2f2f2f;
+  }
 }
 
 @media screen and (max-width: 1230px) {
@@ -155,7 +162,7 @@
     object-position: top center;
   }
   :global .main__section_type_specs {
-    background: bottom -60px right -5% / auto no-repeat
+    background: bottom -70px right -5% / auto no-repeat
         url(../images/specialists/specs-wm.png),
       top 0 right 100% / auto no-repeat
         url(../images/specialists/specs-background.png),
