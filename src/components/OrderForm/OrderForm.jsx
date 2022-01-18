@@ -154,7 +154,7 @@ export default function OrderForm({
           isLoading={isLoading}
         >
           <p className="main-text main-text_paragraph">
-            Оставьте заявку на нашем сайте и мастер перезвонит вам в течении 15
+            Оставьте заявку на нашем сайте, и мастер перезвонит вам в течение 15
             минут для уточнения времени визита.
           </p>
           <div className={styles['fieldset-wrap']}>
