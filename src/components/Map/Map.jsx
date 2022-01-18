@@ -46,7 +46,9 @@ export default function Map({ classes, children }) {
 
     return () => {
       window.removeEventListener('scroll', checkMapHeight);
-      scriptContainer.current.innerHTML = '';
+      if (scriptContainer.current) {
+        scriptContainer.current.innerHTML = '';
+      }
     };
   }, []);
 

@@ -27,6 +27,7 @@ import Policy from '../../pages/policy';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import { problems } from '../../utils/data';
 import brands from '../../utils/data/brands';
+import NotFound from '../../pages/404';
 
 function App() {
   useScrollToTop();
@@ -230,6 +231,9 @@ function App() {
             <ProtectedRoute path="/update-password" exact>
               <UpdatePassword />
             </ProtectedRoute>
+            <Route>
+              <NotFound />
+            </Route>
           </Switch>
         </UserContext.Provider>
         <Footer

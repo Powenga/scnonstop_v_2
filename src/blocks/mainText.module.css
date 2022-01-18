@@ -22,6 +22,10 @@
   font-weight: 400;
 }
 
+:global .main-text_centered {
+  text-align: center;
+}
+
 @media screen and (max-width: 1600px) {
   :global .main-text {
     font-size: 20px;
