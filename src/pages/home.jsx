@@ -153,16 +153,7 @@ export default function Home({
           classes={containerClasses}
           handleDeleteSpecClick={handleDeleteSpecClick}
           handleEditSpecClick={handleEditSpecClick}
-        >
-          <div className="main__section-title-container">
-            <h2 className="main__section-title main__section-title_theme_dark">
-              наши мастера
-            </h2>
-            <p className="main__section-subtitle main__section-subtitle_theme_dark">
-              Познакомтесь на нашими специалистами
-            </p>
-          </div>
-        </Specs>
+        />
       </section>
       <section
         id="brands-section"

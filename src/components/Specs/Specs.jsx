@@ -95,7 +95,7 @@ export default function Specs({
     <div className={`specs ${classes && classes}`}>
       <SectionTitleWithButton
         title="наши мастера"
-        subtitle="Познакомтесь на нашими специалистами"
+        subtitle="Познакомьтесь c нашими специалистами"
         modalType={MODAL_TYPES_ADD_SPEC}
         theme="dark"
       />
