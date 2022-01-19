@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Home from '../../pages/home';
@@ -65,12 +65,15 @@ function App() {
   const [currentSpec, setCurrentSpec] = useState({});
   const [currentAdvantage, setCurrentAdvantage] = useState({});
 
+  const history = useHistory();
+
   const orderRef = useRef(null);
   const schemeRef = useRef(null);
   const callbackRef = useRef(null);
 
-  const handleOrderButtonClick = useCallback((event) => {
+  const handleOrderButtonClick = useCallback(async (event) => {
     event.preventDefault();
+    await history.push('/');
     if (orderRef.current) {
       orderRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -92,8 +95,9 @@ function App() {
     }
   }, []);
 
-  const handleApplianceClick = useCallback((event, card) => {
+  const handleApplianceClick = useCallback(async (event, card) => {
     event.preventDefault();
+    await history.push('/');
     setOrder((state) => ({
       ...state,
       appType: card.value,
