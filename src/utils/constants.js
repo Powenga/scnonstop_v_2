@@ -20,8 +20,7 @@ export const BOILER_TITLE = 'Водонагреватели';
 
 export { default as advantages } from './data/advantages';
 
-export const { REACT_APP_API_URL = 'https://beta.scnonstop.ru/api' } =
-  process.env;
+export const { REACT_APP_API_URL = 'https://scnonstop.ru/api' } = process.env;
 
 export const appliancesCards = [
   {

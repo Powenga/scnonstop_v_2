@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 
 export default function CookieMessage() {
-  const [hideBetaMessageShow, setIsBetaMessageShow] = useState(() => {
+  const [hideCookieMessageShow, setIsCookieMessageShow] = useState(() => {
     try {
       if (localStorage.getItem('hideCookieMessage')) {
         return true;
@@ -18,13 +18,13 @@ export default function CookieMessage() {
     event.preventDefault();
     try {
       localStorage.setItem('hideCookieMessage', true);
-      setIsBetaMessageShow(true);
+      setIsCookieMessageShow(true);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  if (hideBetaMessageShow) {
+  if (hideCookieMessageShow) {
     return null;
   }
 

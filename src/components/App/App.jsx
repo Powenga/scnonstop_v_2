@@ -200,7 +200,6 @@ function App() {
             containerClasses="app__container"
             onRequestClick={handleOrderButtonClick}
           />
-          <BetaMessage />
           <CookieMessage />
           <Switch>
             <Route path="/" exact>
