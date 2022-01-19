@@ -20,7 +20,6 @@ import './App.css';
 import Login from '../../pages/login';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UpdatePassword from '../../pages/updatePassword';
-import BetaMessage from '../BetaMessage/BetaMessage';
 import CookieMessage from '../CookieMessage/CookieMessage';
 import Modals from '../Modals/Modals';
 import Policy from '../../pages/policy';

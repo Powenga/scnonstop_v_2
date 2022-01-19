@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 
 export default function CookieMessage() {
@@ -44,16 +45,16 @@ export default function CookieMessage() {
       <p className="main-text">
         На сайте происходит сбор и обработка обезличенных данных о посетителях
         (в т.ч. файлов «cookie») с помощью сервисов интернет-статистики (Яндекс
-        Метрика и Гугл Аналитика и других) в соответсвии с{' '}
-        <a
-          href="https:/scnonstop.ru/policy"
+        Метрика, Гугл Аналитика и других) в соответсвии с{' '}
+        <Link
+          to="/policy"
           className="main-text"
           style={{
             color: '#27306B',
           }}
         >
           Политикой конфиденциальности
-        </a>
+        </Link>
         .
       </p>
       <p className="main-text">
