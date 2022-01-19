@@ -19,7 +19,7 @@
   "scripts": {
     "start": "set ESLINT_NO_DEV_ERRORS=true&& set REACT_APP_API_URL=http://localhost:3001/api&& react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && scp -r ./build/* scnonstop_beta@scnonstop.beget.tech:/home/s/scnonstop/beta.scnonstop.ru/public_html",
+    "deploy": "npm run build && scp -r ./build/* scnonstop_scnonstop@scnonstop.beget.tech:/home/s/scnonstop/scnonstop.ru/public_html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "npx eslint --ext .js --ext .jsx ./src"

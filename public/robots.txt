@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow: /
+Disallow: /login
+Disallow /update-password
+Sitemap: https://scnonstop.ru/sitemap.xml
